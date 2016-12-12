@@ -1,4 +1,4 @@
-package com.qait.mt4Platform.automation.getpageobjects;
+package com.qait.Trust.automation.getpageobjects;
 
 public enum Tiers {
     PROD, prod, production, PRODUCTION, Production,

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.qait.mt4Platform.automation;
+package com.qait.Trust.automation;
 
 import java.net.MalformedURLException;
 import java.net.URL;

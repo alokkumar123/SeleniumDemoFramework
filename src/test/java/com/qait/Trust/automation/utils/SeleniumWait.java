@@ -1,4 +1,4 @@
-package com.qait.mt4Platform.automation.utils;
+package com.qait.Trust.automation.utils;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

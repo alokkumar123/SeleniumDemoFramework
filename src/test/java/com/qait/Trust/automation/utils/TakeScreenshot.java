@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.qait.mt4Platform.automation.utils;
+package com.qait.Trust.automation.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-import static com.qait.mt4Platform.automation.utils.ConfigPropertyReader.getProperty;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 
 /**
  * @author prashantshukla

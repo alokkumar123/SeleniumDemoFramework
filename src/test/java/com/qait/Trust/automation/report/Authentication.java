@@ -1,4 +1,4 @@
-package com.qait.mt4Platform.automation.report;
+package com.qait.Trust.automation.report;
 
 import javax.mail.PasswordAuthentication;
 

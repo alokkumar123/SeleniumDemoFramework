@@ -4,7 +4,6 @@
 
     <groupId>com.qait.automation</groupId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
     <url>http://maven.apache.org</url>
 
@@ -226,4 +225,5 @@
 
     <artifactId>cengage-trust</artifactId>
     <name>Cengage Trust</name>
+    <packaging>pom</packaging>
 </project>

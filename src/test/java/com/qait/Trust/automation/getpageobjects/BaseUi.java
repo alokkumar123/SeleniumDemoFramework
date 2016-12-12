@@ -1,7 +1,7 @@
-package com.qait.mt4Platform.automation.getpageobjects;
+package com.qait.Trust.automation.getpageobjects;
 
-import static com.qait.mt4Platform.automation.getpageobjects.ObjectFileReader.getPageTitleFromFile;
-import static com.qait.mt4Platform.automation.utils.ConfigPropertyReader.getProperty;
+import static com.qait.Trust.automation.getpageobjects.ObjectFileReader.getPageTitleFromFile;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import com.qait.mt4Platform.automation.utils.DataBaseConnecter;
-import com.qait.mt4Platform.automation.utils.RestAPITester;
-import com.qait.mt4Platform.automation.utils.SeleniumWait;
+import com.qait.Trust.automation.utils.DataBaseConnecter;
+import com.qait.Trust.automation.utils.RestAPITester;
+import com.qait.Trust.automation.utils.SeleniumWait;
 
 public class BaseUi {
 

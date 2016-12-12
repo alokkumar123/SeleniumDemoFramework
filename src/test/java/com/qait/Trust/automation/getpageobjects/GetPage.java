@@ -1,6 +1,6 @@
-package com.qait.mt4Platform.automation.getpageobjects;
+package com.qait.Trust.automation.getpageobjects;
 
-import static com.qait.mt4Platform.automation.getpageobjects.ObjectFileReader.getELementFromFile;
+import static com.qait.Trust.automation.getpageobjects.ObjectFileReader.getELementFromFile;
 
 import java.util.Arrays;
 import java.util.List;

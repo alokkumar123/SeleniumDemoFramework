@@ -1,4 +1,4 @@
-package com.qait.mt4Platform.automation.getpageobjects;
+package com.qait.Trust.automation.getpageobjects;
 
 public enum Locators {
 	id, name, classname, css, xpath, linktext;

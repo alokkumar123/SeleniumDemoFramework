@@ -1,6 +1,6 @@
-package com.qait.mt4Platform.automation.getpageobjects;
+package com.qait.Trust.automation.getpageobjects;
 
-import static com.qait.mt4Platform.automation.utils.ConfigPropertyReader.getProperty;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

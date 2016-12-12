@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.qait.mt4Platform.automation.utils;
+package com.qait.Trust.automation.utils;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,7 +11,7 @@ import java.util.Map;
 
 import org.yaml.snakeyaml.Yaml;
 
-import static com.qait.mt4Platform.automation.utils.ConfigPropertyReader.getProperty;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 
 import org.testng.Reporter;
 

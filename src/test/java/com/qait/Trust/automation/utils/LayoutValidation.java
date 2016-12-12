@@ -1,6 +1,6 @@
-package com.qait.mt4Platform.automation.utils;
+package com.qait.Trust.automation.utils;
 
-import static com.qait.mt4Platform.automation.utils.ConfigPropertyReader.getProperty;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -16,7 +16,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
-import com.qait.mt4Platform.automation.getpageobjects.Tiers;
+import com.qait.Trust.automation.getpageobjects.Tiers;
 
 public class LayoutValidation {
 

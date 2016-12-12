@@ -1,6 +1,6 @@
-package com.qait.mt4Platform.automation.report;
+package com.qait.Trust.automation.report;
 
-import static com.qait.mt4Platform.automation.utils.ConfigPropertyReader.getProperty;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +36,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.qait.mt4Platform.automation.utils.YamlReader;
+import com.qait.Trust.automation.utils.YamlReader;
 
 public class ResultsIT {
 
