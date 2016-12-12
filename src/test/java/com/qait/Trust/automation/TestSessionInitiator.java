@@ -1,5 +1,6 @@
 package com.qait.Trust.automation;
 
+import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 
 import com.qait.Trust.automation.utils.TakeScreenshot;
@@ -36,7 +37,8 @@ public class TestSessionInitiator {
      * Initiating the page objects
      *
      */
-    
+    public PlatformAvailabilityPageActions platfromAvailabilityPage;
+
     public TakeScreenshot takescreenshot;
 
     public WebDriver getDriver() {
@@ -44,7 +46,7 @@ public class TestSessionInitiator {
     }
 
     private void _initPage() {
-        
+        platfromAvailabilityPage = new PlatformAvailabilityPageActions(driver);
     }
 
     /**
@@ -129,5 +131,10 @@ public class TestSessionInitiator {
                 + " *****", true);
         Reporter.log(" ", true);
     }
-    
+
+    public static void testMethodName(String testMethodName) {
+        Reporter.log("\n", true);
+        Reporter.log("********** TEST METHOD  : - " + testMethodName.toUpperCase() + " ***************", true);
+        Reporter.log("\n", true);
+    }
 }

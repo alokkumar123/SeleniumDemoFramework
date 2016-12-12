@@ -64,7 +64,7 @@ public class TakeScreenshot {
     }
 
     
-    public void takeScreenShotOnException(ITestResult result) {
+    public void takeScreenShotOnException(ITestResult result,String failedCases) {
         String takeScreenshot = getProperty("take-screenshot");
         if (result.getStatus() == ITestResult.FAILURE) {
             if (takeScreenshot.equalsIgnoreCase("true") || takeScreenshot.equalsIgnoreCase("yes")) {
