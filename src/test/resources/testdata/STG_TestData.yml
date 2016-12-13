@@ -1,8 +1,19 @@
-baseUrl: https://s-c-login.cengage.com/cb
+base_url: http://trust-dev-003-app-1-10-172-5-172.cloud.cengage.com:3333/
 
 SSO_TOKEN_URL: https://s-c-ws-i.cengage.com/ssows/rest/getToken
 PRODUCT_URL: http://mt4-stage.cengage.info
 
+appName:
+  cengageBrain: CengageBrain
+  mindtap: MindTap
+  aplia: Aplia    
+  cengageNow: CNOWv1
+  cengageNOWv2: CNOWv2
+  OWLv2: OWLv2
+  SAM: SAM    
+  4LTR: 4LTR Press   
+  mindtapMathFoundation: MindTap Math Foundations 
+      
 mt4:
   titleISBN: 9781337283441
 

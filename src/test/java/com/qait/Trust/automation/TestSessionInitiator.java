@@ -2,6 +2,7 @@ package com.qait.Trust.automation;
 
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
+import com.qait.Trust.automation.utils.ReportMsg;
 
 import com.qait.Trust.automation.utils.TakeScreenshot;
 import static com.qait.Trust.automation.utils.YamlReader.getYamlValue;
@@ -16,6 +17,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Reporter;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class TestSessionInitiator {
 
@@ -105,15 +107,17 @@ public class TestSessionInitiator {
         return config;
     }
 
-    public void launchApplication() {
-        launchApplication(getYamlValue("app_url"));
-    }
+//    public void launchApplication() {
+//        launchApplication(getYamlValue("app_url"));
+//    }
 
-    public void launchApplication(String baseurl) {
-        Reporter.log("\nThe application url is :- " + baseurl, true);
-        Reporter.log("The test browser is :- " + _getSessionConfig().get("browser") + "\n", true);
+    public void launchApplication(String base_url) {
+        ReportMsg.info(" The application url is :- " + base_url);
+        String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
+        System.out.println("Current OS Browser configuration:" + uAgent);
         driver.manage().deleteAllCookies();
-        driver.get(baseurl);
+        driver.get(base_url);
+    
     }
 
     public void openUrl(String url) {
@@ -137,4 +141,5 @@ public class TestSessionInitiator {
         Reporter.log("********** TEST METHOD  : - " + testMethodName.toUpperCase() + " ***************", true);
         Reporter.log("\n", true);
     }
+
 }

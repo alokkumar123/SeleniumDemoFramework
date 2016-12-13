@@ -27,14 +27,15 @@ public class TestFundamentals {
     public String testCase;
 
     public void init() {
-
+   
     }
 
     @BeforeClass
     public void start_test_session() {
+        
         test = new TestSessionInitiator(this.getClass().getSimpleName());
         base_url = getData("base_url");
-        sso_url = getData("sso_url");
+        test.launchApplication(base_url);
         init();
     }
 
