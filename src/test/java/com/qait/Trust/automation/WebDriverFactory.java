@@ -81,10 +81,15 @@ public class WebDriverFactory {
     }
 
     private static WebDriver getChromeDriver(String driverpath) {
-        System.setProperty("webdriver.chrome.driver", driverpath);
+        if (System.getProperty("os.name").toUpperCase().contains("WINDOW")) {
+            System.out.println(System.getProperty("os.name").toUpperCase());
+            System.setProperty("webdriver.chrome.driver", driverpath + ".exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", driverpath);
+        }
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--test-type");
-        options.addArguments("chrome.switches","--disable-extensions");
+        options.addArguments("--disable-extensions");
+		options.addArguments("test-type");
         DesiredCapabilities cap = DesiredCapabilities.chrome();
         cap.setCapability(ChromeOptions.CAPABILITY, options);
         return new ChromeDriver(cap);
