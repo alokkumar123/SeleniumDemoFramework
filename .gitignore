@@ -1,1 +1,21 @@
-/target/
+# Directories #
+target
+test-output
+Screenshots
+src/test/resources/drivers
+
+# Eclipse Files #
+.project
+.classpath
+.settings
+.idea
+.log
+
+# OS Files #
+.DS_Store
+.gitignore
+
+# Config.properties File #
+config.properties/
+/Config.properties
+
