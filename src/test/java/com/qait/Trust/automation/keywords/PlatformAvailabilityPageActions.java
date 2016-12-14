@@ -29,7 +29,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("Time on application = " + text);
         String a[] = text.split(":");
         String a1[] = a[2].split(" ");
-        //System.out.println("a1[0] = " + a1[0]);
+
         Boolean value;
         Date date = new Date();
         String strDateFormat = "HH:mm a";
@@ -47,13 +47,11 @@ public class PlatformAvailabilityPageActions extends GetPage {
             ReportMsg.info("Last update time is be more than 5 minutes from the system time");
             value = false;
         }
-
         ReportMsg.info("Verified last updated time on platform availability page");
         return value;
     }
 
     public void verifyListofAppDisplaying() {
-
         String appName = null;
         List<WebElement> a = elements("app_List");
 
@@ -62,9 +60,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
             ReportMsg.info("App name is = " + appName);
             isElementDisplayed("app", appName);
             waitTOSync();
-
         }
-
     }
 
     public void verifyNeedProductSupportLinkDisplaying() {

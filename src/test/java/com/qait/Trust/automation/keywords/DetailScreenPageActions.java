@@ -11,10 +11,6 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-/**
- *
- * @author alokkumar
- */
 public class DetailScreenPageActions extends GetPage {
 
     WebDriver driver;
@@ -24,7 +20,7 @@ public class DetailScreenPageActions extends GetPage {
         this.driver = driver;
     }
 
-    public void vrifyBreadcrumb() {
+    public void verifyBreadcrumb() {
         String appName = null;
         List<WebElement> a = elements("app_List");
 
@@ -38,9 +34,7 @@ public class DetailScreenPageActions extends GetPage {
             waitTOSync();
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
             waitTOSync();
-
         }
-
     }
 
     private void selectAppAndVerifyBreadcrumb(String appName) {
@@ -60,7 +54,7 @@ public class DetailScreenPageActions extends GetPage {
     public void verfifyDropDownOptionsWithOptions(String string) {
         element("DropDownSelector").click();
         isElementDisplayed("dropdownOptions", string);
-        ReportMsg.info("Verified "+string +" drop down");
+        ReportMsg.info("Verified " + string + " drop down");
     }
 
     public void clickOnSingleApp(String appName) {
@@ -71,6 +65,6 @@ public class DetailScreenPageActions extends GetPage {
     public void verifyTimeZoneForUser(String string) {
         element("timeZoneDropDownSelector").click();
         isElementDisplayed("timezonedropdownOptions", string);
-        ReportMsg.info("Verified "+string +" drop down");
+        ReportMsg.info("Verified " + string + " drop down");
     }
 }
