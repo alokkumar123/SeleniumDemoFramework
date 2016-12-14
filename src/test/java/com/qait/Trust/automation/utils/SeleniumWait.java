@@ -10,13 +10,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
-public class SeleniumWait{
-    
+public class SeleniumWait {
+
     WebDriver driver;
     WebDriverWait wait;
-    
+
     int timeout;
-    
+
     public SeleniumWait(WebDriver driver, int timeout) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, timeout);
@@ -35,41 +35,41 @@ public class SeleniumWait{
                 .visibilityOfElementLocated(locator));
         return element;
     }
-    
+
     public WebElement getWhenClickable(By locator) {
         WebElement element;
         element = (WebElement) wait.until(ExpectedConditions.elementToBeClickable(locator));
         return element;
     }
-    
+
     public boolean waitForPageTitleToBeExact(String expectedPagetitle) {
         return wait.until(ExpectedConditions.titleIs(expectedPagetitle)) != null;
     }
-    
+
     public boolean waitForPageTitleToContain(String expectedPagetitle) {
         return wait.until(ExpectedConditions.titleContains(expectedPagetitle)) != null;
     }
-    
+
     public WebElement waitForElementToBeVisible(WebElement element) {
         return (WebElement) wait.until(ExpectedConditions.visibilityOf(element));
     }
-    
+
     public void waitForFrameToBeAvailableAndSwitchToIt(By locator) {
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator));
     }
-    
+
     public List<WebElement> waitForElementsToBeVisible(List<WebElement> elements) {
         return (List<WebElement>) wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
-    
+
     public boolean waitForElementToBeInVisible(By locator) {
         return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator)) != null;
     }
-    
+
     public WebElement waitForElementToBeClickable(WebElement element) {
         return (WebElement) wait.until(ExpectedConditions.elementToBeClickable(element));
     }
-    
+
     public void clickWhenReady(By locator) {
         WebElement element = (WebElement) wait.until(ExpectedConditions
                 .elementToBeClickable(locator));
@@ -77,40 +77,40 @@ public class SeleniumWait{
     }
 
     public void waitForPageTitleToAppearCompletely(String txtPageTitle) {
-    	WebDriverWait wait = new WebDriverWait(driver, 60);
-		wait.until(ExpectedConditions.titleIs(txtPageTitle));
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        wait.until(ExpectedConditions.titleIs(txtPageTitle));
     }
-    
+
     public void waitForMsgToastToDisappear() {
         int i = 0;
         resetImplicitTimeout(1);
         try {
             while (driver.findElement(By.className("toast-message")).isDisplayed() && i <= timeout) {
-                hardWait(1);                
+                hardWait(1);
                 i++;
             }
         } catch (Exception e) {
         }
-        resetImplicitTimeout(timeout);        
+        resetImplicitTimeout(timeout);
     }
-    
+
     public void waitForElementToDisappear(WebElement element) {
         int i = 0;
         resetImplicitTimeout(2);
         try {
             while (element.isDisplayed() && i <= timeout) {
-                hardWait(1);                
+                hardWait(1);
                 i++;
             }
         } catch (Exception e) {
         }
-        resetImplicitTimeout(timeout);        
+        resetImplicitTimeout(timeout);
     }
-    
+
     public void resetImplicitTimeout(int newTimeOut) {
         try {
             driver.manage().timeouts().implicitlyWait(newTimeOut, TimeUnit.SECONDS);
-        } catch (Exception e) {	
+        } catch (Exception e) {
         }
     }
 
@@ -127,20 +127,22 @@ public class SeleniumWait{
             ex.printStackTrace();
         }
     }
-    
+
     public int getTimeout() {
-    	return timeout;
+        return timeout;
     }
-    
-    public void waitForSOAServicesToBuildCourse (int seconds) {
+
+   
+
+    public void waitForSOAServicesToBuildCourse(int seconds) {
         // NOTE: Cengage Brain calls SOA services to build its course which takes approx. 10 secs,
         //       Hence, for successful MT4 course launch we are pausing the execution with sleep
         //       of 15 secs after creating pre-formatted URL  by fetching Session Token
         String star = "";
         Reporter.log("Waiting for " + seconds + " secs to get successful launch of MT4 course", true);
-        
+
         for (; seconds > 0; seconds--) {
-            for(int num = seconds; num > 0; num --) {
+            for (int num = seconds; num > 0; num--) {
                 star = star + ".";
             }
             Reporter.log(seconds + star, true);
@@ -148,5 +150,5 @@ public class SeleniumWait{
             star = "";
         }
     }
-    
+
 }

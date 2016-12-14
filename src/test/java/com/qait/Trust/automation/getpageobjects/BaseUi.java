@@ -184,6 +184,7 @@ public class BaseUi {
     }
 
     protected void selectProvidedTextFromDropDown(WebElement el, String text) {
+        wait.waitForElementToBeVisible(el);
         scrollDown(el);
         Select sel = new Select(el);
         sel.selectByVisibleText(text);

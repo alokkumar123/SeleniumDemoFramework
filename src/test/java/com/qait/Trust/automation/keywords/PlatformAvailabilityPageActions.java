@@ -11,6 +11,8 @@ import com.qait.Trust.automation.utils.ReportMsg;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import org.openqa.selenium.WebElement;
 
 public class PlatformAvailabilityPageActions extends GetPage {
 
@@ -22,7 +24,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public boolean checkLastUpdateTimeOverPlatformAvailability() {
-        element("lastUpatedTime").isDisplayed();
+        assert element("lastUpatedTime").isDisplayed();
         String text = element("lastUpatedTime").getText();
         ReportMsg.info("Time on application = " + text);
         String a[] = text.split(":");
@@ -50,9 +52,31 @@ public class PlatformAvailabilityPageActions extends GetPage {
         return value;
     }
 
-    public void verifyListofAppDisplaying(String appName) {
-        element("app", appName).isDisplayed();
-        ReportMsg.info("Verified " + appName + "app is displaying ");
+    public void verifyListofAppDisplaying() {
+
+        String appName = null;
+        List<WebElement> a = elements("app_List");
+
+        for (WebElement el : a) {
+            appName = el.getText();
+            ReportMsg.info("App name is = " + appName);
+            isElementDisplayed("app", appName);
+            waitTOSync();
+
+        }
+
+    }
+
+    public void verifyNeedProductSupportLinkDisplaying() {
+        assert element("productSupportLink").isDisplayed();
+    }
+
+    public void onceClickedOnLinkNewTabShouldBeOpenAndNavigateToURL(String url) {
+        waitForElementToDisappear("productSupportLink");
+        element("productSupportLink").click();
+
+        String a = element("productSupportLink").getAttribute("href");
+        ReportMsg.info("product suport link = " + a);
     }
 
 }

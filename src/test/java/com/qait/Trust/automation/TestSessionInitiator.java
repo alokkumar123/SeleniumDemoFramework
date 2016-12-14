@@ -1,5 +1,6 @@
 package com.qait.Trust.automation;
 
+import com.qait.Trust.automation.keywords.DetailScreenPageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import com.qait.Trust.automation.utils.ReportMsg;
@@ -40,6 +41,7 @@ public class TestSessionInitiator {
      *
      */
     public PlatformAvailabilityPageActions platfromAvailabilityPage;
+    public DetailScreenPageActions  detailScreenPage;
 
     public TakeScreenshot takescreenshot;
 
@@ -49,6 +51,7 @@ public class TestSessionInitiator {
 
     private void _initPage() {
         platfromAvailabilityPage = new PlatformAvailabilityPageActions(driver);
+        detailScreenPage = new DetailScreenPageActions(driver);
     }
 
     /**

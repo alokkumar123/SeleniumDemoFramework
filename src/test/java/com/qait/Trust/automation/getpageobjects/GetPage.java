@@ -171,6 +171,14 @@ public class GetPage extends BaseUi {
                 + " is displayed.");
         return result;
     }
+     protected void waitTOSync() {
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
 
     protected boolean isElementEnabled(String elementName, boolean expected) {
         wait.waitForElementToBeVisible(element(elementName));
