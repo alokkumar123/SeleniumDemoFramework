@@ -13,9 +13,9 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TRUST_318_Check_For_Drop_Down_Options_Available_In_Detail_Screen() {
         test.detailScreenPage.clickOnSingleApp("appName.cengageBrain");
-        test.detailScreenPage.verfifyDropDownOptionsWithOptions("last 12 hours");
-        test.detailScreenPage.verfifyDropDownOptionsWithOptions("last 24 hours");
-        test.detailScreenPage.verfifyDropDownOptionsWithOptions("last 30 days");
+        test.detailScreenPage.verifyDropDownOptionsWithOptions("last 12 hours");
+        test.detailScreenPage.verifyDropDownOptionsWithOptions("last 24 hours");
+        test.detailScreenPage.verifyDropDownOptionsWithOptions("last 30 days");
     }
 
     @Test

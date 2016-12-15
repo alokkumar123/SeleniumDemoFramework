@@ -1,9 +1,9 @@
-#Object Definitions
+# Object Definitions
 
 =====================================================================================================================
-lastUpatedTime                   xpath              (//div[contains(@style,'font-size')])[2]
-app                              xpath              //div[@class='back card green']//h5[text()='${appName}']/../..
-productSupportLink               xpath              //a[text()='Need Product Support?']   
-app_List                         xpath              //div[@class='back card green']//h5 
+div_lastUpdatedTime                 xpath               (//div[contains(@style,'font-size')])[2]
+app                                 xpath               //div[@class='back card green']//h5[text()='${appName}']/../..
+lnk_productSupportLink              xpath               //a[text()='Need Product Support?']  
+list_backgroundImageHeader          xpath               //div[@class='back card green']//h5 
 =====================================================================================================================
     

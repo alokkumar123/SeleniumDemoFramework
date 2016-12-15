@@ -51,7 +51,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("verified user navigate to platform Availabilty Screen");
     }
 
-    public void verfifyDropDownOptionsWithOptions(String string) {
+    public void verifyDropDownOptionsWithOptions(String string) {
         element("DropDownSelector").click();
         isElementDisplayed("dropdownOptions", string);
         ReportMsg.info("Verified " + string + " drop down");
