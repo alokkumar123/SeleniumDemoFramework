@@ -20,7 +20,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Reporter;
 
 public class WebDriverFactory {
-    
+
     private static String browser, seleniumServer;
     private static final DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -30,13 +30,13 @@ public class WebDriverFactory {
             seleniumServer = seleniumconfig.get("seleniumserver");
         }
         Reporter.log("Value of 'Selenium Server': " + seleniumServer, true);
-        
+
         browser = System.getProperty("browser");
         if (browser == null) {
             browser = seleniumconfig.get("browser");
         }
         Reporter.log("Value of 'Browser': " + browser, true);
-        
+
         if (seleniumServer.equalsIgnoreCase("local")) {
             if (browser.equalsIgnoreCase("firefox")) {
                 return getFirefoxDriver();
@@ -55,7 +55,7 @@ public class WebDriverFactory {
         }
         return new FirefoxDriver();
     }
-    
+
     private WebDriver setRemoteDriver(Map<String, String> selConfig) {
         DesiredCapabilities cap = null;
         browser = selConfig.get("browser");
@@ -89,7 +89,7 @@ public class WebDriverFactory {
         }
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-extensions");
-		options.addArguments("test-type");
+        options.addArguments("test-type");
         DesiredCapabilities cap = DesiredCapabilities.chrome();
         cap.setCapability(ChromeOptions.CAPABILITY, options);
         return new ChromeDriver(cap);

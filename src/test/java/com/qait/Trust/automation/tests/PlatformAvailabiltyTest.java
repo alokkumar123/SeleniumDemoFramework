@@ -12,13 +12,13 @@ public class PlatformAvailabiltyTest extends TestFundamentals {
 
     @Test
     public void TRUST_315_Check_Last_Update_Time_Over_Platform_Availability() {
-        assert test.platfromAvailabilityPage.checkLastUpdateTimeOverPlatformAvailability();
+        test.platfromAvailabilityPage.checkLastUpdateTimeOverPlatformAvailability();
     }
-    
+
     @Test
     public void TRUST_316_Need_Product_Support_Link_Should_Be_Available() {
         test.platfromAvailabilityPage.verifyNeedProductSupportLinkDisplaying();
         test.platfromAvailabilityPage.onceClickedOnLinkNewTabShouldBeOpenAndNavigateToURL("");
-    }       
+    }
 
 }

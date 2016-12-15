@@ -25,6 +25,23 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.verifyTimeZoneForUser("CST");
         test.detailScreenPage.verifyTimeZoneForUser("PST");
         test.detailScreenPage.verifyTimeZoneForUser("GMT");
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+    }
+
+    @Test
+    public void TRUST_320_Check_Information_Available_For_Last12_Hours() {
+        test.detailScreenPage.verifyInformationAvailableForHours("last 12 hours","12");
+        
     }
     
+     @Test
+    public void TRUST_321_Check_Information_Available_For_Last24_Hours() {
+        test.detailScreenPage.verifyInformationAvailableForHours("last 24 hours","24");
+        
+    }
+     @Test
+    public void TRUST_322_Check_Information_Available_For_Last30_Days() {
+        test.detailScreenPage.verifyInformationAvailableForLast30Days();
+        
+    }
 }
