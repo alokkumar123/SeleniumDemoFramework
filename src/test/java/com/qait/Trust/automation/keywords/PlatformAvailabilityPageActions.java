@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
@@ -24,8 +19,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public boolean checkLastUpdateTimeOverPlatformAvailability() {
-        assert element("lastUpatedTime").isDisplayed();
-        String text = element("lastUpatedTime").getText();
+        assert element("div_lastUpdatedTime").isDisplayed();
+        String text = element("div_lastUpdatedTime").getText();
         ReportMsg.info("Time on application = " + text);
         String a[] = text.split(":");
         String a1[] = a[2].split(" ");
@@ -53,7 +48,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
     public void verifyListofAppDisplaying() {
         String appName = null;
-        List<WebElement> a = elements("app_List");
+        List<WebElement> a = elements("list_backgroundImageHeader");
 
         for (WebElement el : a) {
             appName = el.getText();
@@ -64,15 +59,16 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public void verifyNeedProductSupportLinkDisplaying() {
-        assert element("productSupportLink").isDisplayed();
+        assert element("lnk_productSupportLink").isDisplayed();
     }
 
     public void onceClickedOnLinkNewTabShouldBeOpenAndNavigateToURL(String url) {
-        waitForElementToDisappear("productSupportLink");
-        element("productSupportLink").click();
-
-        String a = element("productSupportLink").getAttribute("href");
-        ReportMsg.info("product suport link = " + a);
+        waitForElementToDisappear("lnk_productSupportLink");
+        element("lnk_productSupportLink").click();
+        ReportMsg.log("Clicked on 'Product Support Link'");
+        
+        String a = element("lnk_productSupportLink").getAttribute("href");
+        ReportMsg.info("Product Support link: " + a);
     }
 
 }

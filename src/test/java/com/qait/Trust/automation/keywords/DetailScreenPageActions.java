@@ -71,6 +71,11 @@ public class DetailScreenPageActions extends GetPage {
     public void verfifyDropDownOptionsWithOptions(String string) {
         element("span_DropDownSelector").click();
         isElementDisplayed("list_dropdownOptions", string);
+    }
+
+    public void verifyDropDownOptionsWithOptions(String string) {
+        element("DropDownSelector").click();
+        isElementDisplayed("dropdownOptions", string);
         ReportMsg.info("Verified " + string + " drop down");
     }
 
