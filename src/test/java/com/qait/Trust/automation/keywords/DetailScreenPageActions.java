@@ -16,19 +16,17 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import static org.testng.Assert.assertEquals;
 
 public class DetailScreenPageActions extends GetPage {
 
     WebDriver driver;
-    // public static WebElement el;
 
     public DetailScreenPageActions(WebDriver driver) {
         super(driver, "DetailScreen");
         this.driver = driver;
     }
 
-    public void slecectAppsFromPlatformScreen(String appName) {
+    public void selectAppsFromPlatformScreen(String appName) {
         try {
             ReportMsg.info("App name is = " + appName);
             element("allApps", appName).click();
@@ -37,19 +35,15 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("App name is = " + appName);
             element("allApps", appName).click();
             ReportMsg.info("Clicked on " + appName);
-            e.printStackTrace();
         }
     }
 
     public void verifyBreadcrumb() {
-        List<WebElement> a = elements("listOfApps");
-        // ReportMsg.info("size= " + a.size());
-        for (WebElement el : a) {
-
+        for (WebElement el : elements("listOfApps")) {
             wait.waitForElementToBeVisible(el);
             String appName = el.getText();
             ReportMsg.info("App name is = " + appName);
-            slecectAppsFromPlatformScreen(appName);
+            selectAppsFromPlatformScreen(appName);
             verifyBreadcrumb(appName);
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         }
@@ -57,7 +51,7 @@ public class DetailScreenPageActions extends GetPage {
 
     private void verifyBreadcrumb(String appName) {
         isElementDisplayed("link_breadCrumb", appName);
-        ReportMsg.info("verified breadcrumb for " + appName + "app");
+        ReportMsg.info("Verified breadcrumb for '" + appName + "' app");
     }
 
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome() {
@@ -68,12 +62,12 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("verified user navigate to platform Availabilty Screen");
     }
 
-    public void verfifyDropDownOptionsWithOptions(String string) {
+    public void verifyDropDownOptionsWithOptions(String string) {
         element("span_DropDownSelector").click();
         isElementDisplayed("list_dropdownOptions", string);
     }
 
-    public void verifyDropDownOptionsWithOptions(String string) {
+    public void verifyDropDownWithOptions(String string) {
         element("DropDownSelector").click();
         isElementDisplayed("dropdownOptions", string);
         ReportMsg.info("Verified " + string + " drop down");
@@ -92,27 +86,24 @@ public class DetailScreenPageActions extends GetPage {
 
     public void verifyInformationAvailableForHours(String lastHours, String hours) {
         List<WebElement> a = elements("listOfApps");
-
         for (WebElement el : a) {
-
             String appName = el.getText();
             ReportMsg.info("App name is = " + appName);
-            slecectAppsFromPlatformScreen(appName);
+            selectAppsFromPlatformScreen(appName);
             selectLastAvailableHours(lastHours);
             columnShouldRepresentLastHoursFromCurrent(hours);
             leagendShouldBeAvailable();
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         }
-
     }
-
+    
     private void selectLastAvailableHours(String string) {
         element("spapn_DropDownSelector").click();
         isElementDisplayed("list_dropdownOptions", string);
         element("list_dropdownOptions", string).click();
         ReportMsg.info("Verified " + string + " drop down");
     }
-
+    
     private void columnShouldRepresentLastHoursFromCurrent(String last_12_hours) {
         Date date = new Date();
         String strDateFormat = "HH a";
@@ -136,13 +127,10 @@ public class DetailScreenPageActions extends GetPage {
 
     public void verifyInformationAvailableForLast30Days() {
         List<WebElement> a = elements("listOfApps");
-
         for (WebElement el : a) {
-
             String appName = el.getText();
-            ReportMsg.info("App name is = " + appName);
-            slecectAppsFromPlatformScreen(appName);
-
+            ReportMsg.info("App name:- " + appName);
+            selectAppsFromPlatformScreen(appName);
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         }
     }

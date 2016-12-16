@@ -52,8 +52,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
         for (WebElement el : a) {
             appName = el.getText();
-            ReportMsg.info("App name is = " + appName);
-            isElementDisplayed("app", appName);
+            ReportMsg.info("Platform name:- " + appName);
+            isElementDisplayed("div_platformName", appName);
             waitTOSync();
         }
     }

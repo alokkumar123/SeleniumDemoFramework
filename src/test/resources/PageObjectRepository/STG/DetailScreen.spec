@@ -1,6 +1,6 @@
 # Object Definitions
 
-====================================================================================
+==================================================================================================================================
 allApps                                      xpath         //div[@class='back card green']//h5[text()='${appName}']/../..
 link_breadCrumb                              xpath         //a[contains(text(),'Platform Availability Home')]/parent::span[text()='${appName}']
 link_platfromAvailabilityHome                xpath         //a[contains(text(),'Platform Availability Home')]
@@ -16,5 +16,5 @@ span_minorDisruption                         xpath          //span[text()='Minor
 span_serviceTemporarilyUnavailable           xpath          //span[text()='Service temporarily unavailable'] 
 span_plannedMaintenance                      xpath          //span[text()='Planned maintenance'] 
 tr_lastHours                                 xpath          //td[text()='4 pm']/parent::tr/parent::tbody/tr[@class='rows-today']              
-====================================================================================
+==================================================================================================================================
     
