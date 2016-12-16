@@ -1,6 +1,6 @@
 # Object Definitions
 
-====================================================================================
+==================================================================================================================================
 allApps                                      xpath         //div[@class='back card green']//h5[text()='${appName}']/../..
 link_breadCrumb                              xpath         //a[contains(text(),'Platform Availability Home')]/parent::span[text()='${appName}']
 link_platfromAvailabilityHome                xpath         //a[contains(text(),'Platform Availability Home')]
@@ -24,5 +24,6 @@ app_singleApp                                xpath          //div[text()='Availa
 btn_currnetInformationAlerts                 xpath          //div[@class='info-alerts']
 txt_informationalAlert                       xpath          //h4[text()='Informational alerts']
 btn_close                                    xpath          //button[text()='Close']
-====================================================================================
+tr_lastHours                                 xpath          //td[text()='4 pm']/parent::tr/parent::tbody/tr[@class='rows-today']              
+==================================================================================================================================
     

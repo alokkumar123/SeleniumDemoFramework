@@ -19,19 +19,17 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import static org.testng.Assert.assertEquals;
 
 public class DetailScreenPageActions extends GetPage {
 
     WebDriver driver;
-    // public static WebElement el;
 
     public DetailScreenPageActions(WebDriver driver) {
         super(driver, "DetailScreen");
         this.driver = driver;
     }
 
-    public void slecectAppsFromPlatformScreen(String appName) {
+    public void selectAppsFromPlatformScreen(String appName) {
         try {
             ReportMsg.info("App name is = " + appName);
             element("allApps", appName).click();
@@ -40,7 +38,6 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("App name is = " + appName);
             element("allApps", appName).click();
             ReportMsg.info("Clicked on " + appName);
-            e.printStackTrace();
         }
     }
 
@@ -58,8 +55,7 @@ public class DetailScreenPageActions extends GetPage {
                 appName = el.getText();
                 e.printStackTrace();
             }
-
-            slecectAppsFromPlatformScreen(appName);
+            selectAppsFromPlatformScreen(appName);
             verifyBreadcrumb(appName);
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
             i++;
@@ -68,7 +64,7 @@ public class DetailScreenPageActions extends GetPage {
 
     private void verifyBreadcrumb(String appName) {
         isElementDisplayed("link_breadCrumb", appName);
-        ReportMsg.info("verified breadcrumb for " + appName + "app");
+        ReportMsg.info("Verified breadcrumb for '" + appName + "' app");
     }
 
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome() {
@@ -79,13 +75,8 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("verified user navigate to platform Availabilty Screen");
     }
 
-    public void verfifyDropDownOptionsWithOptions(String string) {
-        element("span_DropDownSelector").click();
-        isElementDisplayed("list_dropdownOptions", string);
-    }
-
     public void verifyDropDownOptionsWithOptions(String string) {
-        ReportMsg.info("*************** Verifying drop down options for "+ string +" on all apps ********************");
+        ReportMsg.info("*************** Verifying drop down options for " + string + " on all apps ********************");
         int i = 0;
         for (WebElement el : elements("listOfApps")) {
             String appName = null;
@@ -98,7 +89,7 @@ public class DetailScreenPageActions extends GetPage {
                 appName = el.getText();
                 e.printStackTrace();
             }
-            slecectAppsFromPlatformScreen(appName);
+            selectAppsFromPlatformScreen(appName);
             i++;
             if (string.equals("last 12 hours")) {
                 isElementDisplayed("span_DropDownSelector");
@@ -115,13 +106,19 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("verified " + string + " drop down for all the app");
     }
 
+    public void verifyDropDownWithOptions(String string) {
+        element("DropDownSelector").click();
+        isElementDisplayed("dropdownOptions", string);
+        ReportMsg.info("Verified " + string + " drop down");
+    }
+
     public void clickOnSingleApp(String appName) {
         element("allApps", appName).click();
         ReportMsg.info("Clicked on " + appName + " app");
     }
 
     public void verifyTimeZoneForUser(String string) {
-        ReportMsg.info("*************** Verifying time zone for "+ string +" on all apps ********************");
+        ReportMsg.info("*************** Verifying time zone for " + string + " on all apps ********************");
         int i = 0;
         for (WebElement el : elements("listOfApps")) {
             String appName = null;
@@ -134,7 +131,7 @@ public class DetailScreenPageActions extends GetPage {
                 appName = el.getText();
                 e.printStackTrace();
             }
-            slecectAppsFromPlatformScreen(appName);
+            selectAppsFromPlatformScreen(appName);
             i++;
             if (string.equals("EST (local)")) {
                 isElementDisplayed("span_timeZoneDropDownSelector");
@@ -166,13 +163,12 @@ public class DetailScreenPageActions extends GetPage {
                 e.printStackTrace();
             }
             i++;
-            slecectAppsFromPlatformScreen(appName);
+            selectAppsFromPlatformScreen(appName);
             selectLastAvailableHours(lastHours);
             columnShouldRepresentLastHoursFromCurrent(hours);
             verifyLeagendShouldBeAvailable();
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         }
-
     }
 
     private void selectLastAvailableHours(String string) {
@@ -216,7 +212,7 @@ public class DetailScreenPageActions extends GetPage {
                 appName = el.getText();
                 e.printStackTrace();
             }
-            slecectAppsFromPlatformScreen(appName);
+            selectAppsFromPlatformScreen(appName);
             selectLastAvailableHours(last_30_days);
             verifiInformationOnGregorianCalendar();
             onHoverOverOnAnyDay24HourClockShouldBeSeen();
@@ -294,10 +290,9 @@ public class DetailScreenPageActions extends GetPage {
                 appName = el.getText();
                 e.printStackTrace();
             }
-            slecectAppsFromPlatformScreen(appName);
+            selectAppsFromPlatformScreen(appName);
             selectLastAvailableHours(last_30_days);
             verifyCurrentInformationAlerts();
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         }
     }
 
