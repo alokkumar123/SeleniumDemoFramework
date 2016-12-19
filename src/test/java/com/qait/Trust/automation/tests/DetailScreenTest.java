@@ -25,15 +25,15 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.verifyTimeZoneForUser("PST");
         test.detailScreenPage.verifyTimeZoneForUser("GMT");
     }
-
+ 
     @Test
-    public void TRUST_320_Check_Information_Available_For_Last12_Hours() {
+    public void TRUST_321_Check_Information_Available_For_Last12_Hours() {
         test.detailScreenPage.verifyInformationAvailableForHours("last 12 hours", "12");
 
     }
 
     @Test
-    public void TRUST_321_Check_Information_Available_For_Last24_Hours() {
+    public void TRUST_322_Check_Information_Available_For_Last24_Hours() {
         test.detailScreenPage.verifyInformationAvailableForHours("last 24 hours", "24");
 
     }

@@ -1,5 +1,5 @@
 #base_url: http://trust-dev-003-app-1-10-172-5-172.cloud.cengage.com:3333/
-base_url: http://trust.cengage.com/
+base_url: http://app.002.stage.trust.cloud.cengage.com/
 
 SSO_TOKEN_URL: https://s-c-ws-i.cengage.com/ssows/rest/getToken
 PRODUCT_URL: http://mt4-stage.cengage.info

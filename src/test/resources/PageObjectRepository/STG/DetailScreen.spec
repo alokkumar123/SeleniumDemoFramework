@@ -15,7 +15,7 @@ span_noIssues                                xpath          //span[text()='No Is
 span_minorDisruption                         xpath          //span[text()='Minor disruption'] 
 span_serviceTemporarilyUnavailable           xpath          //span[text()='Service temporarily unavailable'] 
 span_plannedMaintenance                      xpath          //span[text()='Planned maintenance'] 
-tr_lastHours                                 xpath          //td[text()='4 pm']/parent::tr/parent::tbody/tr[@class='rows-today']
+tr_lastHours                                 xpath          //td[text()='${systemTime}']/parent::tr/parent::tbody/tr[@class='rows-today']
 text_currentMonth                            xpath          //div[contains(text(),'${currentMonth}')]
 text_days                                    xpath          //tr[@class='title-day']/th[contains(text(),'${day}')] 
 hover_anyday                                 xpath          //div[@class='day' and text()='${day}']  
@@ -24,6 +24,6 @@ app_singleApp                                xpath          //div[text()='Availa
 btn_currnetInformationAlerts                 xpath          //div[@class='info-alerts']
 txt_informationalAlert                       xpath          //h4[text()='Informational alerts']
 btn_close                                    xpath          //button[text()='Close']
-tr_lastHours                                 xpath          //td[text()='4 pm']/parent::tr/parent::tbody/tr[@class='rows-today']              
+             
 ==================================================================================================================================
     
