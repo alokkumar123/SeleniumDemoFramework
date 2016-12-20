@@ -65,7 +65,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public void verifyNeedProductSupportLinkDisplaying() {
-        assert element("lnk_productSupportLink").isDisplayed();
+        isElementDisplayed("lnk_productSupportLink");
     }
 
     public void onceClickedOnLinkNewTabShouldBeOpenAndNavigateToURL(String url) {
