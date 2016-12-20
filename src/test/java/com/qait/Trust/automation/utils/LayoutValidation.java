@@ -105,12 +105,8 @@ public class LayoutValidation {
             case prod:
                 this.tier = "PROD/";
                 break;
-            case qa:
-            case QA:
-                this.tier = "QA/";
-                break;
-		default:
-			break;
+            default:
+		break;
         }
     }
 
