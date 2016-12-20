@@ -7,8 +7,8 @@ link_platfromAvailabilityHome                xpath         //a[contains(text(),'
 listOfApps                                   xpath         //div[@class='back card green']//h5
 text_screenPage                              xpath         //h6[text()='Platform Availability']
 list_dropdownOptions                         xpath         //li[text()='${string}'] 
-span_DropDownSelector                        xpath         (//span[@aria-label="open dropdown"])[1]    
-span_timeZoneDropDownSelector                xpath         (//span[@aria-label="open dropdown"])[2]
+span_DropDownSelector                        xpath         //div[@class='rw-input' and text()='last 12 hours']
+span_timeZoneDropDownSelector                xpath         (//div[contains(@class,'rw-dropdownlist')])[2]
 list_timezonedropdownOptions                 xpath          //li[contains(text(),'${string}')] 
 applicationCurrentTime                       xpath          //td[text()='${systemTime}']
 span_noIssues                                xpath          //span[text()='No Issues']
@@ -24,6 +24,7 @@ app_singleApp                                xpath          //div[text()='Availa
 btn_currnetInformationAlerts                 xpath          //div[@class='info-alerts']
 txt_informationalAlert                       xpath          //h4[text()='Informational alerts']
 btn_close                                    xpath          //button[text()='Close']
-             
+img_AppColor                                 xpath          //h5[text()='${appName}']/ancestor::div[1]//img
+text_appAvailability                         xpath          //h5[text()='${appName}']/ancestor::div[2]//div[@class='status-text']
 ==================================================================================================================================
     

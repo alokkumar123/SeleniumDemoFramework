@@ -7,14 +7,12 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
-import com.qait.Trust.automation.utils.SeleniumWait;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 import java.util.TimeZone;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -176,9 +174,14 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     private void selectLastAvailableHours(String string) {
-        element("span_DropDownSelector").click();
-        isElementDisplayed("list_dropdownOptions", string);
-        element("list_dropdownOptions", string).click();
+        if (string.contains("last 12 hours")) {
+            isElementDisplayed("span_DropDownSelector");
+        } else {
+            wait.waitForElementToBeVisible(element("span_DropDownSelector"));
+            element("span_DropDownSelector").click();
+            isElementDisplayed("list_dropdownOptions", string);
+            element("list_dropdownOptions", string).click();
+        }
         ReportMsg.info("Verified " + string + " drop down");
     }
 
@@ -301,9 +304,11 @@ public class DetailScreenPageActions extends GetPage {
                 appName = el.getText();
                 e.printStackTrace();
             }
+            i++;
             selectAppsFromPlatformScreen(appName);
             selectLastAvailableHours(last_30_days);
             verifyCurrentInformationAlerts();
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         }
     }
 
@@ -315,7 +320,63 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("verified text Informational alerts text on pop up");
         isElementDisplayed("btn_close");
         element("btn_close").click();
-        ReportMsg.info("Message bar is close when clicked on close button");
+        ReportMsg.info("Message bar is closed when clicked on close button");
         isElementDisplayed("btn_currnetInformationAlerts");
+    }
+
+    public void checkColorNotationGreenInPlatformAvailability() {
+        int i = 0;
+        for (WebElement el : elements("listOfApps")) {
+            String appName = null;
+
+            try {
+                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
+                appName = elements("listOfApps").get(i).getText();
+                ReportMsg.info("App Namr = " + appName);
+            } catch (StaleElementReferenceException e) {
+                wait.waitForElementToBeVisible(el);
+                appName = el.getText();
+                e.printStackTrace();
+            }
+            i++;
+            verifyAppIsAvailableAndGreenInColor(appName);
+        }
+
+    }
+
+    private void verifyAppIsAvailableAndGreenInColor(String appName) {
+        isElementDisplayed("img_AppColor", appName);
+        String img = element("img_AppColor", appName).getAttribute("src");
+        ReportMsg.info("img color for " + appName + " is " + img);
+        if (img.contains("green.png")) {
+            img = "green.png";
+
+        }
+        Assert.assertEquals(img, "green.png", "app color is not green");
+        ReportMsg.info("Verified color is green for " + appName);
+        isElementDisplayed("text_appAvailability", appName);
+        String appStatus = element("text_appAvailability", appName).getText();
+        Assert.assertEquals(appStatus, "Available", "App is not avilable on");
+        ReportMsg.info(appName + " app is available on platform ");
+
+    }
+
+    public void checkColorNotationGreenInDetailScreen() {
+        int i = 0;
+        for (WebElement el : elements("listOfApps")) {
+            String appName = null;
+
+            try {
+                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
+                appName = elements("listOfApps").get(i).getText();
+                ReportMsg.info("App Namr = " + appName);
+            } catch (StaleElementReferenceException e) {
+                wait.waitForElementToBeVisible(el);
+                appName = el.getText();
+                e.printStackTrace();
+            }
+            i++;
+            selectAppsFromPlatformScreen(appName);
+        }
     }
 }
