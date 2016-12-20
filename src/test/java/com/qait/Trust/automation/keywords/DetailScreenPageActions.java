@@ -7,7 +7,6 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
-import com.qait.Trust.automation.utils.SeleniumWait;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
