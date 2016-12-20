@@ -4,7 +4,7 @@ import com.qait.Trust.automation.TestFundamentals;
 import org.testng.annotations.Test;
 
 public class PlatformAvailabiltyTest extends TestFundamentals {
-
+    
     @Test
     public void TRUST_314_Verify_List_Of_Apps_Are_Displaying() {
         test.platfromAvailabilityPage.verifyListofAppDisplaying();
