@@ -28,7 +28,9 @@ public class YamlReader {
         }
         Reporter.log("Value of 'Tier': " + tier, true);
         
-        if (tier.equalsIgnoreCase("stg")) {
+        if (tier.equalsIgnoreCase("prod")) {
+            yamlFilePath = "src/test/resources/testdata/PROD_TestData.yml";
+        } else if (tier.equalsIgnoreCase("stg")) {
             yamlFilePath = "src/test/resources/testdata/STG_TestData.yml";
         } else if (tier.equalsIgnoreCase("qa")) {
             yamlFilePath = "src/test/resources/testdata/QA_TestData.yml";

@@ -125,10 +125,6 @@ public class ObjectFileReader {
 		case Staging:
 			tier = "STG/";
 			break;
-		case qa:
-		case QA:
-			tier = "QA/";
-			break;
 		default:
 			break;
 		}
