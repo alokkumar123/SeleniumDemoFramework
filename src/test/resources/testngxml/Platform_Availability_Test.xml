@@ -6,5 +6,5 @@
 			<class name="com.qait.Trust.automation.tests.PlatformAvailabiltyTest" />
 		</classes>
 	</test>
-	
+        	
 </suite>

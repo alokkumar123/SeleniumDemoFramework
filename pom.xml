@@ -148,13 +148,13 @@
                         </configuration>
                     </execution>
                 </executions>
-<!--                <configuration>
+                <configuration>
                     <skip>false</skip>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
                         <suiteXmlFile>./src/test/resources/testngxml/${testNGxml}</suiteXmlFile>
                     </suiteXmlFiles>
-                </configuration>-->
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
