@@ -53,15 +53,20 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public void verifyListofAppDisplaying() {
-        String appName = null;
-        List<WebElement> a = elements("list_backgroundImageHeader");
-
-        for (WebElement el : a) {
-            appName = el.getText();
-            ReportMsg.info("Platform name:- " + appName);
-            isElementDisplayed("div_platformName", appName);
-            waitTOSync();
+        String appName=null;
+        for (WebElement ele : elements("div_app_systemApp")) {
+                appName=ele.getText();
         }
+
+//        String appName = null;
+//        List<WebElement> a = elements("list_backgroundImageHeader");
+//
+//        for (WebElement el : a) {
+//            appName = el.getText();
+//            ReportMsg.info("Platform name:- " + appName);
+//            isElementDisplayed("div_platformName", appName);
+//            waitTOSync();
+//        }
     }
 
     public void verifyNeedProductSupportLinkDisplaying() {

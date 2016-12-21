@@ -26,5 +26,6 @@ txt_informationalAlert                       xpath          //h4[text()='Informa
 btn_close                                    xpath          //button[text()='Close']
 img_AppColor                                 xpath          //h5[text()='${appName}']/ancestor::div[1]//img
 text_appAvailability                         xpath          //h5[text()='${appName}']/ancestor::div[2]//div[@class='status-text']
+table_systemStatus                           xpath          //table[contains(@class,'system-status')]
 ==================================================================================================================================
     
