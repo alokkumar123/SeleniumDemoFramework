@@ -357,7 +357,7 @@ public class DetailScreenPageActions extends GetPage {
                     onHoverOverOnAnyDay24HourClockShouldBeSeen();
                     verifyLeagendShouldBeAvailable();
                     userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                } catch (NoSuchElementException e) {
+                } catch (Exception e) {
                     userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                 }
             }
@@ -386,7 +386,7 @@ public class DetailScreenPageActions extends GetPage {
 //                onHoverOverOnAnyDay24HourClockShouldBeSeen();
 //                verifyLeagendShouldBeAvailable();
 //                userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//            } catch (NoSuchElementException e) {
+//            } catch (Exception e) {
 //                userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
 //            }
 //
