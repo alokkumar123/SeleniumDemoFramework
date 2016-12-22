@@ -48,7 +48,6 @@ public class DetailScreenPageActions extends GetPage {
         for (WebElement ele : elements("div_app_systemApp")) {
 
             if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                ReportMsg.info("this app is not clickable");
                 break;
             } else {
                 elements("div_app_systemApp").get(i).click();
@@ -103,7 +102,6 @@ public class DetailScreenPageActions extends GetPage {
         for (WebElement ele : elements("div_app_systemApp")) {
 
             if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                ReportMsg.info("this app is not clickable");
             } else {
                 elements("div_app_systemApp").get(i).click();
 
@@ -176,7 +174,6 @@ public class DetailScreenPageActions extends GetPage {
         for (WebElement ele : elements("div_app_systemApp")) {
 
             if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                ReportMsg.info("this app is not clickable");
             } else {
                 elements("div_app_systemApp").get(i).click();
 
@@ -239,7 +236,6 @@ public class DetailScreenPageActions extends GetPage {
         for (WebElement ele : elements("div_app_systemApp")) {
 
             if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                ReportMsg.info("this app is not clickable");
             } else {
                 elements("div_app_systemApp").get(i).click();
 
@@ -307,11 +303,16 @@ public class DetailScreenPageActions extends GetPage {
 
     private void columnShouldRepresentLastHoursFromCurrent(String last_12_hours) {
         Date date = new Date();
+        Date date1 = new Date();
         String strDateFormat = "HH a";
         DateFormat sdf = new SimpleDateFormat(strDateFormat);
         sdf.setTimeZone(TimeZone.getTimeZone("US/Eastern"));
         String systemTime = sdf.format(date).toLowerCase();
-        ReportMsg.info("System time = " + systemTime);
+        String strDateFormat1 = "HH:MM z";
+        DateFormat sdf1 = new SimpleDateFormat(strDateFormat1);
+        sdf1.setTimeZone(TimeZone.getTimeZone("US/Eastern"));
+        String systemTime1 = sdf1.format(date1);
+        ReportMsg.info("System time = " + systemTime1);
         if (systemTime.contains("0")) {
             systemTime = systemTime.replace("0", "");
         }
@@ -340,7 +341,6 @@ public class DetailScreenPageActions extends GetPage {
         for (WebElement ele : elements("div_app_systemApp")) {
 
             if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                ReportMsg.info("this app is not clickable");
             } else {
                 elements("div_app_systemApp").get(i).click();
 
@@ -455,7 +455,6 @@ public class DetailScreenPageActions extends GetPage {
         for (WebElement ele : elements("div_app_systemApp")) {
 
             if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                ReportMsg.info("this app is not clickable");
             } else {
                 elements("div_app_systemApp").get(i).click();
 
@@ -497,8 +496,9 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("clicked on current information alerts button");
         isElementDisplayed("txt_informationalAlert");
         ReportMsg.info("verified text Informational alerts text on pop up");
-        isElementDisplayed("btn_close");
-        element("btn_close").click();
+        executeJavascript("document.getElementsByClassName('btn btn-default')[0].click()");
+//        isElementDisplayed("btn_close");     
+//        element("btn_close").click();
         ReportMsg.info("Message bar is closed when clicked on close button");
         isElementDisplayed("btn_currnetInformationAlerts");
     }

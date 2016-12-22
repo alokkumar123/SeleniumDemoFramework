@@ -20,7 +20,6 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TRUST_319_Check_For_4_Time_Zones_Available_For_User() {
         test.detailScreenPage.verifyTimeZoneForUser("EST (local)");
-//        test.detailScreenPage.verifyTimeZoneForUser("IST");
         test.detailScreenPage.verifyTimeZoneForUser("CST");
         test.detailScreenPage.verifyTimeZoneForUser("PST");
         test.detailScreenPage.verifyTimeZoneForUser("GMT");
