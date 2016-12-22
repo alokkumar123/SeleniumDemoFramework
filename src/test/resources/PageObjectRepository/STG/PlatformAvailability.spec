@@ -1,7 +1,7 @@
 # Object Definitions
 
 =====================================================================================================================
-div_app_systemApp                   xpath                //div[@class='system-group']/div     
+div_app_systemApp                   xpath               //div[contains(@class,'system-card front green')]     
 div_lastUpdatedTime                 xpath               //h5[text()='${appName}']/parent::div/../..//div[contains(@style,'font-size')]
 div_platformName                    xpath               //div[@class='back card green']//h5[text()='${appName}']/../..
 lnk_productSupportLink              xpath               //a[text()='Need Product Support?']  

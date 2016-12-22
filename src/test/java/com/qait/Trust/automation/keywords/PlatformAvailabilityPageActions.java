@@ -55,7 +55,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
     public void verifyListofAppDisplaying() {
         String appName=null;
         for (WebElement ele : elements("div_app_systemApp")) {
-                appName=ele.getText();
+               // appName=ele.getText();
+            ReportMsg.info("hello");
         }
 
 //        String appName = null;

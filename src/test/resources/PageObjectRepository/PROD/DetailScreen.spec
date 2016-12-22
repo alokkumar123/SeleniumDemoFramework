@@ -1,6 +1,8 @@
 # Object Definitions
 
 ==================================================================================================================================
+txt_appName                                  xpath         //a/parent::span
+div_app_systemApp                            xpath         //div[contains(@class,'system-card front green')]
 allApps                                      xpath         //div[@class='back card green']//h5[text()='${appName}']/../..
 link_breadCrumb                              xpath         //a[contains(text(),'Platform Availability Home')]/parent::span[text()='${appName}']
 link_platfromAvailabilityHome                xpath         //a[contains(text(),'Platform Availability Home')]
@@ -19,7 +21,7 @@ tr_lastHours                                 xpath          //td[text()='${syste
 text_currentMonth                            xpath          //div[contains(text(),'${currentMonth}')]
 text_days                                    xpath          //tr[@class='title-day']/th[contains(text(),'${day}')] 
 hover_anyday                                 xpath          //div[@class='day' and text()='${day}']  
-text_dayHeading                              xpath          //h4[contains(text(),'${dayNo}')]
+text_dayHeading                              xpath          //h4
 app_singleApp                                xpath          //div[text()='Available']
 btn_currnetInformationAlerts                 xpath          //div[@class='info-alerts']
 txt_informationalAlert                       xpath          //h4[text()='Informational alerts']

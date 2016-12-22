@@ -321,7 +321,7 @@ public class DetailScreenPageActions extends GetPage {
         isElementDisplayed("tr_lastHours", systemTime);
 
         int hoursSize = Integer.parseInt(last_12_hours);
-        ReportMsg.info("hours size in table = " + hoursSize + " for " + last_12_hours);
+        ReportMsg.info("hours size in table = " + hoursSize + " for last "+ last_12_hours + " hours");
         int rowSize = elements("tr_lastHours", systemTime).size();
         //ReportMsg.info("row size = " + rowSize);
         //Assert.assertEquals(rowSize, hoursSize);
