@@ -49,6 +49,7 @@ public class DetailScreenPageActions extends GetPage {
 
             if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
                 ReportMsg.info("this app is not clickable");
+                break;
             } else {
                 elements("div_app_systemApp").get(i).click();
 
@@ -233,7 +234,7 @@ public class DetailScreenPageActions extends GetPage {
 
     public void verifyInformationAvailableForHours(String lastHours, String hours) {
         System.out.println("********** Verifying information is available for " + lastHours + " for  all apps ************** ");
-         int i = 0;
+        int i = 0;
         String appName = null;
         for (WebElement ele : elements("div_app_systemApp")) {
 
@@ -247,7 +248,7 @@ public class DetailScreenPageActions extends GetPage {
                 String a[] = appName.split("> ");
                 appName = a[1];
                 ReportMsg.info("AppName = " + appName);
-               
+
                 if (!lastHours.contains("last 12 hours")) {
                     selectLastAvailableHours(lastHours);
                 }
@@ -263,7 +264,7 @@ public class DetailScreenPageActions extends GetPage {
             }
             i++;
         }
-        
+
 //        for (WebElement el : elements("listOfApps")) {
 //            String appName = null;
 //
@@ -310,18 +311,18 @@ public class DetailScreenPageActions extends GetPage {
         DateFormat sdf = new SimpleDateFormat(strDateFormat);
         sdf.setTimeZone(TimeZone.getTimeZone("US/Eastern"));
         String systemTime = sdf.format(date).toLowerCase();
+        ReportMsg.info("System time = " + systemTime);
         if (systemTime.contains("0")) {
             systemTime = systemTime.replace("0", "");
         }
-        ReportMsg.info("System time=" + systemTime);
         wait.waitForElementToBeVisible(element("applicationCurrentTime", systemTime));
         isElementDisplayed("applicationCurrentTime", systemTime);
         isElementDisplayed("tr_lastHours", systemTime);
 
         int hoursSize = Integer.parseInt(last_12_hours);
-        ReportMsg.info("hourse size = " + hoursSize);
+        ReportMsg.info("hours size in table = " + hoursSize + " for " + last_12_hours);
         int rowSize = elements("tr_lastHours", systemTime).size();
-        ReportMsg.info("row size = " + rowSize);
+        //ReportMsg.info("row size = " + rowSize);
         //Assert.assertEquals(rowSize, hoursSize);
     }
 
@@ -334,7 +335,7 @@ public class DetailScreenPageActions extends GetPage {
 
     public void verifyInformationAvailableForLast30Days(String last_30_days) {
         System.out.println("********** Verifying information is available for last 30 days for all apps ************* ");
-         int i = 0;
+        int i = 0;
         String appName = null;
         for (WebElement ele : elements("div_app_systemApp")) {
 
@@ -362,9 +363,7 @@ public class DetailScreenPageActions extends GetPage {
             }
             i++;
         }
-        
-        
-        
+
 //        int i = 0;
 //        for (WebElement el : elements("listOfApps")) {
 //            String appName = null;
@@ -465,13 +464,13 @@ public class DetailScreenPageActions extends GetPage {
                 String a[] = appName.split("> ");
                 appName = a[1];
                 ReportMsg.info("AppName = " + appName);
-               selectLastAvailableHours(last_30_days);
+                selectLastAvailableHours(last_30_days);
                 verifyCurrentInformationAlerts();
                 userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
             }
             i++;
         }
-        
+
 //        int i = 0;
 //        for (WebElement el : elements("listOfApps")) {
 //            String appName = null;

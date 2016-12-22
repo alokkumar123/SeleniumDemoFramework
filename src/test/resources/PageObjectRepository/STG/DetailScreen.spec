@@ -2,7 +2,7 @@
 
 ==================================================================================================================================
 txt_appName                                  xpath         //a/parent::span
-div_app_systemApp                            xpath         //div[@class='system-group']/div
+div_app_systemApp                            xpath         //div[@class='system-card front green']
 allApps                                      xpath         //div[@class='back card green']//h5[text()='${appName}']/../..
 link_breadCrumb                              xpath         //a[contains(text(),'Platform Availability Home')]/parent::span[text()='${appName}']
 link_platfromAvailabilityHome                xpath         //a[contains(text(),'Platform Availability Home')]
