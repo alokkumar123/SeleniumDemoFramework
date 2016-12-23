@@ -29,5 +29,8 @@ btn_close                                    xpath          //button[text()='Clo
 img_AppColor                                 xpath          //h5[text()='${appName}']/ancestor::div[1]//img
 text_appAvailability                         xpath          //h5[text()='${appName}']/ancestor::div[2]//div[@class='status-text']
 table_systemStatus                           xpath          //table[contains(@class,'system-status')]
+groupPattern                                 xpath          //div[@class='panel-group']
+list_groupPanel                              xpath          //a[@role='tab']
+apps_inGroups                                xpath          //a[contains(text(),'${groupName}')]/ancestor::div[@class='panel panel-default']//div[contains(@class,'system-card front green')]
 ==================================================================================================================================
     

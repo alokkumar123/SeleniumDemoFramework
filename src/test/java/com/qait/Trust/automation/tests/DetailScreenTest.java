@@ -5,6 +5,11 @@ import org.testng.annotations.Test;
 
 public class DetailScreenTest extends TestFundamentals {
 
+//    @Test
+//    public void verifyPlatfromAvailabilityPattern() {
+//        test.detailScreenPage.verifyPlatfromAvalabilityPattern();
+//    }
+    
     @Test
     public void TRUST_317_Check_For_Breadcrumb() {
         test.detailScreenPage.verifyBreadcrumb();
@@ -16,7 +21,6 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.verifyDropDownOptionsWithOptions("last 24 hours");
         test.detailScreenPage.verifyDropDownOptionsWithOptions("last 30 days");
     }
-
     @Test
     public void TRUST_319_Check_For_4_Time_Zones_Available_For_User() {
         test.detailScreenPage.verifyTimeZoneForUser("EST (local)");
