@@ -1,4 +1,4 @@
-base_url: http://app.002.stage.trust.cloud.cengage.com/
+base_url: http://app.002.stage.trust.cloud.cengage.com/?admin
 
 appName:
   cengageBrain: CengageBrain

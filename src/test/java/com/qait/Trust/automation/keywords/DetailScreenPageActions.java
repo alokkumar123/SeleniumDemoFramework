@@ -761,16 +761,76 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     private void verifyCurrentInformationAlerts() {
-        isElementDisplayed("btn_currnetInformationAlerts");
-        element("btn_currnetInformationAlerts").click();
-        ReportMsg.info("clicked on current information alerts button");
-        isElementDisplayed("txt_informationalAlert");
-        ReportMsg.info("verified text Informational alerts text on pop up");
-        executeJavascript("document.getElementsByClassName('btn btn-default')[0].click()");
+        try {
+            isElementDisplayed("btn_currnetInformationAlerts");
+            element("btn_currnetInformationAlerts").click();
+            ReportMsg.info("clicked on current information alerts button");
+            isElementDisplayed("txt_informationalAlert");
+            ReportMsg.info("verified text Informational alerts text on pop up");
+            executeJavascript("document.getElementsByClassName('btn btn-default')[0].click()");
 //        isElementDisplayed("btn_close");     
 //        element("btn_close").click();
-        ReportMsg.info("Message bar is closed when clicked on close button");
-        isElementDisplayed("btn_currnetInformationAlerts");
+            ReportMsg.info("Message bar is closed when clicked on close button");
+            isElementDisplayed("btn_currnetInformationAlerts");
+        } catch (Exception e) {
+             ReportMsg.info("Creating new alert notification");
+            isElementDisplayed("link_login");
+            element("link_login").click();
+            element("userName").click();
+            element("userName").click();
+            element("userName").sendKeys("Admin");
+            element("password").click();
+            element("password").click();
+            element("password").sendKeys("Cengage1");
+            element("button_login").click();
+
+           
+            isElementDisplayed("button_Admin");
+            element("button_Admin").click();
+            ReportMsg.info("Click on admin button");
+            isElementDisplayed("link_adminPage");
+            element("link_adminPage");
+            ReportMsg.info("Select admin page");
+            isElementDisplayed("button_createNotification");
+            element("button_createNotification").click();
+            ReportMsg.info("Click on create new notification button");
+            isElementDisplayed("div_selectMonitor");
+            element("div_selectMonitor").click();
+            isElementDisplayed("list_allApp");
+            element("list_allApp").click();
+            ReportMsg.info("Select system all app from slect monitors");
+//            isElementDisplayed("select_timeZone");
+//            element("select_timeZone").click();
+//
+//            isElementDisplayed("list_estTime");
+//            element("list_estTime").click();
+//            ReportMsg.info("Set EST time zone");
+            isElementDisplayed("select_endDate");
+            element("select_endDate").click();
+            String currentDate = element("text_currentDate").getText();
+            int a = Integer.parseInt(currentDate);
+
+            if (a < 31) {
+                a = a + 1;
+            } else {
+                a = 1;
+            }
+            String date = Integer.toString(a);
+            element("text_endDate", date).click();
+            ReportMsg.info("Set end date ");
+            isElementDisplayed("button_OK");
+            element("button_OK").click();
+            ReportMsg.info("Click on Ok button");
+            isElementDisplayed("commentSection");
+            element("commentSection").click();
+            element("commentSection").clear();
+            element("commentSection").sendKeys("creating notification");
+            ReportMsg.info("send commnets creating notification");
+            isElementDisplayed("button_save");
+            element("button_save").click();
+            ReportMsg.info("Click On save button");
+        }
+
     }
 
     public void checkColorNotationGreenInPlatformAvailability() {
