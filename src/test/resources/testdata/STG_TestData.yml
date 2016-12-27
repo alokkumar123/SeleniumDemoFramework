@@ -1,4 +1,4 @@
-base_url: http://app.002.stage.trust.cloud.cengage.com/?admin
+base_url: 
 
 appName:
   mindtap: url("/systems/582042dddc7feb181696f604/logo.png")

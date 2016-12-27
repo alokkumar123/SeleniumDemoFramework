@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
@@ -13,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
+
 import java.util.TimeZone;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -712,12 +707,10 @@ public class DetailScreenPageActions extends GetPage {
                     elements("list_groupPanel").get(i).click();
                     ReportMsg.info("Clicked on " + groupName + " group");
                     j++;
-
                 }
                 ReportMsg.info("covered all app of = " + groupName + "group");
                 i++;
             }
-
         } catch (Exception e) {
             int i = 0;
             String appName = null;
@@ -773,18 +766,19 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Message bar is closed when clicked on close button");
             isElementDisplayed("btn_currnetInformationAlerts");
         } catch (Exception e) {
-             ReportMsg.info("Creating new alert notification");
+            ReportMsg.info("Creating new alert notification");
             isElementDisplayed("link_login");
             element("link_login").click();
-            element("userName").click();
+            
+            element("userName").clear();
             element("userName").click();
             element("userName").sendKeys("Admin");
-            element("password").click();
+            
+            element("password").clear();
             element("password").click();
             element("password").sendKeys("Cengage1");
             element("button_login").click();
 
-           
             isElementDisplayed("button_Admin");
             element("button_Admin").click();
             ReportMsg.info("Click on admin button");
@@ -830,14 +824,12 @@ public class DetailScreenPageActions extends GetPage {
             element("button_save").click();
             ReportMsg.info("Click On save button");
         }
-
     }
 
     public void checkColorNotationGreenInPlatformAvailability() {
         int i = 0;
         for (WebElement el : elements("listOfApps")) {
             String appName = null;
-
             try {
                 wait.waitForElementToBeVisible(elements("listOfApps").get(i));
                 appName = elements("listOfApps").get(i).getText();
@@ -850,7 +842,6 @@ public class DetailScreenPageActions extends GetPage {
             i++;
             verifyAppIsAvailableAndGreenInColor(appName);
         }
-
     }
 
     private void verifyAppIsAvailableAndGreenInColor(String appName) {
@@ -859,7 +850,6 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("img color for " + appName + " is " + img);
         if (img.contains("green.png")) {
             img = "green.png";
-
         }
         Assert.assertEquals(img, "green.png", "app color is not green");
         ReportMsg.info("Verified color is green for " + appName);
@@ -920,16 +910,14 @@ public class DetailScreenPageActions extends GetPage {
                     elements("list_groupPanel").get(i).click();
                     ReportMsg.info("Clicked on " + groupName + " group");
                     j++;
-
                 }
                 ReportMsg.info("covered all app of = " + groupName + "group");
                 i++;
             }
-
         } catch (Exception e) {
             isElementDisplayed("div_app_systemApp");
             ReportMsg.info("Platform Availability screen in not in form of group");
         }
-
     }
+    
 }
