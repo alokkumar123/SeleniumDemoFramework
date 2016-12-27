@@ -1,4 +1,4 @@
-base_url: 
+base_url: http://techcheck-stage.cengage.com/?admin
 
 appName:
   mindtap: url("/systems/582042dddc7feb181696f604/logo.png")
