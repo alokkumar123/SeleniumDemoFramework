@@ -19,46 +19,126 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public void checkLastUpdateTimeOverPlatformAvailability() {
-        Boolean value;
-        for (WebElement wb : elements("list_backgroundImageHeader")) {
+        try {
+            isElementDisplayed("groupPattern");
+            ReportMsg.info("Platform Availability screen is in form of group");
+            isElementDisplayed("list_groupPanel");
+            int i = 0;
+            String groupName = null;
+            for (WebElement ele : elements("list_groupPanel")) {
+                groupName = elements("list_groupPanel").get(i).getText();
 
-            String appName = wb.getText();
+                element("apps_inGroups", groupName).click();
+                ReportMsg.info("Group Name = " + groupName);
+                elements("list_groupPanel").get(i).click();
+                ReportMsg.info("Clicked on " + groupName + " group");
 
-            isElementDisplayed("div_lastUpdatedTime", appName);
-            String text = element("div_lastUpdatedTime", appName).getText();
-            ReportMsg.info("Time on application = " + text);
-            String a[] = text.split(":");
-            String a1[] = a[2].split(" ");
+                int j = 0;
+                isElementDisplayed("apps_inGroups", groupName);
+                for (WebElement e : elements("apps_inGroups", groupName)) {
+                    String appName = null;
+                    ReportMsg.info("app size in group =" + elements("apps_inGroups", groupName).size());
+                    elements("apps_inGroups", groupName).get(j).click();
+                    isElementDisplayed("txt_appName");
+                    appName = element("txt_appName").getText();
+                    String a[] = appName.split("> ");
+                    appName = a[1];
+                    ReportMsg.info("AppName = " + appName);
+                    ReportMsg.info("clicked on " + appName);
+                    //verifyBreadcrumb(appName);
+                    //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+                    elements("list_groupPanel").get(i).click();
+                    ReportMsg.info("Clicked on " + groupName + " group");
+                    j++;
 
-            Date date = new Date();
-            String strDateFormat = "HH:mm a";
-            DateFormat sdf = new SimpleDateFormat(strDateFormat);
-            String systemTime = sdf.format(date);
-            ReportMsg.info("System time=" + systemTime);
-            String b[] = systemTime.split(":");
-            String b1[] = b[1].split(" ");
-            int time = Integer.parseInt(a1[0]) - Integer.parseInt(b1[0]);
-
-            if (time < 5) {
-                ReportMsg.info("Verified Last updated time is not be more than 5 minutes from the system time for " + appName + "app");
-
-                value = true;
-            } else {
-                ReportMsg.info("Last update time is be more than 5 minutes from the system time");
-                value = false;
+                }
+                ReportMsg.info("covered all app of = " + groupName + "group");
+                i++;
             }
-            ReportMsg.info("Verified last updated time on platform availability page");
+        } catch (Exception e) {
+            int i = 0;
+            Boolean value;
+            String appName = null;
+            for (WebElement ele : elements("div_app_systemApp")) {
+
+                if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
+                    break;
+                } else {
+                    //elements("div_lastUpdatedTime").size();
+
+                    String text = elements("div_lastUpdatedTime").get(i).getText();
+                    ReportMsg.info("Time on application = " + text);
+                    String a[] = text.split(":");
+                    String a1[] = a[2].split(" ");
+
+                    Date date = new Date();
+                    String strDateFormat = "HH:mm a";
+                    DateFormat sdf = new SimpleDateFormat(strDateFormat);
+                    String systemTime = sdf.format(date);
+                    ReportMsg.info("System time=" + systemTime);
+                    String b[] = systemTime.split(":");
+                    String b1[] = b[1].split(" ");
+                    int time = Integer.parseInt(a1[0]) - Integer.parseInt(b1[0]);
+
+                    if (time < 5) {
+                        ReportMsg.info("Verified Last updated time is not be more than 5 minutes from the system time for app on platfrom screen");
+
+                        value = true;
+                    } else {
+                        ReportMsg.info("Last update time is be more than 5 minutes from the system time");
+                        value = false;
+                    }
+                    ReportMsg.info("Verified last updated time on platform availability page");
+                }
+
+//                isElementDisplayed("txt_appName");
+//                appName = element("txt_appName").getText();
+//                String a[] = appName.split("> ");
+//                appName = a[1];
+//                ReportMsg.info("AppName = " + appName);
+//            }
+                i++;
+            }
         }
 
+//        Boolean value;
+//        for (WebElement wb : elements("list_backgroundImageHeader")) {
+//
+//            String appName = wb.getText();
+//
+//            isElementDisplayed("div_lastUpdatedTime", appName);
+//            String text = element("div_lastUpdatedTime", appName).getText();
+//            ReportMsg.info("Time on application = " + text);
+//            String a[] = text.split(":");
+//            String a1[] = a[2].split(" ");
+//
+//            Date date = new Date();
+//            String strDateFormat = "HH:mm a";
+//            DateFormat sdf = new SimpleDateFormat(strDateFormat);
+//            String systemTime = sdf.format(date);
+//            ReportMsg.info("System time=" + systemTime);
+//            String b[] = systemTime.split(":");
+//            String b1[] = b[1].split(" ");
+//            int time = Integer.parseInt(a1[0]) - Integer.parseInt(b1[0]);
+//
+//            if (time < 5) {
+//                ReportMsg.info("Verified Last updated time is not be more than 5 minutes from the system time for " + appName + "app");
+//
+//                value = true;
+//            } else {
+//                ReportMsg.info("Last update time is be more than 5 minutes from the system time");
+//                value = false;
+//            }
+//            ReportMsg.info("Verified last updated time on platform availability page");
+//        }    
     }
 
-    public void verifyListofAppDisplaying() {
-        String appName=null;
-        for (WebElement ele : elements("div_app_systemApp")) {
-               // appName=ele.getText();
-            ReportMsg.info("hello");
-        }
-
+//public void verifyListofAppDisplaying() {
+//        String appName = null;
+//        for (WebElement ele : elements("div_app_systemApp")) {
+//            // appName=ele.getText();
+//            ReportMsg.info("hello");
+//        }
 //        String appName = null;
 //        List<WebElement> a = elements("list_backgroundImageHeader");
 //
@@ -68,9 +148,9 @@ public class PlatformAvailabilityPageActions extends GetPage {
 //            isElementDisplayed("div_platformName", appName);
 //            waitTOSync();
 //        }
-    }
+//}
 
-    public void verifyNeedProductSupportLinkDisplaying() {
+public void verifyNeedProductSupportLinkDisplaying() {
         isElementDisplayed("lnk_productSupportLink");
     }
 
@@ -81,6 +161,25 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
         String a = element("lnk_productSupportLink").getAttribute("href");
         ReportMsg.info("Product Support link: " + a);
+    }
+
+    public void verifyingAppOnPlatfromScreen(String appName) {
+        ReportMsg.info("appname:= " + appName);
+        int i = 0;
+        String a[] = appName.split(",");
+        ReportMsg.info("Number of apps are displaying on platform screen " + elements("url_systemLogo").size());
+        for (WebElement e : elements("url_systemLogo")) {
+
+            //ReportMsg.info(" attribute " + e.getAttribute("style"));
+            String app[] = a[i].split("=");
+            //ReportMsg.info("app name = " + app[1]);
+            if (e.getAttribute("style").contains(app[1])) {
+                //  ReportMsg.info(" i = " + i);
+                ReportMsg.info("app name = " + app[0] + " is displaying with " + app[1]);
+            }
+            i++;
+        }
+
     }
 
 }

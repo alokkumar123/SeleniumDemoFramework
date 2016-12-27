@@ -2,12 +2,13 @@ package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
 import org.testng.annotations.Test;
-
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 public class PlatformAvailabiltyTest extends TestFundamentals {
     
     @Test
     public void TRUST_314_Verify_List_Of_Apps_Are_Displaying() {
-        test.platfromAvailabilityPage.verifyListofAppDisplaying();
+        //test.platfromAvailabilityPage.verifyListofAppDisplaying();
+        test.platfromAvailabilityPage.verifyingAppOnPlatfromScreen(getData("appName"));
     }
 
     @Test
