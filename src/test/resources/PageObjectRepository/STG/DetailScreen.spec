@@ -9,7 +9,7 @@ link_platfromAvailabilityHome                xpath         //a[contains(text(),'
 listOfApps                                   xpath         //div[@class='back card green']//h5
 text_screenPage                              xpath         //h6[text()='Platform Availability']
 list_dropdownOptions                         xpath         //li[text()='${string}'] 
-span_DropDownSelector                        xpath         //div[@class='rw-input' and text()='last 12 hours']
+span_DropDownSelector                        xpath         (//div[contains(@class,'rw-dropdownlist')])[1]
 span_timeZoneDropDownSelector                xpath         (//div[contains(@class,'rw-dropdownlist')])[2]
 list_timezonedropdownOptions                 xpath          //li[contains(text(),'${string}')] 
 applicationCurrentTime                       xpath          //td[text()='${systemTime}']

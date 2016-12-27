@@ -157,14 +157,14 @@ public void verifyNeedProductSupportLinkDisplaying() {
     public void onceClickedOnLinkNewTabShouldBeOpenAndNavigateToURL(String url) {
         waitForElementToDisappear("lnk_productSupportLink");
         element("lnk_productSupportLink").click();
-        ReportMsg.log("Clicked on 'Product Support Link'");
+        ReportMsg.info("Clicked on 'Product Support Link'");
 
         String a = element("lnk_productSupportLink").getAttribute("href");
         ReportMsg.info("Product Support link: " + a);
     }
 
     public void verifyingAppOnPlatfromScreen(String appName) {
-        ReportMsg.info("appname:= " + appName);
+//        ReportMsg.info("appname:= " + appName);
         int i = 0;
         String a[] = appName.split(",");
         ReportMsg.info("Number of apps are displaying on platform screen " + elements("url_systemLogo").size());
@@ -175,7 +175,7 @@ public void verifyNeedProductSupportLinkDisplaying() {
             //ReportMsg.info("app name = " + app[1]);
             if (e.getAttribute("style").contains(app[1])) {
                 //  ReportMsg.info(" i = " + i);
-                ReportMsg.info("app name = " + app[0] + " is displaying with " + app[1]);
+                ReportMsg.info("App name =" + app[0] + " is displaying with " + app[1]);
             }
             i++;
         }

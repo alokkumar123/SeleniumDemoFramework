@@ -769,11 +769,11 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Creating new alert notification");
             isElementDisplayed("link_login");
             element("link_login").click();
-            
+
             element("userName").clear();
             element("userName").click();
             element("userName").sendKeys("Admin");
-            
+
             element("password").clear();
             element("password").click();
             element("password").sendKeys("Cengage1");
@@ -919,5 +919,5 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Platform Availability screen in not in form of group");
         }
     }
-    
+
 }

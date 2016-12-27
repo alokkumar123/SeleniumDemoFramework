@@ -8,7 +8,7 @@ public class ReportMsg {
 	protected static final String info = "[INFO]: ";
 	protected static final String pass = "[ASSERT PASS]: ";
 	protected static final String scripterror = "[SCRIPTING ERROR]: ";
-
+      
 	public static String failForAssert(String message) {
 		return reportMsgForAssert(fail, message, true);
 	}
@@ -29,9 +29,9 @@ public class ReportMsg {
 		return reportMsg(info, message);
 	}
 
-	public static String log(String message) {
-		return reportMsg(scripterror, message);
-	}
+//	public static String log(String message) {
+//		return reportMsg(info, message);
+//	}
 
 	public static String reportMsg(String prefix, String message) {
 		Reporter.log(prefix + message, true);
