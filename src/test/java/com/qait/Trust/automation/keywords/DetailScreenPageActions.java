@@ -396,6 +396,7 @@ public class DetailScreenPageActions extends GetPage {
                         verifyLeagendShouldBeAvailable();
                         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                     } catch (Exception e1) {
+                        ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
                         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                     }
                     elements("list_groupPanel").get(i).click();
@@ -433,6 +434,7 @@ public class DetailScreenPageActions extends GetPage {
                         verifyLeagendShouldBeAvailable();
                         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                     } catch (Exception e1) {
+                        ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
                         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                     }
                 }
@@ -544,11 +546,13 @@ public class DetailScreenPageActions extends GetPage {
                     try {
                         isElementDisplayed("table_systemStatus");
                         element("table_systemStatus").isDisplayed();
+                        ReportMsg.info("Verifying table system stutus");
                         verifyInformationOnGregorianCalendar(appName);
                         onHoverOverOnAnyDay24HourClockShouldBeSeen();
                         verifyLeagendShouldBeAvailable();
                         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                     } catch (Exception ee) {
+                        ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
                         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                     }
                     elements("list_groupPanel").get(i).click();
@@ -578,11 +582,13 @@ public class DetailScreenPageActions extends GetPage {
                     try {
                         isElementDisplayed("table_systemStatus");
                         element("table_systemStatus").isDisplayed();
+                        ReportMsg.info("Verifying table system stutus");
                         verifyInformationOnGregorianCalendar(appName);
                         onHoverOverOnAnyDay24HourClockShouldBeSeen();
                         verifyLeagendShouldBeAvailable();
                         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                     } catch (Exception e) {
+                        ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
                         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
                     }
                 }

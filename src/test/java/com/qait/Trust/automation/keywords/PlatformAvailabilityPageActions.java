@@ -6,8 +6,13 @@ import com.qait.Trust.automation.utils.ReportMsg;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import org.openqa.selenium.WebElement;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
+import static java.rmi.Naming.list;
+import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.Iterator;
+import java.util.List;
 
 public class PlatformAvailabilityPageActions extends GetPage {
 
@@ -149,8 +154,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 //            waitTOSync();
 //        }
 //}
-
-public void verifyNeedProductSupportLinkDisplaying() {
+    public void verifyNeedProductSupportLinkDisplaying() {
         isElementDisplayed("lnk_productSupportLink");
     }
 
@@ -177,9 +181,40 @@ public void verifyNeedProductSupportLinkDisplaying() {
                 //  ReportMsg.info(" i = " + i);
                 ReportMsg.info("App name =" + app[0] + " is displaying with " + app[1]);
             }
-            i++;
+                    i++;
+                }
+
         }
 
     }
 
-}
+//    private ArrayList getAppFromYmal() {
+//        String cengageBrain = getData("appName.cengageBrain");
+//        String mindtap = getData("appName.mindtap");
+//        String aplia = getData("appName.aplia");
+//        String cengageNow = getData("appName.cengageNow");
+//        String cengageNOWv2 = getData("appName.cengageNOWv2");
+//        String OWLv2 = getData("appName.OWLv2");
+//        String SAM = getData("appName.SAM");
+//        String a4LTR = getData("appName.4LTR");
+//        String mindtapMathFoundation = getData("appName.mindtapMathFoundation");
+//
+//        ArrayList<String> list = new ArrayList<String>();
+//
+//        {
+//            {
+//                list.add(mindtap);
+//                list.add(cengageBrain);
+//                list.add(aplia);
+//                list.add(cengageNow);
+//                list.add(cengageNOWv2);
+//                list.add(OWLv2);
+//                list.add(SAM);
+//                list.add(a4LTR);
+//                list.add(mindtapMathFoundation);
+//            }
+//        }
+//        return list;
+//    }
+
+
