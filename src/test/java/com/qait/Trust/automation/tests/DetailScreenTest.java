@@ -2,65 +2,103 @@ package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
 import org.testng.annotations.Test;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 
 public class DetailScreenTest extends TestFundamentals {
-    
+
     @Test
-    public void TRUST_317_Check_For_Breadcrumb() {
-        test.detailScreenPage.verifyBreadcrumb();
-    }
-    
-    @Test
-    public void TRUST_318_Check_For_Drop_Down_Options_Available_In_Detail_Screen() {
-        test.detailScreenPage.verifyDropDownOptionsWithOptions("last 12 hours");
-        test.detailScreenPage.verifyDropDownOptionsWithOptions("last 24 hours");
-        test.detailScreenPage.verifyDropDownOptionsWithOptions("last 30 days");
-    }
-    
-    @Test
-    public void TRUST_319_Check_For_4_Time_Zones_Available_For_User() {
-        test.detailScreenPage.verifyTimeZoneForUser("EST (local)");
-        test.detailScreenPage.verifyTimeZoneForUser("CST");
-        test.detailScreenPage.verifyTimeZoneForUser("PST");
-        test.detailScreenPage.verifyTimeZoneForUser("GMT");
+    public void TC01_verifying_All_Details_For_MindTap_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12");
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24");
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "Mindtap");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 
     @Test
-    public void TRUST_321_Check_Information_Available_For_Last12_Hours() {
-        test.detailScreenPage.verifyInformationAvailableForHours("last 12 hours", "12");
-
+    public void TC02_verifying_All_Details_For_Cengage_Brain_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageBrain"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12");
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24");
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "Mindtap");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 
     @Test
-    public void TRUST_322_Check_Information_Available_For_Last24_Hours() {
-        test.detailScreenPage.verifyInformationAvailableForHours("last 24 hours", "24");
-
+    public void TC03_verifying_All_Details_For_Aplia_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.aplia"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12");
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24");
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "Mindtap");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 
     @Test
-    public void TRUST_323_Check_Information_Available_For_Last30_Days() {
-        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days");
-
+    public void TC04_verifying_All_Details_For_CengageNOWv2_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNOWv2"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12");
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24");
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "Mindtap");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 
     @Test
-    public void Trust_324_Check_Current_Information_Alert_Button_Vailable_For_Last30Days_View() {
-        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays("last 30 days");
+    public void TC05_verifying_All_Details_For_OWLv2_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.OWLv2"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12");
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24");
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "Mindtap");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 
     @Test
-    public void Trust_340_Check_Current_Information_Alert_Button_Vailable_For_Last12Hours_View() {
-        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays("last 12 hours");
+    public void TC06_verifying_All_Details_For_SAM_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.SAM"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12");
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24");
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "Mindtap");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 
     @Test
-    public void Trust_345_Check_Current_Information_Alert_Button_Vailable_For_Last24Hours_View() {
-        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays("last 24 hours");
+    public void TC07_verifying_All_Details_For_4LTR_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.4LTR"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12");
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24");
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "Mindtap");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 
-//    @Test
-//    public void Trust_346_Check_For_Color_Notation_Green_In_The_Platform_Availability_And_Detail_Screen() {
-//        test.detailScreenPage.checkColorNotationGreenInPlatformAvailability();
-//        test.detailScreenPage.checkColorNotationGreenInDetailScreen();
-//    }
+    @Test
+    public void TC08_verifying_All_Details_For_mindtapMathFoundation_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtapMathFoundation"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12");
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24");
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "Mindtap");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+    }
 }

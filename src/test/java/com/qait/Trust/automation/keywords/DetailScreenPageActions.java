@@ -478,7 +478,7 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("list_dropdownOptions", string);
             element("list_dropdownOptions", string).click();
         }
-        ReportMsg.info("Verified " + string + " drop down");
+        ReportMsg.info("Verified " + string + "from drop down");
     }
 
     private void columnShouldRepresentLastHoursFromCurrent(String last_12_hours) {
@@ -924,6 +924,85 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("div_app_systemApp");
             ReportMsg.info("Platform Availability screen in not in form of group");
         }
+    }
+
+    public void verifyBreadCrumb(String appName) {
+        isElementDisplayed("singleApp", appName);
+        element("singleApp", appName).click();
+        ReportMsg.info("Click on App = " + appName);
+        isElementDisplayed("txt_appName");
+        appName = element("txt_appName").getText();
+        String a[] = appName.split("> ");
+        appName = a[1];
+        ReportMsg.info("AppName = " + appName);
+        verifyBreadcrumb(appName);
+    }
+
+    public void verifyDropDownOptionsForLastHours() {
+        String hours = "last 12 hours";
+        executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
+        ReportMsg.info("Verified " + hours + " from last hours drop down");
+        hours = "last 24 hours";
+        isElementDisplayed("list_dropdownOptions", hours);
+        ReportMsg.info("Verified " + hours + " from last hours drop down");
+        hours = "last 30 days";
+        isElementDisplayed("list_dropdownOptions", hours);
+        ReportMsg.info("Verified " + hours + " from last hours drop down");
+
+    }
+
+    public void verifyTimeZoneDropDownForUser() {
+        String timeZone = "EST (local)";
+        executeJavascript("document.getElementsByClassName('rw-input')[1].click()");
+        //isElementDisplayed("list_timezonedropdownOptions", timeZone);
+        ReportMsg.info("Verified " + timeZone + " from time zone drop down");
+        timeZone = "CST";
+        isElementDisplayed("list_timezonedropdownOptions", timeZone);
+        ReportMsg.info("Verified " + timeZone + " from time zone drop down");
+        timeZone = "PST";
+        isElementDisplayed("list_timezonedropdownOptions", timeZone);
+        ReportMsg.info("Verified " + timeZone + " from time zone drop down");
+        timeZone = "GMT";
+        isElementDisplayed("list_timezonedropdownOptions", timeZone);
+        ReportMsg.info("Verified " + timeZone + " from time zone drop down");
+    }
+
+    public void verifyInformationAvailableForLastHours1(String lastHours, String hours) {
+        if (!lastHours.contains("last 12 hours")) {
+            selectLastAvailableHours(lastHours);
+        }
+        try {
+            isElementDisplayed("table_systemStatus");
+            ReportMsg.info("verified system status of table");
+            columnShouldRepresentLastHoursFromCurrent(hours);
+            verifyLeagendShouldBeAvailable();
+            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        } catch (Exception e1) {
+            //  ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
+            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        }
+    }
+
+    public void verifyInformationAvailableForLast30Days1(String last_30_days, String appName) {
+        selectLastAvailableHours(last_30_days);
+        isElementDisplayed("table_systemStatus");
+        element("table_systemStatus").isDisplayed();
+        ReportMsg.info("Verifying table system stutus");
+        verifyInformationOnGregorianCalendar(appName);
+        onHoverOverOnAnyDay24HourClockShouldBeSeen();
+        verifyLeagendShouldBeAvailable();
+    }
+
+    public void checkCurrecntInformationAlertButtonforLastDays1() {
+        String lastHours="last 12 hours";
+        selectLastAvailableHours(lastHours);
+        verifyCurrentInformationAlerts();
+        lastHours="last 24 hours";
+        selectLastAvailableHours(lastHours);
+        verifyCurrentInformationAlerts();
+        lastHours="last 30 days";
+        selectLastAvailableHours(lastHours);
+        verifyCurrentInformationAlerts();
     }
 
 }

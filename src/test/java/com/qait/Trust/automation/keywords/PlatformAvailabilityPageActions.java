@@ -7,12 +7,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.openqa.selenium.WebElement;
-import static com.qait.Trust.automation.utils.YamlReader.getData;
-import static java.rmi.Naming.list;
-import java.util.ArrayList;
-import static java.util.Collections.list;
-import java.util.Iterator;
-import java.util.List;
 
 public class PlatformAvailabilityPageActions extends GetPage {
 

@@ -11,7 +11,7 @@ text_screenPage                              xpath         //h6[text()='Platform
 list_dropdownOptions                         xpath         //li[text()='${string}'] 
 span_DropDownSelector                        xpath         (//div[contains(@class,'rw-dropdownlist')])[1]
 span_timeZoneDropDownSelector                xpath         (//div[contains(@class,'rw-dropdownlist')])[2]
-list_timezonedropdownOptions                 xpath          //li[contains(text(),'${string}')] 
+list_timezonedropdownOptions                 xpath          //li[contains(text(),'${timeZone}')] 
 applicationCurrentTime                       xpath          //td[text()='${systemTime}']
 span_noIssues                                xpath          //span[text()='No Issues']
 span_minorDisruption                         xpath          //span[text()='Minor disruption'] 
@@ -48,6 +48,7 @@ link_login                                   xpath          //a[text()='Log in']
 userName                                     xpath          //input[@placeholder ='Enter login']    
 password                                     xpath          //input[@placeholder ='Enter password']
 button_login                                 xpath          //button[text()='Login']    
-button_save                                  xpath          //button[text()='Save']                                   
+button_save                                  xpath          //button[text()='Save']   
+singleApp                                    xpath          //div[contains(@style,'${appName}')]                                
 ==================================================================================================================================
     
