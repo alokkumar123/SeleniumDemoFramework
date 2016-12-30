@@ -25,100 +25,9 @@ public class DetailScreenPageActions extends GetPage {
         this.driver = driver;
     }
 
-    public void selectAppsFromPlatformScreen(String appName) {
-        try {
-            ReportMsg.info("App name is = " + appName);
-            element("allApps", appName).click();
-            ReportMsg.info("Clicked on " + appName);
-        } catch (StaleElementReferenceException e) {
-            ReportMsg.info("App name is = " + appName);
-            element("allApps", appName).click();
-            ReportMsg.info("Clicked on " + appName);
-        }
-    }
-
-    public void verifyBreadcrumb() {
-        try {
-            isElementDisplayed("groupPattern");
-            ReportMsg.info("Platform Availability screen is in form of group");
-            isElementDisplayed("list_groupPanel");
-            int i = 0;
-            String groupName = null;
-            for (WebElement ele : elements("list_groupPanel")) {
-                groupName = elements("list_groupPanel").get(i).getText();
-
-                //element("apps_inGroups",groupName).click();
-                ReportMsg.info("Group Name = " + groupName);
-                elements("list_groupPanel").get(i).click();
-                ReportMsg.info("Clicked on " + groupName + " group");
-
-                int j = 0;
-                isElementDisplayed("apps_inGroups", groupName);
-                for (WebElement e : elements("apps_inGroups", groupName)) {
-                    String appName = null;
-                    ReportMsg.info("app size in group =" + elements("apps_inGroups", groupName).size());
-                    elements("apps_inGroups", groupName).get(j).click();
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("clicked on " + appName);
-                    verifyBreadcrumb(appName);
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on " + groupName + " group");
-                    j++;
-
-                }
-                ReportMsg.info("covered all app of = " + groupName + "group");
-                i++;
-            }
-
-        } catch (Exception e) {
-            int i = 0;
-            String appName = null;
-            for (WebElement ele : elements("div_app_systemApp")) {
-
-                if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                    break;
-                } else {
-                    elements("div_app_systemApp").get(i).click();
-
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    verifyBreadcrumb(appName);
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                }
-                i++;
-            }
-        }
-
-//        int i = 0;
-//        for (WebElement el : elements("listOfApps")) {
-//            String appName = null;
-//
-//            try {
-//                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
-//                appName = elements("listOfApps").get(i).getText();
-//            } catch (StaleElementReferenceException e) {
-//                wait.waitForElementToBeVisible(el);
-//                appName = el.getText();
-//                e.printStackTrace();
-//            }
-//            selectAppsFromPlatformScreen(appName);
-//            verifyBreadcrumb(appName);
-//            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//            i++;
-//        }
-    }
-
     private void verifyBreadcrumb(String appName) {
         isElementDisplayed("link_breadCrumb", appName);
-        ReportMsg.info("Verified breadcrumb for '" + appName + "' app");
+        ReportMsg.info("Verified breadcrumb for '" + appName + " app");
     }
 
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome() {
@@ -127,114 +36,6 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Clicked on Platfrom Availability Home");
         isElementDisplayed("text_screenPage");
         ReportMsg.info("verified user navigate to platform Availabilty Screen");
-    }
-
-    public void verifyDropDownOptionsWithOptions(String string) {
-        System.out.println("*************** Verifying drop down options for " + string + " on all apps ********************");
-        try {
-            isElementDisplayed("groupPattern");
-            ReportMsg.info("Platform Availability screen is in form of group");
-            isElementDisplayed("list_groupPanel");
-            int i = 0;
-            String groupName = null;
-            for (WebElement ele : elements("list_groupPanel")) {
-                groupName = elements("list_groupPanel").get(i).getText();
-
-                //element("apps_inGroups",groupName).click();
-                ReportMsg.info("Group Name = " + groupName);
-                elements("list_groupPanel").get(i).click();
-                ReportMsg.info("Clicked on " + groupName + " group");
-
-                int j = 0;
-                isElementDisplayed("apps_inGroups", groupName);
-                for (WebElement e : elements("apps_inGroups", groupName)) {
-                    String appName = null;
-                    ReportMsg.info("app size in group =" + elements("apps_inGroups", groupName).size());
-                    elements("apps_inGroups", groupName).get(j).click();
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("clicked on " + appName);
-                    if (string.equals("last 12 hours")) {
-                        isElementDisplayed("span_DropDownSelector");
-                    } else {
-                        isElementDisplayed("span_DropDownSelector");
-                        element("span_DropDownSelector").click();
-                        isElementDisplayed("list_dropdownOptions", string);
-                    }
-
-                    ReportMsg.info("Verified " + string + " drop down for " + appName);
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on " + groupName + " group");
-                    j++;
-
-                }
-                ReportMsg.info("covered all app of = " + groupName + "group");
-                i++;
-            }
-
-        } catch (Exception e) {
-            int i = 0;
-            String appName = null;
-            for (WebElement ele : elements("div_app_systemApp")) {
-
-                if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                } else {
-                    elements("div_app_systemApp").get(i).click();
-
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    i++;
-                    if (string.equals("last 12 hours")) {
-                        isElementDisplayed("span_DropDownSelector");
-                    } else {
-                        isElementDisplayed("span_DropDownSelector");
-                        element("span_DropDownSelector").click();
-                        isElementDisplayed("list_dropdownOptions", string);
-                    }
-
-                    ReportMsg.info("Verified " + string + " drop down for " + appName);
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    ReportMsg.info("verified " + string + "drop down " + appName + " app");
-                }
-
-            }
-            ReportMsg.info("verified " + string + " drop down for all the app");
-        }
-
-//        int i = 0;
-//        for (WebElement el : elements("listOfApps")) {
-//            String appName = null;
-//
-//            try {
-//                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
-//                appName = elements("listOfApps").get(i).getText();
-//            } catch (StaleElementReferenceException e) {
-//                wait.waitForElementToBeVisible(el);
-//                appName = el.getText();
-//                e.printStackTrace();
-//            }
-//            selectAppsFromPlatformScreen(appName);
-//            i++;
-//            if (string.equals("last 12 hours")) {
-//                isElementDisplayed("span_DropDownSelector");
-//            } else {
-//                isElementDisplayed("span_DropDownSelector");
-//                element("span_DropDownSelector").click();
-//                isElementDisplayed("list_dropdownOptions", string);
-//            }
-//
-//            ReportMsg.info("Verified " + string + " drop down for " + appName);
-//            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//            ReportMsg.info("verified " + string + "drop down " + appName + " app");
-//        }
-//        ReportMsg.info("verified " + string + " drop down for all the app");
     }
 
     public void verifyDropDownWithOptions(String string) {
@@ -248,227 +49,6 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Clicked on " + appName + " app");
     }
 
-    public void verifyTimeZoneForUser(String string) {
-        System.out.println("*************** Verifying time zone for " + string + " on all apps ********************");
-        try {
-            isElementDisplayed("groupPattern");
-            ReportMsg.info("Platform Availability screen is in form of group");
-            isElementDisplayed("list_groupPanel");
-            int i = 0;
-            String groupName = null;
-            for (WebElement ele : elements("list_groupPanel")) {
-                groupName = elements("list_groupPanel").get(i).getText();
-
-                //element("apps_inGroups",groupName).click();
-                ReportMsg.info("Group Name = " + groupName);
-                elements("list_groupPanel").get(i).click();
-                ReportMsg.info("Clicked on " + groupName + " group");
-
-                int j = 0;
-                isElementDisplayed("apps_inGroups", groupName);
-                for (WebElement e : elements("apps_inGroups", groupName)) {
-                    String appName = null;
-                    ReportMsg.info("app size in group " + groupName + " = " + elements("apps_inGroups", groupName).size());
-                    elements("apps_inGroups", groupName).get(j).click();
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("clicked on " + appName);
-                    if (string.equals("EST (local)")) {
-                        isElementDisplayed("span_timeZoneDropDownSelector");
-
-                    } else {
-                        isElementDisplayed("span_timeZoneDropDownSelector");
-                        element("span_timeZoneDropDownSelector").click();
-                        isElementDisplayed("list_timezonedropdownOptions", string);
-
-                    }
-                    ReportMsg.info("Verified " + string + " drop down for " + appName);
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    ReportMsg.info("verified " + string + "time zone for " + appName + " app");
-                    elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on " + groupName + " group");
-                    j++;
-
-                }
-                ReportMsg.info("covered all app of " + groupName + "group");
-                i++;
-            }
-
-        } catch (Exception e) {
-            int i = 0;
-            String appName = null;
-            for (WebElement ele : elements("div_app_systemApp")) {
-
-                if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                } else {
-                    elements("div_app_systemApp").get(i).click();
-
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    if (string.equals("EST (local)")) {
-                        isElementDisplayed("span_timeZoneDropDownSelector");
-
-                    } else {
-                        isElementDisplayed("span_timeZoneDropDownSelector");
-                        element("span_timeZoneDropDownSelector").click();
-                        isElementDisplayed("list_timezonedropdownOptions", string);
-
-                    }
-                    ReportMsg.info("Verified " + string + " drop down for " + appName);
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    ReportMsg.info("verified " + string + "time zone for " + appName + " app");
-                }
-                i++;
-            }
-        }
-//        ReportMsg.info("*************** Verifying time zone for " + string + " on all apps ********************");
-//        int i = 0;
-//        for (WebElement el : elements("listOfApps")) {
-//            String appName = null;
-//
-//            try {
-//                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
-//                appName = elements("listOfApps").get(i).getText();
-//            } catch (StaleElementReferenceException e) {
-//                wait.waitForElementToBeVisible(el);
-//                appName = el.getText();
-//                e.printStackTrace();
-//            }
-//            selectAppsFromPlatformScreen(appName);
-//            i++;
-//            if (string.equals("EST (local)")) {
-//                isElementDisplayed("span_timeZoneDropDownSelector");
-//
-//            } else {
-//                isElementDisplayed("span_timeZoneDropDownSelector");
-//                element("span_timeZoneDropDownSelector").click();
-//                isElementDisplayed("list_timezonedropdownOptions", string);
-//
-//            }
-//            ReportMsg.info("Verified " + string + " drop down for " + appName);
-//            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//            ReportMsg.info("verified " + string + "time zone for " + appName + " app");
-//        }
-//        ReportMsg.info("verified " + string + " time zone for all the app");
-    }
-
-    public void verifyInformationAvailableForHours(String lastHours, String hours) {
-        System.out.println("********** Verifying information is available for " + lastHours + " for  all apps ************** ");
-        try {
-            isElementDisplayed("groupPattern");
-            ReportMsg.info("Platform Availability screen is in form of group");
-            isElementDisplayed("list_groupPanel");
-            int i = 0;
-            String groupName = null;
-            for (WebElement ele : elements("list_groupPanel")) {
-                groupName = elements("list_groupPanel").get(i).getText();
-
-                //element("apps_inGroups",groupName).click();
-                ReportMsg.info("Group Name = " + groupName);
-                elements("list_groupPanel").get(i).click();
-                ReportMsg.info("Clicked on " + groupName + " group");
-
-                int j = 0;
-                isElementDisplayed("apps_inGroups", groupName);
-                for (WebElement e : elements("apps_inGroups", groupName)) {
-                    String appName = null;
-                    ReportMsg.info("app size in group =" + elements("apps_inGroups", groupName).size());
-                    elements("apps_inGroups", groupName).get(j).click();
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("clicked on " + appName);
-                    if (!lastHours.contains("last 12 hours")) {
-                        selectLastAvailableHours(lastHours);
-                    }
-                    try {
-                        isElementDisplayed("table_systemStatus");
-                        ReportMsg.info("verified system status of table");
-                        columnShouldRepresentLastHoursFromCurrent(hours);
-                        verifyLeagendShouldBeAvailable();
-                        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    } catch (Exception e1) {
-                        ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
-                        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    }
-                    elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on " + groupName + " group");
-                    j++;
-
-                }
-                ReportMsg.info("covered all app of = " + groupName + "group");
-                i++;
-            }
-
-        } catch (Exception e) {
-            int i = 0;
-
-            String appName = null;
-            for (WebElement ele : elements("div_app_systemApp")) {
-
-                if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                } else {
-                    elements("div_app_systemApp").get(i).click();
-
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-
-                    if (!lastHours.contains("last 12 hours")) {
-                        selectLastAvailableHours(lastHours);
-                    }
-                    try {
-                        isElementDisplayed("table_systemStatus");
-                        ReportMsg.info("verified system status of table");
-                        columnShouldRepresentLastHoursFromCurrent(hours);
-                        verifyLeagendShouldBeAvailable();
-                        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    } catch (Exception e1) {
-                        ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
-                        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    }
-                }
-                i++;
-            }
-        }
-//        for (WebElement el : elements("listOfApps")) {
-//            String appName = null;
-//
-//            try {
-//                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
-//                appName = elements("listOfApps").get(i).getText();
-//            } catch (StaleElementReferenceException e) {
-//                wait.waitForElementToBeVisible(el);
-//                appName = el.getText();
-//                e.printStackTrace();
-//            }
-//            i++;
-//            selectAppsFromPlatformScreen(appName);
-//            if (!lastHours.contains("last 12 hours")) {
-//                selectLastAvailableHours(lastHours);
-//            }
-//            try {
-//                isElementDisplayed("table_systemStatus");
-//                ReportMsg.info("verified system status of table");
-//                columnShouldRepresentLastHoursFromCurrent(hours);
-//                verifyLeagendShouldBeAvailable();
-//                userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//            } catch (Exception e) {
-//                userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//            }
-//        }
-    }
-
     private void selectLastAvailableHours(String string) {
         if (string.contains("last 12 hours")) {
             isElementDisplayed("span_DropDownSelector");
@@ -478,7 +58,7 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("list_dropdownOptions", string);
             element("list_dropdownOptions", string).click();
         }
-        ReportMsg.info("Verified " + string + "from drop down");
+        ReportMsg.info("Selected " + string + " from drop down");
     }
 
     private void columnShouldRepresentLastHoursFromCurrent(String last_12_hours) {
@@ -512,116 +92,6 @@ public class DetailScreenPageActions extends GetPage {
         isElementDisplayed("span_minorDisruption");
         isElementDisplayed("span_serviceTemporarilyUnavailable");
         isElementDisplayed("span_plannedMaintenance");
-    }
-
-    public void verifyInformationAvailableForLast30Days(String last_30_days) {
-        System.out.println("********** Verifying information is available for last 30 days for all apps ************* ");
-        try {
-            isElementDisplayed("groupPattern");
-            ReportMsg.info("Platform Availability screen is in form of group");
-            isElementDisplayed("list_groupPanel");
-            int i = 0;
-            String groupName = null;
-            for (WebElement ele : elements("list_groupPanel")) {
-                groupName = elements("list_groupPanel").get(i).getText();
-
-                //element("apps_inGroups",groupName).click();
-                ReportMsg.info("Group Name = " + groupName);
-                elements("list_groupPanel").get(i).click();
-                ReportMsg.info("Clicked on " + groupName + " group");
-
-                int j = 0;
-                isElementDisplayed("apps_inGroups", groupName);
-                for (WebElement e : elements("apps_inGroups", groupName)) {
-                    String appName = null;
-                    ReportMsg.info("app size in group " + groupName + " = " + elements("apps_inGroups", groupName).size());
-                    elements("apps_inGroups", groupName).get(j).click();
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("clicked on " + appName);
-                    selectLastAvailableHours(last_30_days);
-                    try {
-                        isElementDisplayed("table_systemStatus");
-                        element("table_systemStatus").isDisplayed();
-                        ReportMsg.info("Verifying table system stutus");
-                        verifyInformationOnGregorianCalendar(appName);
-                        onHoverOverOnAnyDay24HourClockShouldBeSeen();
-                        verifyLeagendShouldBeAvailable();
-                        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    } catch (Exception ee) {
-                        ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
-                        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    }
-                    elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on " + groupName + " group");
-                    j++;
-
-                }
-                ReportMsg.info("covered all app of = " + groupName + "group");
-                i++;
-            }
-
-        } catch (Exception ee) {
-            int i = 0;
-            String appName = null;
-            for (WebElement ele : elements("div_app_systemApp")) {
-
-                if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                } else {
-                    elements("div_app_systemApp").get(i).click();
-
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    selectLastAvailableHours(last_30_days);
-                    try {
-                        isElementDisplayed("table_systemStatus");
-                        element("table_systemStatus").isDisplayed();
-                        ReportMsg.info("Verifying table system stutus");
-                        verifyInformationOnGregorianCalendar(appName);
-                        onHoverOverOnAnyDay24HourClockShouldBeSeen();
-                        verifyLeagendShouldBeAvailable();
-                        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    } catch (Exception e) {
-                        ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
-                        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    }
-                }
-                i++;
-            }
-        }
-//        int i = 0;
-//        for (WebElement el : elements("listOfApps")) {
-//            String appName = null;
-//
-//            try {
-//                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
-//                appName = elements("listOfApps").get(i).getText();
-//            } catch (StaleElementReferenceException e) {
-//                wait.waitForElementToBeVisible(el);
-//                appName = el.getText();
-//                e.printStackTrace();
-//            }
-//            i++;
-//            selectAppsFromPlatformScreen(appName);
-//            selectLastAvailableHours(last_30_days);
-//            try {
-//                isElementDisplayed("table_systemStatus");
-//                element("table_systemStatus").isDisplayed();
-//                verifyInformationOnGregorianCalendar(appName);
-//                onHoverOverOnAnyDay24HourClockShouldBeSeen();
-//                verifyLeagendShouldBeAvailable();
-//                userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//            } catch (Exception e) {
-//                userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//            }
-//
-//        }
     }
 
     private void verifyInformationOnGregorianCalendar(String appName) {
@@ -680,86 +150,7 @@ public class DetailScreenPageActions extends GetPage {
 //        selectLastAvailableHours(last_30_days);
 //        verifiInformationOnGregorianCalendar();
 //    }
-    public void checkCurrecntInformationAlertButtonforLastDays(String last_30_days) {
-        try {
-            isElementDisplayed("groupPattern");
-            ReportMsg.info("Platform Availability screen is in form of group");
-            isElementDisplayed("list_groupPanel");
-            int i = 0;
-            String groupName = null;
-            for (WebElement ele : elements("list_groupPanel")) {
-                groupName = elements("list_groupPanel").get(i).getText();
-
-                //element("apps_inGroups",groupName).click();
-                ReportMsg.info("Group Name = " + groupName);
-                elements("list_groupPanel").get(i).click();
-                ReportMsg.info("Clicked on " + groupName + " group");
-
-                int j = 0;
-                isElementDisplayed("apps_inGroups", groupName);
-                for (WebElement e : elements("apps_inGroups", groupName)) {
-                    String appName = null;
-                    ReportMsg.info("app size in group =" + elements("apps_inGroups", groupName).size());
-                    elements("apps_inGroups", groupName).get(j).click();
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("clicked on " + appName);
-                    selectLastAvailableHours(last_30_days);
-                    verifyCurrentInformationAlerts();
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on " + groupName + " group");
-                    j++;
-                }
-                ReportMsg.info("covered all app of = " + groupName + "group");
-                i++;
-            }
-        } catch (Exception e) {
-            int i = 0;
-            String appName = null;
-            for (WebElement ele : elements("div_app_systemApp")) {
-
-                if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                } else {
-                    elements("div_app_systemApp").get(i).click();
-
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    selectLastAvailableHours(last_30_days);
-                    verifyCurrentInformationAlerts();
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                }
-                i++;
-            }
-        }
-
-//        int i = 0;
-//        for (WebElement el : elements("listOfApps")) {
-//            String appName = null;
-//
-//            try {
-//                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
-//                appName = elements("listOfApps").get(i).getText();
-//            } catch (StaleElementReferenceException e) {
-//                wait.waitForElementToBeVisible(el);
-//                appName = el.getText();
-//                e.printStackTrace();
-//            }
-//            i++;
-//            selectAppsFromPlatformScreen(appName);
-//            selectLastAvailableHours(last_30_days);
-//            verifyCurrentInformationAlerts();
-//            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//        }
-    }
-
-    private void verifyCurrentInformationAlerts() {
+    private void verifyCurrentInformationAlerts(String appName) {
         try {
             isElementDisplayed("btn_currnetInformationAlerts");
             element("btn_currnetInformationAlerts").click();
@@ -785,12 +176,12 @@ public class DetailScreenPageActions extends GetPage {
             element("password").sendKeys("Cengage1");
             element("button_login").click();
 
-            isElementDisplayed("button_Admin");
-            element("button_Admin").click();
-            ReportMsg.info("Click on admin button");
-            isElementDisplayed("link_adminPage");
-            element("link_adminPage");
-            ReportMsg.info("Select admin page");
+//            isElementDisplayed("button_Admin");
+//            element("button_Admin").click();
+//            ReportMsg.info("Click on admin button");
+//            isElementDisplayed("link_adminPage");
+//            element("link_adminPage");
+//            ReportMsg.info("Select admin page");
             isElementDisplayed("button_createNotification");
             element("button_createNotification").click();
             ReportMsg.info("Click on create new notification button");
@@ -799,12 +190,6 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("list_allApp");
             element("list_allApp").click();
             ReportMsg.info("Select system all app from slect monitors");
-//            isElementDisplayed("select_timeZone");
-//            element("select_timeZone").click();
-//
-//            isElementDisplayed("list_estTime");
-//            element("list_estTime").click();
-//            ReportMsg.info("Set EST time zone");
             isElementDisplayed("select_endDate");
             element("select_endDate").click();
             String currentDate = element("text_currentDate").getText();
@@ -829,6 +214,16 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("button_save");
             element("button_save").click();
             ReportMsg.info("Click On save button");
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            isElementDisplayed("singleApp", appName);
+            element("singleApp", appName).click();
+            ReportMsg.info("Click on App = " + appName);
+            isElementDisplayed("txt_appName");
+            appName = element("txt_appName").getText();
+            String b[] = appName.split("> ");
+            appName = b[1];
+            ReportMsg.info("AppName = " + appName);
+
         }
     }
 
@@ -866,66 +261,24 @@ public class DetailScreenPageActions extends GetPage {
 
     }
 
-    public void checkColorNotationGreenInDetailScreen() {
-        int i = 0;
-        for (WebElement el : elements("listOfApps")) {
-            String appName = null;
-
-            try {
-                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
-                appName = elements("listOfApps").get(i).getText();
-                ReportMsg.info("App Namr = " + appName);
-            } catch (StaleElementReferenceException e) {
-                wait.waitForElementToBeVisible(el);
-                appName = el.getText();
-                e.printStackTrace();
-            }
-            i++;
-            selectAppsFromPlatformScreen(appName);
-        }
-    }
-
-    public void verifyPlatfromAvalabilityPattern() {
-        try {
-            isElementDisplayed("groupPattern");
-            ReportMsg.info("Platform Availability screen is in form of group");
-            isElementDisplayed("list_groupPanel");
-            int i = 0;
-            String groupName = null;
-            for (WebElement ele : elements("list_groupPanel")) {
-                groupName = elements("list_groupPanel").get(i).getText();
-
-                //element("apps_inGroups",groupName).click();
-                ReportMsg.info("Group Name = " + groupName);
-                elements("list_groupPanel").get(i).click();
-                ReportMsg.info("Clicked on " + groupName + " group");
-
-                int j = 0;
-                isElementDisplayed("apps_inGroups", groupName);
-                for (WebElement e : elements("apps_inGroups", groupName)) {
-                    String appName = null;
-                    ReportMsg.info("app size in group =" + elements("apps_inGroups", groupName).size());
-                    elements("apps_inGroups", groupName).get(j).click();
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("clicked on " + appName);
-                    userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-                    elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on " + groupName + " group");
-                    j++;
-                }
-                ReportMsg.info("covered all app of = " + groupName + "group");
-                i++;
-            }
-        } catch (Exception e) {
-            isElementDisplayed("div_app_systemApp");
-            ReportMsg.info("Platform Availability screen in not in form of group");
-        }
-    }
-
+//    public void checkColorNotationGreenInDetailScreen() {
+//        int i = 0;
+//        for (WebElement el : elements("listOfApps")) {
+//            String appName = null;
+//
+//            try {
+//                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
+//                appName = elements("listOfApps").get(i).getText();
+//                ReportMsg.info("App Namr = " + appName);
+//            } catch (StaleElementReferenceException e) {
+//                wait.waitForElementToBeVisible(el);
+//                appName = el.getText();
+//                e.printStackTrace();
+//            }
+//            i++;
+//            selectAppsFromPlatformScreen(appName);
+////        }
+//    }
     public void verifyBreadCrumb(String appName) {
         isElementDisplayed("singleApp", appName);
         element("singleApp", appName).click();
@@ -967,7 +320,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
     }
 
-    public void verifyInformationAvailableForLastHours1(String lastHours, String hours) {
+    public void verifyInformationAvailableForLastHours1(String lastHours, String hours, String appName) {
         if (!lastHours.contains("last 12 hours")) {
             selectLastAvailableHours(lastHours);
         }
@@ -978,31 +331,45 @@ public class DetailScreenPageActions extends GetPage {
             verifyLeagendShouldBeAvailable();
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         } catch (Exception e1) {
-            //  ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + appName);
-            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            // e1.printStackTrace();
+            ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + lastHours);
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            isElementDisplayed("singleApp", appName);
+            element("singleApp", appName).click();
+            ReportMsg.info("Click on App = " + appName);
+            isElementDisplayed("txt_appName");
+            appName = element("txt_appName").getText();
+            String a[] = appName.split("> ");
+            appName = a[1];
+            ReportMsg.info("AppName = " + appName);
         }
     }
 
     public void verifyInformationAvailableForLast30Days1(String last_30_days, String appName) {
         selectLastAvailableHours(last_30_days);
-        isElementDisplayed("table_systemStatus");
-        element("table_systemStatus").isDisplayed();
-        ReportMsg.info("Verifying table system stutus");
-        verifyInformationOnGregorianCalendar(appName);
-        onHoverOverOnAnyDay24HourClockShouldBeSeen();
-        verifyLeagendShouldBeAvailable();
+        try {
+            isElementDisplayed("table_systemStatus");
+            element("table_systemStatus").isDisplayed();
+            ReportMsg.info("Verifying table system stutus");
+            verifyInformationOnGregorianCalendar(appName);
+            onHoverOverOnAnyDay24HourClockShouldBeSeen();
+            verifyLeagendShouldBeAvailable();
+        } catch (Exception e) {
+            ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + last_30_days);
+            verifyBreadcrumb(appName);
+        }
     }
 
-    public void checkCurrecntInformationAlertButtonforLastDays1() {
-        String lastHours="last 12 hours";
+    public void checkCurrecntInformationAlertButtonforLastDays1(String appName) {
+        String lastHours = "last 12 hours";
         selectLastAvailableHours(lastHours);
-        verifyCurrentInformationAlerts();
-        lastHours="last 24 hours";
+        verifyCurrentInformationAlerts(appName);
+        lastHours = "last 24 hours";
         selectLastAvailableHours(lastHours);
-        verifyCurrentInformationAlerts();
-        lastHours="last 30 days";
+        verifyCurrentInformationAlerts(appName);
+        lastHours = "last 30 days";
         selectLastAvailableHours(lastHours);
-        verifyCurrentInformationAlerts();
+        verifyCurrentInformationAlerts(appName);
     }
 
 }
