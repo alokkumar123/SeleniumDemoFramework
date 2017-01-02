@@ -332,7 +332,10 @@ public class DetailScreenPageActions extends GetPage {
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         } catch (Exception e1) {
             // e1.printStackTrace();
-            ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + lastHours);
+            ReportMsg.info("table systme status is not availabe for app");
+            isElementDisplayed("div_errorMessage");
+            String message = element("div_errorMessage").getText();
+            ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + lastHours);
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
             isElementDisplayed("singleApp", appName);
             element("singleApp", appName).click();

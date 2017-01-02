@@ -1,6 +1,7 @@
 # Object Definitions
 
 ==================================================================================================================================
+div_errorMessage                             xpath         //div[contains(text(),'Detailed data view coming soon...')]
 txt_appName                                  xpath         //a/parent::span
 div_app_systemApp                            xpath         //div[contains(@class,'system-card front green')]
 allApps                                      xpath         //div[@class='back card green']//h5[text()='${appName}']/../..
