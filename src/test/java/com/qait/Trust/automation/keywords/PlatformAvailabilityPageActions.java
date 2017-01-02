@@ -179,7 +179,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 //            ReportMsg.info("length "+app[1].length());
             if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48)) ) {
 //                  ReportMsg.info(" i = " + i);
-                ReportMsg.info("App name = " + app[0] + " is displaying with " + app[1]);
+                ReportMsg.info("App name = " + app[0] + " is displaying with " + b[1]);
             }
             i++;
         }
