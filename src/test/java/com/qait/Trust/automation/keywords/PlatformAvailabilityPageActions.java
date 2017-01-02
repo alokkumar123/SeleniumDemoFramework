@@ -61,6 +61,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
             for (WebElement ele : elements("div_app_systemApp")) {
 
                 if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
+                    ReportMsg.info("System Test App is displaying ,we are not performing testing on this app");
                     break;
                 } else {
                     //elements("div_lastUpdatedTime").size();
@@ -175,12 +176,12 @@ public class PlatformAvailabilityPageActions extends GetPage {
                 //  ReportMsg.info(" i = " + i);
                 ReportMsg.info("App name =" + app[0] + " is displaying with " + app[1]);
             }
-                    i++;
-                }
-
+            i++;
         }
 
     }
+
+}
 
 //    private ArrayList getAppFromYmal() {
 //        String cengageBrain = getData("appName.cengageBrain");
@@ -210,5 +211,4 @@ public class PlatformAvailabilityPageActions extends GetPage {
 //        }
 //        return list;
 //    }
-
 

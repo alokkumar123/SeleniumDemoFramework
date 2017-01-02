@@ -6,7 +6,7 @@ import static com.qait.Trust.automation.utils.YamlReader.getData;
 public class PlatformAvailabiltyTest extends TestFundamentals {
     
     @Test
-    public void TRUST_314_Verify_List_Of_Apps_Are_Displaying() {
+    public void TRUST_314_Verify_List_Of_Apps_Are_Displaying_On_Platfrom_Availiblity() {
         //test.platfromAvailabilityPage.verifyListofAppDisplaying();
         test.platfromAvailabilityPage.verifyingAppOnPlatfromScreen(getData("appName"));
     }
