@@ -130,8 +130,8 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     public void onHoverOverOnAnyDay24HourClockShouldBeSeen() {
-        hoverOnAnyDay("1");
-        verifyDayHeading("1");
+        hoverOnAnyDay("5");
+        verifyDayHeading();
     }
 
     private void hoverOnAnyDay(String day) {
@@ -139,7 +139,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("hover on day " + day);
     }
 
-    private void verifyDayHeading(String dayNo) {
+    private void verifyDayHeading() {
         isElementDisplayed("text_dayHeading");
         ReportMsg.info(element("text_dayHeading").getText() + " heading is displaying while hover on day");
         //ReportMsg.info("verified heading of the selected day");
