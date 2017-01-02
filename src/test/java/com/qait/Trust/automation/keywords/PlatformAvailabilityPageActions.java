@@ -61,7 +61,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
             for (WebElement ele : elements("div_app_systemApp")) {
 
                 if (elements("div_app_systemApp").get(i).getText().contains("system test")) {
-                    ReportMsg.info("System Test App is displaying ,we are not performing testing on this app");
+                    ReportMsg.info("System Test App is displaying ,not testing this app");
                     break;
                 } else {
                     //elements("div_lastUpdatedTime").size();
@@ -170,11 +170,16 @@ public class PlatformAvailabilityPageActions extends GetPage {
         for (WebElement e : elements("url_systemLogo")) {
 
             //ReportMsg.info(" attribute " + e.getAttribute("style"));
+//            ReportMsg.info(" i = " + i);
             String app[] = a[i].split("=");
+//            ReportMsg.info("a[i] = " + app[1]);
             //ReportMsg.info("app name = " + app[1]);
-            if (e.getAttribute("style").contains(app[1])) {
-                //  ReportMsg.info(" i = " + i);
-                ReportMsg.info("App name =" + app[0] + " is displaying with " + app[1]);
+            String b[] = e.getAttribute("style").split(": ");
+//            ReportMsg.info("b[i] = " + b[1]);
+//            ReportMsg.info("length "+app[1].length());
+            if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48)) ) {
+//                  ReportMsg.info(" i = " + i);
+                ReportMsg.info("App name = " + app[0] + " is displaying with " + app[1]);
             }
             i++;
         }
