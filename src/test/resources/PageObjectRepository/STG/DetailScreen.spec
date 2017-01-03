@@ -50,6 +50,8 @@ userName                                     xpath          //input[@placeholder
 password                                     xpath          //input[@placeholder ='Enter password']
 button_login                                 xpath          //button[text()='Login']    
 button_save                                  xpath          //button[text()='Save']   
-singleApp                                    xpath          //div[contains(@style,'${appName}')]                                
+singleApp                                    xpath          //div[contains(@style,'${appName}')]     
+greenColor_timeFrame                         xpath          //div[@class='green']       
+div_appColorOnPlatform                       xpath          //div[contains(@style,'${appName}')]/ancestor::div[contains(@class,'system-header green')]//div[contains(@class,'system-status-icon-container')]                        
 ==================================================================================================================================
     
