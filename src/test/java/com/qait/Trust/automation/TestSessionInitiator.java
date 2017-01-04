@@ -1,5 +1,6 @@
 package com.qait.Trust.automation;
 
+import com.qait.Trust.automation.keywords.CreateAndConfigureMonitorsPageActions;
 import com.qait.Trust.automation.keywords.DetailScreenPageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
@@ -41,7 +42,8 @@ public class TestSessionInitiator {
      *
      */
     public PlatformAvailabilityPageActions platfromAvailabilityPage;
-    public DetailScreenPageActions  detailScreenPage;
+    public DetailScreenPageActions detailScreenPage;
+    public CreateAndConfigureMonitorsPageActions createAndConfigPage;
 
     public TakeScreenshot takescreenshot;
 
@@ -52,6 +54,7 @@ public class TestSessionInitiator {
     private void _initPage() {
         platfromAvailabilityPage = new PlatformAvailabilityPageActions(driver);
         detailScreenPage = new DetailScreenPageActions(driver);
+        createAndConfigPage = new CreateAndConfigureMonitorsPageActions(driver);
     }
 
     /**
@@ -113,14 +116,13 @@ public class TestSessionInitiator {
 //    public void launchApplication() {
 //        launchApplication(getYamlValue("app_url"));
 //    }
-
     public void launchApplication(String base_url) {
         ReportMsg.info(" The application url is :- " + base_url);
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
         System.out.println("Current OS Browser configuration:" + uAgent);
         driver.manage().deleteAllCookies();
         driver.get(base_url);
-    
+
     }
 
     public void openUrl(String url) {
@@ -144,6 +146,4 @@ public class TestSessionInitiator {
         Reporter.log("********** TEST METHOD  : - " + testMethodName.toUpperCase() + " ***************", true);
         Reporter.log("\n", true);
     }
-
-    
 }
