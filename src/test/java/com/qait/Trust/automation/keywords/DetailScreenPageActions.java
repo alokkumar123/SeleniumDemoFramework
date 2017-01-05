@@ -130,7 +130,7 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     public void onHoverOverOnAnyDay24HourClockShouldBeSeen() {
-        hoverOnAnyDay("5");
+        hoverOnAnyDay("20");
         verifyDayHeading();
     }
 
