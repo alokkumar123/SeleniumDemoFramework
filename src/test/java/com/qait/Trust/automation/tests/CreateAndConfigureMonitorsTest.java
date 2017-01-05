@@ -8,7 +8,7 @@ package com.qait.Trust.automation.tests;
 import com.qait.Trust.automation.TestFundamentals;
 import org.testng.annotations.Test;
 
-public class ConfigureAndCreateMonitorsTest extends TestFundamentals {
+public class CreateAndConfigureMonitorsTest extends TestFundamentals {
 
     @Test
     public void Trust_350_Configure_Monitors() {
