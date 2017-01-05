@@ -136,6 +136,7 @@ public class DetailScreenPageActions extends GetPage {
 
     private void hoverOnAnyDay(String day) {
         hover(element("hover_anyday", day));
+        hover(element("btn_currnetInformationAlerts"));
         ReportMsg.info("hover on day " + day);
     }
 
