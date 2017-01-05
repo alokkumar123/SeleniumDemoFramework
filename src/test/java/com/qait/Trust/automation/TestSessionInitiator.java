@@ -1,5 +1,6 @@
 package com.qait.Trust.automation;
 
+import com.qait.Trust.automation.keywords.CheckSearchFunctionalityCyclePageActions;
 import com.qait.Trust.automation.keywords.CreateAndConfigureMonitorsPageActions;
 import com.qait.Trust.automation.keywords.DetailScreenPageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
@@ -44,6 +45,7 @@ public class TestSessionInitiator {
     public PlatformAvailabilityPageActions platfromAvailabilityPage;
     public DetailScreenPageActions detailScreenPage;
     public CreateAndConfigureMonitorsPageActions createAndConfigPage;
+    public CheckSearchFunctionalityCyclePageActions checkSearchFunctionality;
 
     public TakeScreenshot takescreenshot;
 
@@ -55,6 +57,7 @@ public class TestSessionInitiator {
         platfromAvailabilityPage = new PlatformAvailabilityPageActions(driver);
         detailScreenPage = new DetailScreenPageActions(driver);
         createAndConfigPage = new CreateAndConfigureMonitorsPageActions(driver);
+        checkSearchFunctionality = new CheckSearchFunctionalityCyclePageActions(driver);
     }
 
     /**

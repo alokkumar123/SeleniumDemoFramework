@@ -13,7 +13,7 @@ public class ConfigureAndCreateMonitorsTest extends TestFundamentals {
     @Test
     public void Trust_350_Configure_Monitors() {
         test.createAndConfigPage.logAsAdmin();
-        test.createAndConfigPage.navigateToManageSystem();
+        test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.gridShouldBeAvailableFor("Enabled");
         test.createAndConfigPage.gridShouldBeAvailableFor("Monitor");
         test.createAndConfigPage.gridShouldBeAvailableFor("System");
@@ -26,7 +26,7 @@ public class ConfigureAndCreateMonitorsTest extends TestFundamentals {
     @Test
     public void Trust_376_Create_Monitors() {
         test.createAndConfigPage.logAsAdmin();
-        test.createAndConfigPage.navigateToManageSystem();
+        test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.clickOnCreateButton();
         test.createAndConfigPage.enterAllMandatoryFieldsAndClickOnSave();
         test.createAndConfigPage.newCreatedMonitorsShouldBeSeenOnTheList();
@@ -35,4 +35,5 @@ public class ConfigureAndCreateMonitorsTest extends TestFundamentals {
         test.createAndConfigPage.logOutFromAdmin();
     }
 
+   
 }
