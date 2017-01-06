@@ -52,6 +52,9 @@ button_login                                 xpath          //button[text()='Log
 button_save                                  xpath          //button[text()='Save']   
 singleApp                                    xpath          //div[contains(@style,'${appName}')]     
 greenColor_timeFrame                         xpath          //div[@class='green']       
-div_appColorOnPlatform                       xpath          //div[contains(@style,'${appName}')]/ancestor::div[contains(@class,'system-header green')]//div[contains(@class,'system-status-icon-container')]                        
+div_appColorOnPlatform                       xpath          //div[contains(@style,'${appName}')]/ancestor::div[contains(@class,'system-header green')]//div[contains(@class,'system-status-icon-container')]
+td_colorFrame                                xpath          //td[contains(@class,'cell-status')]/div[@class='${color}']/../.. 
+tr_colorTime                                 xpath          (//td[contains(@class,'cell-status')]/div[@class='red']/../../td)[${s}]
+redColor                                     xpath          //td[contains(@class,'cell-status')]/div[@class='red']/../..//div[@class='${color}']
 ==================================================================================================================================
     
