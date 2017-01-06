@@ -16,14 +16,36 @@ public class CheckSearchFunctionalityCyclePageActions extends GetPage {
         this.driver = driver;
     }
 
-    String searchingText = "MindTap Math Foundations";
+    String searchingText;
 
     public void validateSearchFunctionalityForPossitiveCycle() {
+        searchingText = "M";
         isElementDisplayed("input_serachBox");
         ReportMsg.info("Search box is available");
         element("input_serachBox").clear();
         element("input_serachBox").sendKeys(searchingText);
-        isElementDisplayed("serarched_text", searchingText);
+        isElementDisplayed("searched_text", searchingText);
+        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        searchingText = "Mind";
+        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Search box is available");
+        element("input_serachBox").clear();
+        element("input_serachBox").sendKeys(searchingText);
+        isElementDisplayed("searched_text", searchingText);
+        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        searchingText = "MindTap Math";
+        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Search box is available");
+        element("input_serachBox").clear();
+        element("input_serachBox").sendKeys(searchingText);
+        isElementDisplayed("searched_text", searchingText);
+        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        searchingText = "MindTap Math Foundations";
+        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Search box is available");
+        element("input_serachBox").clear();
+        element("input_serachBox").sendKeys(searchingText);
+        isElementDisplayed("searched_text", searchingText);
         ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
 
     }

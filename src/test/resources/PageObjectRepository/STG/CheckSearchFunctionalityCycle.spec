@@ -1,7 +1,7 @@
 # Object Definitions
 
 ==================================================================================================================================
-serarched_text                               xpath          //td[contains(@data-search-text,'${searchingText}')]
+searched_text                                xpath          //td[contains(@data-search-text,'${searchingText}')]
 input_serachBox                              xpath          //input[@id='searchText']
 ==================================================================================================================================
     
