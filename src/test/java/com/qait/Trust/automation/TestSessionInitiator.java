@@ -10,6 +10,9 @@ import com.qait.Trust.automation.utils.ReportMsg;
 import com.qait.Trust.automation.utils.TakeScreenshot;
 import static com.qait.Trust.automation.utils.YamlReader.getYamlValue;
 import static com.qait.Trust.automation.utils.YamlReader.setYamlFilePath;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -149,4 +152,60 @@ public class TestSessionInitiator {
         Reporter.log("********** TEST METHOD  : - " + testMethodName.toUpperCase() + " ***************", true);
         Reporter.log("\n", true);
     }
+    
+    /////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////// Accessibility Test Methods ---> HTML Code Sniffer ////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////
+    public void accessibilityTestViaFrontPageTesterMethodInHTMLCodeSniffer() {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        BufferedReader br = null;
+        String inject = "";
+        try {
+            String sCurrentLine;
+            br = new BufferedReader(new FileReader("src/test/resources/injectingFrontPageTesterToDOM.js"));
+            while ((sCurrentLine = br.readLine()) != null) {
+                inject += sCurrentLine;
+                inject += "\n";
+            }
+        } catch (IOException e) {
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (IOException ex) {
+            }
+        }
+        jse.executeScript(inject);
+    }
+
+    public void injectBookMarkletMethodOnWebPage() {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        BufferedReader br = null;
+        String inject = "";
+        try {
+            String sCurrentLine;
+            br = new BufferedReader(new FileReader("src/test/resources/injectingHTMLCodeSnifferBookMarkletToDOM.js"));
+            while ((sCurrentLine = br.readLine()) != null) {
+                inject += sCurrentLine;
+                inject += "\n";
+            }
+        } catch (IOException e) {
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (IOException ex) {
+            }
+        }
+        jse.executeScript(inject);
+
+        // NOTE: To avoid StaleElement Exception when we have injected HTML Code Sniffer
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+        }
+    }
+
 }

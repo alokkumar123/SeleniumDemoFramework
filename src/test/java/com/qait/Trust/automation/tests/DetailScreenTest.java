@@ -7,9 +7,7 @@ import static com.qait.Trust.automation.utils.YamlReader.getData;
 public class DetailScreenTest extends TestFundamentals {
 
     @Test
-    public void TC01_verifying_All_Details_For_MindTap_Platform() {
-        test.detailScreenPage.logAsAdmin();
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+    public void TC01_Verifying_All_Details_For_MindTap_Platform() {
         test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
@@ -24,7 +22,7 @@ public class DetailScreenTest extends TestFundamentals {
     }
 
     @Test
-    public void TC02_verifying_All_Details_For_Cengage_Brain_Platform() {
+    public void TC02_Verifying_All_Details_For_Cengage_Brain_Platform() {
         test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageBrain"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
@@ -133,5 +131,5 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNow"));
         test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNow"), "red");
-    }
+    }    
 }
