@@ -8,7 +8,7 @@ public class DetailScreenTest extends TestFundamentals {
 
     @Test
     public void TC01_verifying_All_Details_For_MindTap_Platform() {
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap")); 
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.mindtap"));
@@ -17,7 +17,6 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.mindtap"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.mindtap"));
-
     }
 
     @Test

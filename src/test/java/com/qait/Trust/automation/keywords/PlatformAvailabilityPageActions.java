@@ -43,13 +43,10 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     String a[] = appName.split("> ");
                     appName = a[1];
                     ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("clicked on " + appName);
-                    //verifyBreadcrumb(appName);
-                    //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+                    ReportMsg.info("Clicked on '" + appName + "'");
                     elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on " + groupName + " group");
+                    ReportMsg.info("Clicked on '" + groupName + "' group");
                     j++;
-
                 }
                 ReportMsg.info("covered all app of = " + groupName + "group");
                 i++;
@@ -64,10 +61,9 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     ReportMsg.info("System Test App is displaying ,not testing this app");
                     break;
                 } else {
-                    //elements("div_lastUpdatedTime").size();
 
                     String text = elements("div_lastUpdatedTime").get(i).getText();
-                    ReportMsg.info("Time on application = " + text);
+                    ReportMsg.info("Time on application: " + text);
                     String a[] = text.split(":");
                     String a1[] = a[2].split(" ");
 
@@ -75,7 +71,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     String strDateFormat = "HH:mm a";
                     DateFormat sdf = new SimpleDateFormat(strDateFormat);
                     String systemTime = sdf.format(date);
-                    ReportMsg.info("System time=" + systemTime);
+                    ReportMsg.info("System Time: " + systemTime);
                     String b[] = systemTime.split(":");
                     String b1[] = b[1].split(" ");
                     int time = Integer.parseInt(a1[0]) - Integer.parseInt(b1[0]);
@@ -90,65 +86,11 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     }
                     ReportMsg.info("Verified last updated time on platform availability page");
                 }
-
-//                isElementDisplayed("txt_appName");
-//                appName = element("txt_appName").getText();
-//                String a[] = appName.split("> ");
-//                appName = a[1];
-//                ReportMsg.info("AppName = " + appName);
-//            }
-                i++;
             }
+            i++;
         }
-
-//        Boolean value;
-//        for (WebElement wb : elements("list_backgroundImageHeader")) {
-//
-//            String appName = wb.getText();
-//
-//            isElementDisplayed("div_lastUpdatedTime", appName);
-//            String text = element("div_lastUpdatedTime", appName).getText();
-//            ReportMsg.info("Time on application = " + text);
-//            String a[] = text.split(":");
-//            String a1[] = a[2].split(" ");
-//
-//            Date date = new Date();
-//            String strDateFormat = "HH:mm a";
-//            DateFormat sdf = new SimpleDateFormat(strDateFormat);
-//            String systemTime = sdf.format(date);
-//            ReportMsg.info("System time=" + systemTime);
-//            String b[] = systemTime.split(":");
-//            String b1[] = b[1].split(" ");
-//            int time = Integer.parseInt(a1[0]) - Integer.parseInt(b1[0]);
-//
-//            if (time < 5) {
-//                ReportMsg.info("Verified Last updated time is not be more than 5 minutes from the system time for " + appName + "app");
-//
-//                value = true;
-//            } else {
-//                ReportMsg.info("Last update time is be more than 5 minutes from the system time");
-//                value = false;
-//            }
-//            ReportMsg.info("Verified last updated time on platform availability page");
-//        }    
     }
 
-//public void verifyListofAppDisplaying() {
-//        String appName = null;
-//        for (WebElement ele : elements("div_app_systemApp")) {
-//            // appName=ele.getText();
-//            ReportMsg.info("hello");
-//        }
-//        String appName = null;
-//        List<WebElement> a = elements("list_backgroundImageHeader");
-//
-//        for (WebElement el : a) {
-//            appName = el.getText();
-//            ReportMsg.info("Platform name:- " + appName);
-//            isElementDisplayed("div_platformName", appName);
-//            waitTOSync();
-//        }
-//}
     public void verifyNeedProductSupportLinkDisplaying() {
         isElementDisplayed("lnk_productSupportLink");
     }
@@ -163,57 +105,17 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public void verifyingAppOnPlatfromScreen(String appName) {
-//        ReportMsg.info("appname:= " + appName);
         int i = 0;
         String a[] = appName.split(",");
         ReportMsg.info("Number of apps are displaying on platform screen " + elements("url_systemLogo").size());
         for (WebElement e : elements("url_systemLogo")) {
-
-            //ReportMsg.info(" attribute " + e.getAttribute("style"));
-//            ReportMsg.info(" i = " + i);
             String app[] = a[i].split("=");
-//            ReportMsg.info("a[i] = " + app[1]);
-            //ReportMsg.info("app name = " + app[1]);
             String b[] = e.getAttribute("style").split(": ");
-//            ReportMsg.info("b[i] = " + b[1]);
-//            ReportMsg.info("length "+app[1].length());
-            if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48)) ) {
-//                  ReportMsg.info(" i = " + i);
+            if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48))) {
                 ReportMsg.info("App name = " + app[0] + " is displaying with " + b[1]);
             }
             i++;
         }
-
     }
 
 }
-
-//    private ArrayList getAppFromYmal() {
-//        String cengageBrain = getData("appName.cengageBrain");
-//        String mindtap = getData("appName.mindtap");
-//        String aplia = getData("appName.aplia");
-//        String cengageNow = getData("appName.cengageNow");
-//        String cengageNOWv2 = getData("appName.cengageNOWv2");
-//        String OWLv2 = getData("appName.OWLv2");
-//        String SAM = getData("appName.SAM");
-//        String a4LTR = getData("appName.4LTR");
-//        String mindtapMathFoundation = getData("appName.mindtapMathFoundation");
-//
-//        ArrayList<String> list = new ArrayList<String>();
-//
-//        {
-//            {
-//                list.add(mindtap);
-//                list.add(cengageBrain);
-//                list.add(aplia);
-//                list.add(cengageNow);
-//                list.add(cengageNOWv2);
-//                list.add(OWLv2);
-//                list.add(SAM);
-//                list.add(a4LTR);
-//                list.add(mindtapMathFoundation);
-//            }
-//        }
-//        return list;
-//    }
-
