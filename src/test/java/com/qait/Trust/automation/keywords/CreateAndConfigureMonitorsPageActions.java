@@ -34,12 +34,12 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Login into admin account");
     }
 
-    public void navigateToManageSystem() {
+    public void navigateToAdminMenu(String menuName) {
         isElementDisplayed("div_adminMenu");
         ReportMsg.info("Admin Menu list is displaying on admin ");
-        isElementDisplayed("link_manageMonitors");
-        element("link_manageMonitors").click();
-        ReportMsg.info("Navigate to manage System");
+        isElementDisplayed("link_MenuName", menuName);
+        element("link_MenuName", menuName).click();
+        ReportMsg.info("Navigate to " + menuName);
     }
 
     public void clickOnCreateButton() {
@@ -114,5 +114,5 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         isElementDisplayed("link_breadCrumb", breadCrumb);
         ReportMsg.info("Verified breadcrumb for admin");
     }
-
+   
 }

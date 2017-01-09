@@ -130,12 +130,13 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     public void onHoverOverOnAnyDay24HourClockShouldBeSeen() {
-        hoverOnAnyDay("5");
+        hoverOnAnyDay("18");
         verifyDayHeading();
     }
 
     private void hoverOnAnyDay(String day) {
         hover(element("hover_anyday", day));
+        //hover(element("btn_currnetInformationAlerts"));
         ReportMsg.info("hover on day " + day);
     }
 
@@ -413,6 +414,32 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + appName);
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         }
+    }
+
+    public void checkForColorNotationInThePlatformAvailabilityAndDetailScreen(String appName, String color) {
+        isElementDisplayed("div_appColorOnPlatform", appName);
+        ReportMsg.info("Verified color for " + appName + " app is green on Platform Availability Screen");
+        isElementDisplayed("singleApp", appName);
+        element("singleApp", appName).click();
+        // ReportMsg.info("Click on App = " + appName);
+        isElementDisplayed("txt_appName");
+        appName = element("txt_appName").getText();
+        String a[] = appName.split("> ");
+        appName = a[1];
+        ReportMsg.info("Click on App " + appName + " and navigate to the details screen");
+        ReportMsg.info("Set time frame for 12 hours");
+        ReportMsg.info("Set timezone to EST");
+        isElementDisplayed("table_systemStatus");
+        ReportMsg.info("Verifying table system stutus");
+
+        isElementDisplayed("td_colorFrame", color);
+         int x =elements("td_colorFrame", color).size();
+        for (int i=1;i<=x;i++) {
+            String s=Integer.toString(i);
+            String time = element("tr_colorTime",color,s).getText();
+            ReportMsg.info(" red color size for " + elements("redColor", color).size() + time);
+        }
+
     }
 
 }

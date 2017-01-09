@@ -11,7 +11,7 @@ div_monitorName                              xpath          //div[@id='name']/in
 list_allApp                                  xpath          //li[text()='All systems']  
 commentSection                               xpath          //textarea[@placeholder='Work being done']
 button_save                                  xpath          //button[text()='Save']
-link_manageMonitors                          xpath          //a[text()='Manage monitors'] 
+link_MenuName                                xpath          //a[text()='${menuName}'] 
 div_externalServiceId                        xpath          //div[@id='externalServiceID']/input    
 link_newCreatedMonitor                       xpath          //a[contains(text(),'${monitorName}')]  
 button_Admin                                 xpath          //li[@class='login-tab dropdown']//a[@class='dropdown-toggle']
@@ -20,6 +20,7 @@ table_appTableGrid                           xpath          //table[@class='app-
 span_gridFields                              xpath          //span[text()='${string}'] 
 input_serachBox                              xpath          //input[@id='searchText']
 link_breadCrumb                              xpath          //a[contains(text(),'Platform Availability Home')]/parent::div[contains(text(),'${breadCrumb}')] 
-link_ok                                      xpath          //button[text()='OK']    
+link_ok                                      xpath          //button[text()='OK']  
+serarched_text                               xpath          //td[contains(@data-search-text,'${searchingText}')]
 ==================================================================================================================================
     
