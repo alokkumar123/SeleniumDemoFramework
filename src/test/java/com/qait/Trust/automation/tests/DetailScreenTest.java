@@ -8,7 +8,9 @@ public class DetailScreenTest extends TestFundamentals {
 
     @Test
     public void TC01_verifying_All_Details_For_MindTap_Platform() {
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap")); 
+        test.detailScreenPage.logAsAdmin();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.mindtap"));
@@ -17,7 +19,7 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.mindtap"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.mindtap"));
-        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.mindtap"), "red");
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.mindtap"), "yellow");
 
     }
 
@@ -32,8 +34,9 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.cengageBrain"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageBrain"));
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageBrain"), "red");
     }
-
+//
     @Test
     public void TC03_verifying_All_Details_For_Aplia_Platform() {
         test.detailScreenPage.verifyBreadCrumb(getData("appName.aplia"));
@@ -45,6 +48,7 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.aplia"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.aplia"));
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.aplia"), "red");
     }
 
     @Test
@@ -58,6 +62,7 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.cengageNOWv2"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNOWv2"));
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNOWv2"), "red");
     }
 
     @Test
@@ -71,6 +76,7 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.OWLv2"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.OWLv2"));
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.OWLv2"), "red");
     }
 
     @Test
@@ -84,6 +90,7 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.SAM"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.SAM"));
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.SAM"), "red");
     }
 
     @Test
@@ -97,6 +104,7 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.4LTR"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.4LTR"));
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.4LTR"), "red");
     }
 
     @Test
@@ -110,6 +118,7 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.mindtapMathFoundation"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.mindtapMathFoundation"));
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.mindtapMathFoundation"), "red");
     }
 
     @Test
@@ -123,5 +132,6 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "CNOWv1");
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNow"));
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNow"), "red");
     }
 }

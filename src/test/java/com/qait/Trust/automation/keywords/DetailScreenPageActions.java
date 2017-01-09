@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 import java.util.TimeZone;
 
@@ -19,6 +20,23 @@ import org.testng.Assert;
 public class DetailScreenPageActions extends GetPage {
 
     WebDriver driver;
+    ArrayList<String> timeList = new ArrayList<String>() {
+        {
+            add("05");
+            add("10");
+            add("15");
+            add("20");
+            add("25");
+            add("30");
+            add("35");
+            add("40");
+            add("45");
+            add("50");
+            add("55");
+            add("60");
+
+        }
+    };
 
     public DetailScreenPageActions(WebDriver driver) {
         super(driver, "DetailScreen");
@@ -417,6 +435,7 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     public void checkForColorNotationInThePlatformAvailabilityAndDetailScreen(String appName, String color) {
+         System.out.println("\n############## Verifying "+ color+" Color notation, TRUST-347 ##############\n");
         isElementDisplayed("div_appColorOnPlatform", appName);
         ReportMsg.info("Verified color for " + appName + " app is green on Platform Availability Screen");
         isElementDisplayed("singleApp", appName);
@@ -431,15 +450,50 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Set timezone to EST");
         isElementDisplayed("table_systemStatus");
         ReportMsg.info("Verifying table system stutus");
+        try {
+            isElementDisplayed("td_colorFrame", color);
+            //int x = elements("td_colorFrame", color).size();
+            //ReportMsg.info("color size = " + x);
+            for (WebElement el : elements("td_colorFrame", color)) {
+//                String s = Integer.toString(i);
+                //  String time = element("tr_colorTime", color, "1").getText();
+                String hours = el.getText();
+                //ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + " time frame");
+                Iterator itr = timeList.iterator();
+                //elements("minute", hours);
+                //ReportMsg.info("itr 122= " + elements("minute", hours).size());
+                // ReportMsg.info("itr = " + itr.next());
+                for (WebElement ele : elements("minute", hours)) {
+                    String minuteTime = itr.next().toString();
+                    //ReportMsg.info("itr = " + minuteTime);
+                    if (ele.getAttribute("class").equals(color)) {
+                        ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + ":" + minuteTime);
+                    }
+                    //itr.hasNext();
+                }
 
-        isElementDisplayed("td_colorFrame", color);
-         int x =elements("td_colorFrame", color).size();
-        for (int i=1;i<=x;i++) {
-            String s=Integer.toString(i);
-            String time = element("tr_colorTime",color,s).getText();
-            ReportMsg.info(" red color size for " + elements("redColor", color).size() + time);
+            }
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+
+        } catch (Exception e) {
+            ReportMsg.info(color.toUpperCase() + " color frame is not visible on time frame");
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+
         }
 
+    }
+
+    public void logAsAdmin() {
+        isElementDisplayed("link_login");
+        element("link_login").click();
+        element("userName").clear();
+        element("userName").click();
+        element("userName").sendKeys("Admin");
+        element("password").clear();
+        element("password").click();
+        element("password").sendKeys("Cengage1");
+        element("button_login").click();
+        ReportMsg.info("Login into admin account");
     }
 
 }
