@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 
 import java.util.TimeZone;
 import org.openqa.selenium.NoSuchElementException;
@@ -88,7 +87,7 @@ public class DetailScreenPageActions extends GetPage {
 
         int hoursSize = Integer.parseInt(last_12_hours);
         ReportMsg.info("hours size in table = " + hoursSize + " for last " + last_12_hours + " hours");
-        int rowSize = elements("tr_lastHours", systemTime).size();
+        // int rowSize = elements("tr_lastHours", systemTime).size();
         //ReportMsg.info("row size = " + rowSize);
         //Assert.assertEquals(rowSize, hoursSize);
     }
@@ -148,7 +147,6 @@ public class DetailScreenPageActions extends GetPage {
     private void verifyDayHeading() {
         isElementDisplayed("text_dayHeading");
         ReportMsg.info(element("text_dayHeading").getText() + " heading is displaying while hover on day");
-        //ReportMsg.info("verified heading of the selected day");
     }
     
     private void verifyCurrentInformationAlerts(String appName) {
@@ -159,8 +157,6 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("txt_informationalAlert");
             ReportMsg.info("verified text Informational alerts text on pop up");
             executeJavascript("document.getElementsByClassName('btn btn-default')[0].click()");
-//        isElementDisplayed("btn_close");     
-//        element("btn_close").click();
             ReportMsg.info("Message bar is closed when clicked on close button");
             isElementDisplayed("btn_currnetInformationAlerts");
         } catch (Exception e) {
@@ -285,7 +281,6 @@ public class DetailScreenPageActions extends GetPage {
         hours = "last 30 days";
         isElementDisplayed("list_dropdownOptions", hours);
         ReportMsg.info("Verified " + hours + " from last hours drop down");
-
     }
 
     public void verifyTimeZoneDropDownForUser() {
@@ -319,7 +314,6 @@ public class DetailScreenPageActions extends GetPage {
             verifyLeagendShouldBeAvailable();
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         } catch (Exception e1) {
-            // e1.printStackTrace();
             ReportMsg.info("table system status is not availabe for app");
             isElementDisplayed("div_errorMessage");
             String message = element("div_errorMessage").getText();
@@ -372,7 +366,6 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Verified color for " + appName + " app is green on Platform Availability Screen");
             isElementDisplayed("singleApp", appName);
             element("singleApp", appName).click();
-            // ReportMsg.info("Click on App = " + appName);
             isElementDisplayed("txt_appName");
             appName = element("txt_appName").getText();
             String a[] = appName.split("> ");
@@ -388,7 +381,6 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Number of current time frames in green color are " + size + " for 12 hours and EST time zone on Detail Screen");
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         } catch (Exception e) {
-            // e1.printStackTrace();
             ReportMsg.info("table system status is not availabe for app");
             isElementDisplayed("div_errorMessage");
             String message = element("div_errorMessage").getText();

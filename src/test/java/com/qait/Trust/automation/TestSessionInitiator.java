@@ -64,6 +64,7 @@ public class TestSessionInitiator {
         detailScreenPage = new DetailScreenPageActions(driver);
         createAndConfigPage = new CreateAndConfigureMonitorsPageActions(driver);
         checkSearchFunctionality = new CheckSearchFunctionalityCyclePageActions(driver);
+        codeSniffer = new HTMLCodeSniffer(driver); 
     }
 
     /**
