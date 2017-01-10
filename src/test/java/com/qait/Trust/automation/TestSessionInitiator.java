@@ -4,6 +4,8 @@ import com.qait.Trust.automation.keywords.CheckSearchFunctionalityCyclePageActio
 import com.qait.Trust.automation.keywords.CreateAndConfigureMonitorsPageActions;
 import com.qait.Trust.automation.keywords.DetailScreenPageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
+import com.qait.Trust.automation.utils.HTMLCodeSniffer;
+
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import com.qait.Trust.automation.utils.ReportMsg;
 
@@ -49,9 +51,10 @@ public class TestSessionInitiator {
     public DetailScreenPageActions detailScreenPage;
     public CreateAndConfigureMonitorsPageActions createAndConfigPage;
     public CheckSearchFunctionalityCyclePageActions checkSearchFunctionality;
-
+    public HTMLCodeSniffer codeSniffer;
+    
     public TakeScreenshot takescreenshot;
-
+    
     public WebDriver getDriver() {
         return this.driver;
     }

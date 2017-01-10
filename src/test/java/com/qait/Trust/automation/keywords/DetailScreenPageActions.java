@@ -22,21 +22,8 @@ public class DetailScreenPageActions extends GetPage {
 
     WebDriver driver;
     ArrayList<String> timeList = new ArrayList<String>() {
-        {
-            add("05");
-            add("10");
-            add("15");
-            add("20");
-            add("25");
-            add("30");
-            add("35");
-            add("40");
-            add("45");
-            add("50");
-            add("55");
-            add("60");
-
-        }
+        {   add("05"); add("10"); add("15"); add("20"); add("25"); add("30");
+            add("35"); add("40"); add("45"); add("50"); add("55"); add("60"); }
     };
 
     public DetailScreenPageActions(WebDriver driver) {
@@ -144,7 +131,6 @@ public class DetailScreenPageActions extends GetPage {
             Object day = it.next();
             isElementDisplayed("text_days", (String) day);
             ReportMsg.info("verified " + day + " is displaying on calender for " + appName);
-
         }
     }
 
@@ -164,12 +150,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info(element("text_dayHeading").getText() + " heading is displaying while hover on day");
         //ReportMsg.info("verified heading of the selected day");
     }
-
-//    public void clickOnApp(String last_30_days) {
-//        element("app_singleApp").click();
-//        selectLastAvailableHours(last_30_days);
-//        verifiInformationOnGregorianCalendar();
-//    }
+    
     private void verifyCurrentInformationAlerts(String appName) {
         try {
             isElementDisplayed("btn_currnetInformationAlerts");
@@ -213,8 +194,8 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("select_endDate");
             element("select_endDate").click();
             String currentDate = element("text_currentDate").getText();
+            
             int a = Integer.parseInt(currentDate);
-
             if (a < 31) {
                 a = a + 1;
             } else {
@@ -278,27 +259,8 @@ public class DetailScreenPageActions extends GetPage {
         String appStatus = element("text_appAvailability", appName).getText();
         Assert.assertEquals(appStatus, "Available", "App is not avilable on");
         ReportMsg.info(appName + " app is available on platform ");
-
     }
-
-//    public void checkColorNotationGreenInDetailScreen() {
-//        int i = 0;
-//        for (WebElement el : elements("listOfApps")) {
-//            String appName = null;
-//
-//            try {
-//                wait.waitForElementToBeVisible(elements("listOfApps").get(i));
-//                appName = elements("listOfApps").get(i).getText();
-//                ReportMsg.info("App Namr = " + appName);
-//            } catch (StaleElementReferenceException e) {
-//                wait.waitForElementToBeVisible(el);
-//                appName = el.getText();
-//                e.printStackTrace();
-//            }
-//            i++;
-//            selectAppsFromPlatformScreen(appName);
-////        }
-//    }
+    
     public void verifyBreadCrumb(String appName) {
         System.out.println("############## Verifying Breadcrumb, TRUST-317 ##############\n");
         isElementDisplayed("singleApp", appName);
@@ -462,7 +424,6 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     public void verifyColorInTimeFrameColor(String color) {
-
         try {
             isElementDisplayed("table_systemStatus");
             ReportMsg.info("Verifying table system status");
@@ -476,16 +437,12 @@ public class DetailScreenPageActions extends GetPage {
                         ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + ":" + minuteTime);
                     }
                 }
-
             }
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-
         } catch (NoSuchElementException e) {
             ReportMsg.info(color.toUpperCase() + " color frame is not visible on time frame");
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-
         }
-
     }
 
     public void logAsAdmin() {
