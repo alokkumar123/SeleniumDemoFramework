@@ -8,8 +8,6 @@ public class DetailScreenTest extends TestFundamentals {
 
     @Test
     public void TC01_Verifying_All_Details_For_MindTap_Platform() {
-        test.detailScreenPage.logAsAdmin();
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
