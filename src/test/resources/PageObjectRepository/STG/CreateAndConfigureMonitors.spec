@@ -22,5 +22,7 @@ input_serachBox                              xpath          //input[@id='searchT
 link_breadCrumb                              xpath          //a[contains(text(),'Platform Availability Home')]/parent::div[contains(text(),'${breadCrumb}')] 
 link_ok                                      xpath          //button[text()='OK']  
 serarched_text                               xpath          //td[contains(@data-search-text,'${searchingText}')]
+span_deleteMonitors                          xpath          //a[contains(text(),'${monitorName}')]/ancestor::tr//span[contains(@class,'glyphicon')] 
+button_delete                                xpath          //button[text()='Delete']   
 ==================================================================================================================================
     

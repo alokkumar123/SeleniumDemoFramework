@@ -68,7 +68,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void newCreatedMonitorShouldBeOpen() {
         isElementDisplayed("link_newCreatedMonitor", monitorName);
         element("link_newCreatedMonitor", monitorName).click();
-        ReportMsg.info("New created monitor is opened ");
+        ReportMsg.info("Created monitor is opened ");
     }
 
     public void newCreatedMonitorsShouldBeSeenOnTheList() {
@@ -114,5 +114,41 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         isElementDisplayed("link_breadCrumb", breadCrumb);
         ReportMsg.info("Verified breadcrumb for admin");
     }
-   
+
+    public void userNavigateToMonitorEditScreen() {
+        isElementDisplayed("link_newCreatedMonitor", monitorName);
+        element("link_newCreatedMonitor", monitorName).click();
+        ReportMsg.info("User Navigated to Monitor Edit Screen");
+    }
+
+    public void userEditAndReSaveMangaeMonitor() {
+        monitorName = "Monitor edited by automation script";
+        isElementDisplayed("div_monitorName");
+        element("div_monitorName").click();
+        element("div_monitorName").clear();
+        element("div_monitorName").sendKeys(monitorName);
+        ReportMsg.info("Entered monitor name : " + monitorName + " in mandatory field");
+        isElementDisplayed("div_externalServiceId");
+        element("div_externalServiceId").click();
+        element("div_externalServiceId").clear();
+        element("div_externalServiceId").sendKeys(externalServiceId);
+        ReportMsg.info("Entered external service id : " + externalServiceId + " in mandatory field");
+        isElementDisplayed("button_save");
+        element("button_save").click();
+        ReportMsg.info("Resave edited manage monitor");
+    }
+
+    public void editedMonitorsShouldBeSeenOnTheList() {
+        monitorName = "Monitor edited by automation script";
+        isElementDisplayed("link_newCreatedMonitor", monitorName);
+        ReportMsg.info("Edited monitor is displaying on manage monitor list ");
+    }
+
+    public void deleteMonitorCreatedByAutomationScript() {
+        isElementDisplayed("span_deleteMonitors");
+        element("span_deleteMonitors").click();
+        element("button_delete").click();
+        ReportMsg.info("Deleted monitors created by automation Script");
+    }
+
 }
