@@ -25,8 +25,6 @@ public class DetailScreenTest extends TestFundamentals {
 
     @Test
     public void TC02_Verifying_All_Details_For_Cengage_Brain_Platform() {
-        test.detailScreenPage.logAsAdmin();
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageBrain"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
