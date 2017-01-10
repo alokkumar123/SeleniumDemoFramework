@@ -434,8 +434,8 @@ public class DetailScreenPageActions extends GetPage {
         }
     }
 
-    public void checkForColorNotationInThePlatformAvailabilityAndDetailScreen(String appName, String color) {
-         System.out.println("\n############## Verifying "+ color+" Color notation, TRUST-347 ##############\n");
+    public void checkForColorNotationInThePlatformAvailabilityAndDetailScreen(String appName) {
+        System.out.println("\n############## Verifying Colors notation for 12 and 24 hours, TRUST-347 ##############\n");
         isElementDisplayed("div_appColorOnPlatform", appName);
         ReportMsg.info("Verified color for " + appName + " app is green on Platform Availability Screen");
         isElementDisplayed("singleApp", appName);
@@ -448,36 +448,39 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Click on App " + appName + " and navigate to the details screen");
         ReportMsg.info("Set time frame for 12 hours");
         ReportMsg.info("Set timezone to EST");
-        isElementDisplayed("table_systemStatus");
-        ReportMsg.info("Verifying table system stutus");
+        ReportMsg.info("****** Verifying red ,yellow and orange color for 24 hours ****");
+        verifyColorInTimeFrameColor("red");
+        verifyColorInTimeFrameColor("yellow");
+        verifyColorInTimeFrameColor("orange");
+        selectLastAvailableHours("last 24 hours");
+        ReportMsg.info("****** Verifying red ,yellow and orange color for 24 hours ****");
+        verifyColorInTimeFrameColor("red");
+        verifyColorInTimeFrameColor("yellow");
+        verifyColorInTimeFrameColor("orange");
+    }
+
+    public void verifyColorInTimeFrameColor(String color) {
+
         try {
+            isElementDisplayed("table_systemStatus");
+            ReportMsg.info("Verifying table system status");
             isElementDisplayed("td_colorFrame", color);
-            //int x = elements("td_colorFrame", color).size();
-            //ReportMsg.info("color size = " + x);
             for (WebElement el : elements("td_colorFrame", color)) {
-//                String s = Integer.toString(i);
-                //  String time = element("tr_colorTime", color, "1").getText();
                 String hours = el.getText();
-                //ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + " time frame");
                 Iterator itr = timeList.iterator();
-                //elements("minute", hours);
-                //ReportMsg.info("itr 122= " + elements("minute", hours).size());
-                // ReportMsg.info("itr = " + itr.next());
                 for (WebElement ele : elements("minute", hours)) {
                     String minuteTime = itr.next().toString();
-                    //ReportMsg.info("itr = " + minuteTime);
                     if (ele.getAttribute("class").equals(color)) {
                         ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + ":" + minuteTime);
                     }
-                    //itr.hasNext();
                 }
 
             }
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
 
         } catch (Exception e) {
             ReportMsg.info(color.toUpperCase() + " color frame is not visible on time frame");
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
 
         }
 

@@ -43,8 +43,4 @@ public class ReportMsg {
         return prefix + message;
     }
 
-    public void log(String message, boolean b) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
 }
