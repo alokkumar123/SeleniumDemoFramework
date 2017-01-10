@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import java.util.TimeZone;
+import org.openqa.selenium.NoSuchElementException;
 
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -448,7 +449,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Click on App " + appName + " and navigate to the details screen");
         ReportMsg.info("Set time frame for 12 hours");
         ReportMsg.info("Set timezone to EST");
-        ReportMsg.info("****** Verifying red ,yellow and orange color for 1s2 hours ****");
+        ReportMsg.info("****** Verifying red ,yellow and orange color for 12 hours ****");
         verifyColorInTimeFrameColor("red");
         verifyColorInTimeFrameColor("yellow");
         verifyColorInTimeFrameColor("orange");
@@ -479,7 +480,7 @@ public class DetailScreenPageActions extends GetPage {
             }
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
 
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             ReportMsg.info(color.toUpperCase() + " color frame is not visible on time frame");
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
 

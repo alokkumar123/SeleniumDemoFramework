@@ -123,10 +123,10 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNow"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
-        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.cengageNow"));
         test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.cengageNow"));
         test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24", getData("appName.cengageNow"));
         test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "CNOWv1");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.cengageNow"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNow"));
         test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNow"));
