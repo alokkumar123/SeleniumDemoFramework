@@ -30,5 +30,15 @@ public class CreateAndConfigureMonitorsTest extends TestFundamentals {
         test.createAndConfigPage.logOutFromAdmin();
     }
 
-   
+    @Test
+    public void Trust_394_Create_Monitors() {
+        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
+        test.createAndConfigPage.userNavigateToMonitorEditScreen();
+        test.createAndConfigPage.userEditAndReSaveMangaeMonitor();
+        test.createAndConfigPage.editedMonitorsShouldBeSeenOnTheList();
+        test.createAndConfigPage.deleteMonitorCreatedByAutomationScript();
+        test.createAndConfigPage.logOutFromAdmin();
+    }
+
 }
