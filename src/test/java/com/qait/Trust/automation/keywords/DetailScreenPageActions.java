@@ -449,15 +449,17 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Click on App " + appName + " and navigate to the details screen");
         ReportMsg.info("Set time frame for 12 hours");
         ReportMsg.info("Set timezone to EST");
-        ReportMsg.info("****** Verifying red ,yellow and orange color for 12 hours ****");
+        ReportMsg.info("****** Verifying Slight disruption ,Minor disruption ,Service temporarily unavailable ,orange and Planned maintenance color for 12 hours ******");
         verifyColorInTimeFrameColor("red");
         verifyColorInTimeFrameColor("yellow");
         verifyColorInTimeFrameColor("orange");
+        verifyColorInTimeFrameColor("empty");
         selectLastAvailableHours("last 24 hours");
         ReportMsg.info("****** Verifying red ,yellow and orange color for 24 hours ****");
         verifyColorInTimeFrameColor("red");
         verifyColorInTimeFrameColor("yellow");
         verifyColorInTimeFrameColor("orange");
+        verifyColorInTimeFrameColor("empty");
         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 

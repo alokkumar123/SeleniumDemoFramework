@@ -31,7 +31,7 @@ public class CreateAndConfigureMonitorsTest extends TestFundamentals {
     }
 
     @Test
-    public void Trust_394_Create_Monitors() {
+    public void Trust_394_Edit_Monitors() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.userNavigateToMonitorEditScreen();
