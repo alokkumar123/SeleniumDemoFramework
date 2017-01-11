@@ -145,6 +145,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void deleteMonitorCreatedByAutomationScript() {
+        ReportMsg.info("Deleting monitor created by automation script - TRUST-398");
         isElementDisplayed("span_deleteMonitors");
         element("span_deleteMonitors").click();
         element("button_delete").click();
