@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation;
 
 import static com.qait.Trust.automation.TestSessionInitiator.testMethodName;
@@ -31,8 +26,7 @@ public class TestFundamentals {
     }
 
     @BeforeClass
-    public void start_test_session() {
-        
+    public void start_test_session() {       
         test = new TestSessionInitiator(this.getClass().getSimpleName());
         base_url = getData("base_url");
         test.launchApplication(base_url);
