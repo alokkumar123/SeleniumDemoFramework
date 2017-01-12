@@ -99,4 +99,11 @@ public class CheckSearchFunctionalityCyclePageActions extends GetPage {
         String appAfterMoveUp = element("text_moveUp").getText();
         ReportMsg.info("App on 3rd row after clicking on moveUp " + appAfterMoveUp);
     }
+
+    public void deleteNewlyCretedSystem() {
+        isElementDisplayed("span_deleteSyetem",newSystem);
+        element("span_deleteSyetem",newSystem).click();
+        element("button_delete").click();
+        ReportMsg.info("Deleted nely system created by automation Script");
+    }
 }

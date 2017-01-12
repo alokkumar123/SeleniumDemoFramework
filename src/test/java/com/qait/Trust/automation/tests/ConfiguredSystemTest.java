@@ -45,4 +45,8 @@ public class ConfiguredSystemTest extends TestFundamentals {
         test.checkSearchFunctionality.userCreateNewSystemFormAndSave();
         test.checkSearchFunctionality.savedDataShouldBeSeenInTheListScreen();
     }
+    @Test
+    public void TC006_Delete_Systems(){
+        test.checkSearchFunctionality.deleteNewlyCretedSystem();
+    }
 }

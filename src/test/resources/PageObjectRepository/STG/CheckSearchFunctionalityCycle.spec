@@ -12,5 +12,7 @@ div_discription                              xpath          //textarea[@placehol
 text_description                             xpath          //td[contains(@data-search-text,'${description}')]    
 link_moveUp                                  xpath          (//tr//a[text()='Move up'])[3]  
 text_moveUp                                  xpath          (//tr//a[text()='Move up'])[3]/ancestor::tr/td[3]/a 
+span_deleteSyetem                            xpath          //a[contains(text(),'${newSystem}')]/ancestor::tr//span[contains(@class,'glyphicon')]
+button_delete                                xpath          //button[text()='Delete']
 ==================================================================================================================================
     
