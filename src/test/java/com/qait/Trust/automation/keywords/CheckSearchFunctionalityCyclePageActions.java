@@ -101,9 +101,9 @@ public class CheckSearchFunctionalityCyclePageActions extends GetPage {
     }
 
     public void deleteNewlyCretedSystem() {
-        isElementDisplayed("span_deleteSyetem",newSystem);
-        element("span_deleteSyetem",newSystem).click();
+        isElementDisplayed("span_deleteSyetem", newSystem);
+        element("span_deleteSyetem", newSystem).click();
         element("button_delete").click();
-        ReportMsg.info("Deleted nely system created by automation Script");
+        ReportMsg.info("Deleted newly system amaned as " + newSystem + " created by automation Script");
     }
 }
