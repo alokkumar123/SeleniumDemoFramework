@@ -17,6 +17,8 @@ public class CheckSearchFunctionalityCyclePageActions extends GetPage {
     }
 
     String searchingText;
+    String description = "Created new system by automation script";
+    String newSystem = "New System";
 
     public void validateSearchFunctionalityForPossitiveCycle() {
         searchingText = "M";
@@ -58,5 +60,43 @@ public class CheckSearchFunctionalityCyclePageActions extends GetPage {
         element("input_serachBox").sendKeys(searchingText);
         ReportMsg.info("Validated no result is availble after performing " + searchingText + " in search box");
 
+    }
+
+    public void userCheckCreateNewSystem() {
+        isElementDisplayed("button_Create");
+        element("button_Create").click();
+        isElementDisplayed("h4_createSystem");
+        ReportMsg.info(" User navigated to Create System screen");
+    }
+
+    public void userCreateNewSystemFormAndSave() {
+
+        isElementDisplayed("div_SystemName");
+        element("div_SystemName").click();
+        element("div_SystemName").clear();
+        element("div_SystemName").sendKeys(newSystem);
+        ReportMsg.info("Entered system name : " + newSystem + " in mandatory field");
+        element("div_discription").click();
+        element("div_discription").clear();
+        element("div_discription").sendKeys(description);
+        ReportMsg.info("Entered description name : " + description + " in mandatory field");
+        isElementDisplayed("button_save");
+        element("button_save").click();
+        ReportMsg.info("User Created new System Form and Saved Form");
+    }
+
+    public void savedDataShouldBeSeenInTheListScreen() {
+        isElementDisplayed("link_newCreatedSystem", newSystem);
+        ReportMsg.info("Verified new system created  by automatrion script named as " + newSystem + " is displaying on Screen list");
+        isElementDisplayed("text_description", description);
+        ReportMsg.info("Verified description of created system named as  " + description + " is displaying on on Screen list");
+    }
+
+    public void verifyMoveUpFunctionality() {
+        String appBeforeMoveUp = element("text_moveUp").getText();
+        ReportMsg.info("App on 3rd row before clicking on moveUp " + appBeforeMoveUp);
+        element("link_moveUp").click();
+        String appAfterMoveUp = element("text_moveUp").getText();
+        ReportMsg.info("App on 3rd row after clicking on moveUp " + appAfterMoveUp);
     }
 }
