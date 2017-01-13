@@ -115,19 +115,18 @@ public class ResultsIT {
                 + projectName + " Automation Team";
         mailtext = mailtext
                 + "<br><b><font color = green>Test Date: </font></b>" + today;
+        
         mailtext = mailtext + "<b>" + testSetResult() + "</b>";
 
-        mailtext = mailtext + "<br><br>";
-
         mailtext = mailtext
-                + "<br><br>Note: This is a system generated mail. Please do not reply."
-                + "</br></br>";
+                + "<br>Note: This is a system generated mail. Please do not reply."
+                + "</br>";
         mailtext = mailtext
                 + "<br>If you have any queries mail to <a href=mailto:" + from + "?subject=Reply-of-Automation-Status"
                 + today.replaceAll(" ", "_") + ">TRUST AUTOMATION </a></br>";
         mailtext = mailtext
-                + "<br><br>The detailed test results are given in the attached <i>emailable-report.html</i> </br></br>";
-        mailtext = mailtext + "<br><br>Best Regards" + "</br></br>";
+                + "<br>The detailed test results are given in the attached <i>emailable-report.html</i> </br>";
+        mailtext = mailtext + "<br>Best Regards," + "</br>";
         mailtext = mailtext + "<br>" + projectName + " Automation Team" + "</br>";
 
         return mailtext;
@@ -146,7 +145,6 @@ public class ResultsIT {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(
                     val.toString()));
         }
-
     }
 
     private Multipart setAttachment() throws MessagingException, IOException {
