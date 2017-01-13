@@ -116,7 +116,7 @@ public class ResultsIT {
         mailtext = mailtext
                 + "<br><b><font color = green>Test Date: </font></b>" + today;
         
-        mailtext = mailtext + "<b>" + testSetResult() + "</b>";
+        mailtext = mailtext + "<br><b>" + testSetResult() + "</br></b>";
 
         mailtext = mailtext
                 + "<br><br>Note: This is a system generated mail. Please do not reply."

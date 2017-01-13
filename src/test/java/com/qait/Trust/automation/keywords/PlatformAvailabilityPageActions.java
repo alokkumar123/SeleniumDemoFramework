@@ -27,7 +27,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
             for (WebElement ele : elements("list_groupPanel")) {
                 groupName = elements("list_groupPanel").get(i).getText();
 
-                // element("apps_inGroups", groupName).click();
+                element("apps_inGroups", groupName).click();
                 ReportMsg.info("Group Name = " + groupName);
                 
                 elements("list_groupPanel").get(i).click();
