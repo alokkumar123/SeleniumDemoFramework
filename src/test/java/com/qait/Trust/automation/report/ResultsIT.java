@@ -51,7 +51,7 @@ public class ResultsIT {
     String passedResult = "";
     boolean sendResults = false;
     YamlReader util = new YamlReader();
-    final String projectName = "Trust Project";
+    final String projectName = "Trust";
     @SuppressWarnings("unused")
 	private String totaltest;
     @SuppressWarnings("unused")
@@ -119,15 +119,15 @@ public class ResultsIT {
         mailtext = mailtext + "<b>" + testSetResult() + "</b>";
 
         mailtext = mailtext
-                + "<br>Note: This is a system generated mail. Please do not reply."
-                + "</br>";
+                + "<br><br>Note: This is a system generated mail. Please do not reply."
+                + "</br></br>";
         mailtext = mailtext
                 + "<br>If you have any queries mail to <a href=mailto:" + from + "?subject=Reply-of-Automation-Status"
                 + today.replaceAll(" ", "_") + ">TRUST AUTOMATION </a></br>";
         mailtext = mailtext
                 + "<br>The detailed test results are given in the attached <i>emailable-report.html</i> </br>";
         mailtext = mailtext + "<br>Best Regards," + "</br>";
-        mailtext = mailtext + "<br>" + projectName + " Automation Team" + "</br>";
+        mailtext = mailtext + projectName + " Automation Team";
 
         return mailtext;
     }
@@ -140,8 +140,7 @@ public class ResultsIT {
         YamlReader.setYamlFilePath();
     	Map<String, Object> emailMap = YamlReader.getYamlValues("email.recepients");
         for (Object val : emailMap.values()) {
-            System.out.println("Email Ids:- " + val.toString());
-
+            System.out.println("Email Id:- " + val.toString());
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(
                     val.toString()));
         }
