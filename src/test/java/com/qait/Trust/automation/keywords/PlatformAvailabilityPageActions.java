@@ -109,13 +109,21 @@ public class PlatformAvailabilityPageActions extends GetPage {
         String a[] = appName.split(",");
         ReportMsg.info("Number of apps are displaying on platform screen " + elements("url_systemLogo").size());
         for (WebElement e : elements("url_systemLogo")) {
-            String app[] = a[i].split("=");
-            String b[] = e.getAttribute("style").split(": ");
-            if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48))) {
-                ReportMsg.info("App name = " + app[0] + " is displaying with " + b[1]);
+            // ReportMsg.info(" ursl = " + e.getText());
+            try {
+                String app[] = a[i].split("=");
+
+                String b[] = e.getAttribute("style").split(": ");
+                String url1 = e.getAttribute("style");
+                if (e.getText().contains("")) {
+                    if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48))) {
+                        ReportMsg.info("App name = " + app[0] + " is displaying with " + b[1]);
+                        i++;
+                    }
+                }
+            } catch (ArrayIndexOutOfBoundsException e1) {
+                break;
             }
-            i++;
         }
     }
-
 }
