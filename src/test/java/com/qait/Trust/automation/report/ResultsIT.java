@@ -51,7 +51,7 @@ public class ResultsIT {
     String passedResult = "";
     boolean sendResults = false;
     YamlReader util = new YamlReader();
-    final String projectName = "MT4 Platform Project";
+    final String projectName = "Trust Project";
     @SuppressWarnings("unused")
 	private String totaltest;
     @SuppressWarnings("unused")
@@ -64,7 +64,6 @@ public class ResultsIT {
 
     @Test
     public void sendResultsMail() throws MessagingException, IOException {
-
         if (true) { // send email is true *************************
             Message message = new MimeMessage(getSession());
             message.addFrom(new InternetAddress[]{(new InternetAddress(from))});
@@ -78,7 +77,6 @@ public class ResultsIT {
             transport.close();
         }
         System.out.println("Reports emailed!!!");
-
     }
 
     private Session getSession() {
