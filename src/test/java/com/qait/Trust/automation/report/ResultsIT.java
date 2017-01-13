@@ -124,7 +124,7 @@ public class ResultsIT {
                 + "</br></br>";
         mailtext = mailtext
                 + "<br>If you have any queries mail to <a href=mailto:" + from + "?subject=Reply-of-Automation-Status"
-                + today.replaceAll(" ", "_") + ">MT4 Platform AUTOMATION </a></br>";
+                + today.replaceAll(" ", "_") + ">TRUST AUTOMATION </a></br>";
         mailtext = mailtext
                 + "<br><br>The detailed test results are given in the attached <i>emailable-report.html</i> </br></br>";
         mailtext = mailtext + "<br><br>Best Regards" + "</br></br>";
