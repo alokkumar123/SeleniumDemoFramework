@@ -24,5 +24,11 @@ link_ok                                      xpath          //button[text()='OK'
 serarched_text                               xpath          //td[contains(@data-search-text,'${searchingText}')]
 span_deleteMonitors                          xpath          //a[contains(text(),'${monitorName}')]/ancestor::tr//span[contains(@class,'glyphicon')] 
 button_delete                                xpath          //button[text()='Delete']   
+button_AddNewUser                            xpath          //button[text()='Add a New User'] 
+text_newUserScreen                           xpath          //h4[text()='Add new user']
+span_shortingFields                          xpath          //div[@class='container']//td[${index}]
+span_Assending                               xpath          (//span[contains(@class,'glyphicon-chevron-up')])[${index}] 
+span_Desending                               xpath          (//span[contains(@class,'glyphicon-chevron-down')])[${index}] 
+searched_text                                xpath          //td[contains(@data-search-text,'${searchingText}')]
 ==================================================================================================================================
     
