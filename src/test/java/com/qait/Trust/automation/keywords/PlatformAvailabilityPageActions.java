@@ -29,9 +29,10 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
                 element("apps_inGroups", groupName).click();
                 ReportMsg.info("Group Name = " + groupName);
+                
                 elements("list_groupPanel").get(i).click();
                 ReportMsg.info("Clicked on " + groupName + " group");
-
+                
                 int j = 0;
                 isElementDisplayed("apps_inGroups", groupName);
                 for (WebElement e : elements("apps_inGroups", groupName)) {

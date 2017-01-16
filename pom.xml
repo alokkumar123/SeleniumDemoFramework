@@ -8,10 +8,9 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testxml>TestNG.xml</testxml>
         <seleniumver>2.53.1</seleniumver>
-        <maven.test.failure.ignore>true</maven.test.failure.ignore>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
     <dependencies>    
@@ -73,7 +72,6 @@
             <artifactId>jersey-client</artifactId>
             <version>1.5</version>
             <scope>test</scope>
-            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -166,6 +164,7 @@
                         <phase>verify</phase>
                         <goals>
                             <goal>integration-test</goal>
+                            <goal>verify</goal>
                         </goals>
                         <configuration>
                             <encoding>UTF-8</encoding>
@@ -183,6 +182,9 @@
                             <directory>${basedir}</directory>
                             <includes>
                                 <include>test-output/</include>
+                                <include>.classpath</include>
+                                <include>.settings/</include>
+                                <include>.project</include>
                             </includes>
                             <excludes>
                             </excludes>
@@ -226,4 +228,5 @@
     <artifactId>cengage-trust</artifactId>
     <name>Cengage Trust</name>
     <packaging>pom</packaging>
+    
 </project>
