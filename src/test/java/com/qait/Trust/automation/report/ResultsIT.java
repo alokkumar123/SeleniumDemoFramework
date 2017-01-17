@@ -119,8 +119,8 @@ public class ResultsIT {
         mailtext = mailtext + "<br><b>" + testSetResult() + "</br></b>";
 
         mailtext = mailtext
-                + "<br><br>Note: This is a system generated mail. Please do not reply."
-                + "</br></br>";
+                + "<br>Note: This is a system generated mail. Please do not reply."
+                + "</br>";
         mailtext = mailtext
                 + "<br>If you have any queries mail to <a href=mailto:" + from + "?subject=Reply-of-Automation-Status"
                 + today.replaceAll(" ", "_") + ">TRUST AUTOMATION </a></br>";
@@ -226,11 +226,7 @@ public class ResultsIT {
         try {
             dBuilder = dbFactory.newDocumentBuilder();
             dom = dBuilder.parse(filepath);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
         NodeList nodes = dom.getElementsByTagName("testng-results");
@@ -279,11 +275,7 @@ public class ResultsIT {
         try {
             dBuilder = dbFactory.newDocumentBuilder();
             dom = dBuilder.parse(filepath);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
         NodeList nodes = dom.getElementsByTagName("testng-results");
@@ -303,12 +295,7 @@ public class ResultsIT {
         try {
             dBuilder = dbFactory.newDocumentBuilder();
             dom = dBuilder.parse(file);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (ParserConfigurationException | SAXException | IOException e) {
         }
         List<String> list = identifyTagsAndTraverseThroguhElements(dom);
         System.out.println("Number of Failed Test Cases:- " + count);
@@ -316,9 +303,7 @@ public class ResultsIT {
     }
 
     private List<String> identifyTagsAndTraverseThroguhElements(Document dom) {
-
         List<String> list = new ArrayList<String>();
-
         NodeList nodes = dom.getElementsByTagName("test-method");
         try {
             NodeList nodesMessage = dom.getElementsByTagName("full-stacktrace");
@@ -333,7 +318,6 @@ public class ResultsIT {
                     list.add(testMethodResonOfFailure[0]);
                     list.add(testMethodResonOfFailure[1]);
                     list.add(testMethodResonOfFailure[2]);
-
                     j++;
                 }
             }
