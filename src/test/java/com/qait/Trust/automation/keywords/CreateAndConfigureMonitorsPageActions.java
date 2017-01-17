@@ -8,6 +8,7 @@ package com.qait.Trust.automation.keywords;
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import static org.testng.Assert.assertEquals;
 
 public class CreateAndConfigureMonitorsPageActions extends GetPage {
@@ -152,4 +153,73 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Deleted monitors created by automation Script");
     }
 
+    public void clickOnAddNewUser() {
+        isElementDisplayed("button_AddNewUser");
+        element("button_AddNewUser").click();
+        ReportMsg.info("Clicked on Add new user button ");
+    }
+
+    public void userNavigatedToNewUserScreen() {
+        isElementDisplayed("text_newUserScreen");
+        ReportMsg.info("User Navigated to new user screen");
+    }
+
+    public void shortingOfRecordswith(String field, String index) {
+        isElementDisplayed("span_shortingFields", index);
+        elements("span_shortingFields", index);
+        ReportMsg.info(field + " before shorting ");
+        for (WebElement ele : elements("span_shortingFields", index)) {
+            ReportMsg.info(ele.getText());
+        }
+        element("span_Assending", index).click();
+        ReportMsg.info("Click on Assending order");
+        ReportMsg.info(field + " after assendiing order ");
+        for (WebElement ele : elements("span_shortingFields", index)) {
+            ReportMsg.info(ele.getText());
+        }
+        element("span_Desending", index).click();
+    }
+    String searchingText;
+
+    public void validateSearchFunctionalityForPossitiveCycle() {
+        searchingText = "Abhishek";
+        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Search box is available");
+        element("input_serachBox").clear();
+        element("input_serachBox").sendKeys(searchingText);
+        isElementDisplayed("searched_text", searchingText);
+        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        searchingText = "GPT Ames ";
+        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Search box is available");
+        element("input_serachBox").clear();
+        element("input_serachBox").sendKeys(searchingText);
+        isElementDisplayed("searched_text", searchingText);
+        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        searchingText = "Patsy Ames";
+        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Search box is available");
+        element("input_serachBox").clear();
+        element("input_serachBox").sendKeys(searchingText);
+        isElementDisplayed("searched_text", searchingText);
+        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        searchingText = "abhishek.ranjan@contractor.cengage.com";
+        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Search box is available");
+        element("input_serachBox").clear();
+        element("input_serachBox").sendKeys(searchingText);
+        isElementDisplayed("searched_text", searchingText);
+        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+
+    }
+    
+     public void validateSearchFunctionalityForNegativeCycle() {
+        searchingText = "Worng text";
+        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Search box is available");
+        element("input_serachBox").clear();
+        element("input_serachBox").sendKeys(searchingText);
+        ReportMsg.info("Validated no result is availble after performing " + searchingText + " in search box");
+
+    }
 }

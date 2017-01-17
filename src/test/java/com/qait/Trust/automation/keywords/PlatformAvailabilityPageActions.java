@@ -123,6 +123,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     }
                 }
             } catch (ArrayIndexOutOfBoundsException e1) {
+                ReportMsg.info("All apps are verified ");
                 break;
             }
         }
