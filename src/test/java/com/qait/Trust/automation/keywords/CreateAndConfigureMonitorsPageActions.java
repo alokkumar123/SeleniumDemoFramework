@@ -7,6 +7,8 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
+import java.util.ArrayList;
+import java.util.Iterator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import static org.testng.Assert.assertEquals;
@@ -16,6 +18,12 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     WebDriver driver;
     String monitorName = "Monitor created by automation script";
     String externalServiceId = "123";
+    String userName = "harsh";
+    String password = "12345";
+    String EmailId = "harsh123@gmail.com";
+    String editUserName = "harsh12";
+
+    ArrayList<String> roleList = new ArrayList<String>();
 
     public CreateAndConfigureMonitorsPageActions(WebDriver driver) {
         super(driver, "CreateAndConfigureMonitors");
@@ -212,8 +220,8 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
 
     }
-    
-     public void validateSearchFunctionalityForNegativeCycle() {
+
+    public void validateSearchFunctionalityForNegativeCycle() {
         searchingText = "Worng text";
         isElementDisplayed("input_serachBox");
         ReportMsg.info("Search box is available");
@@ -221,5 +229,105 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("input_serachBox").sendKeys(searchingText);
         ReportMsg.info("Validated no result is availble after performing " + searchingText + " in search box");
 
+    }
+
+    public void verifyNewFormShouldOpenWithFollowingFields(String formField) {
+        element("input_text", formField).click();
+        element("input_text", formField).clear();
+        element("input_text", formField).sendKeys("");
+    }
+
+    public void enterUserIdInUserForm(String formField) {
+        element("input_text", formField).click();
+        element("input_text", formField).clear();
+        element("input_text", formField).sendKeys(userName);
+        ReportMsg.info("Entered user Id ");
+    }
+
+    public void clickOnRoleSelector() {
+        element("div_Selector").click();
+        ReportMsg.info("Menu Items");
+        for (WebElement ele : elements("div_menuItems")) {
+            String menuItem = ele.getText();
+            roleList.add(menuItem);
+            ReportMsg.info(menuItem);
+        }
+    }
+
+    public void rolesDislpayingInManageRole() {
+        Iterator<String> itr = roleList.iterator();
+        for (WebElement el : elements("div_ItemRoles")) {
+            String item = el.getText();
+            String roleItem = itr.next();
+            if (roleItem.contains(item)) {
+                ReportMsg.info(" Role item " + roleItem + " is displaying on manage role tab");
+            }
+        }
+    }
+
+    public void enterEmailIdInUserForm(String formField) {
+        element("input_text", formField).click();
+        element("input_text", formField).clear();
+        element("input_text", formField).sendKeys(EmailId);
+        ReportMsg.info("Entered Email Id ");
+    }
+
+    public void enterPasswordInUserForm(String formField) {
+        element("input_text", formField).click();
+        element("input_text", formField).clear();
+        element("input_text", formField).sendKeys(password);
+        ReportMsg.info("Entered Password ");
+    }
+
+    public void enterRepasswordInUserForm(String formField) {
+        element("input_text", formField).click();
+        element("input_text", formField).clear();
+        element("input_text", formField).sendKeys(password);
+        ReportMsg.info("Entered Repassword ");
+    }
+
+    public void clickOnSaveButton() {
+        element("button_save").click();
+        ReportMsg.info("Clicked On save button");
+    }
+
+    public void newCreatedUserIsDisplayingOnMonitorScreen() {
+        isElementDisplayed("div_userName", userName);
+        ReportMsg.info("Newly Created User is displaying on Configure Monitor Screen");
+    }
+
+    public void EditNewlyCreatedUser(String formField) {
+        element("div_userName", userName).click();
+        element("input_text", formField).click();
+        element("input_text", formField).clear();
+        element("input_text", formField).sendKeys(editUserName);
+        ReportMsg.info("Edited User Id ");
+    }
+
+    public void EditedUserIsDisplayingOnMonitorScreen() {
+        isElementDisplayed("div_editedUserName", editUserName);
+        ReportMsg.info("Edited User is displaying on Configure Monitor Screen");
+    }
+
+    public void userNavigateToSameUserAndCheckLogBelowSaveButton() {
+        element("div_editedUserName", editUserName).click();
+        ReportMsg.info("Navigated to same user ");
+
+        isElementDisplayed("td_oldValue", userName);
+        ReportMsg.info("Old value of user name is dislapying below save button");
+        isElementDisplayed("td_newValue", editUserName);
+        ReportMsg.info("New value of user name is dislapying below save button");
+    }
+
+    public void popUpShouldBeAppears(String popUp) {
+        isElementDisplayed("button_popUp", popUp);
+        element("button_popUp", popUp).click();
+        ReportMsg.info("Clicked on "+ popUp );
+    }
+
+    public void clickOnDeleteButton() {
+        isElementDisplayed("span_deleteNewUser", editUserName);
+        element("span_deleteNewUser", editUserName).click();
+        ReportMsg.info("Deleting new user created by automation Script");
     }
 }
