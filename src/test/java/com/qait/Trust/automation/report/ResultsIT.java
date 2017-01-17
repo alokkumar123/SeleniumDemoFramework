@@ -141,13 +141,6 @@ public class ResultsIT {
         Map<String, Object> emailMap = YamlReader.getYamlValues("email.recepients");
         
         System.out.println("Value of 'Send' parameter in Test data file: " + YamlReader.getYamlValue("email.send"));
-        
-        // Map<String, Object> emailMap1 = YamlReader.getYamlValues("email.send");
-        System.out.println("Value of 'Send' parameter in Test data file: " + YamlReader.getYamlValue("email.send"));
-        // for (Object val1 : emailMap1.values()) {
-        //        System.out.println("Value of 'Send' parameter in Test data file:- " + val1.toString());
-        // }
-        
         if (YamlReader.getYamlValue("email.send").equalsIgnoreCase("true")) {
             for (Object val : emailMap.values()) {
                 System.out.println("Email Id:- " + val.toString());

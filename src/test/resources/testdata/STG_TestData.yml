@@ -12,6 +12,6 @@ appName:
   mindtapMathFoundation: url("/systems/5820448bdc7feb181696f60a/logo.png")
 
 email:
-    send: yes
+    send: no
     recepients: 
         recepient1: harshsehgal@qainfotech.net
