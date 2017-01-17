@@ -76,7 +76,7 @@ public class ResultsIT {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
         }
-        System.out.println("Reports emailed!!!");
+        System.out.println("Reports emailed via ResultIT Util class!!!");
     }
 
     private Session getSession() {
@@ -119,8 +119,8 @@ public class ResultsIT {
         mailtext = mailtext + "<br><b>" + testSetResult() + "</br></b>";
 
         mailtext = mailtext
-                + "<br><br>Note: This is a system generated mail. Please do not reply."
-                + "</br></br>";
+                + "<br>Note: This is a system generated mail. Please do not reply."
+                + "</br>";
         mailtext = mailtext
                 + "<br>If you have any queries mail to <a href=mailto:" + from + "?subject=Reply-of-Automation-Status"
                 + today.replaceAll(" ", "_") + ">TRUST AUTOMATION </a></br>";
@@ -138,11 +138,24 @@ public class ResultsIT {
 
     private void setMailRecipient(Message message) throws AddressException, MessagingException, IOException {
         YamlReader.setYamlFilePath();
-    	Map<String, Object> emailMap = YamlReader.getYamlValues("email.recepients");
-        for (Object val : emailMap.values()) {
-            System.out.println("Email Id:- " + val.toString());
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(
-                    val.toString()));
+        Map<String, Object> emailMap = YamlReader.getYamlValues("email.recepients");
+        
+        System.out.println("Value of 'Send' parameter in Test data file: " + YamlReader.getYamlValue("email.send"));
+        
+        Map<String, Object> emailMap1 = YamlReader.getYamlValues("email.send");
+        System.out.println("Value of 'Send' parameter in Test data file: " + YamlReader.getYamlValues("email.send"));
+        for (Object val1 : emailMap1.values()) {
+                System.out.println("Value of 'Send' parameter in Test data file:- " + val1.toString());
+        }
+        
+        if (YamlReader.getYamlValue("email.send").equalsIgnoreCase("yes")) {
+            for (Object val : emailMap.values()) {
+                System.out.println("Email Id:- " + val.toString());
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(
+                        val.toString()));
+            }
+        } else {
+            System.out.println("NO Email will be SEND via ResultIT Util class!!!");
         }
     }
 
@@ -226,11 +239,7 @@ public class ResultsIT {
         try {
             dBuilder = dbFactory.newDocumentBuilder();
             dom = dBuilder.parse(filepath);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
         NodeList nodes = dom.getElementsByTagName("testng-results");
@@ -279,11 +288,7 @@ public class ResultsIT {
         try {
             dBuilder = dbFactory.newDocumentBuilder();
             dom = dBuilder.parse(filepath);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
         NodeList nodes = dom.getElementsByTagName("testng-results");
@@ -303,12 +308,7 @@ public class ResultsIT {
         try {
             dBuilder = dbFactory.newDocumentBuilder();
             dom = dBuilder.parse(file);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (ParserConfigurationException | SAXException | IOException e) {
         }
         List<String> list = identifyTagsAndTraverseThroguhElements(dom);
         System.out.println("Number of Failed Test Cases:- " + count);
@@ -316,9 +316,7 @@ public class ResultsIT {
     }
 
     private List<String> identifyTagsAndTraverseThroguhElements(Document dom) {
-
         List<String> list = new ArrayList<String>();
-
         NodeList nodes = dom.getElementsByTagName("test-method");
         try {
             NodeList nodesMessage = dom.getElementsByTagName("full-stacktrace");
@@ -333,7 +331,6 @@ public class ResultsIT {
                     list.add(testMethodResonOfFailure[0]);
                     list.add(testMethodResonOfFailure[1]);
                     list.add(testMethodResonOfFailure[2]);
-
                     j++;
                 }
             }
