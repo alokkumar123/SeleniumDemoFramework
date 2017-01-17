@@ -30,5 +30,15 @@ span_shortingFields                          xpath          //div[@class='contai
 span_Assending                               xpath          (//span[contains(@class,'glyphicon-chevron-up')])[${index}] 
 span_Desending                               xpath          (//span[contains(@class,'glyphicon-chevron-down')])[${index}] 
 searched_text                                xpath          //td[contains(@data-search-text,'${searchingText}')]
+input_text                                   xpath          //label[contains(text(),'${formField}')]/ancestor::div[contains(@class,'form-group')]//input[@class='form-control']
+div_Selector                                 xpath          //div[@class='Select-placeholder']
+div_menuItems                                xpath          //div[@class='Select-menu']/div 
+div_ItemRoles                                xpath          //div[@class='container']//a      
+div_userName                                 xpath          //div[@class='container']//a[text()='${useName}'] 
+div_editedUserName                           xpath          //div[@class='container']//a[text()='${editUserName}']   
+td_oldValue                                  xpath          //td[text()='${userName}']  
+td_newValue                                  xpath          //td[text()='${editUserName}'] 
+span_deleteNewUser                           xpath          //a[contains(text(),'${editUserName}')]/ancestor::tr//span[contains(@class,'glyphicon')]
+button_popUp                                 xpath          //button[text()='${popUp}']    
 ==================================================================================================================================
     
