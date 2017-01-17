@@ -73,7 +73,11 @@ public class ResultsIT {
             Session session = getSession();
             Transport transport = session.getTransport("smtps");
             transport.connect(host, from, password);
-            transport.sendMessage(message, message.getAllRecipients());
+            if (YamlReader.getYamlValue("email.send").equalsIgnoreCase("true")) {
+                transport.sendMessage(message, message.getAllRecipients());
+            } else {
+                System.out.println("NO Email will be SEND via ResultIT Util class!!!");
+            }
             transport.close();
         }
         System.out.println("Reports emailed via ResultIT Util class!!!");
@@ -147,8 +151,6 @@ public class ResultsIT {
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(
                         val.toString()));
             }
-        } else {
-            System.out.println("NO Email will be SEND via ResultIT Util class!!!");
         }
     }
 
