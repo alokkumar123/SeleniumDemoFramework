@@ -76,7 +76,7 @@ public class ResultsIT {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
         }
-        System.out.println("Reports emailed!!!");
+        System.out.println("Reports emailed via ResultIT Util class!!!");
     }
 
     private Session getSession() {
@@ -138,11 +138,17 @@ public class ResultsIT {
 
     private void setMailRecipient(Message message) throws AddressException, MessagingException, IOException {
         YamlReader.setYamlFilePath();
-    	Map<String, Object> emailMap = YamlReader.getYamlValues("email.recepients");
-        for (Object val : emailMap.values()) {
-            System.out.println("Email Id:- " + val.toString());
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(
-                    val.toString()));
+        Map<String, Object> emailMap = YamlReader.getYamlValues("email.recepients");
+        
+        System.out.println("Value of 'Send' parameter in Test data file: " + YamlReader.getYamlValue("email.send"));
+        if (YamlReader.getYamlValue("email.send").equalsIgnoreCase("yes")) {
+            for (Object val : emailMap.values()) {
+                System.out.println("Email Id:- " + val.toString());
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(
+                        val.toString()));
+            }
+        } else {
+            System.out.println("NO Email will be SEND via ResultIT Util class!!!");
         }
     }
 
