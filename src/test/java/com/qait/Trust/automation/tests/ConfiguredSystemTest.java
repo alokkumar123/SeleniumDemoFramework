@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class ConfiguredSystemTest extends TestFundamentals {
 
     @Test
-    public void TC001_Configure_System() {
+    public void TRUST_395_Step01_Configure_System() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.createAndConfigPage.gridShouldBeAvailableFor("Enabled");
@@ -19,29 +19,29 @@ public class ConfiguredSystemTest extends TestFundamentals {
     }
 
     @Test 
-    public void TC002_Check_Move_Up_Functionality(){
+    public void TRUST_395_Step02_Check_Move_Up_Functionality(){
         test.checkSearchFunctionality.verifyMoveUpFunctionality();
     }
     
     @Test
-    public void TC003_Check_Search_Functionality_Positive_Cycle() {
+    public void TRUST_395_Step03_Check_Search_Functionality_Positive_Cycle() {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.checkSearchFunctionality.validateSearchFunctionalityForPossitiveCycle();
     }
     
     @Test
-    public void TC004_Check_Search_Functionality_Negative_Cycle() {
+    public void TRUST_395_Step04_Check_Search_Functionality_Negative_Cycle() {
         test.checkSearchFunctionality.validateSearchFunctionalityForNegativeCycle();
     }
 
     @Test
-    public void TC005_Check_And_Create_New_System() {
+    public void TRUST_395_Step05_Check_And_Create_New_System() {
         test.checkSearchFunctionality.userCheckCreateNewSystem();
         test.checkSearchFunctionality.userCreateNewSystemFormAndSave();
         test.checkSearchFunctionality.savedDataShouldBeSeenInTheListScreen();
     }
     @Test
-    public void TC006_Delete_Systems(){
+    public void TRUST_395_Step06_Delete_Systems(){
         test.checkSearchFunctionality.deleteNewlyCretedSystem();
     }
 }
