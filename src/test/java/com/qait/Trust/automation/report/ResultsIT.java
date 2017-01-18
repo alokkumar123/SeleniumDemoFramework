@@ -73,12 +73,16 @@ public class ResultsIT {
             Session session = getSession();
             Transport transport = session.getTransport("smtps");
             transport.connect(host, from, password);
-            transport.sendMessage(message, message.getAllRecipients());
+            if (YamlReader.getYamlValue("email.send").equalsIgnoreCase("true")) {
+                transport.sendMessage(message, message.getAllRecipients());
+            } else {
+                System.out.println("NO Email will be SEND via ResultIT Util class!!!");
+            }
             transport.close();
         }
         System.out.println("Reports emailed via ResultIT Util class!!!");
     }
-
+    
     private Session getSession() {
         Authenticator authenticator = new Authenticator(from, password);
         Properties properties = new Properties();
@@ -140,25 +144,15 @@ public class ResultsIT {
         YamlReader.setYamlFilePath();
         Map<String, Object> emailMap = YamlReader.getYamlValues("email.recepients");
         
-        System.out.println("Value of 'Send' parameter in Test data file: " + YamlReader.getYamlValue("email.send"));
-        
-        Map<String, Object> emailMap1 = YamlReader.getYamlValues("email.send");
-        System.out.println("Value of 'Send' parameter in Test data file: " + YamlReader.getYamlValues("email.send"));
-        for (Object val1 : emailMap1.values()) {
-                System.out.println("Value of 'Send' parameter in Test data file:- " + val1.toString());
-        }
-        
-        if (YamlReader.getYamlValue("email.send").equalsIgnoreCase("yes")) {
+        if (YamlReader.getYamlValue("email.send").equalsIgnoreCase("true")) {
             for (Object val : emailMap.values()) {
                 System.out.println("Email Id:- " + val.toString());
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(
                         val.toString()));
             }
-        } else {
-            System.out.println("NO Email will be SEND via ResultIT Util class!!!");
         }
     }
-
+    
     private Multipart setAttachment() throws MessagingException, IOException {
         // Create the message part
         MimeBodyPart messageBodyPart = new MimeBodyPart();
@@ -173,7 +167,7 @@ public class ResultsIT {
         messageBodyPart = new MimeBodyPart();
         addAttachment(multipart, messageBodyPart,
                 "./target/surefire-reports/emailable-report.html");
-
+        
         return multipart;
     }
 
@@ -192,10 +186,10 @@ public class ResultsIT {
         String test = System.getProperty("test", "null");
         String testsuite = System.getProperty("testsuite", "null");
         String testName;
-        if (test != "null") {
+        if (!test.equals("null")) {
             testName = test + " was executed";
             return testName;
-        } else if (testsuite != "null") {
+        } else if (!testsuite.equals("null")) {
             testName = testsuite + "were executed";
             return testName;
         } else {
@@ -225,7 +219,6 @@ public class ResultsIT {
     private String testSetResult() throws IOException {
         String messageToBeSent = "";
         String overallRes = "";
-
         String filepath = "./target/surefire-reports/testng-results.xml";
         overallRes = parseTestNgXmlFile(filepath);
         messageToBeSent = "<br>" + overallRes;
@@ -289,7 +282,6 @@ public class ResultsIT {
             dBuilder = dbFactory.newDocumentBuilder();
             dom = dBuilder.parse(filepath);
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
         }
         NodeList nodes = dom.getElementsByTagName("testng-results");
         Element ele = (Element) nodes.item(0);
@@ -339,13 +331,11 @@ public class ResultsIT {
             Reporter.log("No Failures!!");
         }
         return list;
-
     }
 
     private String[] getNameTestReason(Element el1, Element el2) {
         String[] returnNameTestReason = new String[3];
         NamedNodeMap name = el1.getParentNode().getParentNode().getAttributes();
-
         returnNameTestReason[0] = name.getNamedItem("name").toString().replaceAll("name=", "");
         returnNameTestReason[1] = el1.getAttribute("name");
         returnNameTestReason[2] = el2.getTextContent();
@@ -353,14 +343,13 @@ public class ResultsIT {
     }
 
     @SuppressWarnings("unused")
-	private String giveTable(String[] failedResults) {
+    private String giveTable(String[] failedResults) {
         String table = "";
         table = table + "<table border='3'><tbody><tr style='background:red'><th><b>Test Case</b></th>"
                 + "<th><b>Test Method</b></th></tr>";
 
         for (int k = 0; k < failedResults.length; k += 3) {
             table = table + "<tr valign='top'><b>" + failedResults[k] + "</b>" + "<b><td>" + failedResults[k + 1] + "</b></tr>";
-
         }
         table = table + "</tbody></table>";
         return table;
