@@ -24,6 +24,5 @@ public class CheckSearchFunctionalityForPositiveAndNegativeCycleTest extends Tes
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.checkSearchFunctionality.validateSearchFunctionalityForNegativeCycle();
         test.createAndConfigPage.logOutFromAdmin();
-
     }
 }
