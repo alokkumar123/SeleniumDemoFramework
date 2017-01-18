@@ -8,7 +8,7 @@ package com.qait.Trust.automation.tests;
 import com.qait.Trust.automation.TestFundamentals;
 import org.testng.annotations.Test;
 
-public class ManageRoleTest extends TestFundamentals {
+public class ManageRolesTest extends TestFundamentals {
 
     String newRole = "New Role";
     String editRole = "Edited New Role";
