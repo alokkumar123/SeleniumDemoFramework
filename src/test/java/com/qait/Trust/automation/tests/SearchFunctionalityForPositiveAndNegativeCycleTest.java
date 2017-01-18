@@ -3,7 +3,7 @@ package com.qait.Trust.automation.tests;
 import com.qait.Trust.automation.TestFundamentals;
 import org.testng.annotations.Test;
 
-public class CheckSearchFunctionalityForPositiveAndNegativeCycleTest extends TestFundamentals {
+public class SearchFunctionalityForPositiveAndNegativeCycleTest extends TestFundamentals {
 
     @Test
     public void Trust_352_Check_Search_Functionality_Positive_Cycle() {

@@ -175,11 +175,9 @@ public class HTMLCodeSniffer extends GetPage {
             for (WebElement elem : elements("list_accessibilityIssues", String.valueOf(count))) {
                 if(elem.getAttribute("class").contains("HTMLCS-error")) {
                     errorList.add(element("txt_issueTitleReport", String.valueOf(count)).getText());
-                    // logMessage("Issue added under 'Error' type");
                 }
                 else if(elem.getAttribute("class").contains("HTMLCS-warning")) {
                     warningList.add(element("txt_issueTitleReport", String.valueOf(count)).getText());
-                    logMessage("Issue added under 'Warning' type");
                 }
                 else if(elem.getAttribute("class").contains("HTMLCS-notice")) {
                     noticeList.add(element("txt_issueTitleReport", String.valueOf(count)).getText());
@@ -188,7 +186,6 @@ public class HTMLCodeSniffer extends GetPage {
             }
             if(totalPage != count) {
                 element("btn_nextPage").click();
-                // logMessage("\nClicked on 'Next' icon");
             }
         } 
         
