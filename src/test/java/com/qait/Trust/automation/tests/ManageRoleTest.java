@@ -75,6 +75,6 @@ public class ManageRoleTest extends TestFundamentals {
         test.createAndConfigPage.popUpShouldBeAppears("Cancel");
         test.managRolePage.editedNewRoleIsDisplaying(editRole);
         test.managRolePage.clickOnDeleteButton(editRole);
-        test.createAndConfigPage.popUpShouldBeAppears("OK");
+        test.createAndConfigPage.popUpShouldBeAppears("Delete");
     }
 }
