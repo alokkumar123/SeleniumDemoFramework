@@ -3,6 +3,7 @@ package com.qait.Trust.automation;
 import com.qait.Trust.automation.keywords.CheckSearchFunctionalityCyclePageActions;
 import com.qait.Trust.automation.keywords.CreateAndConfigureMonitorsPageActions;
 import com.qait.Trust.automation.keywords.DetailScreenPageActions;
+import com.qait.Trust.automation.keywords.ManageRolePageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import com.qait.Trust.automation.utils.HTMLCodeSniffer;
 
@@ -52,6 +53,7 @@ public class TestSessionInitiator {
     public CreateAndConfigureMonitorsPageActions createAndConfigPage;
     public CheckSearchFunctionalityCyclePageActions checkSearchFunctionality;
     public HTMLCodeSniffer codeSniffer;
+    public ManageRolePageActions  managRolePage;
     
     public TakeScreenshot takescreenshot;
     
@@ -65,6 +67,7 @@ public class TestSessionInitiator {
         createAndConfigPage = new CreateAndConfigureMonitorsPageActions(driver);
         checkSearchFunctionality = new CheckSearchFunctionalityCyclePageActions(driver);
         codeSniffer = new HTMLCodeSniffer(driver); 
+        managRolePage = new ManageRolePageActions(driver);
     }
 
     /**
