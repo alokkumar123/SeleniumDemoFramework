@@ -18,7 +18,7 @@ public class ManagePermissionTest extends TestFundamentals {
     String descriptionTag = "Created By Automation Script";
 
     @Test
-    public void TC001_Check_User_Manage_Pemissions() {
+    public void TRUST_423_Step01_Check_User_Manage_Pemissions() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("List permissions");
@@ -27,7 +27,7 @@ public class ManagePermissionTest extends TestFundamentals {
     }
 
     @Test
-    public void TC002_Check_Search_Functionality_Positive_Cycle() {
+    public void TRUST_423_Step02_Check_Search_Functionality_Positive_Cycle() {
         test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Ad");
         test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Admin");
         test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("MonitorCreateAll");
@@ -35,18 +35,18 @@ public class ManagePermissionTest extends TestFundamentals {
     }
 
     @Test
-    public void TC003_Check_Search_Functionality_Negative_Cycle() {
+    public void TRUST_423_Step03_Check_Search_Functionality_Negative_Cycle() {
         test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
     }
 
     @Test
-    public void TC004_Shorting_Of_Records() {
+    public void TRUST_423_Step04_Shorting_Of_Records() {
         test.createAndConfigPage.shortingOfRecordswith(name, index1);
         test.createAndConfigPage.shortingOfRecordswith(description, index2);
     }
 
     @Test
-    public void TC005_Check_Add_Permission() {
+    public void TRUST_423_Step05_Check_Add_Permission() {
         test.managRolePage.clickOnAdd("Add Permission");
         test.managRolePage.newFormShouldBeOpened("Add permission");
         test.managRolePage.enterValueInForm(name, newPermission);
@@ -57,7 +57,7 @@ public class ManagePermissionTest extends TestFundamentals {
     }
 
     @Test
-    public void TC006_Delete_User_Creayed_By_Automation_Script() {
+    public void TRUST_423_Step06_Delete_User_Creayed_By_Automation_Script() {
         test.managRolePage.clickOnDeleteButton(newPermission);
         test.createAndConfigPage.popUpShouldBeAppears("Cancel");
         test.managRolePage.clickOnDeleteButton(newPermission);

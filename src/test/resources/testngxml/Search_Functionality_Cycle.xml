@@ -3,7 +3,7 @@
 	
 	<test name="Search Functionality for Possitive and Negative Cycle">
 		<classes>
-			<class name="com.qait.Trust.automation.tests.CheckSearchFunctionalityForPositiveAndNegativeCycleTest" />
+			<class name="com.qait.Trust.automation.tests.SearchFunctionalityForPositiveAndNegativeCycleTest" />
 		</classes>
 	</test>
 	

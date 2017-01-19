@@ -17,7 +17,7 @@ public class CreateAndConfigureMonitorsTest extends TestFundamentals {
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.logOutFromAdmin();
     }
-
+    
     @Test
     public void Trust_376_Create_Monitors() {
         test.createAndConfigPage.logAsAdmin();
