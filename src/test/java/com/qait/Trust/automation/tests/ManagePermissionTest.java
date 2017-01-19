@@ -27,7 +27,13 @@ public class ManagePermissionTest extends TestFundamentals {
     }
 
     @Test
-    public void TRUST_423_Step02_Check_Search_Functionality_Positive_Cycle() {
+    public void TRUST_423_Step02_Shorting_Of_Records() {
+        test.createAndConfigPage.shortingOfRecordswith(name, index1);
+        test.createAndConfigPage.shortingOfRecordswith(description, index2);
+    }
+
+    @Test
+    public void TRUST_423_Step03_Check_Search_Functionality_Positive_Cycle() {
         test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Ad");
         test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Admin");
         test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("MonitorCreateAll");
@@ -35,14 +41,8 @@ public class ManagePermissionTest extends TestFundamentals {
     }
 
     @Test
-    public void TRUST_423_Step03_Check_Search_Functionality_Negative_Cycle() {
+    public void TRUST_423_Step04_Check_Search_Functionality_Negative_Cycle() {
         test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
-    }
-
-    @Test
-    public void TRUST_423_Step04_Shorting_Of_Records() {
-        test.createAndConfigPage.shortingOfRecordswith(name, index1);
-        test.createAndConfigPage.shortingOfRecordswith(description, index2);
     }
 
     @Test
