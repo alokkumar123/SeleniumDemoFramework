@@ -19,6 +19,7 @@ public class ManageRolePageActions extends GetPage {
     }
 
     public void validateSearchFunctionalityForPossitiveCycleWithText(String text) {
+        ReportMsg.info("Searcing with " + text + " text");
         isElementDisplayed("input_serachBox");
         ReportMsg.info("Search box is available");
         element("input_serachBox").clear();
@@ -82,5 +83,10 @@ public class ManageRolePageActions extends GetPage {
         isElementDisplayed("span_deleteNewUser", editUserName);
         element("span_deleteNewUser", editUserName).click();
         ReportMsg.info("Deleting new user created by automation Script");
+    }
+
+    public void addGroup(String groupType,String groupField) {
+        element("label_groupField",groupType).click();
+        element("list_group",groupField).click();
     }
 }

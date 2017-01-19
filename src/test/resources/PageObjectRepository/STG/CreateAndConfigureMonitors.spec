@@ -1,7 +1,7 @@
 # Object Definitions
 
 ==================================================================================================================================
-link_login                                   xpath          //a[text()='Log in']
+link_login                                   xpath          //a[text()='Sign in']
 userName                                     xpath          //input[@placeholder ='Enter login']    
 password                                     xpath          //input[@placeholder ='Enter password']
 button_login                                 xpath          //button[text()='Login']    

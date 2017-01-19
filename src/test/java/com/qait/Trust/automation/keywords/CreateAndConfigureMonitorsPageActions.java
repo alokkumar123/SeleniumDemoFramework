@@ -222,12 +222,15 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void validateSearchFunctionalityForNegativeCycle() {
-        searchingText = "Worng text";
+        ReportMsg.info("Searching with irrelavent word");
+        searchingText = "Wrong text";
         isElementDisplayed("input_serachBox");
         ReportMsg.info("Search box is available");
         element("input_serachBox").clear();
         element("input_serachBox").sendKeys(searchingText);
         ReportMsg.info("Validated no result is availble after performing " + searchingText + " in search box");
+        element("input_serachBox").click();
+        element("input_serachBox").clear();
 
     }
 
@@ -322,7 +325,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void popUpShouldBeAppears(String popUp) {
         isElementDisplayed("button_popUp", popUp);
         element("button_popUp", popUp).click();
-        ReportMsg.info("Clicked on "+ popUp );
+        ReportMsg.info("Clicked on " + popUp);
     }
 
     public void clickOnDeleteButton() {

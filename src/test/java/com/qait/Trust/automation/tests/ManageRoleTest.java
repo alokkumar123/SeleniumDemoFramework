@@ -17,7 +17,7 @@ public class ManageRoleTest extends TestFundamentals {
     String permission3 = "MonitorEditAll";
 
     @Test
-    public void TC001_Check_User_Administration_Manage_Users() {
+    public void TC001_Check_User_Administration_Manage_Roles() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage roles");
