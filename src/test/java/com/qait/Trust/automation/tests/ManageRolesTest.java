@@ -7,11 +7,11 @@ public class ManageRolesTest extends TestFundamentals {
 
     String newRole = "New Role";
     String editRole = "Edited New Role";
-    String permission1 = "Create region";
-    String permission2 = "MonitorDeleteAll";
-    String permission3 = "MonitorEditAll";
+    String permission1 = "Admin Stats";
+    String permission2 = "Groups Management";
+    String permission3 = "MonitorDeleteAll";
 
-
+    @Test
     public void TRUST_422_Step01_Check_User_Administration_Manage_Users() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
