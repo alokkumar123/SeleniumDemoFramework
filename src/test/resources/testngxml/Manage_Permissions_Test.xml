@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Manage Permissions Automated Test Suite" preserve-order="true" thread-count="1">
+	
+	<test name="Manage Permissions">
+		<classes>
+			<class name="com.qait.Trust.automation.tests.ManagePermissionTest" />
+		</classes>
+	</test>
+	
+</suite>
