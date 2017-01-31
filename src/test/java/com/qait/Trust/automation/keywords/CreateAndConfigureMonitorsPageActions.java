@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
@@ -22,7 +17,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     String password = "12345";
     String EmailId = "harsh123@gmail.com";
     String editUserName = "harsh12";
-
+    String searchingText;
     ArrayList<String> roleList = new ArrayList<String>();
 
     public CreateAndConfigureMonitorsPageActions(WebDriver driver) {
@@ -114,9 +109,9 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void createButtonAndSearchTextBarShouldBeAvailable() {
         isElementDisplayed("button_Create");
-        ReportMsg.info("Created button is available ");
+        ReportMsg.info("Created button is available");
         isElementDisplayed("input_serachBox");
-        ReportMsg.info("Search box is available ");
+        ReportMsg.info("Search box is available");
     }
 
     public void breadcrumbShouldBeAvailableForNavigation(String breadCrumb) {
@@ -175,9 +170,11 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void shortingOfRecordswith(String field, String index) {
         isElementDisplayed("span_shortingFields", index);
         elements("span_shortingFields", index);
-        ReportMsg.info(field + " before shorting ");
+        ReportMsg.info(field + " before sorting ");
         for (WebElement ele : elements("span_shortingFields", index)) {
-            ReportMsg.info(ele.getText());
+            if(!(ele.getText().equals(null))) {
+                ReportMsg.info(ele.getText());
+            }
         }
         element("span_Assending", index).click();
         ReportMsg.info("Click on Assending order");
@@ -187,7 +184,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         }
         element("span_Desending", index).click();
     }
-    String searchingText;
 
     public void validateSearchFunctionalityForPossitiveCycle() {
         searchingText = "Abhishek";
