@@ -1,8 +1,8 @@
 base_url: http://trust.cengage.com/
 
 appName:
-  mindtap: url("/systems/582042dddc7feb181696f604/logo.png")
   cengageBrain: url("/systems/58204395dc7feb181696f606/logo.png")
+  mindtap: url("/systems/582042dddc7feb181696f604/logo.png")
   aplia: url("/systems/5820445cdc7feb181696f608/logo.png")    
   cengageNow: url("/systems/582044bddc7feb181696f60c/logo.png")
   cengageNOWv2: url("/systems/58204359dc7feb181696f605/logo.png")
