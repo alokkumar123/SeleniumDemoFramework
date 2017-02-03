@@ -186,7 +186,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void validateSearchFunctionalityForPossitiveCycle() {
-        searchingText = "Abhishek";
+        searchingText = "Jason Chin H";
         isElementDisplayed("input_serachBox");
         ReportMsg.info("Search box is available");
         element("input_serachBox").clear();
@@ -207,7 +207,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("input_serachBox").sendKeys(searchingText);
         isElementDisplayed("searched_text", searchingText);
         ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
-        searchingText = "abhishek.ranjan@contractor.cengage.com";
+        searchingText = "jason.chin@cengage.com";
         isElementDisplayed("input_serachBox");
         ReportMsg.info("Search box is available");
         element("input_serachBox").clear();
