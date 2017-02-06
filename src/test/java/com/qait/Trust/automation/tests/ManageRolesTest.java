@@ -8,7 +8,7 @@ public class ManageRolesTest extends TestFundamentals {
     String newRole = "New Role";
     String editRole = "Edited New Role";
     String permission1 = "Admin Stats";
-    String permission2 = "Groups Management";
+    String permission2 = "MonitorCreateAll";
     String permission3 = "MonitorDeleteAll";
 
     @Test

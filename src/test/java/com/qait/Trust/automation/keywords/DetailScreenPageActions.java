@@ -21,8 +21,20 @@ public class DetailScreenPageActions extends GetPage {
 
     WebDriver driver;
     ArrayList<String> timeList = new ArrayList<String>() {
-        {   add("05"); add("10"); add("15"); add("20"); add("25"); add("30");
-            add("35"); add("40"); add("45"); add("50"); add("55"); add("60"); }
+        {
+            add("05");
+            add("10");
+            add("15");
+            add("20");
+            add("25");
+            add("30");
+            add("35");
+            add("40");
+            add("45");
+            add("50");
+            add("55");
+            add("60");
+        }
     };
 
     public DetailScreenPageActions(WebDriver driver) {
@@ -148,7 +160,7 @@ public class DetailScreenPageActions extends GetPage {
         isElementDisplayed("text_dayHeading");
         ReportMsg.info(element("text_dayHeading").getText() + " heading is displaying while hover on day");
     }
-    
+
     private void verifyCurrentInformationAlerts(String appName) {
         try {
             isElementDisplayed("btn_currnetInformationAlerts");
@@ -190,7 +202,7 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("select_endDate");
             element("select_endDate").click();
             String currentDate = element("text_currentDate").getText();
-            
+
             int a = Integer.parseInt(currentDate);
             if (a < 31) {
                 a = a + 1;
@@ -256,7 +268,7 @@ public class DetailScreenPageActions extends GetPage {
         Assert.assertEquals(appStatus, "Available", "App is not avilable on");
         ReportMsg.info(appName + " app is available on platform ");
     }
-    
+
     public void verifyBreadCrumb(String appName) {
         System.out.println("############## Verifying Breadcrumb, TRUST-317 ##############\n");
         isElementDisplayed("singleApp", appName);
@@ -422,16 +434,16 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("table_systemStatus");
             ReportMsg.info("Verifying table system status");
             isElementDisplayed("td_colorFrame", color);
-            for (WebElement el : elements("td_colorFrame", color)) {
-                String hours = el.getText();
-                Iterator itr = timeList.iterator();
-                for (WebElement ele : elements("minute", hours)) {
-                    String minuteTime = itr.next().toString();
-                    if (ele.getAttribute("class").equals(color)) {
-                        ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + ":" + minuteTime);
+                for (WebElement el : elements("td_colorFrame", color)) {
+                    String hours = el.getText();
+                    Iterator itr = timeList.iterator();
+                    for (WebElement ele : elements("minute", hours)) {
+                        String minuteTime = itr.next().toString();
+                        if (ele.getAttribute("class").equals(color)) {
+                            ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + ":" + minuteTime);
+                        }
                     }
                 }
-            }
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         } catch (NoSuchElementException e) {
             ReportMsg.info(color.toUpperCase() + " color frame is not visible on time frame");

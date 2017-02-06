@@ -18,41 +18,41 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public void checkLastUpdateTimeOverPlatformAvailability() {
-        try {
-            isElementDisplayed("groupPattern");
-            ReportMsg.info("Platform Availability screen is in form of group");
-            isElementDisplayed("list_groupPanel");
-            int i = 0;
-            String groupName = null;
-            for (WebElement ele : elements("list_groupPanel")) {
-                groupName = elements("list_groupPanel").get(i).getText();
-
-                element("apps_inGroups", groupName).click();
-                ReportMsg.info("Group Name = " + groupName);
-                
-                elements("list_groupPanel").get(i).click();
-                ReportMsg.info("Clicked on " + groupName + " group");
-                
-                int j = 0;
-                isElementDisplayed("apps_inGroups", groupName);
-                for (WebElement e : elements("apps_inGroups", groupName)) {
-                    String appName = null;
-                    ReportMsg.info("app size in group =" + elements("apps_inGroups", groupName).size());
-                    elements("apps_inGroups", groupName).get(j).click();
-                    isElementDisplayed("txt_appName");
-                    appName = element("txt_appName").getText();
-                    String a[] = appName.split("> ");
-                    appName = a[1];
-                    ReportMsg.info("AppName = " + appName);
-                    ReportMsg.info("Clicked on '" + appName + "'");
-                    elements("list_groupPanel").get(i).click();
-                    ReportMsg.info("Clicked on '" + groupName + "' group");
-                    j++;
-                }
-                ReportMsg.info("covered all app of = " + groupName + "group");
-                i++;
-            }
-        } catch (Exception e) {
+//        try {
+//            isElementDisplayed("groupPattern");
+//            ReportMsg.info("Platform Availability screen is in form of group");
+//            isElementDisplayed("list_groupPanel");
+//            int i = 0;
+//            String groupName = null;
+//            for (WebElement ele : elements("list_groupPanel")) {
+//                groupName = elements("list_groupPanel").get(i).getText();
+//
+//                element("apps_inGroups", groupName).click();
+//                ReportMsg.info("Group Name = " + groupName);
+//                
+//                elements("list_groupPanel").get(i).click();
+//                ReportMsg.info("Clicked on " + groupName + " group");
+//                
+//                int j = 0;
+//                isElementDisplayed("apps_inGroups", groupName);
+//                for (WebElement e : elements("apps_inGroups", groupName)) {
+//                    String appName = null;
+//                    ReportMsg.info("app size in group =" + elements("apps_inGroups", groupName).size());
+//                    elements("apps_inGroups", groupName).get(j).click();
+//                    isElementDisplayed("txt_appName");
+//                    appName = element("txt_appName").getText();
+//                    String a[] = appName.split("> ");
+//                    appName = a[1];
+//                    ReportMsg.info("AppName = " + appName);
+//                    ReportMsg.info("Clicked on '" + appName + "'");
+//                    elements("list_groupPanel").get(i).click();
+//                    ReportMsg.info("Clicked on '" + groupName + "' group");
+//                    j++;
+//                }
+//                ReportMsg.info("covered all app of = " + groupName + "group");
+//                i++;
+//            }
+//        } catch (Exception e) {
             int i = 0;
             Boolean value;
             String appName = null;
@@ -89,7 +89,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                 }
             }
             i++;
-        }
+//        }
     }
 
     public void verifyNeedProductSupportLinkDisplaying() {
@@ -116,6 +116,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
                 String b[] = e.getAttribute("style").split(": ");
                 String url1 = e.getAttribute("style");
+               // ReportMsg.info("url1= "+url1);
                 if (e.getText().contains("")) {
                     if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48))) {
                         ReportMsg.info("App name = " + app[0] + " is displaying with " + b[1]);

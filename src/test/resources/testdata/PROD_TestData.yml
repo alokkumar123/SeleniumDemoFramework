@@ -1,15 +1,15 @@
 base_url: http://trust.cengage.com/
 
 appName:
-  cengageBrain: CengageBrain
-  mindtap: MindTap
-  aplia: Aplia    
-  cengageNow: CNOWv1
-  cengageNOWv2: CNOWv2
-  OWLv2: OWLv2
-  SAM: SAM    
-  4LTR: 4LTR Press   
-  mindtapMathFoundation: MindTap Math Foundations
+  cengageBrain: url("/systems/58204395dc7feb181696f606/logo.png")
+  mindtap: url("/systems/582042dddc7feb181696f604/logo.png")
+  aplia: url("/systems/5820445cdc7feb181696f608/logo.png")    
+  cengageNow: url("/systems/582044bddc7feb181696f60c/logo.png")
+  cengageNOWv2: url("/systems/58204359dc7feb181696f605/logo.png")
+  OWLv2: url("/systems/582044a3dc7feb181696f60b/logo.png")
+  SAM: url("/systems/5820444bdc7feb181696f607/logo.png")    
+  4LTR: url("/systems/58204475dc7feb181696f609/logo.png")   
+  mindtapMathFoundation: url("/systems/5820448bdc7feb181696f60a/logo.png")
 
 email:
     send: no
