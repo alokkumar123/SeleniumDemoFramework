@@ -45,7 +45,7 @@ public class ResultsIT {
     String host = "smtp.gmail.com";
     String from = "automation.resultsqait@gmail.com";
     String password = "QaitAutomation";
-    int port = 25;
+    int port = 465;
     String failureResults = "";
     String skippedResults = "";
     String passedResult = "";
