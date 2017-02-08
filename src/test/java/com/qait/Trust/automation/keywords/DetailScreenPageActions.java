@@ -434,16 +434,16 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("table_systemStatus");
             ReportMsg.info("Verifying table system status");
             isElementDisplayed("td_colorFrame", color);
-                for (WebElement el : elements("td_colorFrame", color)) {
-                    String hours = el.getText();
-                    Iterator itr = timeList.iterator();
-                    for (WebElement ele : elements("minute", hours)) {
-                        String minuteTime = itr.next().toString();
-                        if (ele.getAttribute("class").equals(color)) {
-                            ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + ":" + minuteTime);
-                        }
+            for (WebElement el : elements("td_colorFrame", color)) {
+                String hours = el.getText();
+                Iterator itr = timeList.iterator();
+                for (WebElement ele : elements("minute", hours)) {
+                    String minuteTime = itr.next().toString();
+                    if (ele.getAttribute("class").equals(color)) {
+                        ReportMsg.info(color.toUpperCase() + " color is showing at " + hours + ":" + minuteTime);
                     }
                 }
+            }
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
         } catch (NoSuchElementException e) {
             ReportMsg.info(color.toUpperCase() + " color frame is not visible on time frame");
