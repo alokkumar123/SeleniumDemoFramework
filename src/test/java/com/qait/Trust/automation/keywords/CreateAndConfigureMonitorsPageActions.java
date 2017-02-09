@@ -15,8 +15,8 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     String externalServiceId = "123";
     String userName = "harsh";
     String password = "12345";
-    String EmailId = "harsh123@gmail.com";
-    String editUserName = "harsh12";
+    String EmailId = "harshsehgal@qainfotech.com";
+    String editUserName = "harshNew";
     String searchingText;
     ArrayList<String> roleList = new ArrayList<String>();
 
@@ -40,17 +40,16 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void navigateToAdminMenu(String menuName) {
         isElementDisplayed("div_adminMenu");
-        ReportMsg.info("Admin Menu list is displaying on admin ");
-        isElementDisplayed("link_MenuName", menuName);
+        ReportMsg.info("Admin Menu list is displaying on Admin page");
+        
         element("link_MenuName", menuName).click();
-        ReportMsg.info("Navigate to " + menuName);
+        ReportMsg.info("Clicked on '" + menuName + "' tab");
     }
 
     public void clickOnCreateButton() {
         isElementDisplayed("button_Create");
         element("button_Create").click();
         ReportMsg.info("Click on create button");
-
     }
 
     public void enterAllMandatoryFieldsAndClickOnSave() {
@@ -159,7 +158,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void clickOnAddNewUser() {
         isElementDisplayed("button_AddNewUser");
         element("button_AddNewUser").click();
-        ReportMsg.info("Clicked on Add new user button ");
+        ReportMsg.info("Clicked on 'Add a New User' button");
     }
 
     public void userNavigatedToNewUserScreen() {
@@ -180,7 +179,9 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Click on Assending order");
         ReportMsg.info(field + " after assendiing order ");
         for (WebElement ele : elements("span_shortingFields", index)) {
-            ReportMsg.info(ele.getText());
+            if(!(ele.getText().equals(null))) {
+                ReportMsg.info(ele.getText());
+            }
         }
         element("span_Desending", index).click();
     }
@@ -240,12 +241,12 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("input_text", formField).click();
         element("input_text", formField).clear();
         element("input_text", formField).sendKeys(userName);
-        ReportMsg.info("Entered user Id ");
+        ReportMsg.info("Entered user Id: '" + userName + "'");
     }
 
     public void clickOnRoleSelector() {
         element("div_Selector").click();
-        ReportMsg.info("Menu Items");
+        ReportMsg.info("Clicked on 'Roles' dropdown on 'Add new User' screen");
         for (WebElement ele : elements("div_menuItems")) {
             String menuItem = ele.getText();
             roleList.add(menuItem);
@@ -253,13 +254,13 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         }
     }
 
-    public void rolesDislpayingInManageRole() {
+    public void rolesDisplayingOnManageRoles() {
         Iterator<String> itr = roleList.iterator();
         for (WebElement el : elements("div_ItemRoles")) {
             String item = el.getText();
             String roleItem = itr.next();
             if (roleItem.contains(item)) {
-                ReportMsg.info(" Role item " + roleItem + " is displaying on manage role tab");
+                ReportMsg.info("Existing Roles appearing on Manage Role Tab: '" + roleItem + "'");
             }
         }
     }

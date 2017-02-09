@@ -37,7 +37,7 @@ public class ManageUsersORUserAdministrationTest extends TestFundamentals {
         test.createAndConfigPage.userNavigatedToNewUserScreen();
         test.createAndConfigPage.clickOnRoleSelector();
         test.createAndConfigPage.navigateToAdminMenu("Manage roles");
-        test.createAndConfigPage.rolesDislpayingInManageRole();
+        test.createAndConfigPage.rolesDisplayingOnManageRoles();
         test.createAndConfigPage.navigateToAdminMenu("User Administration");
         test.createAndConfigPage.clickOnAddNewUser();
         test.createAndConfigPage.enterUserIdInUserForm("User ID");
