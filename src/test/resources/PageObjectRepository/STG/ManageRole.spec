@@ -1,7 +1,6 @@
 # Object Definitions
-
 ==================================================================================================================================
-input_serachBox                              xpath          //input[@id='searchText']
+input_searchBox                              xpath          //input[@id='searchText']
 button_addNew                                xpath          //button[text()='${addNew}'] 
 h4_formInfo                                  xpath          //h4[text()='${data}'] 
 input_text                                   xpath          //label[contains(text(),'${formField}')]/ancestor::div[contains(@class,'form-group')]//*[@class='form-control']

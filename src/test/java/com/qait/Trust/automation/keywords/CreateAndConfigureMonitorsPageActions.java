@@ -40,7 +40,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void navigateToAdminMenu(String menuName) {
         isElementDisplayed("div_adminMenu");
-        ReportMsg.info("Admin Menu list is displaying on Admin page");
+        ReportMsg.info("Admin Menu list is displaying on Profile page");
         
         element("link_MenuName", menuName).click();
         ReportMsg.info("Clicked on '" + menuName + "' tab");
@@ -101,15 +101,14 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void gridShouldBeAvailableFor(String string) {
-        isElementDisplayed("table_appTableGrid");
         isElementDisplayed("span_gridFields", string);
-        ReportMsg.info("Grid is available for " + string);
+        ReportMsg.info("'" + string + "' Grid is available on Manage Regions page");
     }
 
     public void createButtonAndSearchTextBarShouldBeAvailable() {
         isElementDisplayed("button_Create");
         ReportMsg.info("Created button is available");
-        isElementDisplayed("input_serachBox");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
     }
 
@@ -188,46 +187,46 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void validateSearchFunctionalityForPossitiveCycle() {
         searchingText = "Jason Chin H";
-        isElementDisplayed("input_serachBox");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText);
         isElementDisplayed("searched_text", searchingText);
-        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation ");
         searchingText = "GPT Ames ";
-        isElementDisplayed("input_serachBox");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText);
         isElementDisplayed("searched_text", searchingText);
-        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation ");
         searchingText = "Patsy Ames";
-        isElementDisplayed("input_serachBox");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText);
         isElementDisplayed("searched_text", searchingText);
-        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation ");
         searchingText = "jason.chin@cengage.com";
-        isElementDisplayed("input_serachBox");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText);
         isElementDisplayed("searched_text", searchingText);
-        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation ");
 
     }
 
     public void validateSearchFunctionalityForNegativeCycle() {
         ReportMsg.info("Searching with irrelavent word");
         searchingText = "Wrong text";
-        isElementDisplayed("input_serachBox");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText);
         ReportMsg.info("Validated no result is availble after performing " + searchingText + " in search box");
-        element("input_serachBox").click();
-        element("input_serachBox").clear();
+        element("input_searchBox").click();
+        element("input_searchBox").clear();
 
     }
 

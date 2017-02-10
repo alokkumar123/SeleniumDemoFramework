@@ -1,5 +1,4 @@
 # Object Definitions
-
 ==================================================================================================================================
 link_login                                   xpath          //a[text()='Sign in']
 userName                                     xpath          //input[@placeholder ='Enter login']    
@@ -18,7 +17,7 @@ button_Admin                                 xpath          //li[@class='login-t
 logout_adminPage                             xpath          //a[text()='Log out']   
 table_appTableGrid                           xpath          //table[@class='app-table']
 span_gridFields                              xpath          //span[text()='${string}'] 
-input_serachBox                              xpath          //input[@id='searchText']
+input_searchBox                              xpath          //input[@id='searchText']
 link_breadCrumb                              xpath          //a[contains(text(),'Platform Availability Home')]/parent::div[contains(text(),'${breadCrumb}')] 
 link_ok                                      xpath          //button[text()='OK']  
 serarched_text                               xpath          //td[contains(@data-search-text,'${searchingText}')]
