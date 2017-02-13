@@ -3,6 +3,7 @@ package com.qait.Trust.automation.keywords;
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ManageRegionPageActions extends GetPage {
 
@@ -14,8 +15,8 @@ public class ManageRegionPageActions extends GetPage {
     public boolean verifyAnyRegionCreatedByAutomationScriptIsAppearing() {
         boolean flag = false;
         
-        ReportMsg.info("No. of Regions: " + elements("").size());
-        for() {
+        ReportMsg.info("No. of Regions: " + elements("list_regions").size());
+        for(WebElement elem : elements("list_regions")) {
             
         }
         
