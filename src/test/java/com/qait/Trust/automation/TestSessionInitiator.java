@@ -3,6 +3,7 @@ package com.qait.Trust.automation;
 import com.qait.Trust.automation.keywords.CheckSearchFunctionalityCyclePageActions;
 import com.qait.Trust.automation.keywords.CreateAndConfigureMonitorsPageActions;
 import com.qait.Trust.automation.keywords.DetailScreenPageActions;
+import com.qait.Trust.automation.keywords.ManageRegionPageActions;
 import com.qait.Trust.automation.keywords.ManageRolePageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import com.qait.Trust.automation.utils.HTMLCodeSniffer;
@@ -48,12 +49,13 @@ public class TestSessionInitiator {
      * Initiating the page objects
      *
      */
-    public PlatformAvailabilityPageActions platfromAvailabilityPage;
+    public HTMLCodeSniffer codeSniffer;
+    public PlatformAvailabilityPageActions platformAvailabilityPage;
     public DetailScreenPageActions detailScreenPage;
+    public ManageRolePageActions  manageRolePage;
     public CreateAndConfigureMonitorsPageActions createAndConfigPage;
     public CheckSearchFunctionalityCyclePageActions checkSearchFunctionality;
-    public HTMLCodeSniffer codeSniffer;
-    public ManageRolePageActions  managRolePage;
+    public ManageRegionPageActions manageRegionPage;
     
     public TakeScreenshot takescreenshot;
     
@@ -62,12 +64,13 @@ public class TestSessionInitiator {
     }
 
     private void _initPage() {
-        platfromAvailabilityPage = new PlatformAvailabilityPageActions(driver);
+        codeSniffer = new HTMLCodeSniffer(driver); 
+        platformAvailabilityPage = new PlatformAvailabilityPageActions(driver);
         detailScreenPage = new DetailScreenPageActions(driver);
+        manageRolePage = new ManageRolePageActions(driver);
         createAndConfigPage = new CreateAndConfigureMonitorsPageActions(driver);
         checkSearchFunctionality = new CheckSearchFunctionalityCyclePageActions(driver);
-        codeSniffer = new HTMLCodeSniffer(driver); 
-        managRolePage = new ManageRolePageActions(driver);
+        manageRegionPage = new ManageRegionPageActions(driver);
     }
 
     /**

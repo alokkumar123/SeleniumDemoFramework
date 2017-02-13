@@ -29,10 +29,10 @@ public class ManagePermissionTest extends TestFundamentals {
 
     @Test
     public void TRUST_423_Step03_Check_Search_Functionality_Positive_Cycle() {
-        test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Ad");
-        test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Admin");
-        test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("MonitorCreateAll");
-        test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("DeleteAll");
+        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Ad");
+        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Admin");
+        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("MonitorCreateAll");
+        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("DeleteAll");
     }
 
     @Test
@@ -42,20 +42,20 @@ public class ManagePermissionTest extends TestFundamentals {
 
     @Test
     public void TRUST_423_Step05_Check_Add_Permission() {
-        test.managRolePage.clickOnAdd("Add Permission");
-        test.managRolePage.newFormShouldBeOpened("Add permission");
-        test.managRolePage.enterValueInForm(name, newPermission);
-        test.managRolePage.enterValueInForm(description, descriptionTag);
-        test.managRolePage.addGroup("Group", "Groups");
-        test.managRolePage.addGroup("Type", "Create");
+        test.manageRolePage.clickOnAdd("Add Permission");
+        test.manageRolePage.newFormShouldBeOpened("Add permission");
+        test.manageRolePage.enterValueInForm(name, newPermission);
+        test.manageRolePage.enterValueInForm(description, descriptionTag);
+        test.manageRolePage.addGroup("Group", "Groups");
+        test.manageRolePage.addGroup("Type", "Create");
         test.createAndConfigPage.clickOnSaveButton();
     }
 
     @Test
     public void TRUST_423_Step06_Delete_User_Creayed_By_Automation_Script() {
-        test.managRolePage.clickOnDeleteButton(newPermission);
+        test.manageRolePage.clickOnDeleteButton(newPermission);
         test.createAndConfigPage.popUpShouldBeAppears("Cancel");
-        test.managRolePage.clickOnDeleteButton(newPermission);
+        test.manageRolePage.clickOnDeleteButton(newPermission);
         test.createAndConfigPage.popUpShouldBeAppears("Delete");
     }
 }

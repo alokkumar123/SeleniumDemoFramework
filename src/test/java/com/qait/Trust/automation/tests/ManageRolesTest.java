@@ -23,10 +23,10 @@ public class ManageRolesTest extends TestFundamentals {
 
     @Test
     public void TRUST_422_Step02_Check_Search_Functionality_Positive_Cycle() {
-        test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Admin");
-        test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("System Owner");
-        test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Devops");
-        test.managRolePage.validateSearchFunctionalityForPossitiveCycleWithText("System Owner (Aplia)");
+        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Admin");
+        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("System Owner");
+        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Devops");
+        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("System Owner (Aplia)");
     }
 
     @Test
@@ -36,40 +36,40 @@ public class ManageRolesTest extends TestFundamentals {
 
     @Test
     public void TRUST_422_Step04_Check_Add_A_New_Role() {
-        test.managRolePage.clickOnAdd("Add Role");
-        test.managRolePage.newFormShouldBeOpened("Add role");
-        test.managRolePage.enterValueInForm("Name", newRole);
-        test.managRolePage.enterValueInForm("Description", "Created By Automation Script");
-        test.managRolePage.clickOnFormField("Permissions");
-        test.managRolePage.setPermissions(permission1);
-        test.managRolePage.setPermissions(permission2);
-        test.managRolePage.setPermissions(permission3);
-        test.managRolePage.clickOnFormField("Permissions");
+        test.manageRolePage.clickOnAdd("Add Role");
+        test.manageRolePage.newFormShouldBeOpened("Add role");
+        test.manageRolePage.enterValueInForm("Name", newRole);
+        test.manageRolePage.enterValueInForm("Description", "Created By Automation Script");
+        test.manageRolePage.clickOnFormField("Permissions");
+        test.manageRolePage.setPermissions(permission1);
+        test.manageRolePage.setPermissions(permission2);
+        test.manageRolePage.setPermissions(permission3);
+        test.manageRolePage.clickOnFormField("Permissions");
         test.createAndConfigPage.clickOnSaveButton();
     }
 
     @Test
     public void TRUST_422_Step05_Check_Newly_Created_Role_Must_Be_Listed_On_The_Configured_Manage_Roles() {
-        test.managRolePage.newlyCreatedDataShouldBeAvailabeOnList(newRole);
-        test.managRolePage.verifyAddedPernissionsAreDisplayingOnManageList(newRole, permission1);
-        test.managRolePage.verifyAddedPernissionsAreDisplayingOnManageList(newRole, permission2);
-        test.managRolePage.verifyAddedPernissionsAreDisplayingOnManageList(newRole, permission3);
+        test.manageRolePage.newlyCreatedDataShouldBeAvailabeOnList(newRole);
+        test.manageRolePage.verifyAddedPernissionsAreDisplayingOnManageList(newRole, permission1);
+        test.manageRolePage.verifyAddedPernissionsAreDisplayingOnManageList(newRole, permission2);
+        test.manageRolePage.verifyAddedPernissionsAreDisplayingOnManageList(newRole, permission3);
     }
 
     @Test
     public void TRUST_422_Step06_Click_Edit_Role() {
-        test.managRolePage.clickOnNewlyCreated(newRole);
-        test.managRolePage.enterValueInForm("Name", editRole);
+        test.manageRolePage.clickOnNewlyCreated(newRole);
+        test.manageRolePage.enterValueInForm("Name", editRole);
         test.createAndConfigPage.clickOnSaveButton();
-        test.managRolePage.editedNewRoleIsDisplaying(editRole);
+        test.manageRolePage.editedNewRoleIsDisplaying(editRole);
     }
 
     @Test
     public void TRUST_422_Step07_Delete_User_Creayed_By_Automation_Script() {
-        test.managRolePage.clickOnDeleteButton(editRole);
+        test.manageRolePage.clickOnDeleteButton(editRole);
         test.createAndConfigPage.popUpShouldBeAppears("Cancel");
-        test.managRolePage.editedNewRoleIsDisplaying(editRole);
-        test.managRolePage.clickOnDeleteButton(editRole);
+        test.manageRolePage.editedNewRoleIsDisplaying(editRole);
+        test.manageRolePage.clickOnDeleteButton(editRole);
         test.createAndConfigPage.popUpShouldBeAppears("Delete");
     }
 }

@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation.keywords;
 
-import com.galenframework.reports.nodes.ReportExtra;
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 public class ManageRolePageActions extends GetPage {
 
@@ -19,18 +12,18 @@ public class ManageRolePageActions extends GetPage {
     }
 
     public void validateSearchFunctionalityForPossitiveCycleWithText(String text) {
-        ReportMsg.info("Searcing with " + text + " text");
-        isElementDisplayed("input_serachBox");
+        ReportMsg.info("Searching with " + text + " text");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(text);
-        ReportMsg.info("Validated " + text + " is displaying after perfroming search operation ");
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(text);
+        ReportMsg.info("Validated " + text + " is displaying after performing Search operation");
     }
 
     public void clickOnAdd(String addNew) {
         isElementDisplayed("button_addNew", addNew);
         element("button_addNew", addNew).click();
-        ReportMsg.info("Clicked On " + addNew);
+        ReportMsg.info("Clicked on '" + addNew + "' button");
     }
 
     public void newFormShouldBeOpened(String data) {
@@ -43,9 +36,8 @@ public class ManageRolePageActions extends GetPage {
         element("input_text", formField).click();
         element("input_text", formField).clear();
         element("input_text", formField).sendKeys(name);
-
     }
-
+    
     public void clickOnFormField(String formField) {
         isElementDisplayed("div_selectPermission");
         element("div_selectPermission").click();
@@ -54,7 +46,6 @@ public class ManageRolePageActions extends GetPage {
     public void setPermissions(String permission) {
         element("div_menuItems", permission).click();
         ReportMsg.info("Set " + permission + " in Permission Field");
-
     }
 
     public void newlyCreatedDataShouldBeAvailabeOnList(String data) {
@@ -65,7 +56,6 @@ public class ManageRolePageActions extends GetPage {
     public void verifyAddedPernissionsAreDisplayingOnManageList(String user, String permission) {
         isElementDisplayed("text_permission", permission);
         ReportMsg.info(permission + " permission is displaying for " + user);
-
     }
 
     public void clickOnNewlyCreated(String data) {
@@ -89,4 +79,5 @@ public class ManageRolePageActions extends GetPage {
         element("label_groupField",groupType).click();
         element("list_group",groupField).click();
     }
+    
 }
