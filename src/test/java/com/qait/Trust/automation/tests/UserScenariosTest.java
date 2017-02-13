@@ -23,14 +23,14 @@ public class UserScenariosTest extends TestFundamentals {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage roles");
-        test.managRolePage.clickOnAdd("Add Role");
-        test.managRolePage.newFormShouldBeOpened("Add role");
-        test.managRolePage.enterValueInForm("Name", newRole);
-        test.managRolePage.enterValueInForm("Description", "Created By Automation Script");
-        test.managRolePage.clickOnFormField("Permissions");
-        test.managRolePage.setPermissions(permission2);
-        test.managRolePage.setPermissions(permission3);
-        test.managRolePage.clickOnFormField("Permissions");
+        test.manageRolePage.clickOnAdd("Add Role");
+        test.manageRolePage.newFormShouldBeOpened("Add role");
+        test.manageRolePage.enterValueInForm("Name", newRole);
+        test.manageRolePage.enterValueInForm("Description", "Created By Automation Script");
+        test.manageRolePage.clickOnFormField("Permissions");
+        test.manageRolePage.setPermissions(permission2);
+        test.manageRolePage.setPermissions(permission3);
+        test.manageRolePage.clickOnFormField("Permissions");
         test.createAndConfigPage.clickOnSaveButton();
     }
 
@@ -57,10 +57,10 @@ public class UserScenariosTest extends TestFundamentals {
         test.createAndConfigPage.logOutFromAdmin();
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage roles");
-        test.managRolePage.clickOnDeleteButton(newRole);
+        test.manageRolePage.clickOnDeleteButton(newRole);
         test.createAndConfigPage.popUpShouldBeAppears("Delete");
         test.createAndConfigPage.navigateToAdminMenu("User Administration");
-        test.managRolePage.clickOnDeleteButton(userName);
+        test.manageRolePage.clickOnDeleteButton(userName);
         test.createAndConfigPage.popUpShouldBeAppears("OK");
     }
 
