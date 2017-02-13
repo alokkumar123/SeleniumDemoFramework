@@ -39,6 +39,8 @@ div_editedUserName                           xpath          //div[@class='contai
 td_oldValue                                  xpath          //td[text()='${userName}']  
 td_newValue                                  xpath          //td[text()='${editUserName}'] 
 span_deleteNewUser                           xpath          //a[contains(text(),'${editUserName}')]/ancestor::tr//span[contains(@class,'glyphicon')]
-button_popUp                                 xpath          //button[text()='${popUp}']    
+button_popUp                                 xpath          //button[text()='${popUp}']   
+div_selectRole                               xpath          //div[@class='Select-placeholder']
+div_selectRoleValue                          xpath          //div[@class='Select-menu']//div[text()='${newRole}']       
 ==================================================================================================================================
     
