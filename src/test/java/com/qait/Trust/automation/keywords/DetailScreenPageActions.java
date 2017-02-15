@@ -401,8 +401,8 @@ public class DetailScreenPageActions extends GetPage {
         }
     }
 
-    public void checkForColorNotationInThePlatformAvailabilityAndDetailScreen(String appName) {
-        System.out.println("\n############## Verifying Colors notation for 12 and 24 hours, TRUST-347 ##############\n");
+    public void checkForColorNotationInThePlatformAvailabilityAndDetailScreen(String appName, String color) {
+        System.out.println("\n############## Verifying "+color+" color notation for 12 and 24 hours, TRUST-347 ##############\n");
         isElementDisplayed("div_appColorOnPlatform", appName);
         ReportMsg.info("Verified color for " + appName + " app is green on Platform Availability Screen");
         isElementDisplayed("singleApp", appName);
@@ -416,16 +416,16 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Set time frame for 12 hours");
         ReportMsg.info("Set timezone to EST");
         ReportMsg.info("****** Verifying Slight disruption ,Minor disruption ,Service temporarily unavailable ,orange and Planned maintenance color for 12 hours ******");
-        verifyColorInTimeFrameColor("red");
-        verifyColorInTimeFrameColor("yellow");
-        verifyColorInTimeFrameColor("orange");
-        verifyColorInTimeFrameColor("empty");
+        verifyColorInTimeFrameColor(color);
+//        verifyColorInTimeFrameColor("yellow");
+//        verifyColorInTimeFrameColor("orange");
+//        verifyColorInTimeFrameColor("empty");
         selectLastAvailableHours("last 24 hours");
-        ReportMsg.info("****** Verifying red ,yellow and orange color for 24 hours ****");
-        verifyColorInTimeFrameColor("red");
-        verifyColorInTimeFrameColor("yellow");
-        verifyColorInTimeFrameColor("orange");
-        verifyColorInTimeFrameColor("empty");
+        ReportMsg.info("****** Verifying "+ color+" color for 24 hours ****");
+        verifyColorInTimeFrameColor(color);
+//        verifyColorInTimeFrameColor("yellow");
+//        verifyColorInTimeFrameColor("orange");
+//        verifyColorInTimeFrameColor("empty");
         userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
     }
 
