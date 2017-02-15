@@ -45,18 +45,18 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.aplia"));
     }
 
-//    @Test
-//    public void TC04_verifying_All_Details_For_CengageNOWv2_Platform() {
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNOWv2"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.cengageNOWv2"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24", getData("appName.cengageNOWv2"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "cengageNOWv2");
-//        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.cengageNOWv2"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//        test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNOWv2"));
-//    }
+    @Test
+    public void TC04_verifying_All_Details_For_CengageNOWv2_Platform() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNOWv2"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.cengageNOWv2"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24", getData("appName.cengageNOWv2"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "cengageNOWv2");
+        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.cengageNOWv2"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNOWv2"));
+    }
     @Test
     public void TC05_verifying_All_Details_For_OWLv2_Platform() {
         test.detailScreenPage.verifyBreadCrumb(getData("appName.OWLv2"));
