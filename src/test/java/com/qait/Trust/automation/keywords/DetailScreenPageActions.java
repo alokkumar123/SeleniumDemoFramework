@@ -353,8 +353,19 @@ public class DetailScreenPageActions extends GetPage {
             onHoverOverOnAnyDay24HourClockShouldBeSeen();
             verifyLeagendShouldBeAvailable();
         } catch (Exception e) {
-            ReportMsg.info("App Information is not available, Message is appearing with text:- 'Detailed data view coming soon...'  for " + last_30_days);
-            verifyBreadcrumb(appName);
+            ReportMsg.info("table system status is not availabe for app");
+            isElementDisplayed("div_errorMessage");
+            String message = element("div_errorMessage").getText();
+            ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + last_30_days);
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            isElementDisplayed("singleApp", appName);
+            element("singleApp", appName).click();
+            ReportMsg.info("Click on App = " + appName);
+            isElementDisplayed("txt_appName");
+            appName = element("txt_appName").getText();
+            String a[] = appName.split("> ");
+            appName = a[1];
+            ReportMsg.info("AppName = " + appName);
         }
     }
 
@@ -402,7 +413,7 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     public void checkForColorNotationInThePlatformAvailabilityAndDetailScreen(String appName, String color) {
-        System.out.println("\n############## Verifying "+color+" color notation for 12 and 24 hours, TRUST-347 ##############\n");
+        System.out.println("\n############## Verifying " + color + " color notation for 12 and 24 hours, TRUST-347 ##############\n");
         isElementDisplayed("div_appColorOnPlatform", appName);
         ReportMsg.info("Verified color for " + appName + " app is green on Platform Availability Screen");
         isElementDisplayed("singleApp", appName);
@@ -421,7 +432,7 @@ public class DetailScreenPageActions extends GetPage {
 //        verifyColorInTimeFrameColor("orange");
 //        verifyColorInTimeFrameColor("empty");
         selectLastAvailableHours("last 24 hours");
-        ReportMsg.info("****** Verifying "+ color+" color for 24 hours ****");
+        ReportMsg.info("****** Verifying " + color + " color for 24 hours ****");
         verifyColorInTimeFrameColor(color);
 //        verifyColorInTimeFrameColor("yellow");
 //        verifyColorInTimeFrameColor("orange");
