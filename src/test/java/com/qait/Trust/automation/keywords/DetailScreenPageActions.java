@@ -357,15 +357,6 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("div_errorMessage");
             String message = element("div_errorMessage").getText();
             ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + last_30_days);
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-            isElementDisplayed("singleApp", appName);
-            element("singleApp", appName).click();
-            ReportMsg.info("Click on App = " + appName);
-            isElementDisplayed("txt_appName");
-            appName = element("txt_appName").getText();
-            String a[] = appName.split("> ");
-            appName = a[1];
-            ReportMsg.info("AppName = " + appName);
         }
     }
 
