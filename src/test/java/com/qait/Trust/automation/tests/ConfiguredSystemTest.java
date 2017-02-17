@@ -18,17 +18,17 @@ public class ConfiguredSystemTest extends TestFundamentals {
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
     }
 
-    @Test 
-    public void TRUST_395_Step02_Check_Move_Up_Functionality(){
+    @Test
+    public void TRUST_395_Step02_Check_Move_Up_Functionality() {
         test.checkSearchFunctionality.verifyMoveUpFunctionality();
     }
-    
+
     @Test
     public void TRUST_395_Step03_Check_Search_Functionality_Positive_Cycle() {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.checkSearchFunctionality.validateSearchFunctionalityForPossitiveCycle();
     }
-    
+
     @Test
     public void TRUST_395_Step04_Check_Search_Functionality_Negative_Cycle() {
         test.checkSearchFunctionality.validateSearchFunctionalityForNegativeCycle();

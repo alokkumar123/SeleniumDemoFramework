@@ -7,7 +7,7 @@ public class ManageRegionTest extends TestFundamentals {
 
     boolean flag = false;
     String newRegion = "Test Automation Region";
-    String oid = "PID123";
+    String oid = "OID" + System.currentTimeMillis();
     String description = "Created By Automation script";
 
     @Test
