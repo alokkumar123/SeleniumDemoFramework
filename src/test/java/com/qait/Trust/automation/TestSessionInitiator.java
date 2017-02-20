@@ -3,6 +3,7 @@ package com.qait.Trust.automation;
 import com.qait.Trust.automation.keywords.CheckSearchFunctionalityCyclePageActions;
 import com.qait.Trust.automation.keywords.CreateAndConfigureMonitorsPageActions;
 import com.qait.Trust.automation.keywords.DetailScreenPageActions;
+import com.qait.Trust.automation.keywords.DetailScreen_GroupActions;
 import com.qait.Trust.automation.keywords.ManageRegionPageActions;
 import com.qait.Trust.automation.keywords.ManageRolePageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
@@ -52,25 +53,27 @@ public class TestSessionInitiator {
     public HTMLCodeSniffer codeSniffer;
     public PlatformAvailabilityPageActions platformAvailabilityPage;
     public DetailScreenPageActions detailScreenPage;
-    public ManageRolePageActions  manageRolePage;
+    public ManageRolePageActions manageRolePage;
     public CreateAndConfigureMonitorsPageActions createAndConfigPage;
     public CheckSearchFunctionalityCyclePageActions checkSearchFunctionality;
     public ManageRegionPageActions manageRegionPage;
-    
+    public DetailScreen_GroupActions detailScreen_group;
+
     public TakeScreenshot takescreenshot;
-    
+
     public WebDriver getDriver() {
         return this.driver;
     }
 
     private void _initPage() {
-        codeSniffer = new HTMLCodeSniffer(driver); 
+        codeSniffer = new HTMLCodeSniffer(driver);
         platformAvailabilityPage = new PlatformAvailabilityPageActions(driver);
         detailScreenPage = new DetailScreenPageActions(driver);
         manageRolePage = new ManageRolePageActions(driver);
         createAndConfigPage = new CreateAndConfigureMonitorsPageActions(driver);
         checkSearchFunctionality = new CheckSearchFunctionalityCyclePageActions(driver);
         manageRegionPage = new ManageRegionPageActions(driver);
+        detailScreen_group = new DetailScreen_GroupActions(driver);
     }
 
     /**
@@ -162,7 +165,7 @@ public class TestSessionInitiator {
         Reporter.log("********** TEST METHOD  : - " + testMethodName.toUpperCase() + " ***************", true);
         Reporter.log("\n", true);
     }
-    
+
     /////////////////////////////////////////////////////////////////////////////////////////
     ////////////////// Accessibility Test Methods ---> HTML Code Sniffer ////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
