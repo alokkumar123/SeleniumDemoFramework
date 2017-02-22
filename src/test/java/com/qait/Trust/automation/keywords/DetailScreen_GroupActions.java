@@ -50,6 +50,20 @@ public class DetailScreen_GroupActions extends GetPage {
     private void verifyAppsInsideThis(String groupName) {
         isElementDisplayed("div_appsInsideGroup", groupName);
         int j = 0;
+        if (groupName.contains("Ungrouped")) {
+            ReportMsg.log("***** Monitors those are not in any groups *****");
+            for (WebElement el : elements("div_appsInsideGroup", groupName)) {
+                elements("div_appsInsideGroup", groupName).get(j).click();
+                String appName = element("txt_appName").getText();
+                String a[] = appName.split("> ");
+                appName = a[1];
+                ReportMsg.log(appName);
+                userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome1();
+                j++;
+            }
+
+        }
+        j=0;
         for (WebElement el : elements("div_appsInsideGroup", groupName)) {
             elements("div_appsInsideGroup", groupName).get(j).click();
             isElementDisplayed("txt_appName");
@@ -69,5 +83,8 @@ public class DetailScreen_GroupActions extends GetPage {
         ReportMsg.info("Clicked on Platfrom Availability Home");
         isElementDisplayed("div_groupNameList");
         ReportMsg.info("verified user navigate to platform Availabilty Screen");
+    }
+    public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome1() {
+        element("link_platfromAvailabilityHome").click();
     }
 }
