@@ -165,7 +165,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("User Navigated to new user screen");
     }
 
-    public void shortingOfRecordswith(String field, String index) {
+    public void sortingOfRecordswith(String field, String index) {
         isElementDisplayed("span_shortingFields", index);
         elements("span_shortingFields", index);
         ReportMsg.info(field + " before sorting ");

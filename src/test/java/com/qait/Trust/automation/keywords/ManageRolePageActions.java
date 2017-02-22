@@ -11,7 +11,7 @@ public class ManageRolePageActions extends GetPage {
         this.driver = driver;
     }
 
-    public void validateSearchFunctionalityForPossitiveCycleWithText(String text) {
+    public void validateSearchFunctionalityForPositiveCycleWithText(String text) {
         ReportMsg.info("Searching with " + text + " text");
         isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
@@ -59,7 +59,6 @@ public class ManageRolePageActions extends GetPage {
     }
 
     public void clickOnNewlyCreated(String data) {
-        isElementDisplayed("link_newData", data);
         element("link_newData", data).click();
         ReportMsg.info("Clicked on " + data);
     }
@@ -70,11 +69,10 @@ public class ManageRolePageActions extends GetPage {
     }
 
     public void clickOnDeleteButton(String editUserName) {
-        isElementDisplayed("span_deleteNewUser", editUserName);
         element("span_deleteNewUser", editUserName).click();
-        ReportMsg.info("Deleting new user created by automation Script");
+        ReportMsg.info("Deleting new user created by automation script");
     }
-
+    
     public void addGroup(String groupType,String groupField) {
         element("label_groupField",groupType).click();
         element("list_group",groupField).click();

@@ -9,7 +9,7 @@ public class ManageRegionTest extends TestFundamentals {
     String newRegion = "Test Automation Region";
     String oid = "OID" + System.currentTimeMillis();
     String description = "Created By Automation script";
-
+    
     @Test
     public void Step01_TRUST_437__Check_Manage_Region() {
         test.createAndConfigPage.logAsAdmin();
@@ -19,20 +19,21 @@ public class ManageRegionTest extends TestFundamentals {
         test.createAndConfigPage.gridShouldBeAvailableFor("Systems");
         test.createAndConfigPage.gridShouldBeAvailableFor("Monitors");
     }
-
+    
     @Test
     public void Step02_TRUST_437_Check_Search_Functionality_Negative_Cycle() {
         test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
     }
-
+    
     @Test
     public void Step03_TRUST_437_Check_Search_Functionality_Positive_Cycle() {
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("MindTap");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Test");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("SJS-Test");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("New");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("MindTap");
+        
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Test");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("SJS-Test");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("New");
     }
-
+    
     @Test
     public void Step04_TRUST_437_Check_Add_Region() {
         test.manageRolePage.clickOnAdd("Add Region");
@@ -44,10 +45,10 @@ public class ManageRegionTest extends TestFundamentals {
     }
 
     @Test
-    public void Step05_TRUST_437_Shorting_Of_Records() {
-        test.createAndConfigPage.shortingOfRecordswith("Name", "1");
-        test.createAndConfigPage.shortingOfRecordswith("System", "2");
-        test.createAndConfigPage.shortingOfRecordswith("Monitors", "3");
+    public void Step05_TRUST_437_Sorting_Of_Records() {
+        test.createAndConfigPage.sortingOfRecordswith("Name", "1");
+        test.createAndConfigPage.sortingOfRecordswith("System", "2");
+        test.createAndConfigPage.sortingOfRecordswith("Monitors", "3");
     }
 
     @Test

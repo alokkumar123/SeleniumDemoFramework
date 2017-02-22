@@ -16,9 +16,9 @@ public class ManageUsersORUserAdministrationTest extends TestFundamentals {
 
     @Test
     public void TC002_Shorting_Of_Records() {
-        test.createAndConfigPage.shortingOfRecordswith("Userd ID", "1");
-        test.createAndConfigPage.shortingOfRecordswith("User Name", "2");
-        test.createAndConfigPage.shortingOfRecordswith("Email", "3");
+        test.createAndConfigPage.sortingOfRecordswith("Userd ID", "1");
+        test.createAndConfigPage.sortingOfRecordswith("User Name", "2");
+        test.createAndConfigPage.sortingOfRecordswith("Email", "3");
     }
 
     @Test
