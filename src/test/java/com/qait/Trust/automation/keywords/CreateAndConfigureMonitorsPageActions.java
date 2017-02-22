@@ -170,7 +170,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         elements("span_shortingFields", index);
         ReportMsg.info(field + " before sorting ");
         for (WebElement ele : elements("span_shortingFields", index)) {
-            if(!(ele.getText().equals(null))) {
+            if (!(ele.getText().equals(null))) {
                 ReportMsg.info(ele.getText());
             }
         }
@@ -326,5 +326,34 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         isElementDisplayed("span_deleteNewUser", editUserName);
         element("span_deleteNewUser", editUserName).click();
         ReportMsg.info("Deleting new user created by automation Script");
+    }
+
+    public void enterValueInFields(String formField, String value) {
+        element("input_text", formField).click();
+        element("input_text", formField).clear();
+        element("input_text", formField).sendKeys(value);
+        ReportMsg.info("Entered " + formField + " value");
+    }
+
+    public void clickOnSelectRole() {
+        element("div_selectRole").click();
+    }
+
+    public void selectRoleFormList(String newRole) {
+        element("div_selectRoleValue", newRole).click();
+        ReportMsg.info("Selected " + newRole + " from role list");
+    }
+
+    public void logAsAdmin(String userName, String password) {
+        isElementDisplayed("link_login");
+        element("link_login").click();
+        element("userName").clear();
+        element("userName").click();
+        element("userName").sendKeys(userName);
+        element("password").clear();
+        element("password").click();
+        element("password").sendKeys(password);
+        element("button_login").click();
+        ReportMsg.info("Login into admin account");
     }
 }
