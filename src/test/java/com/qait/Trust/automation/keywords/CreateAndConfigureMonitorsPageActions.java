@@ -214,7 +214,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("input_searchBox").sendKeys(searchingText);
         isElementDisplayed("searched_text", searchingText);
         ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation ");
-
     }
 
     public void validateSearchFunctionalityForNegativeCycle() {
@@ -224,10 +223,9 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Search box is available");
         element("input_searchBox").clear();
         element("input_searchBox").sendKeys(searchingText);
-        ReportMsg.info("Validated no result is availble after performing " + searchingText + " in search box");
+        ReportMsg.info("Validated no result is available after performing " + searchingText + " in search box");
         element("input_searchBox").click();
         element("input_searchBox").clear();
-
     }
 
     public void verifyNewFormShouldOpenWithFollowingFields(String formField) {

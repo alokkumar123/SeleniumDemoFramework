@@ -35,7 +35,9 @@ public class ManageRegionTest extends TestFundamentals {
     
     @Test
     public void Step04_Delete_Region_Created_By_Automation_Script() {
-        flag = test.manageRegionPage.verifyAnyRegionCreatedByAutomationScriptIsAppearing();
+        test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
+        test.createAndConfigPage.navigateToAdminMenu("Manage regions");
+        flag = test.manageRegionPage.verifyAnyRegionCreatedByAutomationScriptIsAppearing(newRegion);
         test.manageRegionPage.deleteRegionCreatedByAutomationScript();
         test.manageRegionPage.verifyRegionHasBeenDeleted(flag);
     }
