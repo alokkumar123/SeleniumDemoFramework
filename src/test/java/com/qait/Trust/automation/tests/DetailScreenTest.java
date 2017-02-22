@@ -123,18 +123,18 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNow"));
     }
 
-//    @Test
-//    public void TC0010_verifying_All_Details_For_Questia() {
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.questia"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.questia"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24", getData("appName.questia"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "questia");
-////        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.questia"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//        test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.questia"));
-//    }
+    @Test
+    public void TC0_10_verifying_All_Details_For_Questia() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.questia"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.questia"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24", getData("appName.questia"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "questia");
+//        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.questia"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.questia"));
+    }
     
     
 //    @Test
@@ -151,16 +151,16 @@ public class DetailScreenTest extends TestFundamentals {
 //    }
     
     
-//    @Test
-//    public void TC0012_verifying_All_Details_For_WebAssign() {
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.webAssign"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.webAssign"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24", getData("appName.webAssign"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "webAssign");
+    @Test
+    public void TC0_12_verifying_All_Details_For_WebAssign() {
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.webAssign"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 12 hours", "12", getData("appName.webAssign"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours1("last 24 hours", "24", getData("appName.webAssign"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days1("last 30 days", "webAssign");
 //        test.detailScreenPage.checkCurrecntInformationAlertButtonforLastDays1(getData("appName.webAssign"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
-//        test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.webAssign"));
-//    }
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(getData("appName.webAssign"));
+    }
 }
