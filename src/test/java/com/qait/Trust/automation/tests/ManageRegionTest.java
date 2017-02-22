@@ -28,14 +28,23 @@ public class ManageRegionTest extends TestFundamentals {
     @Test
     public void Step03_TRUST_437_Check_Search_Functionality_Positive_Cycle() {
         test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("MindTap");
-        
+        test.manageRegionPage.verifySearchedSystemOnRegions("MindTap");
         test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Test");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("SJS-Test");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("New");
+        test.manageRegionPage.verifySearchedSystemOnRegions("Test");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Test-AU");
+        test.manageRegionPage.verifySearchedSystemOnRegions("Test-AU");
+        test.manageRegionPage.clearSearchInputBox();
     }
     
     @Test
-    public void Step04_TRUST_437_Check_Add_Region() {
+    public void Step04_TRUST_437_Delete_Region_Created_By_Automation_Script() {
+        flag = test.manageRegionPage.verifyAnyRegionCreatedByAutomationScriptIsAppearing(newRegion);
+        test.manageRegionPage.deleteRegionCreatedByAutomationScript();
+        test.manageRegionPage.verifyRegionHasBeenDeleted(flag);
+    }
+    
+    @Test
+    public void Step05_TRUST_437_Check_Add_Region() {
         test.manageRolePage.clickOnAdd("Add Region");
         test.manageRolePage.newFormShouldBeOpened("Add region");
         test.manageRolePage.enterValueInForm("Name", newRegion);
@@ -45,14 +54,14 @@ public class ManageRegionTest extends TestFundamentals {
     }
 
     @Test
-    public void Step05_TRUST_437_Sorting_Of_Records() {
+    public void Step06_TRUST_437_Sorting_Of_Records() {
         test.createAndConfigPage.sortingOfRecordswith("Name", "1");
         test.createAndConfigPage.sortingOfRecordswith("System", "2");
         test.createAndConfigPage.sortingOfRecordswith("Monitors", "3");
     }
-
+    
     @Test
-    public void Step06_TRUST_437_Delete_User_Created_By_Automation_Script() {
+    public void Step07_TRUST_437_Delete_User_Created_By_Automation_Script() {
         test.manageRolePage.clickOnDeleteButton(newRegion);
         test.createAndConfigPage.popUpShouldBeAppears("Cancel");
         test.manageRolePage.clickOnDeleteButton(newRegion);

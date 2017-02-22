@@ -15,21 +15,17 @@ public class ManageRegionPageActions extends GetPage {
     public boolean verifyAnyRegionCreatedByAutomationScriptIsAppearing(String newRegion) {
         int count = 0;
         boolean flag = false;
-        // String newStr[] = newRegion.split(" ");
         
         ReportMsg.info("No. of Regions: " + elements("list_regions").size());
         for (WebElement elem : elements("list_regions")) {
-            // for (String sub : newStr) {
-                if (elem.getText().contains("Test")) {
+                if (elem.getText().equalsIgnoreCase(newRegion)) {
                     element("span_trashIcon", String.valueOf(count)).click();
+                    ReportMsg.info("Clicked on 'Trash' icon");
                     
                     executeJavascript("document.getElementsByClassName('btn btn-danger')[0].click()");
                     // element("btn_delete ").click();
                     ReportMsg.info("Clicked on 'Delete' button");
-                    
-                    // logMessage("Clicked on Region created by Automation script having '" + sub + "' string");
                 }
-           // }
             count++;
         }
         return flag;
@@ -41,6 +37,18 @@ public class ManageRegionPageActions extends GetPage {
 
     public void verifyRegionHasBeenDeleted(boolean flag) {
         
+    }
+    
+    public void clearSearchInputBox() {
+        element("input_searchBox").clear();
+        ReportMsg.info("Cleared search input boz");
+    }
+    
+    public void verifySearchedSystemOnRegions(String searchTerm) {
+        ReportMsg.info("No. of matches: " + elements("td_searchedSystem").size());
+        for (WebElement term : elements("td_searchedSystem")) {
+            ReportMsg.info("Text of matched term: " + term.getText());
+        }
     }
     
     

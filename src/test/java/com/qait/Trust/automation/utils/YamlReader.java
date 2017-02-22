@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation.utils;
 
 import java.io.FileNotFoundException;
@@ -25,8 +21,10 @@ public class YamlReader {
         String tier = System.getProperty("tier");
         if(tier == null) {
             tier = getProperty("Config.properties", "tier").trim();
+            Reporter.log("Value of 'Tier' from Config file: " + tier, true);
+        } else {
+            Reporter.log("Value of 'Tier' from System variables: " + tier, true);
         }
-        Reporter.log("Value of 'Tier': " + tier, true);
         
         if (tier.equalsIgnoreCase("prod")) {
             yamlFilePath = "src/test/resources/testdata/PROD_TestData.yml";
@@ -35,7 +33,7 @@ public class YamlReader {
         } else if (tier.equalsIgnoreCase("qa")) {
             yamlFilePath = "src/test/resources/testdata/QA_TestData.yml";
         } else {
-            Reporter.log("YOU HAVE PROVIDED WRONG TIER IN CONFIG!!!", true);
+            Reporter.log("YOU HAVE PROVIDED '" + tier + "' TIER IN CONFIG FILE!!!", true);
         }
 
         Reporter.log("Yaml file path :: " + yamlFilePath, true);
