@@ -23,10 +23,10 @@ public class ManageRolesTest extends TestFundamentals {
 
     @Test
     public void TRUST_422_Step02_Check_Search_Functionality_Positive_Cycle() {
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Admin");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("System Owner");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Devops");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("System Owner (Aplia)");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Admin");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("System Owner");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Devops");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("System Owner (Aplia)");
     }
 
     @Test

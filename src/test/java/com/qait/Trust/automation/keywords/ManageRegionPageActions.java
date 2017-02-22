@@ -12,14 +12,26 @@ public class ManageRegionPageActions extends GetPage {
         this.driver = driver;
     }
     
-    public boolean verifyAnyRegionCreatedByAutomationScriptIsAppearing() {
+    public boolean verifyAnyRegionCreatedByAutomationScriptIsAppearing(String newRegion) {
+        int count = 0;
         boolean flag = false;
+        // String newStr[] = newRegion.split(" ");
         
         ReportMsg.info("No. of Regions: " + elements("list_regions").size());
-        for(WebElement elem : elements("list_regions")) {
-            
+        for (WebElement elem : elements("list_regions")) {
+            // for (String sub : newStr) {
+                if (elem.getText().contains("Test")) {
+                    element("span_trashIcon", String.valueOf(count)).click();
+                    
+                    executeJavascript("document.getElementsByClassName('btn btn-danger')[0].click()");
+                    // element("btn_delete ").click();
+                    ReportMsg.info("Clicked on 'Delete' button");
+                    
+                    // logMessage("Clicked on Region created by Automation script having '" + sub + "' string");
+                }
+           // }
+            count++;
         }
-        
         return flag;
     }
     

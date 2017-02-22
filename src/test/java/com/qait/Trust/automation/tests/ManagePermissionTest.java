@@ -23,16 +23,16 @@ public class ManagePermissionTest extends TestFundamentals {
 
     @Test
     public void TRUST_423_Step02_Shorting_Of_Records() {
-        test.createAndConfigPage.shortingOfRecordswith(name, index1);
-        test.createAndConfigPage.shortingOfRecordswith(description, index2);
+        test.createAndConfigPage.sortingOfRecordswith(name, index1);
+        test.createAndConfigPage.sortingOfRecordswith(description, index2);
     }
 
     @Test
     public void TRUST_423_Step03_Check_Search_Functionality_Positive_Cycle() {
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Ad");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("Admin");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("MonitorCreateAll");
-        test.manageRolePage.validateSearchFunctionalityForPossitiveCycleWithText("DeleteAll");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Ad");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Admin");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("MonitorCreateAll");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("DeleteAll");
     }
 
     @Test
