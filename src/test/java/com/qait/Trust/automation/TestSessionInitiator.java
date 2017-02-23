@@ -133,17 +133,13 @@ public class TestSessionInitiator {
         }
         return config;
     }
-
-//    public void launchApplication() {
-//        launchApplication(getYamlValue("app_url"));
-//    }
+    
     public void launchApplication(String base_url) {
         ReportMsg.info(" The application url is :- " + base_url);
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
         System.out.println("Current OS Browser configuration:" + uAgent);
         driver.manage().deleteAllCookies();
         driver.get(base_url);
-
     }
 
     public void openUrl(String url) {

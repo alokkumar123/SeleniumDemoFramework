@@ -19,7 +19,7 @@ public class ManageRolePageActions extends GetPage {
         element("input_searchBox").sendKeys(text);
         ReportMsg.info("Validated " + text + " is displaying after performing Search operation");
     }
-
+    
     public void clickOnAdd(String addNew) {
         isElementDisplayed("button_addNew", addNew);
         element("button_addNew", addNew).click();
