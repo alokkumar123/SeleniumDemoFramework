@@ -63,7 +63,7 @@ public class DetailScreen_GroupActions extends GetPage {
             }
 
         }
-        j=0;
+        j = 0;
         for (WebElement el : elements("div_appsInsideGroup", groupName)) {
             elements("div_appsInsideGroup", groupName).get(j).click();
             isElementDisplayed("txt_appName");
@@ -84,7 +84,46 @@ public class DetailScreen_GroupActions extends GetPage {
         isElementDisplayed("div_groupNameList");
         ReportMsg.info("verified user navigate to platform Availabilty Screen");
     }
+
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome1() {
         element("link_platfromAvailabilityHome").click();
+    }
+
+    public String clickOnGroupAndVerifyApps1() {
+        String appName = clickOnGroupAndVerifyAppsInsideGroup1();
+        return appName;
+
+    }
+
+    private String clickOnGroupAndVerifyAppsInsideGroup1() {
+        int i = 0;
+        String app = null;
+        for (WebElement ele : elements("div_groupNameList")) {
+            elements("div_groupNameList").get(i).click();
+            String groupName = elements("div_groupNameList").get(i).getText();
+            ReportMsg.log("clicked on group " + groupName);
+            ReportMsg.log("verifying Apps inside " + groupName + "group");
+            app = verifyAppsInsideThis1(groupName);
+            break;
+        }
+        return app;
+    }
+
+    private String verifyAppsInsideThis1(String groupName) {
+        int j = 0;
+        String appName = null;
+        for (WebElement el : elements("div_appsInsideGroup", groupName)) {
+            elements("div_appsInsideGroup", groupName).get(j).click();
+            isElementDisplayed("txt_appName");
+            appName = element("txt_appName").getText();
+            String a[] = appName.split("> ");
+            appName = a[1];
+            ReportMsg.info("Clicked on " + appName + " app");
+
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            break;
+
+        }
+        return appName;
     }
 }
