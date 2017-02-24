@@ -16,7 +16,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
 
     @Test
     public void TC01_Set_System_Region_To_All_From_Admin_Page() {
-        appName = test.detailScreen_group.clickOnGroupAndVerifyApps1();
+        appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appName.aplia"));
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
@@ -27,7 +27,8 @@ public class RegionOnSplashPageTest extends TestFundamentals {
 
     @Test
     public void TC02_Set_verify_App_Is_Displaying_On_Spash_Page() {
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName.")+appName.toLowerCase());
+        System.out.println("spp =" + appName);
+        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName."+ appName.toLowerCase()));
         test.regionSplashPage.navigateToAdminPage();
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.setSystemToOtherRegion(appName, region);
@@ -36,12 +37,12 @@ public class RegionOnSplashPageTest extends TestFundamentals {
     }
 
     @Test
-    public void TC03_Verify_App_On_Spalsh_Page() {
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName.")+appName.toLowerCase());
+    public void TC03_Verify_App_IS_Displaying_OR_Not_On_Spalsh_Page() {
+        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName."+ appName.toLowerCase()));
         test.regionSplashPage.setRegionFromSplashPage(region);
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName.")+appName.toLowerCase());
+        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName."+ appName.toLowerCase()));
         test.regionSplashPage.navigateToAdminPage();
-         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
+        test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.setSystemToOtherRegion(appName, "All");
         test.regionSplashPage.clickOnButton("Save");
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
