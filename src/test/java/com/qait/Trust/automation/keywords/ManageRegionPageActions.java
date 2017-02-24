@@ -23,7 +23,6 @@ public class ManageRegionPageActions extends GetPage {
                     ReportMsg.info("Clicked on 'Trash' icon");
                     
                     executeJavascript("document.getElementsByClassName('btn btn-danger')[0].click()");
-                    // element("btn_delete ").click();
                     ReportMsg.info("Clicked on 'Delete' button");
                 }
             count++;

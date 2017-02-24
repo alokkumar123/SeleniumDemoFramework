@@ -6,6 +6,8 @@ import com.qait.Trust.automation.utils.ReportMsg;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
 public class PlatformAvailabilityPageActions extends GetPage {
@@ -110,13 +112,10 @@ public class PlatformAvailabilityPageActions extends GetPage {
         String a[] = appName.split(",");
         ReportMsg.info("Number of apps are displaying on platform screen " + elements("url_systemLogo").size());
         for (WebElement e : elements("url_systemLogo")) {
-            // ReportMsg.info(" ursl = " + e.getText());
             try {
                 String app[] = a[i].split("=");
-
                 String b[] = e.getAttribute("style").split(": ");
                 String url1 = e.getAttribute("style");
-               // ReportMsg.info("url1= "+url1);
                 if (e.getText().contains("")) {
                     if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48))) {
                         ReportMsg.info("App name = " + app[0] + " is displaying with " + b[1]);
@@ -129,4 +128,56 @@ public class PlatformAvailabilityPageActions extends GetPage {
             }
         }
     }
+
+    public String verifyViewModeOnSplashPage() {
+        String viewMode;
+        try {
+            isElementDisplayed("list_panelGroups");
+            ReportMsg.info("All Systems are appearing under GROUPS!!!");
+            viewMode = "Grouping";
+            
+            ReportMsg.info("No. of groups on Splash Page: " + elements("list_panelGroups").size());
+            for(WebElement grp : elements("list_groupHeading")) {
+                ReportMsg.info("Group Name: '" + grp.getText().trim() + "'");
+            }
+            return viewMode;
+        } catch (NoSuchElementException ex) {
+            isElementDisplayed("list_frontGroups");
+            viewMode = "Front";
+            ReportMsg.info("All Systems are appearing on FRONT i.e., NO GROUPING!!!"); 
+            return viewMode;
+        }
+    }
+    
+      public void clickOnSystem(String systemName, String systemView) {
+        int count = 0;
+        if (systemView.equalsIgnoreCase("Grouping")) {
+            for (WebElement grp : elements("list_groupHeading")) {
+                try {
+                    element("div_systemLogo", systemName).click();
+                    ReportMsg.info("Clicked on '" + systemName + "' System");
+                } catch (TimeoutException ex) {
+                    ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
+                    if (grp.getAttribute("aria-expanded").equalsIgnoreCase("false")) {
+                        grp.click();
+                        ReportMsg.info("Clicked on '" + grp.getText().trim() + "' group");
+                    }
+                }
+                count++;
+                if (elements("list_groupHeading").size() == count) {
+                    element("div_systemLogo", systemName).click();
+                    ReportMsg.info("Clicked on system having backgound URL '" + systemName + "'");
+                }
+            }
+        } else if (systemView.equalsIgnoreCase("Front")) {
+            element("div_systemLogo", systemName).click();
+            ReportMsg.info("Click on App = " + systemName);
+            
+            systemName = element("txt_systemName").getText();
+            String a[] = systemName.split("> ");
+            systemName = a[1];
+            ReportMsg.info("System: " + systemName);
+        }
+    }
+
 }

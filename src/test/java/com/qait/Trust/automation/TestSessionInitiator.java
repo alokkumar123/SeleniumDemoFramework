@@ -13,7 +13,6 @@ import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import com.qait.Trust.automation.utils.ReportMsg;
 
 import com.qait.Trust.automation.utils.TakeScreenshot;
-import static com.qait.Trust.automation.utils.YamlReader.getYamlValue;
 import static com.qait.Trust.automation.utils.YamlReader.setYamlFilePath;
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,6 +1,7 @@
 package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import com.qait.Trust.automation.utils.ReportMsg;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,6 +17,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 public class DetailScreenPageActions extends GetPage {
 
@@ -42,17 +44,12 @@ public class DetailScreenPageActions extends GetPage {
         this.driver = driver;
     }
 
-    private void verifyBreadcrumb(String appName) {
-        isElementDisplayed("link_breadCrumb", appName);
-        ReportMsg.info("Verified breadcrumb for " + appName + " app");
-    }
-
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome() {
         isElementDisplayed("link_platfromAvailabilityHome");
         element("link_platfromAvailabilityHome").click();
         ReportMsg.info("Clicked on Platfrom Availability Home");
         isElementDisplayed("text_screenPage");
-        ReportMsg.info("verified user navigate to platform Availabilty Screen");
+        ReportMsg.info("Verified user navigate to platform Availabilty Screen");
     }
 
     public void verifyDropDownWithOptions(String string) {
@@ -270,16 +267,16 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     public void verifyBreadCrumb(String appName) {
-        System.out.println("############## Verifying Breadcrumb, TRUST-317 ##############\n");
-        isElementDisplayed("singleApp", appName);
-        element("singleApp", appName).click();
-        ReportMsg.info("Click on App = " + appName);
+        Reporter.log("############## TRUST-317: Verifying Breadcrumb ##############\n", true);
         isElementDisplayed("txt_appName");
         appName = element("txt_appName").getText();
+        
         String a[] = appName.split("> ");
         appName = a[1];
-        ReportMsg.info("AppName = " + appName);
-        verifyBreadcrumb(appName);
+        ReportMsg.info("System: " + appName);
+        
+        isElementDisplayed("link_breadCrumb", appName);
+        ReportMsg.info("Verified breadcrumb for " + appName + " app");
     }
 
     public void verifyDropDownOptionsForLastHours() {
@@ -312,7 +309,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
     }
 
-    public void verifyInformationAvailableForLastHours1(String lastHours, String hours, String appName) {
+    public void verifyInformationAvailableForLastHours(String lastHours, String hours, String appName) {
         String JiraId = "TRUST-321";
         if (!lastHours.contains("last 12 hours")) {
             JiraId = "TRUST-322";
@@ -342,8 +339,8 @@ public class DetailScreenPageActions extends GetPage {
         }
     }
 
-    public void verifyInformationAvailableForLast30Days1(String last_30_days, String appName) {
-        System.out.println("\n############## Verifying Information Available for " + last_30_days + " on Deltail Screen Page, TRUST-323 ##############\n");
+    public void verifyInformationAvailableForLast30Days(String last_30_days, String appName) {
+        System.out.println("\n############## Verifying Information Available for " + last_30_days + " on Detail Screen Page, TRUST-323 ##############\n");
         selectLastAvailableHours(last_30_days);
         try {
             isElementDisplayed("table_systemStatus");
@@ -360,17 +357,26 @@ public class DetailScreenPageActions extends GetPage {
         }
     }
 
-    public void checkCurrecntInformationAlertButtonforLastDays1(String appName) {
-        System.out.println("\n############## Verifying Current Information Alert For All last hours , TRUST-324, TRUST-340, TRUST-345 ##############\n");
-        String lastHours = "last 12 hours";
-        selectLastAvailableHours(lastHours);
-        verifyCurrentInformationAlerts(appName);
-        lastHours = "last 24 hours";
-        selectLastAvailableHours(lastHours);
-        verifyCurrentInformationAlerts(appName);
-        lastHours = "last 30 days";
-        selectLastAvailableHours(lastHours);
-        verifyCurrentInformationAlerts(appName);
+    public void checkCurrentInformationalAlertButtonforLast30Days(String appName) {
+        String tier = System.getProperty("tier");
+        if(tier == null) {
+            tier = getProperty("Config.properties", "tier").trim();
+        }
+        
+        if (tier.equalsIgnoreCase("stg")) {
+            ReportMsg.info("\n############## Verifying Current Information Alert For All last hours , TRUST-324, TRUST-340, TRUST-345 ##############\n");
+            String lastHours = "last 12 hours";
+            selectLastAvailableHours(lastHours);
+            verifyCurrentInformationAlerts(appName);
+            lastHours = "last 24 hours";
+            selectLastAvailableHours(lastHours);
+            verifyCurrentInformationAlerts(appName);
+            lastHours = "last 30 days";
+            selectLastAvailableHours(lastHours);
+            verifyCurrentInformationAlerts(appName);
+        } else {
+            ReportMsg.info("'Current Informationalal Alerts' button is NOT AVAILABLE on PRODUCTION environment!!!");
+        }
     }
 
     public void checkForColorNotationGreenInThePlatformAvailabilityAndDetailScreen(String appName) {
@@ -384,13 +390,13 @@ public class DetailScreenPageActions extends GetPage {
             appName = element("txt_appName").getText();
             String a[] = appName.split("> ");
             appName = a[1];
-            ReportMsg.info("Click on App " + appName + " and navigate to the details screen");
+            ReportMsg.info("Click on '" + appName + "' system and navigated to Detail screen");
             ReportMsg.info("Set time frame for 12 hours");
             ReportMsg.info("Set timezone to EST");
             isElementDisplayed("table_systemStatus");
-            ReportMsg.info("Verifying table system stutus");
+            ReportMsg.info("Verifying table system status");
             isElementDisplayed("greenColor_timeFrame");
-            ReportMsg.info("Verified current frame notation is green ");
+            ReportMsg.info("Verified current color notation is green");
             int size = elements("greenColor_timeFrame").size();
             ReportMsg.info("Number of current time frames in green color are " + size + " for 12 hours and EST time zone on Detail Screen");
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();

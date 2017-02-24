@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
@@ -32,7 +27,6 @@ public class DetailScreen_GroupActions extends GetPage {
 
     public void clickOnGroupAndVerifyApps() {
         clickOnGroupAndVerifyAppsInsideGroup();
-
     }
 
     private void clickOnGroupAndVerifyAppsInsideGroup() {
@@ -61,9 +55,8 @@ public class DetailScreen_GroupActions extends GetPage {
                 userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome1();
                 j++;
             }
-
         }
-        j=0;
+        j = 0;
         for (WebElement el : elements("div_appsInsideGroup", groupName)) {
             elements("div_appsInsideGroup", groupName).get(j).click();
             isElementDisplayed("txt_appName");
@@ -78,13 +71,15 @@ public class DetailScreen_GroupActions extends GetPage {
     }
 
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome() {
-        isElementDisplayed("link_platfromAvailabilityHome");
-        element("link_platfromAvailabilityHome").click();
+        isElementDisplayed("link_platformAvailabilityHome");
+        element("link_platformAvailabilityHome").click();
         ReportMsg.info("Clicked on Platfrom Availability Home");
         isElementDisplayed("div_groupNameList");
         ReportMsg.info("verified user navigate to platform Availabilty Screen");
     }
+
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome1() {
-        element("link_platfromAvailabilityHome").click();
+        element("link_platformAvailabilityHome").click();
     }
+
 }
