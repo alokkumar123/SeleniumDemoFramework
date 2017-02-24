@@ -7,6 +7,7 @@ import com.qait.Trust.automation.keywords.DetailScreen_GroupActions;
 import com.qait.Trust.automation.keywords.ManageRegionPageActions;
 import com.qait.Trust.automation.keywords.ManageRolePageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
+import com.qait.Trust.automation.keywords.RegionOnSplashActions;
 import com.qait.Trust.automation.utils.HTMLCodeSniffer;
 
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
@@ -57,7 +58,7 @@ public class TestSessionInitiator {
     public CheckSearchFunctionalityCyclePageActions checkSearchFunctionality;
     public ManageRegionPageActions manageRegionPage;
     public DetailScreen_GroupActions detailScreen_group;
-
+    public RegionOnSplashActions regionSplashPage;  
     public TakeScreenshot takescreenshot;
 
     public WebDriver getDriver() {
@@ -73,6 +74,7 @@ public class TestSessionInitiator {
         checkSearchFunctionality = new CheckSearchFunctionalityCyclePageActions(driver);
         manageRegionPage = new ManageRegionPageActions(driver);
         detailScreen_group = new DetailScreen_GroupActions(driver);
+        regionSplashPage  = new RegionOnSplashActions(driver);
     }
 
     /**
