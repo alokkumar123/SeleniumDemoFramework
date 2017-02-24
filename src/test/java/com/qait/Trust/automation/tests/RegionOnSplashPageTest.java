@@ -27,6 +27,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
 
     @Test
     public void TC02_Set_verify_App_Is_Displaying_On_Spash_Page() {
+        System.out.println(" app = "+appName);
         test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName."+ appName.toLowerCase()));
         test.regionSplashPage.navigateToAdminPage();
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");

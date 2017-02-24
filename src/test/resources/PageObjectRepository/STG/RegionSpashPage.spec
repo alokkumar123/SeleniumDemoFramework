@@ -10,5 +10,10 @@ li_otherRegion                          xpath          //div[@id='region']//li[t
 div_spalshLocation                      xpath          //div[@class='location-link']/a
 option_setRegion                        xpath          //option[text()='${region}']
 btn_ok                                  xpath          //button[contains(text(),'OK')]     
+div_groupGroup                        xpath            //div[@class='panel-group']
+div_groupNameList                     xpath            //div[@class='panel-heading']//a
+div_appsInsideGroup                   xpath            //div[@class='panel-heading']//a[text()='${groupName}']/ancestor::div[contains(@class,'panel-default')]//div[@class='front-system']
+txt_appName                           xpath            //a/parent::span  
+link_platformAvailabilityHome         xpath            //a[contains(text(),'Platform Availability Home')]
 ==================================================================================================================================
     
