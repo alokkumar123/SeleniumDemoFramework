@@ -1,7 +1,7 @@
 # Object Definitions
 ==================================================================================================================================
 td_systemApp                            xpath          //td//a[text()='${appName}']   
-div_regionField                         xpath          //div[@id='region']//div[contains(@class,'rw-dropdownlist ')]
+div_regionField                         xpath          //div[@id='region']//div[contains(@class,'rw-dropdownlist ')]//div
 btn_save                                xpath          //button[text()='${button}']   
 singleApp                               xpath          //div[contains(@style,'${appName}')]
 link_admin                              xpath          //a[text()='admin']

@@ -18,11 +18,14 @@ public class RegionOnSplashActions extends GetPage {
         this.driver = driver;
     }
 
-    public void setSystemToAllRegion(String appName) {
+    public void clickOnSystemFromManageSystem(String appName) {
         isElementDisplayed("td_systemApp", appName);
         element("td_systemApp", appName).click();
-        element("div_regionField").click();
-        ReportMsg.info(" set region to all on " + appName + " app");
+    }
+
+    public void verifySystemDefaltRegion(String appName) {
+        String defaultRegionValue = element("div_regionField").getText();
+        ReportMsg.info("Default value of System Region for " + appName + " is " + defaultRegionValue);
     }
 
     public void clickOnButton(String button) {
@@ -56,10 +59,10 @@ public class RegionOnSplashActions extends GetPage {
         Boolean value = null;
         try {
             value = isElementDisplayed("singleApp", appName);
-            ReportMsg.info("App is dispalying on splash page under " + groupName + " group name");
+            ReportMsg.info("App is dispalying on splash page under " + groupName + " group");
         } catch (NoSuchElementException e) {
-            ReportMsg.info("App is not dispalying on splash page under " + groupName + " group name");
-            value =false;
+            ReportMsg.info("App is not dispalying on splash page under " + groupName + " group");
+            value = false;
         }
         return value;
     }
@@ -69,18 +72,16 @@ public class RegionOnSplashActions extends GetPage {
         element("link_adminPage").click();
     }
 
-    public void setSystemToOtherRegion(String appName, String region) {
-        isElementDisplayed("td_systemApp", appName);
-        element("td_systemApp", appName).click();
+    public void setSystemRegionFromAdminPage(String appName, String region) {
         element("div_regionField").click();
         element("li_otherRegion ", region).click();
-        ReportMsg.info("set reigon to " + region);
+        ReportMsg.info("set reigon from Admin Page to " + region);
     }
 
     public void setRegionFromSplashPage(String region) {
         element("div_spalshLocation").click();
         element("option_setRegion", region).click();
         element("btn_ok").click();
-        ReportMsg.info("set reigon to " + region);
+        ReportMsg.info("set region from splash page to " + region);
     }
 }
