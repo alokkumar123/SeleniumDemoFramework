@@ -7,37 +7,45 @@ import org.testng.annotations.Test;
 public class RegionOnSplashPageTest extends TestFundamentals {
 
     String appName = null;
-    String region = "Africa";
-
+    String region = "Asia";
+    String anyOtherRegion = "Australia";
+    
     @Test
-    public void TC01_Set_System_Region_To_All_From_Admin_Page() {
-        appName = test.detailScreen_group.clickOnGroupAndVerifyApps1();
+    public void TC01_Verify_Region_Of_Selected_System() {
+        appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appName.aplia"));
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.regionSplashPage.setSystemToAllRegion(appName);
+        test.regionSplashPage.clickOnSystemFromManageSystem(appName);
+        test.regionSplashPage.verifySystemDefaltRegion(appName);
+    }
+
+    @Test
+    public void TC02_Change_System_Region_To_Any_Value_For_Visibility_On_Splash_Page() {
+        test.regionSplashPage.setSystemRegionFromAdminPage(appName, region);
         test.regionSplashPage.clickOnButton("Save");
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 
     @Test
-    public void TC02_Set_verify_App_Is_Displaying_On_Spash_Page() {
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName.")+appName.toLowerCase());
+    public void TC03_Verify_Region_Of_System_On_Splash_For_Above_Value() {
+        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName." + appName.toLowerCase()));
+        test.regionSplashPage.setRegionFromSplashPage(region);
+        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName." + appName.toLowerCase()));
+    }
+
+    @Test
+    public void TC04_Verify_Region_Of_System_On_Splash_For_Any_Other_Value() {
+        test.regionSplashPage.setRegionFromSplashPage(anyOtherRegion);
+        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName." + appName.toLowerCase()));
+    }
+
+    @Test
+    public void TC05_Change_Region_of_System_To_Default_Value() {
         test.regionSplashPage.navigateToAdminPage();
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.regionSplashPage.setSystemToOtherRegion(appName, region);
-        test.regionSplashPage.clickOnButton("Save");
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-    }
-
-    @Test
-    public void TC03_Verify_App_On_Spalsh_Page() {
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName.")+appName.toLowerCase());
-        test.regionSplashPage.setRegionFromSplashPage(region);
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName.")+appName.toLowerCase());
-        test.regionSplashPage.navigateToAdminPage();
-         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.regionSplashPage.setSystemToOtherRegion(appName, "All");
+        test.regionSplashPage.clickOnSystemFromManageSystem(appName);
+        test.regionSplashPage.setSystemRegionFromAdminPage(appName, "All");
         test.regionSplashPage.clickOnButton("Save");
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }

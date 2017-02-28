@@ -447,10 +447,10 @@ public class DetailScreenPageActions extends GetPage {
 
     public void checkForColorNotationInThePlatformAvailabilityAndDetailScreen(String appName, String color) {
         System.out.println("\n############## Verifying " + color + " color notation for 12 and 24 hours, TRUST-347 ##############\n");
-        isElementDisplayed("div_appColorOnPlatform", appName);
-        ReportMsg.info("Verified color for " + appName + " app is green on Platform Availability Screen");
-        isElementDisplayed("singleApp", appName);
-        element("singleApp", appName).click();
+//       // isElementDisplayed("div_appColorOnPlatform", appName);
+//        ReportMsg.info("Verified color for " + appName + " app is green on Platform Availability Screen");
+//        isElementDisplayed("singleApp", appName);
+//        element("singleApp", appName).click();
         // ReportMsg.info("Click on App = " + appName);
         isElementDisplayed("txt_appName");
         appName = element("txt_appName").getText();

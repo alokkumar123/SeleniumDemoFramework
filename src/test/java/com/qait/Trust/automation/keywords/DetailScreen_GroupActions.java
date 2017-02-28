@@ -2,6 +2,7 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -82,21 +83,33 @@ public class DetailScreen_GroupActions extends GetPage {
         element("link_platformAvailabilityHome").click();
     }
 
-    public String clickOnGroupAndVerifyApps1() {
-        String appName = clickOnGroupAndVerifyAppsInsideGroup1();
-        return appName;
+    public String getMonitorNameFromSpashPage(String appName) {
+        String app = clickOnGroupAndVerifyAppsInsideGroup1(appName);
+        return app;
     }
 
-    private String clickOnGroupAndVerifyAppsInsideGroup1() {
+    private String clickOnGroupAndVerifyAppsInsideGroup1(String appName) {
         int i = 0;
         String app = null;
-        for (WebElement ele : elements("div_groupNameList")) {
-            elements("div_groupNameList").get(i).click();
-            String groupName = elements("div_groupNameList").get(i).getText();
-            ReportMsg.log("clicked on group " + groupName);
-            ReportMsg.log("verifying Apps inside " + groupName + "group");
-            app = verifyAppsInsideThis1(groupName);
-            break;
+        try {
+            ReportMsg.info("Groups of monitors are displaying on spash page");
+            for (WebElement ele : elements("div_groupNameList")) {
+                elements("div_groupNameList").get(i).click();
+                String groupName = elements("div_groupNameList").get(i).getText();
+                ReportMsg.log("clicked on group " + groupName);
+                ReportMsg.log("verifying Apps inside " + groupName + "group");
+                app = verifyAppsInsideThis1(groupName);
+                break;
+            }
+        } catch (NoSuchElementException e) {
+            ReportMsg.info("All monitors are displaying on splash page ");
+            isElementDisplayed("singleApp", appName);
+            element("singleApp", appName).click();
+            isElementDisplayed("txt_appName");
+            app = element("txt_appName").getText();
+            String a[] = appName.split("> ");
+            app = a[1];
+
         }
         return app;
     }
@@ -118,5 +131,5 @@ public class DetailScreen_GroupActions extends GetPage {
         }
         return appName;
     }
-    
+
 }
