@@ -9,11 +9,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
     String appName = null;
     String region = "Asia";
     String anyOtherRegion = "Australia";
-
-    // TC01_Verify_Region_Of_Selected_System
-    // TC02_Change_System_Region_To_Any_Value_For_Visibility_On_Splash_Page (Asia)
-    // TC03_Verify_Region_Of_System_On_Splash_For_Above_Value("All" & "Asia")
-    // TC04_Verify_Region_Of_System_On_Splash_For_Any_Other_Value (Lets say "Australia")
+    
     @Test
     public void TC01_Verify_Region_Of_Selected_System() {
         appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appName.aplia"));
