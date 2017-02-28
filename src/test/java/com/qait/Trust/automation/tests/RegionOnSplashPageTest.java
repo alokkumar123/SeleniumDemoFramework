@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
@@ -22,7 +17,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.setSystemToAllRegion(appName);
         test.regionSplashPage.clickOnButton("Save");
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 
     @Test
@@ -32,7 +27,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.setSystemToOtherRegion(appName, region);
         test.regionSplashPage.clickOnButton("Save");
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 
     @Test
@@ -44,6 +39,6 @@ public class RegionOnSplashPageTest extends TestFundamentals {
          test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.setSystemToOtherRegion(appName, "All");
         test.regionSplashPage.clickOnButton("Save");
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 }

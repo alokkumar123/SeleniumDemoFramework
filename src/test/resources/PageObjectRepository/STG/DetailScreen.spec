@@ -9,7 +9,7 @@ link_breadCrumb                              xpath         //a[contains(text(),'
 link_platfromAvailabilityHome                xpath         //a[contains(text(),'Platform Availability Home')]
 listOfApps                                   xpath         //div[@class='back card green']//h5
 text_screenPage                              xpath         //h6[text()='Platform Availability']
-list_dropdownOptions                         xpath         //li[text()='${string}'] 
+list_dropdownOptions                         xpath         (//div[@class='rw-input'])[1][text()='${timeFormat}']
 span_DropDownSelector                        xpath         (//div[contains(@class,'rw-dropdownlist')])[1]
 span_timeZoneDropDownSelector                xpath         (//div[contains(@class,'rw-dropdownlist')])[2]
 list_timezonedropdownOptions                 xpath          //li[contains(text(),'${timeZone}')] 
@@ -24,7 +24,7 @@ text_days                                    xpath          //tr[@class='title-d
 hover_anyday                                 xpath          //div[@class='day' and text()='${day}']  
 text_dayHeading                              xpath          //h4
 app_singleApp                                xpath          //div[text()='Available']
-btn_currnetInformationAlerts                 xpath          //div[@class='info-alerts']
+btn_currentInformationalAlerts                 xpath          //div[@class='info-alerts']
 txt_informationalAlert                       xpath          //h4[text()='Informational alerts']
 btn_close                                    xpath          //button[text()='Close']
 img_AppColor                                 xpath          //h5[text()='${appName}']/ancestor::div[1]//img
@@ -58,5 +58,7 @@ tr_colorTime                                 xpath          (//td[contains(@clas
 td_colorMinute                               xpath          //td[contains(@class,'cell-status')]/div[contains(@class,'${color}')]
 redColor                                     xpath          //td[contains(@class,'cell-status')]/div[@class='${color}']/../..//div[@class='${color}']
 minute                                       xpath          //td[text()='${hours}']/..//td[not(contains(@style,'text-align'))]/div 
+list_timeViewFormat                          xpath          //ul[contains(@id,'listbox')]/li[@class='rw-list-option']
+li_listView                                  xpath          
 ==================================================================================================================================
     
