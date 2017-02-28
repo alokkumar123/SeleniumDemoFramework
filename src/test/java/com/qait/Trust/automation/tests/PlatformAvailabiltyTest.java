@@ -6,9 +6,13 @@ import static com.qait.Trust.automation.utils.YamlReader.getData;
 
 public class PlatformAvailabiltyTest extends TestFundamentals {
     
+    String systemView;
+    
     @Test
     public void TRUST_314_Verify_List_Of_Apps_Are_Displaying_On_Platfrom_Availiblity() {
-        test.platformAvailabilityPage.verifyingAppOnPlatfromScreen(getData("appName"));
+        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.mindtap"), systemView);
+        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appName"));
     }
     
     @Test

@@ -18,14 +18,13 @@ public class RegionOnSplashPageTest extends TestFundamentals {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.clickOnSystemFromManageSystem(appName);
         test.regionSplashPage.verifySystemDefaltRegion(appName);
-
     }
 
     @Test
     public void TC02_Change_System_Region_To_Any_Value_For_Visibility_On_Splash_Page() {
         test.regionSplashPage.setSystemRegionFromAdminPage(appName, region);
         test.regionSplashPage.clickOnButton("Save");
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 
     @Test
@@ -48,6 +47,6 @@ public class RegionOnSplashPageTest extends TestFundamentals {
         test.regionSplashPage.clickOnSystemFromManageSystem(appName);
         test.regionSplashPage.setSystemRegionFromAdminPage(appName, "All");
         test.regionSplashPage.clickOnButton("Save");
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 }

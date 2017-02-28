@@ -44,12 +44,11 @@ public class DetailScreenPageActions extends GetPage {
         this.driver = driver;
     }
 
-    public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome() {
-        isElementDisplayed("link_platfromAvailabilityHome");
+    public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome() {
         element("link_platfromAvailabilityHome").click();
-        ReportMsg.info("Clicked on Platfrom Availability Home");
+        ReportMsg.info("Clicked on Platform Availability Home");
         isElementDisplayed("text_screenPage");
-        ReportMsg.info("Verified user navigate to platform Availabilty Screen");
+        ReportMsg.info("Verified user navigates to Platform Availabilty Screen");
     }
 
     public void verifyDropDownWithOptions(String string) {
@@ -64,15 +63,31 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     private void selectLastAvailableHours(String string) {
-        if (string.contains("last 12 hours")) {
-            isElementDisplayed("span_DropDownSelector");
-        } else {
-            wait.waitForElementToBeVisible(element("span_DropDownSelector"));
-            element("span_DropDownSelector").click();
-            isElementDisplayed("list_dropdownOptions", string);
-            element("list_dropdownOptions", string).click();
+        String viewTimeFormat = "last 30 days";
+        String selectedTimeFormat = (String) executeJavascript("return document.getElementsByClassName('rw-input')[0].textContent");
+        System.out.println("Value of Time Format: " + selectedTimeFormat);
+        if (!(selectedTimeFormat.equalsIgnoreCase(viewTimeFormat))) {
+            executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
+            for (WebElement listItem : elements("list_timeViewFormat")) {
+                if (listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
+                    listItem.click();
+                    ReportMsg.info("Clicked on '" + viewTimeFormat + "' option");
+                } else {
+                    System.out.println("Selected value: '" + viewTimeFormat + "'");
+                }
+            }
+            isElementDisplayed("list_dropdownOptions", viewTimeFormat);
+            ReportMsg.info("Verified '" + viewTimeFormat + "' drop down");
         }
-        ReportMsg.info("Selected " + string + " from drop down");
+//        if (string.contains("last 12 hours")) {
+//            isElementDisplayed("span_DropDownSelector");
+//        } else {
+//            wait.waitForElementToBeVisible(element("span_DropDownSelector"));
+//            element("span_DropDownSelector").click();
+//            isElementDisplayed("list_dropdownOptions", string);
+//            element("list_dropdownOptions", string).click();
+//        }
+//        ReportMsg.info("Selected " + string + " from drop down");
     }
 
     private void columnShouldRepresentLastHoursFromCurrent(String last_12_hours) {
@@ -101,7 +116,7 @@ public class DetailScreenPageActions extends GetPage {
         //Assert.assertEquals(rowSize, hoursSize);
     }
 
-    public void verifyLeagendShouldBeAvailable() {
+    public void verifyLegendShouldBeAvailable() {
         isElementDisplayed("span_noIssues");
         isElementDisplayed("span_minorDisruption");
         isElementDisplayed("span_serviceTemporarilyUnavailable");
@@ -149,7 +164,7 @@ public class DetailScreenPageActions extends GetPage {
 
     private void hoverOnAnyDay(String day) {
         hover(element("hover_anyday", day));
-        //hover(element("btn_currnetInformationAlerts"));
+        //hover(element("btn_currentInformationalAlerts"));
         ReportMsg.info("hover on day " + day);
     }
 
@@ -160,14 +175,16 @@ public class DetailScreenPageActions extends GetPage {
 
     private void verifyCurrentInformationAlerts(String appName) {
         try {
-            isElementDisplayed("btn_currnetInformationAlerts");
-            element("btn_currnetInformationAlerts").click();
-            ReportMsg.info("clicked on current information alerts button");
+            // NOTE: Unable to click on 'Current Informational Alerts' button due to 
+            //       hovering of date displaying 
+            // element("btn_currentInformationalAlerts").click();
+            executeJavascript("document.getElementsByClassName('info-alerts')[0].click()"); 
+            ReportMsg.info("Clicked on current information alerts button");
             isElementDisplayed("txt_informationalAlert");
-            ReportMsg.info("verified text Informational alerts text on pop up");
+            ReportMsg.info("Verified text Informational alerts text on pop up");
             executeJavascript("document.getElementsByClassName('btn btn-default')[0].click()");
             ReportMsg.info("Message bar is closed when clicked on close button");
-            isElementDisplayed("btn_currnetInformationAlerts");
+            isElementDisplayed("btn_currentInformationalAlerts");
         } catch (Exception e) {
             ReportMsg.info("Creating new alert notification");
             isElementDisplayed("link_login");
@@ -181,13 +198,7 @@ public class DetailScreenPageActions extends GetPage {
             element("password").click();
             element("password").sendKeys("Cengage1");
             element("button_login").click();
-
-//            isElementDisplayed("button_Admin");
-//            element("button_Admin").click();
-//            ReportMsg.info("Click on admin button");
-//            isElementDisplayed("link_adminPage");
-//            element("link_adminPage");
-//            ReportMsg.info("Select admin page");
+            
             isElementDisplayed("button_createNotification");
             element("button_createNotification").click();
             ReportMsg.info("Click on create new notification button");
@@ -220,7 +231,7 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("button_save");
             element("button_save").click();
             ReportMsg.info("Click On save button");
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
             isElementDisplayed("singleApp", appName);
             element("singleApp", appName).click();
             ReportMsg.info("Click on App = " + appName);
@@ -281,15 +292,41 @@ public class DetailScreenPageActions extends GetPage {
 
     public void verifyDropDownOptionsForLastHours() {
         System.out.println("\n############## Verifying Drop Down options for last hours, TRUST-318 ##############\n");
-        String hours = "last 12 hours";
-        executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
-        ReportMsg.info("Verified " + hours + " from last hours drop down");
-        hours = "last 24 hours";
-        isElementDisplayed("list_dropdownOptions", hours);
-        ReportMsg.info("Verified " + hours + " from last hours drop down");
-        hours = "last 30 days";
-        isElementDisplayed("list_dropdownOptions", hours);
-        ReportMsg.info("Verified " + hours + " from last hours drop down");
+
+        String viewTimeFormat = "last 12 hours";
+        String selectedTimeFormat = (String) executeJavascript("return document.getElementsByClassName('rw-input')[0].textContent");
+        System.out.println("Value of Time Format: " + selectedTimeFormat);
+        if (!(selectedTimeFormat.equalsIgnoreCase(viewTimeFormat))) {
+            executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
+            for (WebElement listItem : elements("list_timeViewFormat")) {
+                if(listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
+                    listItem.click();
+                    ReportMsg.info("Clicked on '" + viewTimeFormat + "' option");
+                } else {
+                    System.out.println("Selected value: '" + viewTimeFormat + "'");
+                }
+            }
+            isElementDisplayed("list_dropdownOptions", viewTimeFormat);
+            ReportMsg.info("Verified " + viewTimeFormat + " from last hours drop down");
+        }
+        
+        viewTimeFormat = "last 24 hours";
+        selectedTimeFormat = (String) executeJavascript("return document.getElementsByClassName('rw-input')[0].textContent");
+        System.out.println("Value of Time Format: " + selectedTimeFormat);
+        if (!(selectedTimeFormat.equalsIgnoreCase(viewTimeFormat))) {
+            executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
+            
+            for (WebElement listItem : elements("list_timeViewFormat")) {
+                if(listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
+                    listItem.click();
+                    ReportMsg.info("Clicked on '" + viewTimeFormat + "' option");
+                } else {
+                    System.out.println("Selected value: '" + viewTimeFormat + "'");
+                }
+            }
+            isElementDisplayed("list_dropdownOptions", viewTimeFormat);
+            ReportMsg.info("Verified " + viewTimeFormat + " from last hours drop down");
+        }
     }
 
     public void verifyTimeZoneDropDownForUser() {
@@ -313,21 +350,20 @@ public class DetailScreenPageActions extends GetPage {
         String JiraId = "TRUST-321";
         if (!lastHours.contains("last 12 hours")) {
             JiraId = "TRUST-322";
-            selectLastAvailableHours(lastHours);
         }
         try {
             System.out.println("\n############## Verifying Information Available for " + lastHours + " on Detail Screen Page, " + JiraId + " ##############\n");
             isElementDisplayed("table_systemStatus");
             ReportMsg.info("verified system status of table");
-            columnShouldRepresentLastHoursFromCurrent(hours);
-            verifyLeagendShouldBeAvailable();
-            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            // columnShouldRepresentLastHoursFromCurrent(hours);
+            verifyLegendShouldBeAvailable();
+            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         } catch (Exception e1) {
             ReportMsg.info("table system status is not availabe for app");
             isElementDisplayed("div_errorMessage");
             String message = element("div_errorMessage").getText();
             ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + lastHours);
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
             isElementDisplayed("singleApp", appName);
             element("singleApp", appName).click();
             ReportMsg.info("Click on App = " + appName);
@@ -348,7 +384,7 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Verifying table system stutus");
             verifyInformationOnGregorianCalendar(appName);
             onHoverOverOnAnyDay24HourClockShouldBeSeen();
-            verifyLeagendShouldBeAvailable();
+            verifyLegendShouldBeAvailable();
         } catch (Exception e) {
             ReportMsg.info("table system status is not availabe for app");
             isElementDisplayed("div_errorMessage");
@@ -364,7 +400,7 @@ public class DetailScreenPageActions extends GetPage {
         }
         
         if (tier.equalsIgnoreCase("stg")) {
-            ReportMsg.info("\n############## Verifying Current Information Alert For All last hours , TRUST-324, TRUST-340, TRUST-345 ##############\n");
+            System.out.println("\n############## Verifying Current Informational Alert For All last hours , TRUST-324, TRUST-340, TRUST-345 ##############\n");
             String lastHours = "last 12 hours";
             selectLastAvailableHours(lastHours);
             verifyCurrentInformationAlerts(appName);
@@ -375,7 +411,7 @@ public class DetailScreenPageActions extends GetPage {
             selectLastAvailableHours(lastHours);
             verifyCurrentInformationAlerts(appName);
         } else {
-            ReportMsg.info("'Current Informationalal Alerts' button is NOT AVAILABLE on PRODUCTION environment!!!");
+            ReportMsg.info("'Current Informational Alerts' button is NOT AVAILABLE on PRODUCTION environment!!!");
         }
     }
 
@@ -399,13 +435,13 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Verified current color notation is green");
             int size = elements("greenColor_timeFrame").size();
             ReportMsg.info("Number of current time frames in green color are " + size + " for 12 hours and EST time zone on Detail Screen");
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         } catch (Exception e) {
             ReportMsg.info("table system status is not availabe for app");
             isElementDisplayed("div_errorMessage");
             String message = element("div_errorMessage").getText();
             ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + appName);
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         }
     }
 
@@ -434,7 +470,7 @@ public class DetailScreenPageActions extends GetPage {
 //        verifyColorInTimeFrameColor("yellow");
 //        verifyColorInTimeFrameColor("orange");
 //        verifyColorInTimeFrameColor("empty");
-        userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+        userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 
     public void verifyColorInTimeFrameColor(String color) {
@@ -452,10 +488,10 @@ public class DetailScreenPageActions extends GetPage {
                     }
                 }
             }
-            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         } catch (NoSuchElementException e) {
             ReportMsg.info(color.toUpperCase() + " color frame is not visible on time frame");
-            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatfromAvailabilityHome();
+            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         }
     }
 

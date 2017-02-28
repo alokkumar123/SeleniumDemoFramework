@@ -107,10 +107,10 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("Product Support link: " + a);
     }
 
-    public void verifyingAppOnPlatfromScreen(String appName) {
+    public void verifyingAppOnPlatformScreen(String appName) { 
         int i = 0;
         String a[] = appName.split(",");
-        ReportMsg.info("Number of apps are displaying on platform screen " + elements("url_systemLogo").size());
+        ReportMsg.info("Number of apps are displaying on Platform Screen " + elements("url_systemLogo").size());
         for (WebElement e : elements("url_systemLogo")) {
             try {
                 String app[] = a[i].split("=");
@@ -156,6 +156,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                 try {
                     element("div_systemLogo", systemName).click();
                     ReportMsg.info("Clicked on '" + systemName + "' System");
+                    break;
                 } catch (TimeoutException ex) {
                     ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
                     if (grp.getAttribute("aria-expanded").equalsIgnoreCase("false")) {
