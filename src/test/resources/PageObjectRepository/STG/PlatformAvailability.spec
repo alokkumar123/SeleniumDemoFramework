@@ -1,6 +1,6 @@
 # Object Definitions
 =====================================================================================================================
-div_app_systemApp                   xpath               //div[contains(@class,'system-card front green')]     
+div_app_systemApp                   xpath               //div[contains(@class,'system-card front green')]    
 div_lastUpdatedTime                 xpath               //div[contains(@class,'system-card front green')]//div[@class='system-last-update']/span[2]
 div_platformName                    xpath               //div[@class='back card green']//h5[text()='${appName}']/../..
 lnk_productSupportLink              xpath               //a[text()='Need Product Support?']  
@@ -17,5 +17,8 @@ list_groupHeading                   xpath               //div[@class='panel pane
 list_frontGroups                    classname           front-system
 div_systemLogo                      xpath               //div[contains(@style,'${systemUrl}')]
 txt_systemName                      xpath               //a/parent::span
+list_panelCollapse                  xpath               //div[@class='panel-collapse collapse in']//div[@class='front-system']//div[contains(@class,'system-header ')]//div[@class='system-logo' and not(contains(.,'system test'))]
+div_systemUnderGroups               xpath               //div[@class='panel-collapse collapse in']//div[contains(@class,'system-card front green')]
+div_lastUpdatedTimeUnderGroups      xpath               //div[@class='panel-collapse collapse in']//div[contains(@class,'system-card front green')]//div[@class='system-last-update']/span[2]
 =====================================================================================================================
     

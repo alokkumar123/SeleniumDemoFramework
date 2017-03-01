@@ -11,13 +11,12 @@ public class PlatformAvailabiltyTest extends TestFundamentals {
     @Test
     public void TRUST_314_Verify_List_Of_Apps_Are_Displaying_On_Platfrom_Availiblity() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        test.platformAvailabilityPage.clickOnSystem(getData("appName.mindtap"), systemView);
-        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appName"));
+        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appName"), systemView);
     }
     
     @Test
     public void TRUST_315_Check_Last_Update_Time_Over_Platform_Availability() {
-        test.platformAvailabilityPage.checkLastUpdateTimeOverPlatformAvailability();
+        test.platformAvailabilityPage.checkLastUpdateTimeOverPlatformAvailability(systemView);
     }
 
     @Test
