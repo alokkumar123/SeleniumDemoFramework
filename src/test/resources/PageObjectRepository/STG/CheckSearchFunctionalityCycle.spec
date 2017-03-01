@@ -1,8 +1,7 @@
 # Object Definitions
-
 ==================================================================================================================================
-searched_text                                xpath          //td[contains(@data-search-text,'${searchingText}')]
-input_serachBox                              xpath          //input[@id='searchText']
+list_searchSystem                            xpath          //tbody/tr/td[3]/a
+input_searchBox                              xpath          //input[@id='searchText']
 button_Create                                xpath          //button[text()='Create']
 div_SystemName                               xpath          //div[@id='name']/input
 button_save                                  xpath          //button[text()='Save']

@@ -26,7 +26,7 @@ public class ConfiguredSystemTest extends TestFundamentals {
     @Test
     public void TRUST_395_Step03_Check_Search_Functionality_Positive_Cycle() {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.checkSearchFunctionality.validateSearchFunctionalityForPossitiveCycle();
+        test.checkSearchFunctionality.validateSearchFunctionalityForPositiveCycle();
     }
 
     @Test
@@ -42,6 +42,6 @@ public class ConfiguredSystemTest extends TestFundamentals {
     }
     @Test
     public void TRUST_395_Step06_Delete_Systems(){
-        test.checkSearchFunctionality.deleteNewlyCretedSystem();
+        test.checkSearchFunctionality.deleteNewlyCreatedSystem();
     }
 }

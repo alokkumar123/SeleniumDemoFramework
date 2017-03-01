@@ -1,88 +1,93 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
+
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class CheckSearchFunctionalityCyclePageActions extends GetPage {
-
+    
+    String searchingText;
+    String description = "Created new system by automation script";
+    String newSystem = "New System";
+    
     public CheckSearchFunctionalityCyclePageActions(WebDriver driver) {
         super(driver, "CheckSearchFunctionalityCycle");
         this.driver = driver;
     }
-
-    String searchingText;
-    String description = "Created new system by automation script";
-    String newSystem = "New System";
-
-    public void validateSearchFunctionalityForPossitiveCycle() {
-        searchingText = "M";
-        isElementDisplayed("input_serachBox");
+    
+    public void validateSearchFunctionalityForPositiveCycle() {
+        searchingText = "MindTap";
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
-        isElementDisplayed("searched_text", searchingText);
-        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
-        searchingText = "Mind";
-        isElementDisplayed("input_serachBox");
-        ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
-        isElementDisplayed("searched_text", searchingText);
-        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText); 
+        ReportMsg.info("No. of search results: " + elements("list_searchSystem").size());
+        for (WebElement searchResult : elements("list_searchSystem")){
+           ReportMsg.info("List of systems displayed from '" + searchingText + "': " + searchResult.getText());
+           Assert.assertTrue(searchResult.getText().contains(searchingText), 
+                   "[Assertion Failed]: Search results are NOT matching as per search term!!!");
+        }
+        ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation");
+        
         searchingText = "MindTap Math";
-        isElementDisplayed("input_serachBox");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
-        isElementDisplayed("searched_text", searchingText);
-        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText);
+        ReportMsg.info("No. of search results: " + elements("list_searchSystem").size());
+        for (WebElement searchResult : elements("list_searchSystem")){
+           ReportMsg.info("List of systems displayed from '" + searchingText + "': " + searchResult.getText());
+           Assert.assertTrue(searchResult.getText().contains(searchingText), 
+                   "[Assertion Failed]: Search results are NOT matching as per search term!!!");
+        }
+        ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation");
+        
         searchingText = "MindTap Math Foundations";
-        isElementDisplayed("input_serachBox");
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
-        isElementDisplayed("searched_text", searchingText);
-        ReportMsg.info("Validated " + searchingText + " is displaying after perfroming search operation ");
-
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText);
+        ReportMsg.info("No. of search results: " + elements("list_searchSystem").size());
+        for (WebElement searchResult : elements("list_searchSystem")){
+           ReportMsg.info("List of systems displayed from '" + searchingText + "': " + searchResult.getText());
+           Assert.assertTrue(searchResult.getText().contains(searchingText), 
+                   "[Assertion Failed]: Search results are NOT matching as per search term!!!");
+        }
+        ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation");
     }
-
+    
+    
     public void validateSearchFunctionalityForNegativeCycle() {
-        searchingText = "Worng text";
-        isElementDisplayed("input_serachBox");
+        searchingText = "Wrong text";
+        isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
-        element("input_serachBox").clear();
-        element("input_serachBox").sendKeys(searchingText);
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(searchingText);
         ReportMsg.info("Validated no result is availble after performing " + searchingText + " in search box");
-
     }
 
     public void userCheckCreateNewSystem() {
-        isElementDisplayed("button_Create");
         element("button_Create").click();
         isElementDisplayed("h4_createSystem");
         ReportMsg.info(" User navigated to Create System screen");
     }
 
     public void userCreateNewSystemFormAndSave() {
-
-        isElementDisplayed("div_SystemName");
         element("div_SystemName").click();
         element("div_SystemName").clear();
         element("div_SystemName").sendKeys(newSystem);
         ReportMsg.info("Entered system name : " + newSystem + " in mandatory field");
+        
         element("div_discription").click();
         element("div_discription").clear();
         element("div_discription").sendKeys(description);
         ReportMsg.info("Entered description name : " + description + " in mandatory field");
-        isElementDisplayed("button_save");
+        
         element("button_save").click();
-        ReportMsg.info("User Created new System Form and Saved Form");
+        ReportMsg.info("User created system named: " + newSystem);
     }
 
     public void savedDataShouldBeSeenInTheListScreen() {
@@ -100,7 +105,7 @@ public class CheckSearchFunctionalityCyclePageActions extends GetPage {
         ReportMsg.info("App on 3rd row after clicking on moveUp " + appAfterMoveUp);
     }
 
-    public void deleteNewlyCretedSystem() {
+    public void deleteNewlyCreatedSystem() {
         isElementDisplayed("span_deleteSyetem", newSystem);
         element("span_deleteSyetem", newSystem).click();
         element("button_delete").click();

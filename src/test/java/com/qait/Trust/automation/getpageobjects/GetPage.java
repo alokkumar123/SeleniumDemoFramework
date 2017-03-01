@@ -136,7 +136,6 @@ public class GetPage extends BaseUi {
 
     protected boolean isElementDisplayed(String elementName,
             String elementTextReplace) {
-        //wait.waitForElementToBeVisible(element(elementName, elementTextReplace));
         boolean result = element(elementName, elementTextReplace).isDisplayed();
         assertTrue(result, "TEST FAILED: element '" + elementName
                 + "with text " + elementTextReplace + "' is not displayed.");
