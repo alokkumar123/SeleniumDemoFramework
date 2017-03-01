@@ -9,7 +9,7 @@ public class SearchFunctionalityForPositiveAndNegativeCycleTest extends TestFund
     public void Trust_352_Check_Search_Functionality_Positive_Cycle() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.checkSearchFunctionality.validateSearchFunctionalityForPossitiveCycle();
+        test.checkSearchFunctionality.validateSearchFunctionalityForPositiveCycle();
         test.createAndConfigPage.logOutFromAdmin();
     }
 
