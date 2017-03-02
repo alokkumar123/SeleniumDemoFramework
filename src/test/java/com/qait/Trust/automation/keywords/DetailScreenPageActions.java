@@ -119,7 +119,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("hours size in table = " + hoursSize + " for last " + last_12_hours + " hours");
     }
     
-    public void verifyLegendShouldBeAvailable() throws AWTException {
+    public void verifyLegendShouldBeAvailable() {
 //        scrollDown(element("span_noIssues"));
 //        scrollDown();
 //        Actions actions = new Actions(driver);
@@ -361,7 +361,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
     }
 
-    public void verifyInformationAvailableForLastHours(String lastHours, String hours, String appName) throws AWTException {
+    public void verifyInformationAvailableForLastHours(String lastHours, String hours, String appName) {
         String JiraId = "TRUST-321";
         if (!lastHours.contains("last 12 hours")) {
             JiraId = "TRUST-322";

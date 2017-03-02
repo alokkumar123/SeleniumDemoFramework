@@ -10,7 +10,7 @@ public class DetailScreenTest extends TestFundamentals {
     String systemView;
     
     @Test
-    public void TC01_Verifying_All_Details_For_MindTap_Platform() throws AWTException {
+    public void TC01_Verifying_All_Details_For_MindTap_Platform() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         test.platformAvailabilityPage.clickOnSystem(getData("appName.mindtap"), systemView);
         test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));
