@@ -1,6 +1,6 @@
 package com.qait.Trust.automation;
 
-import com.qait.Trust.automation.keywords.CheckSearchFunctionalityCyclePageActions;
+import com.qait.Trust.automation.keywords.ManageSystemsPageActions;
 import com.qait.Trust.automation.keywords.CreateAndConfigureMonitorsPageActions;
 import com.qait.Trust.automation.keywords.DetailScreenPageActions;
 import com.qait.Trust.automation.keywords.DetailScreen_GroupActions;
@@ -10,7 +10,6 @@ import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import com.qait.Trust.automation.keywords.RegionOnSplashActions;
 import com.qait.Trust.automation.utils.HTMLCodeSniffer;
 
-import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import com.qait.Trust.automation.utils.ReportMsg;
 
 import com.qait.Trust.automation.utils.TakeScreenshot;
@@ -29,6 +28,7 @@ import org.testng.Reporter;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 
 public class TestSessionInitiator {
 
@@ -55,7 +55,7 @@ public class TestSessionInitiator {
     public DetailScreenPageActions detailScreenPage;
     public ManageRolePageActions manageRolePage;
     public CreateAndConfigureMonitorsPageActions createAndConfigPage;
-    public CheckSearchFunctionalityCyclePageActions checkSearchFunctionality;
+    public ManageSystemsPageActions manageSystemPage;
     public ManageRegionPageActions manageRegionPage;
     public DetailScreen_GroupActions detailScreen_group;
     public RegionOnSplashActions regionSplashPage;  
@@ -71,7 +71,7 @@ public class TestSessionInitiator {
         detailScreenPage = new DetailScreenPageActions(driver);
         manageRolePage = new ManageRolePageActions(driver);
         createAndConfigPage = new CreateAndConfigureMonitorsPageActions(driver);
-        checkSearchFunctionality = new CheckSearchFunctionalityCyclePageActions(driver);
+        manageSystemPage = new ManageSystemsPageActions(driver);
         manageRegionPage = new ManageRegionPageActions(driver);
         detailScreen_group = new DetailScreen_GroupActions(driver);
         regionSplashPage  = new RegionOnSplashActions(driver);

@@ -2,19 +2,20 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
+import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class CheckSearchFunctionalityCyclePageActions extends GetPage {
+public class ManageSystemsPageActions extends GetPage {
     
     String searchingText;
     String description = "Created new system by automation script";
     String newSystem = "New System";
     
-    public CheckSearchFunctionalityCyclePageActions(WebDriver driver) {
-        super(driver, "CheckSearchFunctionalityCycle");
+    public ManageSystemsPageActions(WebDriver driver) {
+        super(driver, "ManageSystem");
         this.driver = driver;
     }
     
@@ -71,8 +72,7 @@ public class CheckSearchFunctionalityCyclePageActions extends GetPage {
 
     public void userCheckCreateNewSystem() {
         element("button_Create").click();
-        isElementDisplayed("h4_createSystem");
-        ReportMsg.info(" User navigated to Create System screen");
+        ReportMsg.info("User clicked on 'Create' button on Configured System page");
     }
 
     public void userCreateNewSystemFormAndSave() {
@@ -106,9 +106,75 @@ public class CheckSearchFunctionalityCyclePageActions extends GetPage {
     }
 
     public void deleteNewlyCreatedSystem() {
-        isElementDisplayed("span_deleteSyetem", newSystem);
-        element("span_deleteSyetem", newSystem).click();
+        isElementDisplayed("span_deleteSystem", newSystem);
+        element("span_deleteSystem", newSystem).click();
         element("button_delete").click();
-        ReportMsg.info("Deleted newly system amaned as " + newSystem + " created by automation Script");
+        ReportMsg.info("Deleted newly system named as " + newSystem + " created by automation Script");
     }
+    
+    public void verifyAnySystemCreatedByAutomationScriptIsAppearing(String newSystem) {
+        try {
+            ReportMsg.info("No. of Systems: " + elements("list_searchSystem").size());
+            for (WebElement system : elements("list_searchSystem")) {
+                if (system.getText().equalsIgnoreCase(newSystem)) {
+                    ReportMsg.info("Found system created by automation script: '" + system.getText() + "'");
+                }
+            }
+        } catch (TimeoutException ex) {
+            ReportMsg.info("NO Systems found created by automation scripts!!!");
+        }
+    }
+    
+    public void verifyDeleteApplicationModalWindowIsDisplayed() {
+        Assert.assertTrue(
+                element("modal_deleteContent").isDisplayed(),
+                "[Assertion Failed]: Delete Modal is NOT displayed!!!");
+        logMessage("[Assertion Passed]: Delete Modal is DISPLAYED!!!");
+
+        Assert.assertEquals(element("txt_deleteHeader").getText(), "Delete application",
+                "[Assertion Failed]: Delete Modal Header is NOT matching!!!");
+        logMessage("[Assertion Passed]: Delete Modal Header is MATCHING!!!");
+        
+        Assert.assertTrue(
+                element("btn_modalFooter", "Delete").isDisplayed(),
+                "[Assertion Failed]: 'Delete' button is NOT displayed!!!");
+        logMessage("[Assertion Passed]: 'Delete' button is DISPLAYED!!!");
+
+        Assert.assertTrue(
+                element("btn_modalFooter", "Cancel").isDisplayed(),
+                "[Assertion Failed]: 'Cancel' button is NOT displayed!!!");
+        logMessage("[Assertion Passed]: 'Cancel' button is DISPLAYED!!!\n");
+    }
+    
+    public boolean deleteNewlyCreatedSystem(String newSystem) {
+        int count = 0;
+        boolean flag = false;
+        
+        try {
+            ReportMsg.info("No. of Systems: " + elements("list_searchSystem").size());
+            for (WebElement system : elements("list_searchSystem")) {
+                if (system.getText().equalsIgnoreCase(newSystem)) {
+                    ReportMsg.info("Found system created by automation script: '" + system.getText() + "'");
+
+                    element("span_trashIcon", String.valueOf(count)).click();
+                    ReportMsg.info("Clicked on 'Trash' icon");
+
+                    executeJavascript("document.getElementsByClassName('btn btn-danger')[0].click()");
+                    ReportMsg.info("Clicked on 'Delete' button");
+                    flag = true;
+                }
+                count++;
+            }
+            if (flag) {
+                ReportMsg.info("Deleted all systems created from automation scripts!!!");
+            } else {
+                ReportMsg.info("NO existing systems were appearing created from automation scripts!!!");
+            }
+            return flag;
+        } catch (TimeoutException ex) {
+            ReportMsg.info("NO Systems found created by automation scripts!!!");
+            return flag;
+        }
+    }
+    
 }

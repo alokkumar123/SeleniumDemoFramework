@@ -40,6 +40,7 @@ public class ManageRegionPageActions extends GetPage {
     
     public void clearSearchInputBox() {
         element("input_searchBox").clear();
+        element("input_searchBox").click();
         ReportMsg.info("Cleared search input boz");
     }
     

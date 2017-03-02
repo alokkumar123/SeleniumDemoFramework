@@ -9,7 +9,7 @@ public class SearchFunctionalityForPositiveAndNegativeCycleTest extends TestFund
     public void Trust_352_Check_Search_Functionality_Positive_Cycle() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.checkSearchFunctionality.validateSearchFunctionalityForPositiveCycle();
+        test.manageSystemPage.validateSearchFunctionalityForPositiveCycle();
         test.createAndConfigPage.logOutFromAdmin();
     }
 
@@ -17,7 +17,7 @@ public class SearchFunctionalityForPositiveAndNegativeCycleTest extends TestFund
     public void Trust_353_Check_Search_Functionality_Negative_Cycle() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.checkSearchFunctionality.validateSearchFunctionalityForNegativeCycle();
+        test.manageSystemPage.validateSearchFunctionalityForNegativeCycle();
         test.createAndConfigPage.logOutFromAdmin();
     }
 }

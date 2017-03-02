@@ -11,7 +11,7 @@ public class ManageRegionTest extends TestFundamentals {
     String description = "Created By Automation script";
     
     @Test
-    public void Step01_TRUST_437__Check_Manage_Region() {
+    public void Step01_TRUST_437_Check_Manage_Region() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage regions");

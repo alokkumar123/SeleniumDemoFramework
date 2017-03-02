@@ -4,7 +4,9 @@ import com.qait.Trust.automation.TestFundamentals;
 import org.testng.annotations.Test;
 
 public class ConfiguredSystemTest extends TestFundamentals {
-
+    
+    String newSystem = "New System";
+    
     @Test
     public void TRUST_395_Step01_Configure_System() {
         test.createAndConfigPage.logAsAdmin();
@@ -20,28 +22,38 @@ public class ConfiguredSystemTest extends TestFundamentals {
 
     @Test
     public void TRUST_395_Step02_Check_Move_Up_Functionality() {
-        test.checkSearchFunctionality.verifyMoveUpFunctionality();
+        test.manageSystemPage.verifyMoveUpFunctionality();
     }
 
     @Test
     public void TRUST_395_Step03_Check_Search_Functionality_Positive_Cycle() {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.checkSearchFunctionality.validateSearchFunctionalityForPositiveCycle();
+        test.manageSystemPage.validateSearchFunctionalityForPositiveCycle();
     }
 
     @Test
     public void TRUST_395_Step04_Check_Search_Functionality_Negative_Cycle() {
-        test.checkSearchFunctionality.validateSearchFunctionalityForNegativeCycle();
+        test.manageSystemPage.validateSearchFunctionalityForNegativeCycle();
     }
-
+    
     @Test
-    public void TRUST_395_Step05_Check_And_Create_New_System() {
-        test.checkSearchFunctionality.userCheckCreateNewSystem();
-        test.checkSearchFunctionality.userCreateNewSystemFormAndSave();
-        test.checkSearchFunctionality.savedDataShouldBeSeenInTheListScreen();
+    public void TRUST_395_Step05_Verify_And_Delete_Any_System_Created_By_Automation_Scripts_Is_Appearing() {
+        test.createAndConfigPage.navigateToAdminMenu("Manage regions");
+        test.createAndConfigPage.navigateToAdminMenu("Manage systems");
+        test.manageSystemPage.verifyAnySystemCreatedByAutomationScriptIsAppearing(newSystem);
+        test.manageSystemPage.deleteNewlyCreatedSystem(newSystem);
     }
+    
     @Test
-    public void TRUST_395_Step06_Delete_Systems(){
-        test.checkSearchFunctionality.deleteNewlyCreatedSystem();
+    public void TRUST_395_Step06_Create_New_System() {
+        test.manageSystemPage.userCheckCreateNewSystem();
+        test.manageSystemPage.userCreateNewSystemFormAndSave();
+        test.manageSystemPage.savedDataShouldBeSeenInTheListScreen();
     }
+    
+    @Test
+    public void TRUST_395_Step07_Delete_Newly_Created_System(){
+        test.manageSystemPage.deleteNewlyCreatedSystem(newSystem);
+    }
+    
 }
