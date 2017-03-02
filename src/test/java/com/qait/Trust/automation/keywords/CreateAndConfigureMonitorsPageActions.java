@@ -167,7 +167,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void sortingOfRecordswith(String field, String index) {
         isElementDisplayed("span_shortingFields", index);
-        elements("span_shortingFields", index);
+        //elements("span_shortingFields", index);
         ReportMsg.info(field + " before sorting ");
         for (WebElement ele : elements("span_shortingFields", index)) {
             if (!(ele.getText().equals(null))) {

@@ -19,7 +19,7 @@ public class ManageRolePageActions extends GetPage {
         element("input_searchBox").sendKeys(text);
         ReportMsg.info("Validated " + text + " is displaying after performing Search operation");
     }
-    
+
     public void clickOnAdd(String addNew) {
         isElementDisplayed("button_addNew", addNew);
         element("button_addNew", addNew).click();
@@ -37,7 +37,7 @@ public class ManageRolePageActions extends GetPage {
         element("input_text", formField).clear();
         element("input_text", formField).sendKeys(name);
     }
-    
+
     public void clickOnFormField(String formField) {
         isElementDisplayed("div_selectPermission");
         element("div_selectPermission").click();
@@ -70,12 +70,12 @@ public class ManageRolePageActions extends GetPage {
 
     public void clickOnDeleteButton(String editUserName) {
         element("span_deleteNewUser", editUserName).click();
-        ReportMsg.info("Deleting new user created by automation script");
+        ReportMsg.info("Deleting " + editUserName + " created by automation script");
     }
-    
-    public void addGroup(String groupType,String groupField) {
-        element("label_groupField",groupType).click();
-        element("list_group",groupField).click();
+
+    public void addGroup(String groupType, String groupField) {
+        element("label_groupField", groupType).click();
+        element("list_group", groupField).click();
     }
-    
+
 }

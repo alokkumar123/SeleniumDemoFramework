@@ -9,7 +9,7 @@ public class ManageRegionTest extends TestFundamentals {
     String newRegion = "Test Automation Region";
     String oid = "OID" + System.currentTimeMillis();
     String description = "Created By Automation script";
-    
+
     @Test
     public void Step01_TRUST_437_Check_Manage_Region() {
         test.createAndConfigPage.logAsAdmin();
@@ -19,30 +19,27 @@ public class ManageRegionTest extends TestFundamentals {
         test.createAndConfigPage.gridShouldBeAvailableFor("Systems");
         test.createAndConfigPage.gridShouldBeAvailableFor("Monitors");
     }
-    
+
+     @Test
+    public void Step02_TRUST_437_Verify_Region_Created_By_Automation_Script_Is_Deleted() {
+        test.manageRegionPage.verifyAnyRegionCreatedByAutomationScriptIsAppearing(newRegion);
+    }
     @Test
-    public void Step02_TRUST_437_Check_Search_Functionality_Negative_Cycle() {
+    public void Step03_TRUST_437_Check_Search_Functionality_Negative_Cycle() {
         test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
     }
-    
+
     @Test
-    public void Step03_TRUST_437_Check_Search_Functionality_Positive_Cycle() {
+    public void Step04_TRUST_437_Check_Search_Functionality_Positive_Cycle() {
         test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("MindTap");
         test.manageRegionPage.verifySearchedSystemOnRegions("MindTap");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Test");
-        test.manageRegionPage.verifySearchedSystemOnRegions("Test");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Test-AU");
-        test.manageRegionPage.verifySearchedSystemOnRegions("Test-AU");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("OWLv2WEST");
+        test.manageRegionPage.verifySearchedSystemOnRegions("OWLv2WEST");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Aplia");
+        test.manageRegionPage.verifySearchedSystemOnRegions("Aplia");
         test.manageRegionPage.clearSearchInputBox();
     }
-    
-    @Test
-    public void Step04_TRUST_437_Delete_Region_Created_By_Automation_Script() {
-        flag = test.manageRegionPage.verifyAnyRegionCreatedByAutomationScriptIsAppearing(newRegion);
-        test.manageRegionPage.deleteRegionCreatedByAutomationScript();
-        test.manageRegionPage.verifyRegionHasBeenDeleted(flag);
-    }
-    
+
     @Test
     public void Step05_TRUST_437_Check_Add_Region() {
         test.manageRolePage.clickOnAdd("Add Region");
@@ -59,7 +56,7 @@ public class ManageRegionTest extends TestFundamentals {
         test.createAndConfigPage.sortingOfRecordswith("System", "2");
         test.createAndConfigPage.sortingOfRecordswith("Monitors", "3");
     }
-    
+
     @Test
     public void Step07_TRUST_437_Delete_User_Created_By_Automation_Script() {
         test.manageRolePage.clickOnDeleteButton(newRegion);
