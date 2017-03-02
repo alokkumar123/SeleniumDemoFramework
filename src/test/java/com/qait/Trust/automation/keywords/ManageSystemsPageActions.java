@@ -2,9 +2,6 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
-import com.qait.Trust.automation.utils.SeleniumWait;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.WebElement;
@@ -15,7 +12,7 @@ public class ManageSystemsPageActions extends GetPage {
     
     String searchingText;
     String description = "Created new system by automation script";
-    String newSystem = "New System";
+    String newSystem = "New Automation System";
     
     public ManageSystemsPageActions(WebDriver driver) {
         super(driver, "ManageSystem");
@@ -36,7 +33,7 @@ public class ManageSystemsPageActions extends GetPage {
         }
         ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation");
         
-        searchingText = "MindTap Math";
+        searchingText = "CengageBrain";
         isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
         element("input_searchBox").clear();
@@ -49,7 +46,7 @@ public class ManageSystemsPageActions extends GetPage {
         }
         ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation");
         
-        searchingText = "MindTap Math Foundations";
+        searchingText = "CNOWv1";
         isElementDisplayed("input_searchBox");
         ReportMsg.info("Search box is available");
         element("input_searchBox").clear();
@@ -85,7 +82,7 @@ public class ManageSystemsPageActions extends GetPage {
         ReportMsg.info("Entered system name : " + newSystem + " in mandatory field");
         
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException ex) {
         }
         
@@ -95,7 +92,7 @@ public class ManageSystemsPageActions extends GetPage {
         ReportMsg.info("Entered description name : " + description + " in mandatory field");
         
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException ex) {
         }
         
@@ -105,6 +102,10 @@ public class ManageSystemsPageActions extends GetPage {
     }
 
     public void savedDataShouldBeSeenInTheListScreen() {
+        element("input_searchBox").click();
+        scrollTop();
+        scrollDown();
+        
         isElementDisplayed("link_newCreatedSystem", newSystem);
         ReportMsg.info("Verified new system created  by automatrion script named as " + newSystem + " is displaying on Screen list");
         isElementDisplayed("text_description", description);
@@ -169,16 +170,14 @@ public class ManageSystemsPageActions extends GetPage {
         logMessage("[Assertion Passed]: 'Cancel' button is DISPLAYED!!!\n");
     }
     
-    public void deleteNewlyCreatedSystem(boolean flag, String newSystem) {
-        int count = 0;
-        
+    public void deleteNewlyCreatedSystem(boolean flag, String newSystem) {        
         if(flag) {
             ReportMsg.info("No. of Systems: " + elements("list_searchSystem").size());
             for (WebElement system : elements("list_searchSystem")) {
                 if (system.getText().equalsIgnoreCase(newSystem)) {
                     ReportMsg.info("Found system created by automation script: '" + system.getText() + "'");
 
-                    element("span_trashIcon", String.valueOf(count)).click();
+                    element("span_trashIcon", newSystem).click();
                     ReportMsg.info("Clicked on 'Trash' icon");
                     
                     verifyDeleteApplicationModalWindowIsDisplayed();
@@ -186,7 +185,6 @@ public class ManageSystemsPageActions extends GetPage {
                     executeJavascript("document.getElementsByClassName('btn btn-danger')[0].click()");
                     ReportMsg.info("Clicked on 'Delete' button");
                 }
-                count++;
             }
         }
     }

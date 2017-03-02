@@ -190,11 +190,16 @@ public class BaseUi {
         sel.selectByVisibleText(text);
     }
 
-    protected void scrollToTop() {
+    protected void scrollTop() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,-10000)");
     }
-
+    
+    protected void scrollDown() {
+        ((JavascriptExecutor) driver).executeScript(
+                "window.scrollBy(0, 10000)");
+    }
+    
     protected void scrollDown(WebElement element) {
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollIntoView(true);", element);

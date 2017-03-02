@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class ConfiguredSystemTest extends TestFundamentals {
     
     boolean flag;
-    String newSystem = "New System";
+    String newSystem = "New Automation System";
     
     @Test
     public void TRUST_395_Step01_Configure_System() {
