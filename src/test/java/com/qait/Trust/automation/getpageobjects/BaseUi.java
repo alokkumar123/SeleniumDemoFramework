@@ -197,7 +197,7 @@ public class BaseUi {
     
     protected void scrollDown() {
         ((JavascriptExecutor) driver).executeScript(
-                "window.scrollBy(0, 10000)");
+                "scroll(0, 10000)");
     }
     
     protected void scrollDown(WebElement element) {

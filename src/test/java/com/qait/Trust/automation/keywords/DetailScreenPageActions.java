@@ -3,6 +3,10 @@ package com.qait.Trust.automation.keywords;
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import com.qait.Trust.automation.utils.ReportMsg;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,11 +15,13 @@ import java.util.Date;
 import java.util.Iterator;
 
 import java.util.TimeZone;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -111,12 +117,21 @@ public class DetailScreenPageActions extends GetPage {
 
         int hoursSize = Integer.parseInt(last_12_hours);
         ReportMsg.info("hours size in table = " + hoursSize + " for last " + last_12_hours + " hours");
-        // int rowSize = elements("tr_lastHours", systemTime).size();
-        //ReportMsg.info("row size = " + rowSize);
-        //Assert.assertEquals(rowSize, hoursSize);
     }
-
-    public void verifyLegendShouldBeAvailable() {
+    
+    public void verifyLegendShouldBeAvailable() throws AWTException {
+//        scrollDown(element("span_noIssues"));
+//        scrollDown();
+//        Actions actions = new Actions(driver);
+//        actions.keyDown(Keys.DOWN).perform();
+    
+//        Robot robot = new Robot();
+//        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+//        robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+        ReportMsg.log("Scrolled down to bottom of page");
+//        executeJavascript("window.scrollTo(0,Math.max(document.documentElement."
+//                + "scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");
+        
         isElementDisplayed("span_noIssues");
         isElementDisplayed("span_minorDisruption");
         isElementDisplayed("span_serviceTemporarilyUnavailable");
@@ -333,7 +348,6 @@ public class DetailScreenPageActions extends GetPage {
         System.out.println("\n############## Verifying Drop Down options for Time Zones, TRUST-319 ##############\n");
         String timeZone = "EST (local)";
         executeJavascript("document.getElementsByClassName('rw-input')[1].click()");
-        //isElementDisplayed("list_timezonedropdownOptions", timeZone);
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
         timeZone = "CST";
         isElementDisplayed("list_timezonedropdownOptions", timeZone);
@@ -343,36 +357,37 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
         timeZone = "GMT";
         isElementDisplayed("list_timezonedropdownOptions", timeZone);
+        executeJavascript("document.getElementsByClassName('rw-input')[1].click()");
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
     }
 
-    public void verifyInformationAvailableForLastHours(String lastHours, String hours, String appName) {
+    public void verifyInformationAvailableForLastHours(String lastHours, String hours, String appName) throws AWTException {
         String JiraId = "TRUST-321";
         if (!lastHours.contains("last 12 hours")) {
             JiraId = "TRUST-322";
         }
-        try {
+        // try {
             System.out.println("\n############## Verifying Information Available for " + lastHours + " on Detail Screen Page, " + JiraId + " ##############\n");
             isElementDisplayed("table_systemStatus");
-            ReportMsg.info("verified system status of table");
+            ReportMsg.info("Verified system status of table");
             // columnShouldRepresentLastHoursFromCurrent(hours);
             verifyLegendShouldBeAvailable();
             //userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-        } catch (Exception e1) {
-            ReportMsg.info("table system status is not availabe for app");
-            isElementDisplayed("div_errorMessage");
-            String message = element("div_errorMessage").getText();
-            ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + lastHours);
-            userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-            isElementDisplayed("singleApp", appName);
-            element("singleApp", appName).click();
-            ReportMsg.info("Click on App = " + appName);
-            isElementDisplayed("txt_appName");
-            appName = element("txt_appName").getText();
-            String a[] = appName.split("> ");
-            appName = a[1];
-            ReportMsg.info("AppName = " + appName);
-        }
+//        } catch (Exception e1) {
+//            ReportMsg.info("table system status is not availabe for app");
+//            isElementDisplayed("div_errorMessage");
+//            String message = element("div_errorMessage").getText();
+//            ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + lastHours);
+//            userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+//            isElementDisplayed("singleApp", appName);
+//            element("singleApp", appName).click();
+//            ReportMsg.info("Click on App = " + appName);
+//            isElementDisplayed("txt_appName");
+//            appName = element("txt_appName").getText();
+//            String a[] = appName.split("> ");
+//            appName = a[1];
+//            ReportMsg.info("AppName = " + appName);
+//        }
     }
 
     public void verifyInformationAvailableForLast30Days(String last_30_days, String appName) {

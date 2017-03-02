@@ -65,7 +65,7 @@ public class ManageRolesTest extends TestFundamentals {
     }
 
     @Test
-    public void TRUST_422_Step07_Delete_User_Creayed_By_Automation_Script() {
+    public void TRUST_422_Step07_Delete_User_Created_By_Automation_Script() {
         test.manageRolePage.clickOnDeleteButton(editRole);
         test.createAndConfigPage.popUpShouldBeAppears("Cancel");
         test.manageRolePage.editedNewRoleIsDisplaying(editRole);

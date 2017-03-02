@@ -115,7 +115,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         } else if (systemView.equalsIgnoreCase("Front")) {
             int i = 0;
             String a[] = systemName.split(",");
-            ReportMsg.info("Number of apps are displaying on Platform Screen " + elements("url_systemLogo").size());
+            ReportMsg.info("Number of apps are displaying on Platform Screen: " + elements("url_systemLogo").size());
             for (WebElement e : elements("url_systemLogo")) {
                 try {
                     String app[] = a[i].split("=");
