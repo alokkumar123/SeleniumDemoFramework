@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 public class ConfiguredSystemTest extends TestFundamentals {
     
+    boolean flag;
     String newSystem = "New System";
     
     @Test
@@ -40,8 +41,8 @@ public class ConfiguredSystemTest extends TestFundamentals {
     public void TRUST_395_Step05_Verify_And_Delete_Any_System_Created_By_Automation_Scripts_Is_Appearing() {
         test.createAndConfigPage.navigateToAdminMenu("Manage regions");
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.manageSystemPage.verifyAnySystemCreatedByAutomationScriptIsAppearing(newSystem);
-        test.manageSystemPage.deleteNewlyCreatedSystem(newSystem);
+        flag = test.manageSystemPage.verifyAnySystemCreatedByAutomationScriptIsAppearing(newSystem);
+        test.manageSystemPage.deleteNewlyCreatedSystem(flag, newSystem);
     }
     
     @Test
@@ -53,7 +54,8 @@ public class ConfiguredSystemTest extends TestFundamentals {
     
     @Test
     public void TRUST_395_Step07_Delete_Newly_Created_System(){
-        test.manageSystemPage.deleteNewlyCreatedSystem(newSystem);
+        flag = test.manageSystemPage.verifyAnySystemCreatedByAutomationScriptIsAppearing(newSystem);
+        test.manageSystemPage.deleteNewlyCreatedSystem(flag, newSystem);
     }
     
 }

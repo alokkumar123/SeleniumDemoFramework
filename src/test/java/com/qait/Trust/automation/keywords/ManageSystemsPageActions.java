@@ -2,6 +2,9 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
+import com.qait.Trust.automation.utils.SeleniumWait;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.WebElement;
@@ -81,13 +84,24 @@ public class ManageSystemsPageActions extends GetPage {
         element("div_SystemName").sendKeys(newSystem);
         ReportMsg.info("Entered system name : " + newSystem + " in mandatory field");
         
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex) {
+        }
+        
         element("div_discription").click();
         element("div_discription").clear();
         element("div_discription").sendKeys(description);
         ReportMsg.info("Entered description name : " + description + " in mandatory field");
         
-        element("button_save").click();
-        ReportMsg.info("User created system named: " + newSystem);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex) {
+        }
+        
+        // element("button_save").click();
+        executeJavascript("document.getElementsByClassName('btn btn-primary')[1].click()");
+        ReportMsg.info("User created system named: '" + newSystem + "'");
     }
 
     public void savedDataShouldBeSeenInTheListScreen() {
@@ -112,16 +126,25 @@ public class ManageSystemsPageActions extends GetPage {
         ReportMsg.info("Deleted newly system named as " + newSystem + " created by automation Script");
     }
     
-    public void verifyAnySystemCreatedByAutomationScriptIsAppearing(String newSystem) {
+    public boolean verifyAnySystemCreatedByAutomationScriptIsAppearing(String newSystem) {
+        boolean flag = false;
         try {
             ReportMsg.info("No. of Systems: " + elements("list_searchSystem").size());
             for (WebElement system : elements("list_searchSystem")) {
                 if (system.getText().equalsIgnoreCase(newSystem)) {
                     ReportMsg.info("Found system created by automation script: '" + system.getText() + "'");
+                    flag = true;
                 }
             }
+            if (flag) {
+                ReportMsg.info("Systems are appearing created from automation scripts!!!");
+            } else {
+                ReportMsg.info("NO existing systems are appearing created from automation scripts!!!");
+            }
+            return flag;
         } catch (TimeoutException ex) {
             ReportMsg.info("NO Systems found created by automation scripts!!!");
+            return flag;
         }
     }
     
@@ -146,11 +169,10 @@ public class ManageSystemsPageActions extends GetPage {
         logMessage("[Assertion Passed]: 'Cancel' button is DISPLAYED!!!\n");
     }
     
-    public boolean deleteNewlyCreatedSystem(String newSystem) {
+    public void deleteNewlyCreatedSystem(boolean flag, String newSystem) {
         int count = 0;
-        boolean flag = false;
         
-        try {
+        if(flag) {
             ReportMsg.info("No. of Systems: " + elements("list_searchSystem").size());
             for (WebElement system : elements("list_searchSystem")) {
                 if (system.getText().equalsIgnoreCase(newSystem)) {
@@ -158,22 +180,14 @@ public class ManageSystemsPageActions extends GetPage {
 
                     element("span_trashIcon", String.valueOf(count)).click();
                     ReportMsg.info("Clicked on 'Trash' icon");
-
+                    
+                    verifyDeleteApplicationModalWindowIsDisplayed();
+                    
                     executeJavascript("document.getElementsByClassName('btn btn-danger')[0].click()");
                     ReportMsg.info("Clicked on 'Delete' button");
-                    flag = true;
                 }
                 count++;
             }
-            if (flag) {
-                ReportMsg.info("Deleted all systems created from automation scripts!!!");
-            } else {
-                ReportMsg.info("NO existing systems were appearing created from automation scripts!!!");
-            }
-            return flag;
-        } catch (TimeoutException ex) {
-            ReportMsg.info("NO Systems found created by automation scripts!!!");
-            return flag;
         }
     }
     
