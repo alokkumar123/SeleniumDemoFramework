@@ -374,7 +374,7 @@ public class DetailScreenPageActions extends GetPage {
         isElementDisplayed("table_systemStatus");
         ReportMsg.info("Verified system status of table");
         columnShouldRepresentLastHoursFromCurrent(hours);
-//        verifyLegendShouldBeAvailable();
+        verifyLegendShouldBeAvailable();
        // userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         } catch (Exception e1) {
             ReportMsg.info("table system status is not availabe for app");
@@ -402,7 +402,7 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Verifying table system stutus");
             verifyInformationOnGregorianCalendar(appName);
             onHoverOverOnAnyDay24HourClockShouldBeSeen();
-            //verifyLegendShouldBeAvailable();
+            verifyLegendShouldBeAvailable();
         } catch (Exception e) {
             ReportMsg.info("table system status is not availabe for app");
             isElementDisplayed("div_errorMessage");

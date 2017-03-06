@@ -21,84 +21,84 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.mindtap"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
-//
-//    @Test
-//    public void TC02_Verifying_All_Details_For_Cengage_Brain_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageBrain"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageBrain"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageBrain"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.cengageBrain"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "cengageBrain");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageBrain"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
-//
-//    @Test
-//    public void TC03_Verifying_All_Details_For_Aplia_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.aplia"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.aplia"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.aplia"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.aplia"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "aplia");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.aplia"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
-//
-//    @Test
-//    public void TC04_Verifying_All_Details_For_CengageNOWv2_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageNOWv2"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNOWv2"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageNOWv2"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.cengageNOWv2"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "cengageNOWv2");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageNOWv2"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
-//
-//    @Test
-//    public void TC05_Verifying_All_Details_For_OWLv2_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.OWLv2"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.OWLv2"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.OWLv2"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.OWLv2"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "OWLv2");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.OWLv2"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
-//
-//    @Test
-//    public void TC06_Verifying_All_Details_For_SAM_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.SAM"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.SAM"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.SAM"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.SAM"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "SAM");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.SAM"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
 
-//    @Test
-//    public void TC07_Verifying_All_Details_For_4LTR_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.4LTR"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.4LTR"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.4LTR"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.4LTR"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "4LTR");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.4LTR"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
+    @Test
+    public void TC02_Verifying_All_Details_For_Cengage_Brain_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageBrain"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageBrain"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageBrain"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.cengageBrain"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "cengageBrain");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageBrain"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
+
+    @Test
+    public void TC03_Verifying_All_Details_For_Aplia_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.aplia"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.aplia"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.aplia"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.aplia"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "aplia");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.aplia"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
+
+    @Test
+    public void TC04_Verifying_All_Details_For_CengageNOWv2_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageNOWv2"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNOWv2"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageNOWv2"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.cengageNOWv2"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "cengageNOWv2");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageNOWv2"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
+
+    @Test
+    public void TC05_Verifying_All_Details_For_OWLv2_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.OWLv2"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.OWLv2"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.OWLv2"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.OWLv2"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "OWLv2");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.OWLv2"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
+
+    @Test
+    public void TC06_Verifying_All_Details_For_SAM_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.SAM"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.SAM"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.SAM"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.SAM"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "SAM");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.SAM"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
+
+    @Test
+    public void TC07_Verifying_All_Details_For_4LTR_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.4LTR"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.4LTR"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.4LTR"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.4LTR"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "4LTR");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.4LTR"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
 
     @Test
     public void TC08_Verifying_All_Details_For_Mindtap_MathFoundation_Platform() {
