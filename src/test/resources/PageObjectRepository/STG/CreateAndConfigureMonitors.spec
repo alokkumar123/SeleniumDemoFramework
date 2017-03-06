@@ -16,7 +16,7 @@ link_newCreatedMonitor                       xpath          //a[contains(text(),
 button_Admin                                 xpath          //li[@class='login-tab dropdown']//a[@class='dropdown-toggle']
 logout_adminPage                             xpath          //a[text()='Log out']   
 table_appTableGrid                           xpath          //table[@class='app-table']
-span_gridFields                              xpath          //span[text()='${string}'] 
+span_gridFields                              xpath          //div[text()='${string}'] 
 input_searchBox                              xpath          //input[@id='searchText']
 link_breadCrumb                              xpath          //a[contains(text(),'Platform Availability Home')]/parent::div[contains(text(),'${breadCrumb}')] 
 link_ok                                      xpath          //button[text()='OK']  
@@ -40,6 +40,7 @@ td_newValue                                  xpath          //td[text()='${editU
 span_deleteNewUser                           xpath          //a[contains(text(),'${editUserName}')]/ancestor::tr//span[contains(@class,'glyphicon')]
 button_popUp                                 xpath          //button[text()='${popUp}']   
 div_selectRole                               xpath          //div[@class='Select-placeholder']
-div_selectRoleValue                          xpath          //div[@class='Select-menu']//div[text()='${newRole}']       
+div_selectRoleValue                          xpath          //div[@class='Select-menu']//div[text()='${newRole}'] 
+scroll_element                               xpath          (//div[@class='container'])[1]
 ==================================================================================================================================
     

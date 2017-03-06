@@ -69,31 +69,31 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     private void selectLastAvailableHours(String string) {
-        String viewTimeFormat = "last 30 days";
-        String selectedTimeFormat = (String) executeJavascript("return document.getElementsByClassName('rw-input')[0].textContent");
-        System.out.println("Value of Time Format: " + selectedTimeFormat);
-        if (!(selectedTimeFormat.equalsIgnoreCase(viewTimeFormat))) {
-            executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
-            for (WebElement listItem : elements("list_timeViewFormat")) {
-                if (listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
-                    listItem.click();
-                    ReportMsg.info("Clicked on '" + viewTimeFormat + "' option");
-                } else {
-                    System.out.println("Selected value: '" + viewTimeFormat + "'");
-                }
-            }
-            isElementDisplayed("list_dropdownOptions", viewTimeFormat);
-            ReportMsg.info("Verified '" + viewTimeFormat + "' drop down");
-        }
-//        if (string.contains("last 12 hours")) {
-//            isElementDisplayed("span_DropDownSelector");
-//        } else {
-//            wait.waitForElementToBeVisible(element("span_DropDownSelector"));
-//            element("span_DropDownSelector").click();
-//            isElementDisplayed("list_dropdownOptions", string);
-//            element("list_dropdownOptions", string).click();
+//        String viewTimeFormat = "last 30 days";
+//        String selectedTimeFormat = (String) executeJavascript("return document.getElementsByClassName('rw-input')[0].textContent");
+//        System.out.println("Value of Time Format: " + selectedTimeFormat);
+//        if (!(selectedTimeFormat.equalsIgnoreCase(viewTimeFormat))) {
+//            executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
+//            for (WebElement listItem : elements("list_timeViewFormat")) {
+//                if (listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
+//                    listItem.click();
+//                    ReportMsg.info("Clicked on '" + viewTimeFormat + "' option");
+//                } else {
+//                    System.out.println("Selected value: '" + viewTimeFormat + "'");
+//                }
+//            }
+//            isElementDisplayed("list_dropdownOptions", viewTimeFormat);
+//            ReportMsg.info("Verified '" + viewTimeFormat + "' drop down");
 //        }
-//        ReportMsg.info("Selected " + string + " from drop down");
+        if (string.contains("last 12 hours")) {
+            isElementDisplayed("span_DropDownSelector");
+        } else {
+            wait.waitForElementToBeVisible(element("span_DropDownSelector"));
+            element("span_DropDownSelector").click();
+            isElementDisplayed("select_hours", string);
+            element("select_hours", string).click();
+        }
+        ReportMsg.info("Selected " + string + " from drop down");
     }
 
     private void columnShouldRepresentLastHoursFromCurrent(String last_12_hours) {
@@ -118,24 +118,26 @@ public class DetailScreenPageActions extends GetPage {
         int hoursSize = Integer.parseInt(last_12_hours);
         ReportMsg.info("hours size in table = " + hoursSize + " for last " + last_12_hours + " hours");
     }
-    
+
     public void verifyLegendShouldBeAvailable() {
 //        scrollDown(element("span_noIssues"));
 //        scrollDown();
 //        Actions actions = new Actions(driver);
 //        actions.keyDown(Keys.DOWN).perform();
-    
+
 //        Robot robot = new Robot();
 //        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 //        robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
+        scrollDown(element("table_systemStatus"));
         ReportMsg.log("Scrolled down to bottom of page");
 //        executeJavascript("window.scrollTo(0,Math.max(document.documentElement."
 //                + "scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");
-        
+
         isElementDisplayed("span_noIssues");
         isElementDisplayed("span_minorDisruption");
         isElementDisplayed("span_serviceTemporarilyUnavailable");
         isElementDisplayed("span_plannedMaintenance");
+        scrollTop();
     }
 
     private void verifyInformationOnGregorianCalendar(String appName) {
@@ -144,6 +146,7 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     private void verifyCurrentAndLastMonth(String appName) {
+        scrollDown(element("table_systemStatus"));
         Calendar cal = Calendar.getInstance();
         String currentMonth = new SimpleDateFormat("MMM").format(cal.getTime());
         isElementDisplayed("text_currentMonth", currentMonth);
@@ -193,13 +196,13 @@ public class DetailScreenPageActions extends GetPage {
             // NOTE: Unable to click on 'Current Informational Alerts' button due to 
             //       hovering of date displaying 
             // element("btn_currentInformationalAlerts").click();
-            executeJavascript("document.getElementsByClassName('info-alerts')[0].click()"); 
+            executeJavascript("document.getElementsByClassName('info-alerts')[0].click()");
             ReportMsg.info("Clicked on current information alerts button");
             isElementDisplayed("txt_informationalAlert");
             ReportMsg.info("Verified text Informational alerts text on pop up");
             executeJavascript("document.getElementsByClassName('btn btn-default')[0].click()");
             ReportMsg.info("Message bar is closed when clicked on close button");
-            isElementDisplayed("btn_currentInformationalAlerts");
+            //isElementDisplayed("btn_currentInformationalAlerts");
         } catch (Exception e) {
             ReportMsg.info("Creating new alert notification");
             isElementDisplayed("link_login");
@@ -213,7 +216,7 @@ public class DetailScreenPageActions extends GetPage {
             element("password").click();
             element("password").sendKeys("Cengage1");
             element("button_login").click();
-            
+
             isElementDisplayed("button_createNotification");
             element("button_createNotification").click();
             ReportMsg.info("Click on create new notification button");
@@ -296,11 +299,11 @@ public class DetailScreenPageActions extends GetPage {
         Reporter.log("############## TRUST-317: Verifying Breadcrumb ##############\n", true);
         isElementDisplayed("txt_appName");
         appName = element("txt_appName").getText();
-        
+
         String a[] = appName.split("> ");
         appName = a[1];
         ReportMsg.info("System: " + appName);
-        
+
         isElementDisplayed("link_breadCrumb", appName);
         ReportMsg.info("Verified breadcrumb for " + appName + " app");
     }
@@ -314,7 +317,7 @@ public class DetailScreenPageActions extends GetPage {
         if (!(selectedTimeFormat.equalsIgnoreCase(viewTimeFormat))) {
             executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
             for (WebElement listItem : elements("list_timeViewFormat")) {
-                if(listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
+                if (listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
                     listItem.click();
                     ReportMsg.info("Clicked on '" + viewTimeFormat + "' option");
                 } else {
@@ -324,15 +327,15 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("list_dropdownOptions", viewTimeFormat);
             ReportMsg.info("Verified " + viewTimeFormat + " from last hours drop down");
         }
-        
+
         viewTimeFormat = "last 24 hours";
         selectedTimeFormat = (String) executeJavascript("return document.getElementsByClassName('rw-input')[0].textContent");
         System.out.println("Value of Time Format: " + selectedTimeFormat);
         if (!(selectedTimeFormat.equalsIgnoreCase(viewTimeFormat))) {
             executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
-            
+
             for (WebElement listItem : elements("list_timeViewFormat")) {
-                if(listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
+                if (listItem.getText().equalsIgnoreCase(viewTimeFormat)) {
                     listItem.click();
                     ReportMsg.info("Clicked on '" + viewTimeFormat + "' option");
                 } else {
@@ -366,28 +369,28 @@ public class DetailScreenPageActions extends GetPage {
         if (!lastHours.contains("last 12 hours")) {
             JiraId = "TRUST-322";
         }
-        // try {
-            System.out.println("\n############## Verifying Information Available for " + lastHours + " on Detail Screen Page, " + JiraId + " ##############\n");
-            isElementDisplayed("table_systemStatus");
-            ReportMsg.info("Verified system status of table");
-            // columnShouldRepresentLastHoursFromCurrent(hours);
-            verifyLegendShouldBeAvailable();
-            //userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//        } catch (Exception e1) {
-//            ReportMsg.info("table system status is not availabe for app");
-//            isElementDisplayed("div_errorMessage");
-//            String message = element("div_errorMessage").getText();
-//            ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + lastHours);
-//            userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//            isElementDisplayed("singleApp", appName);
-//            element("singleApp", appName).click();
-//            ReportMsg.info("Click on App = " + appName);
-//            isElementDisplayed("txt_appName");
-//            appName = element("txt_appName").getText();
-//            String a[] = appName.split("> ");
-//            appName = a[1];
-//            ReportMsg.info("AppName = " + appName);
-//        }
+         try {
+        System.out.println("\n############## Verifying Information Available for " + lastHours + " on Detail Screen Page, " + JiraId + " ##############\n");
+        isElementDisplayed("table_systemStatus");
+        ReportMsg.info("Verified system status of table");
+        columnShouldRepresentLastHoursFromCurrent(hours);
+//        verifyLegendShouldBeAvailable();
+       // userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+        } catch (Exception e1) {
+            ReportMsg.info("table system status is not availabe for app");
+            isElementDisplayed("div_errorMessage");
+            String message = element("div_errorMessage").getText();
+            ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + lastHours);
+            userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+             isElementDisplayed("singleApp", appName);
+             element("singleApp", appName).click();
+             ReportMsg.info("Click on App = " + appName);
+             isElementDisplayed("txt_appName");
+             appName = element("txt_appName").getText();
+             String a[] = appName.split("> ");
+             appName = a[1];
+             ReportMsg.info("AppName = " + appName);
+        }
     }
 
     public void verifyInformationAvailableForLast30Days(String last_30_days, String appName) {
@@ -399,7 +402,7 @@ public class DetailScreenPageActions extends GetPage {
             ReportMsg.info("Verifying table system stutus");
             verifyInformationOnGregorianCalendar(appName);
             onHoverOverOnAnyDay24HourClockShouldBeSeen();
-            verifyLegendShouldBeAvailable();
+            //verifyLegendShouldBeAvailable();
         } catch (Exception e) {
             ReportMsg.info("table system status is not availabe for app");
             isElementDisplayed("div_errorMessage");
@@ -410,10 +413,10 @@ public class DetailScreenPageActions extends GetPage {
 
     public void checkCurrentInformationalAlertButtonforLast30Days(String appName) {
         String tier = System.getProperty("tier");
-        if(tier == null) {
+        if (tier == null) {
             tier = getProperty("Config.properties", "tier").trim();
         }
-        
+
         if (tier.equalsIgnoreCase("stg")) {
             System.out.println("\n############## Verifying Current Informational Alert For All last hours , TRUST-324, TRUST-340, TRUST-345 ##############\n");
             String lastHours = "last 12 hours";

@@ -3,7 +3,6 @@ package com.qait.Trust.automation.tests;
 import com.qait.Trust.automation.TestFundamentals;
 import org.testng.annotations.Test;
 import static com.qait.Trust.automation.utils.YamlReader.getData;
-import java.awt.AWTException;
 
 public class DetailScreenTest extends TestFundamentals {
 
@@ -22,7 +21,7 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.mindtap"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
-
+//
 //    @Test
 //    public void TC02_Verifying_All_Details_For_Cengage_Brain_Platform() {
 //        test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageBrain"), systemView);
@@ -87,7 +86,7 @@ public class DetailScreenTest extends TestFundamentals {
 //        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.SAM"));
 //        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 //    }
-//
+
 //    @Test
 //    public void TC07_Verifying_All_Details_For_4LTR_Platform() {
 //        test.platformAvailabilityPage.clickOnSystem(getData("appName.4LTR"), systemView);
@@ -100,33 +99,33 @@ public class DetailScreenTest extends TestFundamentals {
 //        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.4LTR"));
 //        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 //    }
-//
-//    @Test
-//    public void TC08_Verifying_All_Details_For_Mindtap_MathFoundation_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.mindtapMathFoundation"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtapMathFoundation"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.mindtapMathFoundation"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.mindtapMathFoundation"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "mindtapMathFoundation");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.mindtapMathFoundation"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
-//
-//    @Test
-//    public void TC09_Verifying_All_Details_For_CengageNOW_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageNow"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNow"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageNow"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.cengageNow"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "CNOWv1");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageNow"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
-//
+
+    @Test
+    public void TC08_Verifying_All_Details_For_Mindtap_MathFoundation_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.mindtapMathFoundation"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtapMathFoundation"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.mindtapMathFoundation"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.mindtapMathFoundation"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "mindtapMathFoundation");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.mindtapMathFoundation"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
+
+    @Test
+    public void TC09_Verifying_All_Details_For_CengageNOW_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageNow"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNow"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageNow"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.cengageNow"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "CNOWv1");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageNow"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
+
 //    @Test
 //    public void TC10_Verifying_All_Details_For_Questia_Platform() {
 //        test.platformAvailabilityPage.clickOnSystem(getData("appName.questia"), systemView);
@@ -139,7 +138,7 @@ public class DetailScreenTest extends TestFundamentals {
 //        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.questia"));
 //        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 //    }
-//    
+    
 //    @Test
 //    public void TC11_Verifying_All_Details_For_Learning_Objects_Platform() {
 //        test.platformAvailabilityPage.clickOnSystem(getData("appName.learningObjects"), systemView);
@@ -152,17 +151,17 @@ public class DetailScreenTest extends TestFundamentals {
 //        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.learningObjects"));
 //        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 //    }
-//    
-//    @Test
-//    public void TC12_Verifying_All_Details_For_WebAssign_Platform() {
-//        test.platformAvailabilityPage.clickOnSystem(getData("appName.webAssign"), systemView);
-//        test.detailScreenPage.verifyBreadCrumb(getData("appName.webAssign"));
-//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.webAssign"));
-//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.webAssign"));
-//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "webAssign");
-//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.webAssign"));
-//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//    }
+    
+    @Test
+    public void TC12_Verifying_All_Details_For_WebAssign_Platform() {
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.webAssign"), systemView);
+        test.detailScreenPage.verifyBreadCrumb(getData("appName.webAssign"));
+        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.webAssign"));
+        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.webAssign"));
+        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "webAssign");
+        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.webAssign"));
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+    }
 }

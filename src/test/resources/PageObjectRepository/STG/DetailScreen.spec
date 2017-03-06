@@ -60,5 +60,6 @@ redColor                                     xpath          //td[contains(@class
 minute                                       xpath          //td[text()='${hours}']/..//td[not(contains(@style,'text-align'))]/div 
 list_timeViewFormat                          xpath          //ul[contains(@id,'listbox')]/li[@class='rw-list-option']
 li_listView                                  xpath          
+select_hours                                 xpath          //li[text()='${string}']  
 ==================================================================================================================================
     

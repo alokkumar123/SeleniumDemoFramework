@@ -195,6 +195,10 @@ public class BaseUi {
         jse.executeScript("window.scrollBy(0,-10000)");
     }
     
+    protected void scrollTop(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[100].scrollIntoView(true);", element);
+    }
     protected void scrollDown() {
         ((JavascriptExecutor) driver).executeScript(
                 "scroll(0, 10000)");

@@ -41,9 +41,19 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void navigateToAdminMenu(String menuName) {
         isElementDisplayed("div_adminMenu");
         ReportMsg.info("Admin Menu list is displaying on Profile page");
-        
+
         element("link_MenuName", menuName).click();
         ReportMsg.info("Clicked on '" + menuName + "' tab");
+    }
+
+    public void scrollDown() {
+        scrollDown(element("scroll_element"));
+        ReportMsg.info("scrolled down");
+    }
+
+    public void scrollUP() {
+        scrollTop();
+        ReportMsg.info("scrolled up");
     }
 
     public void clickOnCreateButton() {
@@ -178,7 +188,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Click on Assending order");
         ReportMsg.info(field + " after assendiing order ");
         for (WebElement ele : elements("span_shortingFields", index)) {
-            if(!(ele.getText().equals(null))) {
+            if (!(ele.getText().equals(null))) {
                 ReportMsg.info(ele.getText());
             }
         }
@@ -243,6 +253,9 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void clickOnRoleSelector() {
         element("div_Selector").click();
+        scrollDown();
+        scrollDown();
+        scrollDown();
         ReportMsg.info("Clicked on 'Roles' dropdown on 'Add new User' screen");
         for (WebElement ele : elements("div_menuItems")) {
             String menuItem = ele.getText();
@@ -288,6 +301,10 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Clicked On save button");
     }
 
+    public void clickOnSaveButtonByScript() {
+        executeJavascript("document.getElementsByClassName('btn btn-primary')[0].click();");
+    }
+
     public void newCreatedUserIsDisplayingOnMonitorScreen() {
         isElementDisplayed("div_userName", userName);
         ReportMsg.info("Newly Created User is displaying on Configure Monitor Screen");
@@ -309,7 +326,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void userNavigateToSameUserAndCheckLogBelowSaveButton() {
         element("div_editedUserName", editUserName).click();
         ReportMsg.info("Navigated to same user ");
-
+        scrollDown();
         isElementDisplayed("td_oldValue", userName);
         ReportMsg.info("Old value of user name is dislapying below save button");
         isElementDisplayed("td_newValue", editUserName);
