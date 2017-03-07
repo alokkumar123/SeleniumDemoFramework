@@ -5,7 +5,8 @@ import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 public class RegionOnSplashPageTest extends TestFundamentals {
-
+    
+    String systemView;
     String appName = null;
     String region = "Asia";
     String anyOtherRegion = "Australia";
@@ -29,15 +30,17 @@ public class RegionOnSplashPageTest extends TestFundamentals {
 
     @Test
     public void TC03_Verify_Region_Of_System_On_Splash_For_Above_Value() {
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName." + appName.toLowerCase()));
+        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
+        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appName." + appName.toLowerCase()), systemView);
         test.regionSplashPage.setRegionFromSplashPage(region);
         test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName." + appName.toLowerCase()));
     }
-
+    
     @Test
     public void TC04_Verify_Region_Of_System_On_Splash_For_Any_Other_Value() {
         test.regionSplashPage.setRegionFromSplashPage(anyOtherRegion);
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName." + appName.toLowerCase()));
+        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
+        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appName." + appName.toLowerCase()), systemView);
     }
 
     @Test
