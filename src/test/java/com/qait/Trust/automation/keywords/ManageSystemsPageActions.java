@@ -174,6 +174,8 @@ public class ManageSystemsPageActions extends GetPage {
         if(flag) {
             ReportMsg.info("No. of Systems: " + elements("list_searchSystem").size());
             for (WebElement system : elements("list_searchSystem")) {
+                // NOTE: To bypass StaleElement Reference exeception
+                wait.hardWait(1);
                 if (system.getText().equalsIgnoreCase(newSystem)) {
                     ReportMsg.info("Found system created by automation script: '" + system.getText() + "'");
 

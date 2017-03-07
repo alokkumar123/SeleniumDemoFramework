@@ -325,7 +325,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void userNavigateToSameUserAndCheckLogBelowSaveButton() {
         element("div_editedUserName", editUserName).click();
         ReportMsg.info("Navigated to same user ");
-        scrollDown();
         isElementDisplayed("td_oldValue", userName);
         ReportMsg.info("Old value of user name is dislapying below save button");
         isElementDisplayed("td_newValue", editUserName);
