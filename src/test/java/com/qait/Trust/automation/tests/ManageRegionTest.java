@@ -33,8 +33,8 @@ public class ManageRegionTest extends TestFundamentals {
     public void Step04_TRUST_437_Check_Search_Functionality_Positive_Cycle() {
         test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("MindTap");
         test.manageRegionPage.verifySearchedSystemOnRegions("MindTap");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("OWLv2WEST");
-        test.manageRegionPage.verifySearchedSystemOnRegions("OWLv2WEST");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("SAM");
+        test.manageRegionPage.verifySearchedSystemOnRegions("SAM");
         test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Aplia");
         test.manageRegionPage.verifySearchedSystemOnRegions("Aplia");
         test.manageRegionPage.clearSearchInputBox();
