@@ -176,10 +176,9 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void sortingOfRecordswith(String field, String index) {
-        isElementDisplayed("span_shortingFields", index);
-        //elements("span_shortingFields", index);
+        isElementDisplayed("span_sortingFields", index);
         ReportMsg.info(field + " before sorting ");
-        for (WebElement ele : elements("span_shortingFields", index)) {
+        for (WebElement ele : elements("span_sortingFields", index)) {
             if (!(ele.getText().equals(null))) {
                 ReportMsg.info(ele.getText());
             }
@@ -187,7 +186,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("span_Assending", index).click();
         ReportMsg.info("Click on Assending order");
         ReportMsg.info(field + " after assendiing order ");
-        for (WebElement ele : elements("span_shortingFields", index)) {
+        for (WebElement ele : elements("span_sortingFields", index)) {
             if (!(ele.getText().equals(null))) {
                 ReportMsg.info(ele.getText());
             }
