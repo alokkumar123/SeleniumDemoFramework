@@ -138,7 +138,7 @@ public class DetailScreenTest extends TestFundamentals {
 //        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.questia"));
 //        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 //    }
-    
+//    
 //    @Test
 //    public void TC11_Verifying_All_Details_For_Learning_Objects_Platform() {
 //        test.platformAvailabilityPage.clickOnSystem(getData("appName.learningObjects"), systemView);
