@@ -252,9 +252,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void clickOnRoleSelector() {
         element("div_Selector").click();
-        scrollDown();
-        scrollDown();
-        scrollDown();
         ReportMsg.info("Clicked on 'Roles' dropdown on 'Add new User' screen");
         for (WebElement ele : elements("div_menuItems")) {
             String menuItem = ele.getText();

@@ -14,30 +14,27 @@ public class ManageUsersORUserAdministrationTest extends TestFundamentals {
         test.createAndConfigPage.gridShouldBeAvailableFor("Email");
     }
 
-//    @Test
-//    public void TC002_Shorting_Of_Records() {
-//        test.createAndConfigPage.sortingOfRecordswith("Userd ID", "1");
-//        test.createAndConfigPage.sortingOfRecordswith("User Name", "2");
-//        test.createAndConfigPage.sortingOfRecordswith("Email", "3");
-//    }
-//
-//    @Test
-//    public void TC003_Check_Search_Functionality_Positive_Cycle() {
-//        test.createAndConfigPage.validateSearchFunctionalityForPossitiveCycle();
-//    }
-//
-//    @Test
-//    public void TC004_Check_Search_Functionality_Negative_Cycle() {
-//        test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
-//    }
+    @Test
+    public void TC002_Shorting_Of_Records() {
+        test.createAndConfigPage.sortingOfRecordswith("Userd ID", "1");
+        test.createAndConfigPage.sortingOfRecordswith("User Name", "2");
+        test.createAndConfigPage.sortingOfRecordswith("Email", "3");
+    }
+
+    @Test
+    public void TC003_Check_Search_Functionality_Positive_Cycle() {
+        test.createAndConfigPage.validateSearchFunctionalityForPossitiveCycle();
+    }
+
+    @Test
+    public void TC004_Check_Search_Functionality_Negative_Cycle() {
+        test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
+    }
     @Test
     public void TC005_Check_Add_A_New_User() {
         test.createAndConfigPage.clickOnAddNewUser();
         test.createAndConfigPage.userNavigatedToNewUserScreen();
-        test.createAndConfigPage.scrollDown();
         test.createAndConfigPage.clickOnRoleSelector();
-        test.createAndConfigPage.scrollUP();
-        test.createAndConfigPage.scrollUP();
         test.createAndConfigPage.navigateToAdminMenu("Manage roles");
         test.createAndConfigPage.scrollDown();
         test.createAndConfigPage.rolesDisplayingOnManageRoles();
@@ -57,8 +54,6 @@ public class ManageUsersORUserAdministrationTest extends TestFundamentals {
 
     @Test
     public void TC007_EditNewlyCreatedUser() {
-        test.createAndConfigPage.scrollDown();
-        test.createAndConfigPage.scrollDown();
         test.createAndConfigPage.EditNewlyCreatedUser("User ID");
         test.createAndConfigPage.clickOnSaveButtonByScript();
         test.createAndConfigPage.EditedUserIsDisplayingOnMonitorScreen();
