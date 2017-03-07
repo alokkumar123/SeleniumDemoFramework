@@ -128,8 +128,8 @@ public class DetailScreenPageActions extends GetPage {
 //        Robot robot = new Robot();
 //        robot.keyPress(KeyEvent.VK_PAGE_DOWN);
 //        robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
-        scrollDown(element("table_systemStatus"));
-        ReportMsg.log("Scrolled down to bottom of page");
+//        scrollDown(element("table_systemStatus"));
+//        ReportMsg.log("Scrolled down");
 //        executeJavascript("window.scrollTo(0,Math.max(document.documentElement."
 //                + "scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");
 
@@ -137,7 +137,9 @@ public class DetailScreenPageActions extends GetPage {
         isElementDisplayed("span_minorDisruption");
         isElementDisplayed("span_serviceTemporarilyUnavailable");
         isElementDisplayed("span_plannedMaintenance");
-        scrollTop();
+        
+//        scrollTop();
+//        ReportMsg.log("Scrolled up");
     }
 
     private void verifyInformationOnGregorianCalendar(String appName) {
