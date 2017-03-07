@@ -253,9 +253,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void clickOnRoleSelector() {
         element("div_Selector").click();
-        scrollDown();
-        scrollDown();
-        scrollDown();
         ReportMsg.info("Clicked on 'Roles' dropdown on 'Add new User' screen");
         for (WebElement ele : elements("div_menuItems")) {
             String menuItem = ele.getText();
@@ -326,7 +323,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void userNavigateToSameUserAndCheckLogBelowSaveButton() {
         element("div_editedUserName", editUserName).click();
         ReportMsg.info("Navigated to same user ");
-        scrollDown();
         isElementDisplayed("td_oldValue", userName);
         ReportMsg.info("Old value of user name is dislapying below save button");
         isElementDisplayed("td_newValue", editUserName);
