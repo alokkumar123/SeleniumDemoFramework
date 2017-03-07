@@ -42,5 +42,6 @@ button_popUp                                 xpath          //button[text()='${p
 div_selectRole                               xpath          //div[@class='Select-placeholder']
 div_selectRoleValue                          xpath          //div[@class='Select-menu']//div[text()='${newRole}'] 
 scroll_element                               xpath          (//div[@class='container'])[1]
+link_ChangeLog                               xpath           //a[text()='Changelog']
 ==================================================================================================================================
     

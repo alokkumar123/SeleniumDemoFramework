@@ -319,9 +319,12 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Edited User is displaying on Configure Monitor Screen");
     }
 
-    public void userNavigateToSameUserAndCheckLogBelowSaveButton() {
+    public void clickOnUserName() {
         element("div_editedUserName", editUserName).click();
         ReportMsg.info("Navigated to same user ");
+    }
+
+    public void userNavigateToSameUserAndCheckLogBelowSaveButton() {
         isElementDisplayed("td_oldValue", userName);
         ReportMsg.info("Old value of user name is dislapying below save button");
         isElementDisplayed("td_newValue", editUserName);
@@ -367,5 +370,13 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("password").sendKeys(password);
         element("button_login").click();
         ReportMsg.info("Login into admin account");
+    }
+
+    public void expendOnChnageLog() {
+        clickOnUserName();
+        isElementDisplayed("link_ChangeLog");
+        ReportMsg.info("Change log link is displaying after user edited");
+        element("link_ChangeLog").click();
+        ReportMsg.info("Expended change log link to check old logs for user");
     }
 }
