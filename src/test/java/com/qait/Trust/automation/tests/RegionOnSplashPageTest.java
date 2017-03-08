@@ -13,7 +13,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
     
     @Test
     public void TC01_Verify_Region_Of_Selected_System() {
-        appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appName.aplia"));
+        appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appNameforRegion.aplia"));
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
@@ -31,16 +31,16 @@ public class RegionOnSplashPageTest extends TestFundamentals {
     @Test
     public void TC03_Verify_Region_Of_System_On_Splash_For_Above_Value() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appName." + appName.toLowerCase()), systemView);
+        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appNameforRegion." + appName.toLowerCase()), systemView);
         test.regionSplashPage.setRegionFromSplashPage(region);
-        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appName." + appName.toLowerCase()));
+        test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appNameforRegion." + appName.toLowerCase()));
     }
     
     @Test
     public void TC04_Verify_Region_Of_System_On_Splash_For_Any_Other_Value() {
         test.regionSplashPage.setRegionFromSplashPage(anyOtherRegion);
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appName." + appName.toLowerCase()), systemView);
+        test.platformAvailabilityPage.verifyingAppOnPlatformScreen(getData("appNameforRegion." + appName.toLowerCase()), systemView);
     }
 
     @Test
