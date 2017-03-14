@@ -351,13 +351,13 @@ public class DetailScreenPageActions extends GetPage {
 
     public void verifyTimeZoneDropDownForUser() {
         System.out.println("\n############## Verifying Drop Down options for Time Zones, TRUST-319 ##############\n");
-        String timeZone = "EST (local)";
+        String timeZone = "EDT (local)";
         executeJavascript("document.getElementsByClassName('rw-input')[1].click()");
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
-        timeZone = "CST";
+        timeZone = "CDT";
         isElementDisplayed("list_timezonedropdownOptions", timeZone);
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
-        timeZone = "PST";
+        timeZone = "PDT";
         isElementDisplayed("list_timezonedropdownOptions", timeZone);
         ReportMsg.info("Verified " + timeZone + " from time zone drop down");
         timeZone = "GMT";

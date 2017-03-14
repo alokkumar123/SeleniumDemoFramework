@@ -55,4 +55,8 @@ public class ValidationOfAboutPageActions extends GetPage {
         isElementDisplayed("h_savedInfo", info);
         ReportMsg.info("Verified saved information is displaying on TechChech Link");
     }
+
+    public void verifyFooter() {
+        isElementDisplayed("link_footer");
+    }
 }
