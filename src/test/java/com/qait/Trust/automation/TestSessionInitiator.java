@@ -8,6 +8,7 @@ import com.qait.Trust.automation.keywords.ManageRegionPageActions;
 import com.qait.Trust.automation.keywords.ManageRolePageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import com.qait.Trust.automation.keywords.RegionOnSplashActions;
+import com.qait.Trust.automation.keywords.ValidationOfAboutPageActions;
 import com.qait.Trust.automation.utils.HTMLCodeSniffer;
 
 import com.qait.Trust.automation.utils.ReportMsg;
@@ -58,8 +59,9 @@ public class TestSessionInitiator {
     public ManageSystemsPageActions manageSystemPage;
     public ManageRegionPageActions manageRegionPage;
     public DetailScreen_GroupActions detailScreen_group;
-    public RegionOnSplashActions regionSplashPage;  
+    public RegionOnSplashActions regionSplashPage;
     public TakeScreenshot takescreenshot;
+    public ValidationOfAboutPageActions aboutPage;
 
     public WebDriver getDriver() {
         return this.driver;
@@ -74,7 +76,8 @@ public class TestSessionInitiator {
         manageSystemPage = new ManageSystemsPageActions(driver);
         manageRegionPage = new ManageRegionPageActions(driver);
         detailScreen_group = new DetailScreen_GroupActions(driver);
-        regionSplashPage  = new RegionOnSplashActions(driver);
+        regionSplashPage = new RegionOnSplashActions(driver);
+        aboutPage = new ValidationOfAboutPageActions(driver);
     }
 
     /**
@@ -132,7 +135,7 @@ public class TestSessionInitiator {
         }
         return config;
     }
-    
+
     public void launchApplication(String base_url) {
         ReportMsg.info(" The application url is :- " + base_url);
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");

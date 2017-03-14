@@ -54,7 +54,7 @@ public class DetailScreenPageActions extends GetPage {
         element("link_platfromAvailabilityHome").click();
         ReportMsg.info("Clicked on Platform Availability Home");
         isElementDisplayed("text_screenPage");
-        ReportMsg.info("Verified user navigates to Platform Availabilty Screen");
+        ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
     }
 
     public void verifyDropDownWithOptions(String string) {

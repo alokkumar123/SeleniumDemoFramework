@@ -369,7 +369,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("password").click();
         element("password").sendKeys(password);
         element("button_login").click();
-        ReportMsg.info("Login into admin account");
+        ReportMsg.info("Login into account");
     }
 
     public void expendOnChnageLog() {
