@@ -35,7 +35,7 @@ public class ManageRegionTest extends TestFundamentals {
         test.manageRegionPage.verifySearchedSystemOnRegions("MindTap");
         test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("SAM");
         test.manageRegionPage.verifySearchedSystemOnRegions("SAM");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Aplia");
+        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("WebAssign");
         test.manageRegionPage.verifySearchedSystemOnRegions("Aplia");
         test.manageRegionPage.clearSearchInputBox();
     }

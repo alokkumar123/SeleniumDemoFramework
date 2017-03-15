@@ -23,7 +23,7 @@ public class ValidationOfAboutPageActions extends GetPage {
         isElementDisplayed("div_aboutPageText");
 //        element("div_aboutPageText").click();
 //        element("div_aboutPageText").clear();
-        String a=element("div_aboutPageText").getText();
+        String a = element("div_aboutPageText").getText();
 //        element("div_aboutPageText").sendKeys(Keys.chord(Keys.CONTROL, a), pageName);
         Actions actions = new Actions(driver);
         actions.moveToElement(element("div_aboutPageText"));
@@ -58,5 +58,15 @@ public class ValidationOfAboutPageActions extends GetPage {
 
     public void verifyFooter() {
         isElementDisplayed("link_footer");
+        ReportMsg.info("Verified footer is Displaying with Send Feedback link text");
+    }
+
+    public void slectHoursFromDropDown(String hours) {
+        if (!hours.contains("last 12 hours")) {
+            isElementDisplayed("span_lastHours");
+            element("span_lastHours").click();
+            element("select_hours", hours).click();
+        }
+        ReportMsg.info("selected " + hours + " from drop down");
     }
 }
