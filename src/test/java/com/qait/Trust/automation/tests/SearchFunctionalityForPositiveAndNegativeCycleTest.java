@@ -20,4 +20,6 @@ public class SearchFunctionalityForPositiveAndNegativeCycleTest extends TestFund
         test.manageSystemPage.validateSearchFunctionalityForNegativeCycle();
         test.createAndConfigPage.logOutFromAdmin();
     }
+    
+    
 }

@@ -9,6 +9,7 @@ import com.qait.Trust.automation.getpageobjects.GetPage;
 import org.openqa.selenium.WebDriver;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class ValidationOfAboutPageActions extends GetPage {
@@ -68,5 +69,28 @@ public class ValidationOfAboutPageActions extends GetPage {
             element("select_hours", hours).click();
         }
         ReportMsg.info("selected " + hours + " from drop down");
+    }
+
+    public void navigateToDifferentMonitorFromHeadher() {
+        isElementDisplayed("div_header");
+
+        int i = 0;
+        for (WebElement ele : elements("div_header")) {
+            ele.click();
+            String header = ele.getText();
+            ReportMsg.info("clicked on " + header + "from header");
+            int j = 0;
+            isElementDisplayed("link_mentuItems");
+            ReportMsg.info("size of the apps = " + elements("link_mentuItems", header).size());
+            for (WebElement l : elements("link_mentuItems", header)) {
+                String app = l.getText();
+                l.click();
+                ReportMsg.info("clicked on " + app + " form header and verifying footer");
+                verifyFooter();
+                break;
+
+            }
+            break;
+        }
     }
 }
