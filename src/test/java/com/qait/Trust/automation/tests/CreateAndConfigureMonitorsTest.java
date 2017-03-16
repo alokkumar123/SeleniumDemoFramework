@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class CreateAndConfigureMonitorsTest extends TestFundamentals {
 
     @Test
-    public void Trust_350_Configure_Monitors() {
+    public void Step01_Trust_350_Configure_Monitors() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.gridShouldBeAvailableFor("Enabled");
@@ -17,9 +17,9 @@ public class CreateAndConfigureMonitorsTest extends TestFundamentals {
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.logOutFromAdmin();
     }
-    
+
     @Test
-    public void Trust_376_Create_Monitors() {
+    public void Step02_Trust_376_Create_Monitors() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.clickOnCreateButton();
@@ -31,14 +31,19 @@ public class CreateAndConfigureMonitorsTest extends TestFundamentals {
     }
 
     @Test
-    public void Trust_394_Edit_Monitors() {
+    public void Step03_Trust_394_Edit_Monitors_Created_By_Automation_Script() {
         test.createAndConfigPage.logAsAdmin();
         test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.userNavigateToMonitorEditScreen();
         test.createAndConfigPage.userEditAndReSaveMangaeMonitor();
         test.createAndConfigPage.editedMonitorsShouldBeSeenOnTheList();
+
+    }
+
+    @Test
+    public void Step04_Trust_544_Search_And_Delete_Monitor_Created_By_Automation_Script() {
+        test.createAndConfigPage.searchCreatedMonitorFormMonitorPage();
         test.createAndConfigPage.deleteMonitorCreatedByAutomationScript();
         test.createAndConfigPage.logOutFromAdmin();
     }
-
 }

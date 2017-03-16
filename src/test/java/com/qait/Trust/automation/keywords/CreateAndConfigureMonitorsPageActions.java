@@ -158,8 +158,8 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void deleteMonitorCreatedByAutomationScript() {
         ReportMsg.info("Deleting monitor created by automation script - TRUST-398");
-        isElementDisplayed("span_deleteMonitors",monitorName);
-        element("span_deleteMonitors",monitorName).click();
+        isElementDisplayed("span_deleteMonitors", monitorName);
+        element("span_deleteMonitors", monitorName).click();
         element("button_delete").click();
         ReportMsg.info("Deleted monitors created by automation Script");
     }
@@ -378,5 +378,12 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Change log link is displaying after user edited");
         element("link_ChangeLog").click();
         ReportMsg.info("Expended change log link to check old logs for user");
+    }
+
+    public void searchCreatedMonitorFormMonitorPage() {
+        ReportMsg.info("Search box is available");
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(monitorName);
+        ReportMsg.info("Searched monitor created by automation script");
     }
 }
