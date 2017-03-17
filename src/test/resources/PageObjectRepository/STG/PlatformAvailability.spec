@@ -42,6 +42,9 @@ div_startTimeBox                             xpath          (//b[text()='Start t
 div_startSecondTimeBox                       xpath          (//b[text()='Start time']/..//div//input[@class='form-control'])[2]
 btn_prvMonth                                 xpath          //button[@class='prev-month']
 div_enableCheckBox                           xpath          //div[@id='enabled']//input[@type='checkbox']
-input_searchBox                              xpath          //input[@id='searchText']        
+input_searchBox                              xpath          //input[@id='searchText']    
+button_Admin                                 xpath          //li[@class='login-tab dropdown']//a[@class='dropdown-toggle']
+logout_adminPage                             xpath          //a[text()='Log out']   
+link_ok                                      xpath          //button[text()='OK']    
 =====================================================================================================================
     

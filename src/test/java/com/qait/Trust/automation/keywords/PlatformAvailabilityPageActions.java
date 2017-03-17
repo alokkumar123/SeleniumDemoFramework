@@ -213,12 +213,26 @@ public class PlatformAvailabilityPageActions extends GetPage {
         } else if (systemView.equalsIgnoreCase("Front")) {
 
             try {
+
                 isElementDisplayed("div_msgInfo", systemName);
                 ReportMsg.info("Information message icon is not avaialbe on monitor ");
+
             } catch (NoSuchElementException e) {
                 checkInfomationIconAvailbilityOnSplashPage(systemName);
+                logOutFromAdmin();
+
             }
         }
+    }
+
+    public void logOutFromAdmin() {
+        isElementDisplayed("button_Admin");
+        element("button_Admin").click();
+        ReportMsg.info("Click on admin button");
+        isElementDisplayed("logout_adminPage");
+        element("logout_adminPage").click();
+        element("link_ok").click();
+        ReportMsg.info("Log out from admin account");
     }
 
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome() {
@@ -314,7 +328,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
         element("input_searchBox").clear();
         element("input_searchBox").sendKeys("TBD");
-        
+
         ReportMsg.info("Verified TBD is displaying after perform search operation on list notification");
 
     }
