@@ -215,9 +215,10 @@ public class PlatformAvailabilityPageActions extends GetPage {
             try {
 
                 isElementDisplayed("div_msgInfo", systemName);
-                ReportMsg.info("Information message icon is not avaialbe on monitor ");
+                ReportMsg.info("Information message icon is avaialbe on monitor ");
 
             } catch (NoSuchElementException e) {
+                ReportMsg.info("Information message icon is not avaialbe on monitor ");
                 checkInfomationIconAvailbilityOnSplashPage(systemName);
                 logOutFromAdmin();
 
