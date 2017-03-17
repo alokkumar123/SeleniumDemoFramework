@@ -36,7 +36,7 @@ apps_inGroups                                xpath          //a[contains(text(),
 button_Admin                                 xpath          //a[@class='dropdown-toggle']  
 link_adminPage                               xpath          //a[text()='Admin page']
 button_createNotification                    xpath          //button[text()='Create new notification']
-div_selectMonitor                            xpath          //div[text()='Please select']
+div_selectMonitor                            xpath          //div[text()='Select monitors']
 list_allApp                                  xpath          //li[text()='All systems']   
 select_timeZone                              xpath          //b[contains(text(),'Time zone')]/parent::div/div[@role='combobox']
 list_estTime                                 xpath          //li[contains(text(),'EST')]

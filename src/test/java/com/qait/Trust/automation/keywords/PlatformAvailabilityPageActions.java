@@ -7,8 +7,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class PlatformAvailabilityPageActions extends GetPage {
 
@@ -32,7 +34,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     ReportMsg.info("Time on application: " + text);
                     String a[] = text.split(":");
                     String a1[] = a[2].split(" ");
-                    
+
                     Date date = new Date();
                     String strDateFormat = "HH:mm a";
                     DateFormat sdf = new SimpleDateFormat(strDateFormat);
@@ -40,7 +42,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     ReportMsg.info("System Time: " + systemTime);
                     String b[] = systemTime.split(":");
                     String b1[] = b[1].split(" ");
-                    
+
                     int time = Integer.parseInt(a1[0]) - Integer.parseInt(b1[0]);
                     if (time < 5) {
                         ReportMsg.info("Verified Last updated time is not be more than 5 minutes from the system time for app on platfrom screen");
@@ -63,7 +65,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     ReportMsg.info("Time on application: " + text);
                     String a[] = text.split(":");
                     String a1[] = a[2].split(" ");
-                    
+
                     Date date = new Date();
                     String strDateFormat = "HH:mm a";
                     DateFormat sdf = new SimpleDateFormat(strDateFormat);
@@ -71,7 +73,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     ReportMsg.info("System Time: " + systemTime);
                     String b[] = systemTime.split(":");
                     String b1[] = b[1].split(" ");
-                    
+
                     int time = Integer.parseInt(a1[0]) - Integer.parseInt(b1[0]);
                     if (time < 5) {
                         ReportMsg.info("Verified Last updated time is not be more than 5 minutes from the system time for app on platfrom screen");
@@ -100,7 +102,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("Product Support link: " + a);
     }
 
-    public void verifyingAppOnPlatformScreen(String systemName, String systemView) { 
+    public void verifyingAppOnPlatformScreen(String systemName, String systemView) {
         if (systemView.equalsIgnoreCase("Grouping")) {
             for (WebElement grp : elements("list_groupHeading")) {
                 ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
@@ -110,7 +112,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                 }
                 for (WebElement panel : elements("list_panelCollapse")) {
                     ReportMsg.info("System under " + grp.getText() + " group: '" + panel.getText() + "'");
-                } 
+                }
             }
         } else if (systemView.equalsIgnoreCase("Front")) {
             int i = 0;
@@ -140,21 +142,21 @@ public class PlatformAvailabilityPageActions extends GetPage {
             isElementDisplayed("list_panelGroups");
             ReportMsg.info("All Systems are appearing under GROUPS!!!");
             viewMode = "Grouping";
-            
+
             ReportMsg.info("No. of groups on Splash Page: " + elements("list_panelGroups").size());
-            for(WebElement grp : elements("list_groupHeading")) {
+            for (WebElement grp : elements("list_groupHeading")) {
                 ReportMsg.info("Group Name: '" + grp.getText().trim() + "'");
             }
             return viewMode;
         } catch (NoSuchElementException ex) {
             isElementDisplayed("list_frontGroups");
             viewMode = "Front";
-            ReportMsg.info("All Systems are appearing on FRONT i.e., NO GROUPING!!!"); 
+            ReportMsg.info("All Systems are appearing on FRONT i.e., NO GROUPING!!!");
             return viewMode;
         }
     }
-    
-      public void clickOnSystem(String systemName, String systemView) {
+
+    public void clickOnSystem(String systemName, String systemView) {
         int count = 0;
         if (systemView.equalsIgnoreCase("Grouping")) {
             for (WebElement grp : elements("list_groupHeading")) {
@@ -178,12 +180,207 @@ public class PlatformAvailabilityPageActions extends GetPage {
         } else if (systemView.equalsIgnoreCase("Front")) {
             element("div_systemLogo", systemName).click();
             ReportMsg.info("Click on App = " + systemName);
-            
+
             systemName = element("txt_systemName").getText();
             String a[] = systemName.split("> ");
             systemName = a[1];
             ReportMsg.info("System: " + systemName);
         }
+    }
+
+    public void checkWhetherInformationIconIsAvailableOnSpalshPage(String systemName, String systemView) {
+        int count = 0;
+        if (systemView.equalsIgnoreCase("Grouping")) {
+            for (WebElement grp : elements("list_groupHeading")) {
+                try {
+//                    element("div_systemLogo", systemName).click();
+//                    ReportMsg.info("Clicked on '" + systemName + "' System");
+                    checkInfomationIconAvailbilityOnSplashPage(systemName);
+                    break;
+                } catch (TimeoutException ex) {
+                    ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
+                    if (grp.getAttribute("aria-expanded").equalsIgnoreCase("false")) {
+                        grp.click();
+                        ReportMsg.info("Clicked on '" + grp.getText().trim() + "' group");
+                    }
+                }
+                count++;
+                if (elements("list_groupHeading").size() == count) {
+                    element("div_systemLogo", systemName).click();
+                    ReportMsg.info("Clicked on system having backgound URL '" + systemName + "'");
+                }
+            }
+        } else if (systemView.equalsIgnoreCase("Front")) {
+
+            try {
+                isElementDisplayed("div_msgInfo", systemName);
+                ReportMsg.info("Information message icon is not avaialbe on monitor ");
+            } catch (NoSuchElementException e) {
+                checkInfomationIconAvailbilityOnSplashPage(systemName);
+            }
+        }
+    }
+
+    public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome() {
+        element("link_platfromAvailabilityHome").click();
+        ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
+    }
+
+    public void logAsAdmin() {
+        isElementDisplayed("link_login");
+        element("link_login").click();
+        element("userName").clear();
+        element("userName").click();
+        element("userName").sendKeys("Admin");
+        element("password").clear();
+        element("password").click();
+        element("password").sendKeys("Cengage1");
+        element("button_login").click();
+        ReportMsg.info("Login into admin account");
+    }
+
+    public void checkWhetherInformationIconIsAvailableOnSpalshPageForTBD(String systemName, String systemView) {
+        int count = 0;
+        if (systemView.equalsIgnoreCase("Grouping")) {
+            for (WebElement grp : elements("list_groupHeading")) {
+                try {
+//                    element("div_systemLogo", systemName).click();
+//                    ReportMsg.info("Clicked on '" + systemName + "' System");
+                    checkInfomationIconAvialbilityForTBD(systemName);
+
+                    break;
+                } catch (TimeoutException ex) {
+                    ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
+                    if (grp.getAttribute("aria-expanded").equalsIgnoreCase("false")) {
+                        grp.click();
+                        ReportMsg.info("Clicked on '" + grp.getText().trim() + "' group");
+                    }
+                }
+                count++;
+                if (elements("list_groupHeading").size() == count) {
+                    element("div_systemLogo", systemName).click();
+                    ReportMsg.info("Clicked on system having backgound URL '" + systemName + "'");
+                }
+            }
+        } else if (systemView.equalsIgnoreCase("Front")) {
+            try {
+                isElementDisplayed("div_msgInfo", systemName);
+                ReportMsg.info("Information message icon is not avaialbe on monitor ");
+            } catch (NoSuchElementException e) {
+                checkInfomationIconAvialbilityForTBD(systemName);
+            }
+        }
+    }
+
+    private void checkInfomationIconAvialbilityForTBD(String systemName) {
+        String systemUrl = systemName;
+        element("div_systemLogo", systemName).click();
+        systemName = element("txt_systemName").getText();
+        String a[] = systemName.split("> ");
+        systemName = a[1];
+        ReportMsg.info("System: " + systemName);
+        logAsAdmin();
+        isElementDisplayed("button_createNotification");
+        element("button_createNotification").click();
+        ReportMsg.info("Click on create new notification button");
+        isElementDisplayed("div_selectMonitor");
+        element("div_selectMonitor").click();
+        isElementDisplayed("div_monitorName", systemName);
+        element("div_monitorName", systemName).click();
+        element("div_commentBox").click();
+
+        element("div_startTimeBox").click();
+        element("btn_prvMonth").click();
+        ReportMsg.info("Set start date to privous month ");
+        element("btn_ok").click();
+
+        element("div_startSecondTimeBox").click();
+        element("btn_prvMonth").click();
+        ReportMsg.info("Set start date to privous month ");
+
+        element("btn_ok").click();
+
+        String message = "test of informational icon availability";
+        element("div_commentBox").clear();
+        element("div_commentBox").sendKeys(message);
+        ReportMsg.info("write s" + message + " in comment box ");
+
+        if (element("div_enableCheckBox").getAttribute("value").contains("on")) {
+            element("div_enableCheckBox").click();
+        }
+        ReportMsg.info("Checked notification is not be enabled");
+        element("btn_save").click();
+        ReportMsg.info("clicked on save button");
+
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys("TBD");
+        
+        ReportMsg.info("Verified TBD is displaying after perform search operation on list notification");
+
+    }
+
+    private void checkInfomationIconAvailbilityOnSplashPage(String systemName) {
+        String systemUrl = systemName;
+        element("div_systemLogo", systemName).click();
+
+        systemName = element("txt_systemName").getText();
+        String a[] = systemName.split("> ");
+        systemName = a[1];
+        ReportMsg.info("System: " + systemName);
+        logAsAdmin();
+        isElementDisplayed("button_createNotification");
+        element("button_createNotification").click();
+        ReportMsg.info("Click on create new notification button");
+        isElementDisplayed("div_selectMonitor");
+        element("div_selectMonitor").click();
+        isElementDisplayed("div_monitorName", systemName);
+        element("div_monitorName", systemName).click();
+        element("div_commentBox").click();
+
+        element("div_endTimeBox").click();
+        element("div_selectTimeMode").click();
+        element("btn_close").click();
+        element("div_selectTimeMode").click();
+        int x = element("div_mintueSlider").getLocation().getX();
+        int y = element("div_mintueSlider").getLocation().getY();
+//                ReportMsg.info(" x " + x + " y " + y);
+        x = x + 1;
+        ReportMsg.info(" now x " + x + " y " + y);
+        new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x, 0).build().perform();
+        ReportMsg.info("Draged minute handle in right side");
+        element("btn_ok").click();
+
+        element("div_endTimeSecondBox").click();
+        element("div_selectTimeMode").click();
+        element("btn_close").click();
+        element("div_selectTimeMode").click();
+        int x1 = element("div_mintueSlider").getLocation().getX();
+        int y1 = element("div_mintueSlider").getLocation().getY();
+//                ReportMsg.info(" x " + x + " y " + y);
+        x = x + 1;
+        ReportMsg.info(" now x " + x + " y " + y);
+        new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
+        ReportMsg.info("Draged minute handle in right side ");
+        element("btn_ok").click();
+
+        String message = "test of informational icon availability";
+        element("div_commentBox").clear();
+        element("div_commentBox").sendKeys(message);
+        ReportMsg.info("write s" + message + " in comment box ");
+        element("btn_save").click();
+        ReportMsg.info("clicked on save button");
+        userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+
+        isElementDisplayed("div_msgInfo", systemUrl);
+        ReportMsg.info("checked informational message on monitor as icon is displaying on spalsh page for " + systemName + " monitor");
+        element("div_systemLogo", systemUrl).click();
+        ReportMsg.info("Navigated to detail Screen of " + systemName + "monitor");
+        executeJavascript("document.getElementsByClassName('info-alerts')[0].click()");
+        ReportMsg.info("Clicked on current information alerts button");
+        isElementDisplayed("td_msgDislpyaing", message);
+        ReportMsg.info("checked on information message available on details screen");
+        element("btn_close").click();
+        ReportMsg.info("clicked on close button");
     }
 
 }
