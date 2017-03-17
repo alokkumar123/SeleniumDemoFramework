@@ -36,7 +36,7 @@ public class ValidateHeaderAndFooterTest extends TestFundamentals {
     }
 
     @Test
-    public void Step_04Trust_535_Verify_Footer_Login_With_Admin_Aand_Navigate_To_Menu_List() {
+    public void Step_04_Trust_535_Verify_Footer_Login_With_Admin_Aand_Navigate_To_Menu_List() {
         test.createAndConfigPage.logAsAdmin(userName, password);
         test.createAndConfigPage.navigateToAdminMenu("List service notifications");
         test.aboutPage.verifyFooter();

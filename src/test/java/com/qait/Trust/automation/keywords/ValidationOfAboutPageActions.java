@@ -9,6 +9,8 @@ import com.qait.Trust.automation.getpageobjects.GetPage;
 import org.openqa.selenium.WebDriver;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -72,25 +74,33 @@ public class ValidationOfAboutPageActions extends GetPage {
     }
 
     public void navigateToDifferentMonitorFromHeadher() {
-        isElementDisplayed("div_header");
+        try {
+            isElementDisplayed("div_header");
+            ReportMsg.info("Monitors are displaying on header in group format");
+            int i = 0;
+            for (WebElement ele : elements("div_header")) {
+                ele.click();
+                String header = ele.getText();
+                ReportMsg.info("clicked on " + header + "from header");
+                int j = 0;
+                isElementDisplayed("link_mentuItems");
+                ReportMsg.info("size of the apps = " + elements("link_mentuItems", header).size());
+                for (WebElement l : elements("link_mentuItems", header)) {
+                    String app = l.getText();
+                    l.click();
+                    ReportMsg.info("clicked on " + app + " form header and verifying footer");
+                    verifyFooter();
+                    break;
 
-        int i = 0;
-        for (WebElement ele : elements("div_header")) {
-            ele.click();
-            String header = ele.getText();
-            ReportMsg.info("clicked on " + header + "from header");
-            int j = 0;
-            isElementDisplayed("link_mentuItems");
-            ReportMsg.info("size of the apps = " + elements("link_mentuItems", header).size());
-            for (WebElement l : elements("link_mentuItems", header)) {
-                String app = l.getText();
-                l.click();
-                ReportMsg.info("clicked on " + app + " form header and verifying footer");
-                verifyFooter();
+                }
                 break;
-
             }
-            break;
+        } catch (NoSuchElementException e) {
+            ReportMsg.info("Monitors are displaying on header");
+            isElementDisplayed("link_appName");
+            element("link_appName").click();
+            ReportMsg.info("Cliked on app fron heade and verify footer");
+            verifyFooter();
         }
     }
 }

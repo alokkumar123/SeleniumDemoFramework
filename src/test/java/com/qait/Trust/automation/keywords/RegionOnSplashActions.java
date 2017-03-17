@@ -37,7 +37,7 @@ public class RegionOnSplashActions extends GetPage {
         int i = 0;
         Boolean app;
         try {
-            ReportMsg.info("Groups of monitors are displaying on spash page");
+            //ReportMsg.info("Groups of monitors are displaying on spash page");
             for (WebElement ele : elements("div_groupNameList")) {
                 elements("div_groupNameList").get(i).click();
                 String groupName = elements("div_groupNameList").get(i).getText();
@@ -49,7 +49,7 @@ public class RegionOnSplashActions extends GetPage {
                 }
                 i++;
             }
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             isElementDisplayed("singleApp", appName);
             ReportMsg.info("App is dispalying on splash page");
         }

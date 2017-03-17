@@ -10,5 +10,6 @@ span_lastHours                               xpath       (//div[contains(@class,
 select_hours                                 xpath       //li[contains(text(),'${hours}')]   
 div_header                                   xpath       //div[@class='systems-nav']//li[contains(@class,'dropdown')]/a
 link_mentuItems                              xpath       //a[contains(text(),'${header}')]/parent::li//a[@role='menuitem']
+link_appName                                 xpath       //a[text()='Aplia'] 
 ==================================================================================================================================
     

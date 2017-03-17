@@ -92,7 +92,7 @@ public class DetailScreen_GroupActions extends GetPage {
         int i = 0;
         String app = null;
         try {
-            ReportMsg.info("Groups of monitors are displaying on spash page");
+
             for (WebElement ele : elements("div_groupNameList")) {
                 elements("div_groupNameList").get(i).click();
                 String groupName = elements("div_groupNameList").get(i).getText();
@@ -101,16 +101,17 @@ public class DetailScreen_GroupActions extends GetPage {
                 app = verifyAppsInsideThis1(groupName);
                 break;
             }
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             ReportMsg.info("All monitors are displaying on splash page ");
             isElementDisplayed("singleApp", appName);
             element("singleApp", appName).click();
             isElementDisplayed("txt_appName");
             app = element("txt_appName").getText();
-            String a[] = appName.split("> ");
+            String a[] = app.split("> ");
             app = a[1];
 
         }
+        
         return app;
     }
 
