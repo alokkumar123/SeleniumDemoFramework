@@ -226,6 +226,7 @@ public class DetailScreenPageActions extends GetPage {
             element("div_selectMonitor").click();
             isElementDisplayed("list_allApp");
             element("list_allApp").click();
+            element("commentSection").click();
             ReportMsg.info("Select system all app from slect monitors");
             isElementDisplayed("select_endDate");
             element("select_endDate").click();

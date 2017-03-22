@@ -7,7 +7,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -280,7 +279,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         } else if (systemView.equalsIgnoreCase("Front")) {
             try {
                 isElementDisplayed("div_msgInfo", systemName);
-                ReportMsg.info("Information message icon is not avaialbe on monitor ");
+                ReportMsg.info("Information message icon is avaialbe on monitor ");
             } catch (NoSuchElementException e) {
                 checkInfomationIconAvialbilityForTBD(systemName);
             }
@@ -314,7 +313,10 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("Set start date to privous month ");
 
         element("btn_ok").click();
-
+        isElementDisplayed("checkBox_NoEndDate");
+        element("checkBox_NoEndDate").click();
+        ReportMsg.info("clicked on No end date check box");
+                
         String message = "test of informational icon availability";
         element("div_commentBox").clear();
         element("div_commentBox").sendKeys(message);
@@ -329,8 +331,14 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
         element("input_searchBox").clear();
         element("input_searchBox").sendKeys("TBD");
+        isElementDisplayed("td_textTBD");
 
         ReportMsg.info("Verified TBD is displaying after perform search operation on list notification");
+
+        isElementDisplayed("span_deleteMonitors", systemName);
+        element("span_deleteMonitors", systemName).click();
+        element("button_delete").click();
+        ReportMsg.info("Deleted notifications created by automation Script");
 
     }
 
@@ -391,8 +399,20 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("Clicked on current information alerts button");
         isElementDisplayed("td_msgDislpyaing", message);
         ReportMsg.info("checked on information message available on details screen");
-        element("btn_close").click();
+//        element("btn_close").click();
+        executeJavascript("document.getElementsByClassName('btn btn-default')[0].click()");
         ReportMsg.info("clicked on close button");
+        element("link_adminButton").click();
+        element("link_adminPage").click();
+
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(message);
+        isElementDisplayed("span_deleteMonitors", systemName);
+        element("span_deleteMonitors", systemName).click();
+        element("button_delete").click();
+        ReportMsg.info("Deleted notifications created by automation Script");
+        userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+
     }
 
 }

@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
