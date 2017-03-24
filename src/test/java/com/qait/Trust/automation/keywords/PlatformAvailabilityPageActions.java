@@ -386,7 +386,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         String message = "test of informational icon availability";
         element("div_commentBox").clear();
         element("div_commentBox").sendKeys(message);
-        ReportMsg.info("write s" + message + " in comment box ");
+        ReportMsg.info("write " + message + " in comment box ");
         element("btn_save").click();
         ReportMsg.info("clicked on save button");
         userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();

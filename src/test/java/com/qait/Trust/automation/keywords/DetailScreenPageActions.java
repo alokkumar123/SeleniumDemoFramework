@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.TimeZone;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
 
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;

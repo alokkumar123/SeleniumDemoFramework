@@ -40,7 +40,7 @@ div_selectMonitor                            xpath          //div[text()='Select
 list_allApp                                  xpath          //div[text()='All monitors']
 select_timeZone                              xpath          //b[contains(text(),'Time zone')]/parent::div/div[@role='combobox']
 list_estTime                                 xpath          //li[contains(text(),'EST')]
-select_endDate                               xpath          //div[contains(text(),'Set the date range')]/ancestor::div[@class='planned-time-range']//div[text()='End time']/parent::div//input[@class='form-control']
+select_endDate                               xpath          (//b[text()='End time']/..//div//input[@class='form-control'])[1]  
 text_currentDate                             xpath          //td[@class='current-day']
 text_endDate                                 xpath          //td[@class='current-day']/parent::tr/td[text()='${date}']    
 button_OK                                    xpath          //button[text()='OK']
@@ -61,5 +61,6 @@ minute                                       xpath          //td[text()='${hours
 list_timeViewFormat                          xpath          //ul[contains(@id,'listbox')]/li[@class='rw-list-option']
 li_listView                                  xpath          
 select_hours                                 xpath          //li[text()='${string}']  
+btn_nextMonth                                xpath          //button[@class='next-month']
 ==================================================================================================================================
     

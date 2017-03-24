@@ -59,8 +59,18 @@ public class ValidationOfAboutPageActions extends GetPage {
     }
 
     public void verifyFooter() {
-        isElementDisplayed("link_footer");
-        ReportMsg.info("Verified footer is Displaying with Send Feedback link text");
+        boolean value = false;
+        try {
+            value = element("link_footer").isDisplayed();
+            isElementDisplayed("link_footer");
+            ReportMsg.info("Verified footer is Displaying with Send Feedback link text");
+        } catch (NoSuchElementException e) {
+
+            if (!value) {
+                ReportMsg.info("Verified footer is not Displaying with Send Feedback link text");
+            }
+        }
+
     }
 
     public void slectHoursFromDropDown(String hours) {

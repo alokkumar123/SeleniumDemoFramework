@@ -7,7 +7,7 @@ import static com.qait.Trust.automation.utils.YamlReader.getData;
 public class DetailScreenTest extends TestFundamentals {
 
     String systemView;
-    
+
     @Test
     public void TC01_Verifying_All_Details_For_MindTap_Platform() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
@@ -34,9 +34,9 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageBrain"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
-
     @Test
     public void TC03_Verifying_All_Details_For_Aplia_Platform() {
+        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         test.platformAvailabilityPage.clickOnSystem(getData("appName.aplia"), systemView);
         test.detailScreenPage.verifyBreadCrumb(getData("appName.aplia"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
@@ -151,7 +151,6 @@ public class DetailScreenTest extends TestFundamentals {
 //        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.learningObjects"));
 //        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 //    }
-    
     @Test
     public void TC12_Verifying_All_Details_For_WebAssign_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.webAssign"), systemView);
