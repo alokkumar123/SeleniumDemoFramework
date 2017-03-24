@@ -28,7 +28,7 @@ public class ManageSystemsPageActions extends GetPage {
         ReportMsg.info("No. of search results: " + elements("list_searchSystem").size());
         for (WebElement searchResult : elements("list_searchSystem")){
            ReportMsg.info("List of systems displayed from '" + searchingText + "': " + searchResult.getText());
-           Assert.assertTrue(searchResult.getText().contains(searchingText), 
+           Assert.assertTrue(searchResult.getText().toLowerCase().contains(searchingText.toLowerCase()), 
                    "[Assertion Failed]: Search results are NOT matching as per search term!!!");
         }
         ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation");
@@ -41,7 +41,7 @@ public class ManageSystemsPageActions extends GetPage {
         ReportMsg.info("No. of search results: " + elements("list_searchSystem").size());
         for (WebElement searchResult : elements("list_searchSystem")){
            ReportMsg.info("List of systems displayed from '" + searchingText + "': " + searchResult.getText());
-           Assert.assertTrue(searchResult.getText().contains(searchingText), 
+            Assert.assertTrue(searchResult.getText().toLowerCase().contains(searchingText.toLowerCase()), 
                    "[Assertion Failed]: Search results are NOT matching as per search term!!!");
         }
         ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation");
@@ -54,7 +54,7 @@ public class ManageSystemsPageActions extends GetPage {
         ReportMsg.info("No. of search results: " + elements("list_searchSystem").size());
         for (WebElement searchResult : elements("list_searchSystem")){
            ReportMsg.info("List of systems displayed from '" + searchingText + "': " + searchResult.getText());
-           Assert.assertTrue(searchResult.getText().contains(searchingText), 
+            Assert.assertTrue(searchResult.getText().toLowerCase().contains(searchingText.toLowerCase()), 
                    "[Assertion Failed]: Search results are NOT matching as per search term!!!");
         }
         ReportMsg.info("Validated " + searchingText + " is displaying after performing search operation");
