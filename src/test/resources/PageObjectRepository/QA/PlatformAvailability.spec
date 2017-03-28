@@ -17,5 +17,6 @@ list_groupHeading                   xpath               //div[@class='panel pane
 list_frontGroups                    classname           front-system
 div_systemLogo                      xpath               //div[contains(@style,'${systemUrl}')]
 txt_systemName                      xpath               //a/parent::span
+list_panelCollapse                  xpath               //div[@class='panel-collapse collapse in']//div[@class='front-system']//div[contains(@class,'system-header ')]//div[@class='system-logo' and not(contains(.,'system test'))]
 =====================================================================================================================
     

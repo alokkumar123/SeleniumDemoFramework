@@ -490,7 +490,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Set time frame for 12 hours");
         ReportMsg.info("Set timezone to EST");
         ReportMsg.info("****** Verifying Slight disruption ,Minor disruption ,Service temporarily unavailable ,orange and Planned maintenance color for 12 hours ******");
-        //  verifyColorInTimeFrameColor(color);
+        verifyColorInTimeFrameColor(color);
 //        verifyColorInTimeFrameColor("yellow");
 //        verifyColorInTimeFrameColor("orange");
 //        verifyColorInTimeFrameColor("empty");
@@ -512,7 +512,7 @@ public class DetailScreenPageActions extends GetPage {
                 String hours = el.getText();
                 Iterator itr = timeList.iterator();
                 // wait.waitForElementsToBeVisible(elements("minute", hours));
-                ReportMsg.info("hours " + hours);
+//                ReportMsg.info("hours " + hours);
                 waitTOSync();
                 for (WebElement ele : elements("minute", hours)) {
                     String minuteTime = itr.next().toString();
