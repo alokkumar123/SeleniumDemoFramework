@@ -1,6 +1,7 @@
 package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 public class ManagePermissionTest extends TestFundamentals {
@@ -14,7 +15,7 @@ public class ManagePermissionTest extends TestFundamentals {
 
     @Test
     public void TRUST_423_Step01_Check_User_Manage_Pemissions() {
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("List permissions");
         test.createAndConfigPage.gridShouldBeAvailableFor("Name");

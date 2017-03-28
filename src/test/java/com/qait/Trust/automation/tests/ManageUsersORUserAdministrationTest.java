@@ -1,13 +1,14 @@
 package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 public class ManageUsersORUserAdministrationTest extends TestFundamentals {
 
     @Test
     public void TC001_Check_User_Administration_Manage_Users() {
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.navigateToAdminMenu("User Administration");
         test.createAndConfigPage.gridShouldBeAvailableFor("User ID");
         test.createAndConfigPage.gridShouldBeAvailableFor("User Name");
@@ -30,6 +31,7 @@ public class ManageUsersORUserAdministrationTest extends TestFundamentals {
     public void TC004_Check_Search_Functionality_Negative_Cycle() {
         test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
     }
+
     @Test
     public void TC005_Check_Add_A_New_User() {
         test.createAndConfigPage.clickOnAddNewUser();

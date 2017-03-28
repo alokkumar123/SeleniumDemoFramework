@@ -32,3 +32,6 @@ email:
     send: no
     recepients: 
         recepient1: harshsehgal@qainfotech.com
+admin:
+    username: qaadmin
+    password: Cengage1   

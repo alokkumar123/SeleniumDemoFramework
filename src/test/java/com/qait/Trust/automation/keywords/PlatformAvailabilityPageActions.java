@@ -236,6 +236,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome() {
+        wait.waitForElementToBeVisible(element("link_platfromAvailabilityHome"));
         element("link_platfromAvailabilityHome").click();
         ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
     }
@@ -245,7 +246,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("link_login").click();
         element("userName").clear();
         element("userName").click();
-        element("userName").sendKeys("Admin");
+        element("userName").sendKeys("qaadmin");
         element("password").clear();
         element("password").click();
         element("password").sendKeys("Cengage1");
@@ -316,7 +317,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         isElementDisplayed("checkBox_NoEndDate");
         element("checkBox_NoEndDate").click();
         ReportMsg.info("clicked on No end date check box");
-                
+
         String message = "test of informational icon availability";
         element("div_commentBox").clear();
         element("div_commentBox").sendKeys(message);
@@ -411,6 +412,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("span_deleteMonitors", systemName).click();
         element("button_delete").click();
         ReportMsg.info("Deleted notifications created by automation Script");
+
         userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 
     }

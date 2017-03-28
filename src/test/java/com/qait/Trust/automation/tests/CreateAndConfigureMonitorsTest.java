@@ -1,13 +1,14 @@
 package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 public class CreateAndConfigureMonitorsTest extends TestFundamentals {
 
     @Test
     public void Step01_Trust_350_Configure_Monitors() {
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.gridShouldBeAvailableFor("Enabled");
         test.createAndConfigPage.gridShouldBeAvailableFor("Monitor");
@@ -20,7 +21,7 @@ public class CreateAndConfigureMonitorsTest extends TestFundamentals {
 
     @Test
     public void Step02_Trust_376_Create_Monitors() {
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.clickOnCreateButton();
         test.createAndConfigPage.enterAllMandatoryFieldsAndClickOnSave();
@@ -32,7 +33,7 @@ public class CreateAndConfigureMonitorsTest extends TestFundamentals {
 
     @Test
     public void Step03_Trust_394_Edit_Monitors_Created_By_Automation_Script() {
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.userNavigateToMonitorEditScreen();
         test.createAndConfigPage.userEditAndReSaveMangaeMonitor();

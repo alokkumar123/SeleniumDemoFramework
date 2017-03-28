@@ -5,16 +5,16 @@ import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 public class RegionOnSplashPageTest extends TestFundamentals {
-    
+
     String systemView;
     String appName = null;
     String region = "Asia";
     String anyOtherRegion = "Australia";
-    
+
     @Test
     public void TC01_Verify_Region_Of_Selected_System() {
         appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appNameforRegion.aplia"));
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.clickOnSystemFromManageSystem(appName);
@@ -35,7 +35,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
         test.regionSplashPage.setRegionFromSplashPage(region);
         test.regionSplashPage.verifyAppIsDisplayingOnPage(getData("appNameforRegion." + appName.toLowerCase()));
     }
-    
+
     @Test
     public void TC04_Verify_Region_Of_System_On_Splash_For_Any_Other_Value() {
         test.regionSplashPage.setRegionFromSplashPage(anyOtherRegion);

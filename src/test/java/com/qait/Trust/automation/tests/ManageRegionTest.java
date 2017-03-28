@@ -1,6 +1,7 @@
 package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 public class ManageRegionTest extends TestFundamentals {
@@ -12,7 +13,7 @@ public class ManageRegionTest extends TestFundamentals {
 
     @Test
     public void Step01_TRUST_437_Check_Manage_Region() {
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage regions");
         test.createAndConfigPage.gridShouldBeAvailableFor("Name");

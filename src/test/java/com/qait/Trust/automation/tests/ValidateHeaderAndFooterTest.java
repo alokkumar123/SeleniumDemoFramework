@@ -8,8 +8,6 @@ public class ValidateHeaderAndFooterTest extends TestFundamentals {
 
     String appName = null;
     String systemView;
-    String userName = "admin";
-    String password = "Cengage1";
 
     @Test
     public void Step_01_Trust_535_Verify_Footer_On_Spalsh_Page() {
@@ -37,7 +35,7 @@ public class ValidateHeaderAndFooterTest extends TestFundamentals {
 
     @Test
     public void Step_04_Trust_535_Verify_Footer_Login_With_Admin_Aand_Navigate_To_Menu_List() {
-        test.createAndConfigPage.logAsAdmin(userName, password);
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.navigateToAdminMenu("List service notifications");
         test.aboutPage.verifyFooter();
         test.createAndConfigPage.navigateToAdminMenu("Manage groups");

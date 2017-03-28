@@ -49,7 +49,7 @@ link_ok                                      xpath          //button[text()='OK'
 td_textTBD                                   xpath          //td[@data-search-text='TBD'] 
 span_deleteMonitors                          xpath          //*[contains(text(),'${monitorName}')]/ancestor::tr//span[contains(@class,'glyphicon')]
 button_delete                                xpath          //button[text()='Delete']
-link_adminButton                             xpath          //a[contains(text(),'admin')]
+link_adminButton                             xpath          //li[@class='login-tab dropdown']//a[@class='dropdown-toggle']
 link_adminPage                               xpath          //a[text()='Admin page']  
 checkBox_NoEndDate                           xpath          //b[contains(text(),'No end date ')]/parent::div//input[@type='checkbox']  
 =====================================================================================================================

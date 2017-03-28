@@ -1,12 +1,11 @@
 package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 public class ValidationAndAboutPageTest extends TestFundamentals {
 
-    String admunuUserName = "admin";
-    String AdminPassword = "Cengage1";
     String aboutPageText = "Testing About Page";
     String aboutPageEditedText = "Editing Testing About Page";
     String userName = "harshsehgal";
@@ -14,7 +13,7 @@ public class ValidationAndAboutPageTest extends TestFundamentals {
 
     @Test
     public void Step_01_Trust_537_Click_On_About_Page_And_Create_About_Page_And_Save() {
-        test.createAndConfigPage.logAsAdmin(admunuUserName, AdminPassword);
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.navigateToAdminMenu("About page");
         test.aboutPage.createAndSaveAbouPage(aboutPageText);
     }

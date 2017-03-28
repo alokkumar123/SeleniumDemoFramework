@@ -58,19 +58,26 @@ public class ValidationOfAboutPageActions extends GetPage {
         ReportMsg.info("Verified saved information is displaying on TechChech Link");
     }
 
-    public void verifyFooter() {
+    public boolean verifyFooter() {
         boolean value = false;
         try {
             value = element("link_footer").isDisplayed();
             isElementDisplayed("link_footer");
-            ReportMsg.info("Verified footer is Displaying with Send Feedback link text");
+
+            if (value) {
+                value = false;
+                ReportMsg.info("Verified footer is Displaying with Send Feedback link text");
+            }
+
         } catch (NoSuchElementException e) {
 
             if (!value) {
+                value = true;
                 ReportMsg.info("Verified footer is not Displaying with Send Feedback link text");
             }
-        }
 
+        }
+        return value;
     }
 
     public void slectHoursFromDropDown(String hours) {

@@ -7,8 +7,6 @@ import org.testng.annotations.Test;
 public class ValidateIconAvailableOnMonitorsTest extends TestFundamentals {
 
     String systemView;
-    String userName = "Admin";
-    String password = "Cengage1";
 
     @Test
     public void Step01_TRUST_538_Check_Over_Splash_Page_Check_Whether_Information_Icon_Is_Available() {

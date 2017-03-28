@@ -1,6 +1,7 @@
 package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 public class ManageRolesTest extends TestFundamentals {
@@ -13,7 +14,7 @@ public class ManageRolesTest extends TestFundamentals {
 
     @Test
     public void TRUST_422_Step01_Check_User_Administration_Manage_Users() {
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage roles");
         test.createAndConfigPage.gridShouldBeAvailableFor("Name");
