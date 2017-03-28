@@ -133,12 +133,11 @@ public class DetailScreenPageActions extends GetPage {
 //        ReportMsg.log("Scrolled down");
 //        executeJavascript("window.scrollTo(0,Math.max(document.documentElement."
 //                + "scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");
-
         isElementDisplayed("span_noIssues");
         isElementDisplayed("span_minorDisruption");
         isElementDisplayed("span_serviceTemporarilyUnavailable");
         isElementDisplayed("span_plannedMaintenance");
-        
+
 //        scrollTop();
 //        ReportMsg.log("Scrolled up");
     }
@@ -213,7 +212,7 @@ public class DetailScreenPageActions extends GetPage {
 
             element("userName").clear();
             element("userName").click();
-            element("userName").sendKeys("Admin");
+            element("userName").sendKeys("qaadmin");
 
             element("password").clear();
             element("password").click();
@@ -243,7 +242,16 @@ public class DetailScreenPageActions extends GetPage {
             element("text_endDate", date).click();
             ReportMsg.info("Set end date ");
             isElementDisplayed("button_OK");
-            element("button_OK").click();
+            try {
+                isElementDisplayed("btn_close");
+                element("btn_close").click();
+
+                element("button_OK").click();
+
+            } catch (NoSuchElementException e1) {
+                element("button_OK").click();
+            }
+
             ReportMsg.info("Click on Ok button");
             isElementDisplayed("commentSection");
             element("commentSection").click();
@@ -373,27 +381,27 @@ public class DetailScreenPageActions extends GetPage {
         if (!lastHours.contains("last 12 hours")) {
             JiraId = "TRUST-322";
         }
-         try {
-        System.out.println("\n############## Verifying Information Available for " + lastHours + " on Detail Screen Page, " + JiraId + " ##############\n");
-        isElementDisplayed("table_systemStatus");
-        ReportMsg.info("Verified system status of table");
-        columnShouldRepresentLastHoursFromCurrent(hours);
-        verifyLegendShouldBeAvailable();
-       // userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+        try {
+            System.out.println("\n############## Verifying Information Available for " + lastHours + " on Detail Screen Page, " + JiraId + " ##############\n");
+            isElementDisplayed("table_systemStatus");
+            ReportMsg.info("Verified system status of table");
+            columnShouldRepresentLastHoursFromCurrent(hours);
+            verifyLegendShouldBeAvailable();
+            // userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         } catch (Exception e1) {
             ReportMsg.info("table system status is not availabe for app");
             isElementDisplayed("div_errorMessage");
             String message = element("div_errorMessage").getText();
             ReportMsg.info("App Information is not available, Message is appearing with text :- " + message + " for " + lastHours);
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-             isElementDisplayed("singleApp", appName);
-             element("singleApp", appName).click();
-             ReportMsg.info("Click on App = " + appName);
-             isElementDisplayed("txt_appName");
-             appName = element("txt_appName").getText();
-             String a[] = appName.split("> ");
-             appName = a[1];
-             ReportMsg.info("AppName = " + appName);
+            isElementDisplayed("singleApp", appName);
+            element("singleApp", appName).click();
+            ReportMsg.info("Click on App = " + appName);
+            isElementDisplayed("txt_appName");
+            appName = element("txt_appName").getText();
+            String a[] = appName.split("> ");
+            appName = a[1];
+            ReportMsg.info("AppName = " + appName);
         }
     }
 
