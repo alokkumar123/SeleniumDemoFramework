@@ -4,7 +4,7 @@ td_systemApp                            xpath           //td//a[text()='${appNam
 div_regionField                         xpath           //div[@id='region']//div[contains(@class,'rw-dropdownlist ')]//div
 btn_save                                xpath           //button[text()='${button}']   
 singleApp                               xpath           //div[contains(@style,'${appName}')]
-link_admin                              xpath           //a[text()='admin']
+link_admin                              xpath           //li[@class='login-tab dropdown']//a[@class='dropdown-toggle']
 link_adminPage                          xpath           //a[text()='Admin page']
 li_otherRegion                          xpath           //div[@id='region']//li[text()='${region}']         
 div_spalshLocation                      xpath           //div[@class='location-link']/a

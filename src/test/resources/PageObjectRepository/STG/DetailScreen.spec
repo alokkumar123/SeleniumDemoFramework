@@ -57,7 +57,7 @@ td_colorFrame                                xpath          //td[contains(@class
 tr_colorTime                                 xpath          (//td[contains(@class,'cell-status')]/div[@class='${color}']/../../td)[${s}]
 td_colorMinute                               xpath          //td[contains(@class,'cell-status')]/div[contains(@class,'${color}')]
 redColor                                     xpath          //td[contains(@class,'cell-status')]/div[@class='${color}']/../..//div[@class='${color}']
-minute                                       xpath          //td[text()='${hours}']/..//td[not(contains(@style,'text-align'))]/div 
+minute                                       xpath          //td[text()='${hours}']/..//td[not(contains(@style,'text-align'))]//div[not(contains(@class,'hidden'))] 
 list_timeViewFormat                          xpath          //ul[contains(@id,'listbox')]/li[@class='rw-list-option']
 li_listView                                  xpath          
 select_hours                                 xpath          //li[text()='${string}']  

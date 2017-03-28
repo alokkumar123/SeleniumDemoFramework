@@ -172,7 +172,7 @@ public class GetPage extends BaseUi {
     }
      protected void waitTOSync() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (Exception e) {
             e.printStackTrace();
 
