@@ -340,7 +340,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void clickOnDeleteButton() {
          ReportMsg.info("Search box is available");
         element("input_searchBox").clear();
-        element("input_searchBox").sendKeys(monitorName);
+        element("input_searchBox").sendKeys(editUserName);
         ReportMsg.info("Searched monitor created by automation script");
         isElementDisplayed("span_deleteNewUser", editUserName);
         element("span_deleteNewUser", editUserName).click();
