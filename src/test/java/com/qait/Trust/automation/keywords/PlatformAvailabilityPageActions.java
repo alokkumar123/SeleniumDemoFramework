@@ -237,6 +237,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome() {
         wait.waitForElementToBeVisible(element("link_platfromAvailabilityHome"));
+        isElementDisplayed("link_platfromAvailabilityHome");
         element("link_platfromAvailabilityHome").click();
         ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
     }
@@ -379,7 +380,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         int x1 = element("div_mintueSlider").getLocation().getX();
         int y1 = element("div_mintueSlider").getLocation().getY();
         x = x + 1;
-        ReportMsg.info(" now x " + x + " y " + y);
+        //ReportMsg.info(" now x " + x + " y " + y);
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
         ReportMsg.info("Draged minute handle in right side ");
         element("btn_ok").click();
