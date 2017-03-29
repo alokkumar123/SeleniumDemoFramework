@@ -11,13 +11,13 @@ public class ValidateIconAvailableOnMonitorsTest extends TestFundamentals {
     @Test
     public void Step01_TRUST_538_Check_Over_Splash_Page_Check_Whether_Information_Icon_Is_Available() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        test.platformAvailabilityPage.checkWhetherInformationIconIsAvailableOnSpalshPage(getData("appName.aplia"), systemView);
+        test.platformAvailabilityPage.checkWhetherInformationIconIsAvailableOnSpalshPage(getData("appName.webAssign"), systemView);
 
     }
 
     @Test
     public void Step02_TRUST_538_Check_Over_Splash_Page_Check_Whether_Information_Icon_Is_Available_For_TBD() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        test.platformAvailabilityPage.checkWhetherInformationIconIsAvailableOnSpalshPageForTBD(getData("appName.cengageNow"), systemView);
+        test.platformAvailabilityPage.checkWhetherInformationIconIsAvailableOnSpalshPageForTBD(getData("appName.webAssign"), systemView);
     }
 }
