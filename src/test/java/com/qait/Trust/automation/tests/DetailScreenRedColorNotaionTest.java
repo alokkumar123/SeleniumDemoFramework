@@ -37,9 +37,11 @@ public class DetailScreenRedColorNotaionTest extends TestFundamentals {
 
     @Test
     public void TC04_verifying_ColorNotations_For_CengageNOWv2_Platform() {
-
-        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNOWv2"),color);
+        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
+        test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageNOWv2"), systemView);
+        test.detailScreenPage.checkForColorNotationInThePlatformAvailabilityAndDetailScreen(getData("appName.cengageNOWv2"), color);
     }
+
     @Test
     public void TC05_verifying_ColorNotations_For_OWLv2_Platform() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
