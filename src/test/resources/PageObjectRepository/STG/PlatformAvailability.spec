@@ -35,7 +35,7 @@ div_commentBox                               xpath          //textarea[@placehol
 btn_close                                    xpath          //button[text()='Close']   
 btn_ok                                       xpath          //button[text()='OK']
 link_platfromAvailabilityHome                xpath          //a[contains(text(),'Platform Availability Home')]
-td_msgDislpyaing                             xpath          //td[text()='${message}']   
+td_msgDislpyaing                             xpath          //span[text()='${message}']   
 btn_save                                     xpath          //button[text()='Save']  
 div_endTimeSecondBox                         xpath          (//b[text()='End time']/..//div//input[@class='form-control'])[2]  
 div_startTimeBox                             xpath          (//b[text()='Start time']/..//div//input[@class='form-control'])[1]
