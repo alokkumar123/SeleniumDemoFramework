@@ -20,7 +20,7 @@ txt_systemName                      xpath               //a/parent::span
 list_panelCollapse                  xpath               //div[@class='panel-collapse collapse in']//div[@class='front-system']//div[contains(@class,'system-header ')]//div[@class='system-logo' and not(contains(.,'system test'))]
 div_systemUnderGroups               xpath               //div[@class='panel-collapse collapse in']//div[contains(@class,'system-card front green')]
 div_lastUpdatedTimeUnderGroups      xpath               //div[@class='panel-collapse collapse in']//div[contains(@class,'system-card front green')]//div[@class='system-last-update']/span[2]
-div_msgInfo                         xpath               //div[contains(@style,'${systemName}')]/ancestor::div[@class='system-header green']//div[@class='info-messages']
+div_msgInfo                         xpath               //div[contains(@style,'${systemName}')]/ancestor::div[contains(@class,'system-header')]//div[@class='info-messages']
 link_login                                   xpath          //a[text()='Sign in']
 userName                                     xpath          //input[@placeholder ='Enter login']    
 password                                     xpath          //input[@placeholder ='Enter password']
