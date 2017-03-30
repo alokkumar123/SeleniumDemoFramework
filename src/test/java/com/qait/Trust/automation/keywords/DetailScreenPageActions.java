@@ -488,7 +488,7 @@ public class DetailScreenPageActions extends GetPage {
         appName = a[1];
         ReportMsg.info("Click on App " + appName + " and navigate to the details screen");
         ReportMsg.info("Set time frame for 12 hours");
-        ReportMsg.info("Set timezone to EST");
+        ReportMsg.info("Set timezone to EDT");
         ReportMsg.info("****** Verifying Slight disruption ,Minor disruption ,Service temporarily unavailable ,orange and Planned maintenance color for 12 hours ******");
         verifyColorInTimeFrameColor(color);
 //        verifyColorInTimeFrameColor("yellow");
