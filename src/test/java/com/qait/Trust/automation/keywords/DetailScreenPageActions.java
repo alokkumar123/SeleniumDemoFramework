@@ -511,7 +511,8 @@ public class DetailScreenPageActions extends GetPage {
             for (WebElement el : elements("td_colorFrame", color)) {
                 String hours = el.getText();
                 Iterator itr = timeList.iterator();
-                // wait.waitForElementsToBeVisible(elements("minute", hours));
+                ReportMsg.info("hours " + hours);
+                wait.waitForElementsToBeVisible(elements("minute", hours));
 //                ReportMsg.info("hours " + hours);
                 waitTOSync();
                 for (WebElement ele : elements("minute", hours)) {

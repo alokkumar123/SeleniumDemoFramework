@@ -53,7 +53,7 @@ button_save                                  xpath          //button[text()='Sav
 singleApp                                    xpath          //div[contains(@style,'${appName}')]     
 greenColor_timeFrame                         xpath          //div[@class='green']       
 div_appColorOnPlatform                       xpath          //div[contains(@style,'${appName}')]/ancestor::div[contains(@class,'system-header green')]//div[contains(@class,'system-status-icon-container')]
-td_colorFrame                                xpath          //td[contains(@class,'cell-status')]/div[@class='${color}']/../.. 
+td_colorFrame                                xpath          //td[contains(@class,'cell-status')]/div[@class='${color}']/../..//td[contains(@style,'text-align: left; white-space: nowrap;')] 
 tr_colorTime                                 xpath          (//td[contains(@class,'cell-status')]/div[@class='${color}']/../../td)[${s}]
 td_colorMinute                               xpath          //td[contains(@class,'cell-status')]/div[contains(@class,'${color}')]
 redColor                                     xpath          //td[contains(@class,'cell-status')]/div[@class='${color}']/../..//div[@class='${color}']
