@@ -392,7 +392,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("btn_save").click();
         ReportMsg.info("clicked on save button");
         userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-
+        wait.waitForElementToBeVisible(element("div_msgInfo", systemUrl));
         isElementDisplayed("div_msgInfo", systemUrl);
         ReportMsg.info("checked informational message on monitor as icon is displaying on spalsh page for " + systemName + " monitor");
         element("div_systemLogo", systemUrl).click();
