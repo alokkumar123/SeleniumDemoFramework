@@ -332,7 +332,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("clicked on save button");
 
         element("input_searchBox").clear();
-        element("input_searchBox").sendKeys("TBD");
+        element("input_searchBox").sendKeys(message);
         isElementDisplayed("td_textTBD");
 
         ReportMsg.info("Verified TBD is displaying after perform search operation on list notification");
