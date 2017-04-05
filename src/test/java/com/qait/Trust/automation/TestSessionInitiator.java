@@ -8,6 +8,7 @@ import com.qait.Trust.automation.keywords.ManageRegionPageActions;
 import com.qait.Trust.automation.keywords.ManageRolePageActions;
 import com.qait.Trust.automation.keywords.PlatformAvailabilityPageActions;
 import com.qait.Trust.automation.keywords.RegionOnSplashActions;
+import com.qait.Trust.automation.keywords.RegressionTestsPageActions;
 import com.qait.Trust.automation.keywords.ValidationOfAboutPageActions;
 import com.qait.Trust.automation.utils.HTMLCodeSniffer;
 
@@ -62,6 +63,7 @@ public class TestSessionInitiator {
     public RegionOnSplashActions regionSplashPage;
     public TakeScreenshot takescreenshot;
     public ValidationOfAboutPageActions aboutPage;
+    public RegressionTestsPageActions  regressionTestPage;        
 
     public WebDriver getDriver() {
         return this.driver;
@@ -78,6 +80,7 @@ public class TestSessionInitiator {
         detailScreen_group = new DetailScreen_GroupActions(driver);
         regionSplashPage = new RegionOnSplashActions(driver);
         aboutPage = new ValidationOfAboutPageActions(driver);
+        regressionTestPage = new RegressionTestsPageActions(driver);
     }
 
     /**
