@@ -395,7 +395,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         waitTOSync();
         try {
             wait.waitForElementToBeVisible(element("div_msgInfo", systemUrl));
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         }
         isElementDisplayed("div_msgInfo", systemUrl);
