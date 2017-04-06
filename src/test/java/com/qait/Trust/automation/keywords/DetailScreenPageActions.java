@@ -4,9 +4,6 @@ import com.qait.Trust.automation.getpageobjects.GetPage;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import com.qait.Trust.automation.utils.ReportMsg;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,14 +12,11 @@ import java.util.Date;
 import java.util.Iterator;
 
 import java.util.TimeZone;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
 
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -262,6 +256,12 @@ public class DetailScreenPageActions extends GetPage {
             element("button_save").click();
             ReportMsg.info("Click On save button");
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+            waitTOSync();
+            try {
+                isElementDisplayed("singleApp", appName);
+            } catch (Exception ee) {
+                userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+            }
             isElementDisplayed("singleApp", appName);
             element("singleApp", appName).click();
             ReportMsg.info("Click on App = " + appName);
