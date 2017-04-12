@@ -24,11 +24,18 @@ public class RegressionTestsSystemTest extends TestFundamentals {
     }
 
     @Test
-    public void Step_02_TRUST_570_LogIn_Into_Application() {
-        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
+    public void Step_02_TRUST_570_Verify_Color_Of_The_System() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         test.regressionTestPage.verifyRegressionTestsSystem();
-        test.platformAvailabilityPage.clickOnAggreateSystem(getData("appName.mindtap"), systemView);
+        test.regressionTestPage.checkTheSystemColor(getData("appName.regressionApp"));
+        test.regressionTestPage.clickOnAggreateSystem(getData("appName.regressionApp"), systemView);
+    }
+
+    @Test
+    public void Step_03_TRUST_570_For_Each_Change_In_Color_Validate_Respective_Available_Notification() {
+        test.regressionTestPage.navigateToAdminPage();
+        test.regressionTestPage.setNewNoitifcation("RegTest6", "Planned Maintenance");
+        test.regressionTestPage.clickOnMonitorUnderRegressionTest("RegTest6");
     }
 
 }

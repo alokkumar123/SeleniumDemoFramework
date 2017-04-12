@@ -46,10 +46,16 @@ public class DetailScreenPageActions extends GetPage {
     }
 
     public void userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome() {
-        element("link_platfromAvailabilityHome").click();
-        ReportMsg.info("Clicked on Platform Availability Home");
-        isElementDisplayed("text_screenPage");
-        ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
+        try {
+            element("link_platfromAvailabilityHome").click();
+            ReportMsg.info("Clicked on Platform Availability Home");
+            isElementDisplayed("text_screenPage");
+            ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
+        } catch (Exception ee) {
+            element("link_platfromAvailabilityHome").click();
+            ReportMsg.info("Clicked on Platform Availability Home");
+        }
+
     }
 
     public void verifyDropDownWithOptions(String string) {
@@ -221,7 +227,7 @@ public class DetailScreenPageActions extends GetPage {
             isElementDisplayed("list_allApp");
             element("list_allApp").click();
             element("commentSection").click();
-            ReportMsg.info("Select system all app from slect monitors");
+            ReportMsg.info("Select all system  from select monitors");
             isElementDisplayed("select_endDate");
             element("select_endDate").click();
             String currentDate = element("text_currentDate").getText();

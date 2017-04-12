@@ -423,32 +423,5 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
     }
 
-    public void clickOnAggreateSystem(String systemName, String systemView) {
-        int count = 0;
-        if (systemView.equalsIgnoreCase("Grouping")) {
-            for (WebElement grp : elements("list_groupHeading")) {
-                try {
-                    element("div_systemLogo", systemName).click();
-                    ReportMsg.info("Clicked on '" + systemName + "' System");
-                    break;
-                } catch (TimeoutException ex) {
-                    ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
-                    if (grp.getAttribute("aria-expanded").equalsIgnoreCase("false")) {
-                        grp.click();
-                        ReportMsg.info("Clicked on '" + grp.getText().trim() + "' group");
-                    }
-                }
-                count++;
-                if (elements("list_groupHeading").size() == count) {
-                    element("div_systemLogo", systemName).click();
-                    ReportMsg.info("Clicked on system having backgound URL '" + systemName + "'");
-                }
-            }
-        } else if (systemView.equalsIgnoreCase("Front")) {
-            element("div_systemLogo", systemName).click();
-            ReportMsg.info("Click on App = " + systemName);
-
-        }
-    }
 
 }
