@@ -42,7 +42,7 @@ public class CreateNotificationActions extends GetPage {
         int y = element("div_mintueSlider").getLocation().getY();
         x = x + 1;
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x, 0).build().perform();
-        ReportMsg.info("Draged minute handle in Left side");
+        ReportMsg.info("Draged minute handle in right side");
         element("btn_ok").click();
 
         element("div_endTimeSecondBox").click();
@@ -63,7 +63,13 @@ public class CreateNotificationActions extends GetPage {
         ReportMsg.info("clicked on save button");
     }
 
-    public void verifyMessageIsDisplayingToUnauthenticatedUser(String message) {
+    public void verifyMessageIsDisplayingToUnauthenticatedUser(String splashPageView,String message) {
+        if(splashPageView.contains("Grouping")){
+             ReportMsg.info("Verifying created notification under Grouping View splash page");
+        }
+        else{
+             ReportMsg.info("Verifying created notification under Front View splash page");
+        }
         isElementDisplayed("span_notification", message);
         ReportMsg.info("Verified " + message + " is displaying to Unauthenticated user");
     }

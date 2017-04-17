@@ -7,6 +7,7 @@ package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
+import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 /**
@@ -19,12 +20,14 @@ public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthentic
     String password = getProperty("password");
     String appName = null;
 
-    String monitorName = "4LTR Press";
+    String monitorName = null;
     String message = "test of notification for single system";
+    String systemView;
 
     @Test
     public void TRUST_596_TC01_Login_With_Admin_User() {
-        //appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appNameforRegion.cengagebrain"));
+        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
+        monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
 //        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         System.out.println("userName : " + userName + ", password : " + password);
         test.createAndConfigPage.logAsAdmin(userName, password);
@@ -41,7 +44,8 @@ public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthentic
 
     @Test
     public void TRUST_596_TC03_Verify_Created_Notification_Displays_To_Unauthenticated_User() {
-        test.createNotificationPage.verifyMessageIsDisplayingToUnauthenticatedUser(message);
+        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
+        test.createNotificationPage.verifyMessageIsDisplayingToUnauthenticatedUser(splashPageView,message);
 
     }
 
