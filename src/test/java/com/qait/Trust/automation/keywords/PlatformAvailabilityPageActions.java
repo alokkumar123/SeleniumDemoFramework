@@ -379,7 +379,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("div_selectTimeMode").click();
         int x1 = element("div_mintueSlider").getLocation().getX();
         int y1 = element("div_mintueSlider").getLocation().getY();
-        x = x + 1;
+        x1 = x1 + 1;
         //ReportMsg.info(" now x " + x + " y " + y);
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
         ReportMsg.info("Draged minute handle in right side ");
@@ -422,6 +422,5 @@ public class PlatformAvailabilityPageActions extends GetPage {
         userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 
     }
-
 
 }

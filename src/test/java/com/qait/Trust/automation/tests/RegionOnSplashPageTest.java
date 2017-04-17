@@ -1,6 +1,7 @@
 package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
+import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
@@ -11,10 +12,15 @@ public class RegionOnSplashPageTest extends TestFundamentals {
     String region = "Asia";
     String anyOtherRegion = "Australia";
 
+    String userName = getProperty("userName");
+    String password = getProperty("password");
+
     @Test
     public void TC01_Verify_Region_Of_Selected_System() {
         appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appNameforRegion.cengagebrain"));
-        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
+//        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
+        System.out.println("userName : " + userName + ", password : " + password);
+        test.createAndConfigPage.logAsAdmin(userName, password);
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.clickOnSystemFromManageSystem(appName);

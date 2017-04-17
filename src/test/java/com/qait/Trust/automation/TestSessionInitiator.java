@@ -2,6 +2,7 @@ package com.qait.Trust.automation;
 
 import com.qait.Trust.automation.keywords.ManageSystemsPageActions;
 import com.qait.Trust.automation.keywords.CreateAndConfigureMonitorsPageActions;
+import com.qait.Trust.automation.keywords.CreateNotificationActions;
 import com.qait.Trust.automation.keywords.DetailScreenPageActions;
 import com.qait.Trust.automation.keywords.DetailScreen_GroupActions;
 import com.qait.Trust.automation.keywords.ManageRegionPageActions;
@@ -63,7 +64,8 @@ public class TestSessionInitiator {
     public RegionOnSplashActions regionSplashPage;
     public TakeScreenshot takescreenshot;
     public ValidationOfAboutPageActions aboutPage;
-    public RegressionTestsPageActions  regressionTestPage;        
+    public RegressionTestsPageActions regressionTestPage;
+    public CreateNotificationActions createNotificationPage;
 
     public WebDriver getDriver() {
         return this.driver;
@@ -81,6 +83,7 @@ public class TestSessionInitiator {
         regionSplashPage = new RegionOnSplashActions(driver);
         aboutPage = new ValidationOfAboutPageActions(driver);
         regressionTestPage = new RegressionTestsPageActions(driver);
+        createNotificationPage = new CreateNotificationActions(driver);
     }
 
     /**
