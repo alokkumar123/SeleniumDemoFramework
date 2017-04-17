@@ -28,8 +28,6 @@ public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthentic
     public void TRUST_596_TC01_Login_With_Admin_User() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
-//        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
-        System.out.println("userName : " + userName + ", password : " + password);
         test.createAndConfigPage.logAsAdmin(userName, password);
     }
 
@@ -55,6 +53,5 @@ public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthentic
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.deleteCreatedNotification(message);
         test.createAndConfigPage.logOutFromAdmin();
-
     }
 }
