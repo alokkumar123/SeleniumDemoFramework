@@ -23,14 +23,14 @@ public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserT
     String systemView;
 
     @Test
-    public void TRUST_596_TC01_Login_With_Admin_User() {
+    public void TRUST_597_TC01_Login_With_Admin_User() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
         test.createAndConfigPage.logAsAdmin(userName, password);
     }
 
     @Test
-    public void TRUST_596_TC02_Create_Notification_For_Single_System() {
+    public void TRUST_597_TC02_Create_Notification_For_Single_System() {
         test.createNotificationPage.clickOnNotificationButton();
         test.createNotificationPage.selectSystemFromSelectMonitorDropDownAndHideNotification(monitorName, message);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
@@ -39,14 +39,14 @@ public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserT
     }
 
     @Test
-    public void TRUST_596_TC03_Verify_Created_Notification_Displays_To_Unauthenticated_User() {
+    public void TRUST_597_TC03_Verify_Created_Notification_Displays_To_Unauthenticated_User() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
         test.createNotificationPage.verifyMessageIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView,message);
 
     }
 
     @Test
-    public void TRUST_596_TC04_Delete_Created_Notifaction_By_Automation_Script() {
+    public void TRUST_597_TC04_Delete_Created_Notifaction_By_Automation_Script() {
         test.createAndConfigPage.logAsAdmin(userName, password);
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.deleteCreatedNotification(message);
