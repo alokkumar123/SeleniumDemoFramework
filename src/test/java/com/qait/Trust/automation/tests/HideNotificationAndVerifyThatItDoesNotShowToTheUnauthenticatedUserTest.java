@@ -30,7 +30,7 @@ public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserT
     }
 
     @Test
-    public void TRUST_597_TC02_Create_Notification_For_Single_System() {
+    public void TRUST_597_TC02_Create_Notification_And_Hede() {
         test.createNotificationPage.clickOnNotificationButton();
         test.createNotificationPage.selectSystemFromSelectMonitorDropDownAndHideNotification(monitorName, message);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
@@ -39,7 +39,7 @@ public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserT
     }
 
     @Test
-    public void TRUST_597_TC03_Verify_Created_Notification_Displays_To_Unauthenticated_User() {
+    public void TRUST_597_TC03_Verify_Created_Notification_Does_Not_Display_To_Unauthenticated_User() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
         test.createNotificationPage.verifyMessageIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView,message);
 
