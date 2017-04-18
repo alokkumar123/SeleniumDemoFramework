@@ -15,5 +15,6 @@ span_deleteNotification                      xpath          //*[text()='${messag
 button_delete                                xpath          //button[text()='Delete']
 btn_ok                                       xpath          //button[text()='OK']
 btn_save                                     xpath          //button[text()='Save']
+input_enabledCheckBox                        xpath          //div[@id='enabled']//input[@type='checkbox']   
 ==================================================================================================================================
     

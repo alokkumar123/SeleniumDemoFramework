@@ -14,13 +14,12 @@ import org.testng.annotations.Test;
  *
  * @author alokkumar
  */
-public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthenticatedUserTest extends TestFundamentals {
-
+public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserTest extends TestFundamentals{
     String userName = getProperty("userName");
     String password = getProperty("password");
 
     String monitorName = null;
-    String message = "test of notification for single system";
+    String message = "test of Hide Notification ";
     String systemView;
 
     @Test
@@ -33,7 +32,7 @@ public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthentic
     @Test
     public void TRUST_596_TC02_Create_Notification_For_Single_System() {
         test.createNotificationPage.clickOnNotificationButton();
-        test.createNotificationPage.selectSystemFromSelectMonitorDropDown(monitorName, message);
+        test.createNotificationPage.selectSystemFromSelectMonitorDropDownAndHideNotification(monitorName, message);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         test.createAndConfigPage.logOutFromAdmin();
 
