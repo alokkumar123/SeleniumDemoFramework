@@ -79,7 +79,7 @@ public class CreateNotificationActions extends GetPage {
     public void enterValueInCommentSection(String message) {
         element("div_commentSection").clear();
         element("div_commentSection").sendKeys(message);
-        ReportMsg.info("write " + message + " message in comment box ");
+        ReportMsg.info("write " + "' "+message +" ' " + " message in comment box ");
     }
 
     public void clickOnSaveButton() {
@@ -89,13 +89,13 @@ public class CreateNotificationActions extends GetPage {
 
     public void verifyMessageIsDisplayingOrNotDisplayingToUnauthenticatedUser(String splashPageView, String message) {
         if (splashPageView.contains("Grouping")) {
-            ReportMsg.info("Verifying created notification under Grouping View splash page");
+            ReportMsg.info(" Verifying created notification under Grouping View splash page");
         } else {
             ReportMsg.info("Verifying created notification under Front View splash page");
         }
         try {
             isElementDisplayed("span_notification", message);
-            ReportMsg.info("Verified " + message + " is displaying to Unauthenticated user");
+            ReportMsg.info("Verified " + "'" +message + "'" + " is displaying to Unauthenticated user");
         } catch (NoSuchElementException e) {
             ReportMsg.info("Verified " + "'" +message + "'"+ " is not displaying to Unauthenticated user as notification is hided");
         }
