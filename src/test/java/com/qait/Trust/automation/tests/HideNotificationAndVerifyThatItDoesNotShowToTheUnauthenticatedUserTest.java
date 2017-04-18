@@ -30,7 +30,7 @@ public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserT
     }
 
     @Test
-    public void TRUST_597_TC02_Create_Notification_And_Hede() {
+    public void TRUST_597_TC02_Create_Notification_And_Hide() {
         test.createNotificationPage.clickOnNotificationButton();
         test.createNotificationPage.selectSystemFromSelectMonitorDropDownAndHideNotification(monitorName, message);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
