@@ -65,6 +65,15 @@ public class CreateNotificationActions extends GetPage {
         element("div_selectMonitor").click();
         element("div_monitorName", monitorName).click();
         element("div_commentSection").click();
+        wait.waitForElementToBeVisible( element("div_selectMonitor"));
+    }
+    
+    public void selectMonitorfromDropDown(String monitorName,String monitorName1) {
+        isElementDisplayed("div_selectMonitor");
+        element("div_selectMonitor").click();
+        element("div_monitorName", monitorName).click();
+        element("div_monitorName", monitorName1).click();
+        element("div_commentSection").click();
     }
 
     public void enterValueInCommentSection(String message) {
