@@ -14,13 +14,15 @@ import org.testng.annotations.Test;
  *
  * @author alokkumar
  */
-public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserTest extends TestFundamentals{
+public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserTest extends TestFundamentals {
+
     String userName = getProperty("userName");
     String password = getProperty("password");
 
     String monitorName = null;
     String message = "test of Hide Notification ";
     String systemView;
+    String eventType1 = "Planned Maintenance";
 
     @Test
     public void TRUST_597_TC01_Login_With_Admin_User() {
@@ -41,7 +43,7 @@ public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserT
     @Test
     public void TRUST_597_TC03_Verify_Created_Notification_Does_Not_Display_To_Unauthenticated_User() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
-        test.createNotificationPage.verifyMessageIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView,message);
+        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView, message,eventType1);
 
     }
 

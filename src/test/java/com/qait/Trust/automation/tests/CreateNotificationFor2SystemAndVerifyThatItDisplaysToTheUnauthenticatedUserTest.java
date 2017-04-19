@@ -23,6 +23,8 @@ public class CreateNotificationFor2SystemAndVerifyThatItDisplaysToTheUnauthentic
     String monitorName2 = null;
     String message = "test of notification for 2 system";
     String systemView;
+    String eventType1 = "Planned Maintenance";
+    String eventType2 = "Informational Message";
 
     @Test
     public void TRUST_599_TC01_Login_With_Admin_User() {
@@ -36,7 +38,8 @@ public class CreateNotificationFor2SystemAndVerifyThatItDisplaysToTheUnauthentic
     @Test
     public void TRUST_599_TC02_Create_Notification_For_Single_System() {
         test.createNotificationPage.clickOnNotificationButton();
-        test.createNotificationPage.selectMonitorfromDropDown(monitorName1,monitorName2);
+        test.createNotificationPage.selectEventType(eventType1);
+        test.createNotificationPage.selectMonitorfromDropDown(monitorName1, monitorName2);
         test.createNotificationPage.setEndDateForMessageInformation();
         test.createNotificationPage.enterValueInCommentSection(message);
         test.createNotificationPage.clickOnSaveButton();
@@ -46,14 +49,27 @@ public class CreateNotificationFor2SystemAndVerifyThatItDisplaysToTheUnauthentic
     }
 
     @Test
-    public void TRUST_599_TC03_Verify_Created_Notification_Displays_To_Unauthenticated_User() {
+    public void TRUST_599_TC03_Verify_Created_Notification_And_Logo_Displays_To_Unauthenticated_User() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
-        test.createNotificationPage.verifyMessageIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView, message);
+        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView, message,eventType1);
 
     }
 
     @Test
-    public void TRUST_599_TC04_Delete_Created_Notifaction_By_Automation_Script() {
+    public void TRUST_599_TC04_Change_Event_Type_And_Verify_Created_Notification_And_Logo_Displays_To_Unauthenticated_User() {
+        test.createAndConfigPage.logAsAdmin(userName, password);
+        test.createNotificationPage.searchCreatedNotification(message);
+        test.createNotificationPage.clickOnCreatedNotificationMessage(message, monitorName1);
+        test.createNotificationPage.selectEventType(eventType2);
+        test.createNotificationPage.clickOnSaveButton();
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+        test.createAndConfigPage.logOutFromAdmin();
+        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
+        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView, message,eventType2);
+    }
+
+    @Test
+    public void TRUST_599_TC05_Delete_Created_Notifaction_By_Automation_Script() {
         test.createAndConfigPage.logAsAdmin(userName, password);
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.deleteCreatedNotification(message);

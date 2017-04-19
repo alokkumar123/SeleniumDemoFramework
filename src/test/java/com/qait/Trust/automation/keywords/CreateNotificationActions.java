@@ -64,24 +64,24 @@ public class CreateNotificationActions extends GetPage {
         isElementDisplayed("div_selectMonitor");
         element("div_selectMonitor").click();
         element("div_monitorName", monitorName).click();
-        ReportMsg.info("Selected "+monitorName + "from select monitor drop down");
+        ReportMsg.info("Selected "+"'"+ monitorName +"'"+ " from select monitor drop down");
         element("div_commentSection").click();
     }
-    
-    public void selectMonitorfromDropDown(String monitorName,String monitorName1) {
+
+    public void selectMonitorfromDropDown(String monitorName, String monitorName1) {
         isElementDisplayed("div_selectMonitor");
         element("div_selectMonitor").click();
         element("div_monitorName", monitorName).click();
-        ReportMsg.info("Selected "+monitorName + "from select monitor drop down");
+        ReportMsg.info("Selected " + monitorName + " from select monitor drop down");
         element("div_monitorName", monitorName1).click();
-        ReportMsg.info("Selected "+monitorName1 + "from select monitor drop down");
+        ReportMsg.info("Selected " + monitorName1 + " from select monitor drop down");
         element("div_commentSection").click();
     }
 
     public void enterValueInCommentSection(String message) {
         element("div_commentSection").clear();
         element("div_commentSection").sendKeys(message);
-        ReportMsg.info("write " + "' "+message +" ' " + " message in comment box ");
+        ReportMsg.info("write " + "'" + message + "'" + " message in comment box ");
     }
 
     public void clickOnSaveButton() {
@@ -89,17 +89,23 @@ public class CreateNotificationActions extends GetPage {
         ReportMsg.info("clicked on save button");
     }
 
-    public void verifyMessageIsDisplayingOrNotDisplayingToUnauthenticatedUser(String splashPageView, String message) {
+    public void verifyMessageAndLogoIsDisplayingOrNotDisplayingToUnauthenticatedUser(String splashPageView, String message, String eventType) {
         if (splashPageView.contains("Grouping")) {
             ReportMsg.info(" Verifying created notification under Grouping View splash page");
         } else {
             ReportMsg.info("Verifying created notification under Front View splash page");
         }
         try {
+            isElementDisplayed("div_logo");
+            ReportMsg.info("Planned maintenance logo is displaying");
+            isElementDisplayed("span_notificationWithLogo", message);
+            ReportMsg.info("Verified " + "'" + message + "'" + " is displaying to Unauthenticated user 'with logo' for " + " '" + eventType + "' " + " event Type");
+        } catch (NoSuchElementException e1) {
             isElementDisplayed("span_notification", message);
-            ReportMsg.info("Verified " + "'" +message + "'" + " is displaying to Unauthenticated user");
-        } catch (NoSuchElementException e) {
-            ReportMsg.info("Verified " + "'" +message + "'"+ " is not displaying to Unauthenticated user as notification is hided");
+            ReportMsg.info("Verified " + "'" + message + "'" + " is displaying to Unauthenticated user 'without logo' for " + " '" + eventType + "' " + "event Type");
+
+        } catch (Exception e) {
+            ReportMsg.info("Verified " + "'" + message + "'" + " is not displaying to Unauthenticated user as notification is hided");
         }
     }
 
@@ -129,5 +135,18 @@ public class CreateNotificationActions extends GetPage {
         isElementDisplayed("input_enabledCheckBox");
         element("input_enabledCheckBox").click();
         ReportMsg.info(" 'Unchecked on enable button which hides notification' ");
+    }
+
+    public void selectEventType(String eventType) {
+        isElementDisplayed("div_eventContainer");
+        element("div_eventContainer").click();
+        element("div_eventType", eventType).click();
+        ReportMsg.info("Selected " + " '" + eventType + "' " + "from event Type Drop Down");
+    }
+
+    public void clickOnCreatedNotificationMessage(String message, String monitorName) {
+        isElementDisplayed("td_monitorName", monitorName);
+        isElementDisplayed("link_Message", message);
+        element("link_Message", message).click();
     }
 }
