@@ -64,7 +64,7 @@ public class CreateNotificationActions extends GetPage {
         isElementDisplayed("div_selectMonitor");
         element("div_selectMonitor").click();
         element("div_monitorName", monitorName).click();
-        ReportMsg.info("Selected "+"'"+ monitorName +"'"+ " from select monitor drop down");
+        ReportMsg.info("Selected " + "'" + monitorName + "'" + " from select monitor drop down");
         element("div_commentSection").click();
     }
 
@@ -101,11 +101,12 @@ public class CreateNotificationActions extends GetPage {
             isElementDisplayed("span_notificationWithLogo", message);
             ReportMsg.info("Verified " + "'" + message + "'" + " is displaying to Unauthenticated user 'with logo' for " + " '" + eventType + "' " + " event Type");
         } catch (NoSuchElementException e1) {
-            isElementDisplayed("span_notification", message);
-            ReportMsg.info("Verified " + "'" + message + "'" + " is displaying to Unauthenticated user 'without logo' for " + " '" + eventType + "' " + "event Type");
-
-        } catch (Exception e) {
-            ReportMsg.info("Verified " + "'" + message + "'" + " is not displaying to Unauthenticated user as notification is hided");
+            try {
+                isElementDisplayed("span_notification", message);
+                ReportMsg.info("Verified " + "'" + message + "'" + " is displaying to Unauthenticated user 'without logo' for " + " '" + eventType + "' " + "event Type");
+            } catch (NoSuchElementException e) {
+                ReportMsg.info("Verified " + "'" + message + "'" + " is not displaying to Unauthenticated user as notification is hided");
+            }
         }
     }
 
