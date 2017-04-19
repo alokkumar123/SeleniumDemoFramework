@@ -64,6 +64,7 @@ public class CreateNotificationActions extends GetPage {
         isElementDisplayed("div_selectMonitor");
         element("div_selectMonitor").click();
         element("div_monitorName", monitorName).click();
+        ReportMsg.info("Selected "+monitorName + "from select monitor drop down");
         element("div_commentSection").click();
     }
     
@@ -71,7 +72,9 @@ public class CreateNotificationActions extends GetPage {
         isElementDisplayed("div_selectMonitor");
         element("div_selectMonitor").click();
         element("div_monitorName", monitorName).click();
+        ReportMsg.info("Selected "+monitorName + "from select monitor drop down");
         element("div_monitorName", monitorName1).click();
+        ReportMsg.info("Selected "+monitorName1 + "from select monitor drop down");
         element("div_commentSection").click();
     }
 
