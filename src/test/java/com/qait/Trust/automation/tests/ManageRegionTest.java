@@ -17,7 +17,7 @@ public class ManageRegionTest extends TestFundamentals {
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage regions");
         test.createAndConfigPage.gridShouldBeAvailableFor("Name");
-        test.createAndConfigPage.gridShouldBeAvailableFor("Systems");
+//        test.createAndConfigPage.gridShouldBeAvailableFor("Systems");
         test.createAndConfigPage.gridShouldBeAvailableFor("Monitors");
     }
 

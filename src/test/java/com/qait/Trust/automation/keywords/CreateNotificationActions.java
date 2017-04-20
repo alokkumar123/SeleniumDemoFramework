@@ -47,7 +47,7 @@ public class CreateNotificationActions extends GetPage {
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x, 0).build().perform();
         ReportMsg.info("Draged minute handle in right side");
         element("btn_ok").click();
-
+        try {
         element("div_endTimeSecondBox").click();
         element("div_selectTimeMode").click();
         element("btn_close").click();
@@ -57,7 +57,10 @@ public class CreateNotificationActions extends GetPage {
         //ReportMsg.info(" now x " + x + " y " + y);
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
         ReportMsg.info("Draged minute handle in right side ");
-        element("btn_ok").click();
+        element("btn_ok").click();}
+        catch(NoSuchElementException ee){
+            ReportMsg.info("Time Setting options is not for Message display");
+        } 
     }
 
     public void selectMonitorfromDropDown(String monitorName) {
@@ -138,6 +141,12 @@ public class CreateNotificationActions extends GetPage {
         ReportMsg.info(" 'Unchecked on enable button which hides notification' ");
     }
 
+    public void overrideNotificationfromUser() {
+        isElementDisplayed("input_overrideCheckBox");
+        element("input_overrideCheckBox").click();
+        ReportMsg.info(" 'Overided System by clicking on override check box' ");
+    }
+
     public void selectEventType(String eventType) {
         isElementDisplayed("div_eventContainer");
         element("div_eventContainer").click();
@@ -149,5 +158,29 @@ public class CreateNotificationActions extends GetPage {
         isElementDisplayed("td_monitorName", monitorName);
         isElementDisplayed("link_Message", message);
         element("link_Message", message).click();
+    }
+
+    public void verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(String splashPageView, String message, String eventType, String color) {
+        if (splashPageView.contains("Grouping")) {
+            ReportMsg.info(" Verifying created notification under Grouping View splash page");
+        } else {
+            ReportMsg.info("Verifying created notification under Front View splash page");
+        }
+
+        if (color.contains("red")) {
+            isElementDisplayed("span_redNotificationWithLogo", message);
+
+            ReportMsg.info("Red color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
+        }
+        if (color.contains("green")) {
+            isElementDisplayed("span_greenNotificationWithLogo", message);
+            ReportMsg.info("Green color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
+
+        }
+        if (color.contains("orange")) {
+            isElementDisplayed("span_orangeNotificationWithLogo", message);
+            ReportMsg.info("Orange color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with "+ "'" + message + "'" + " message");
+
+        }
     }
 }

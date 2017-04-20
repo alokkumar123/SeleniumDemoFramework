@@ -16,11 +16,15 @@ button_delete                                xpath          //button[text()='Del
 btn_ok                                       xpath          //button[text()='OK']
 btn_save                                     xpath          //button[text()='Save']
 input_enabledCheckBox                        xpath          //div[@id='enabled']//input[@type='checkbox']  
+input_overrideCheckBox                       xpath           //div[@id='override']//input[@type='checkbox']
 div_eventContainer                           xpath           //div[@class='event-item-container']
 div_eventType                                xpath           //div[text()='${eventType}']
 link_Message                                 xpath           //span[text()='${message}']
 td_monitorName                               xpath           //td[@data-search-text='']
 span_notificationWithLogo                    xpath           //div[@class='cell-status-container empty']/ancestor::tr//span[contains(text(),'${message}')]   
-div_logo                                     xpath           //div[@class='cell-status-container empty']               
+div_logo                                     xpath           //div[@class='cell-status-container empty']    
+span_redNotificationWithLogo                 xpath           //div[@class='cell-status-container red']/ancestor::tr//span[contains(text(),'${message}')]
+span_greenNotificationWithLogo               xpath           //div[@class='cell-status-container green']/ancestor::tr//span[contains(text(),'${message}')] 
+span_orangeNotificationWithLogo              xpath           //div[@class='cell-status-container orange']/ancestor::tr//span[contains(text(),'${message}')] 
 ==================================================================================================================================
     
