@@ -57,12 +57,12 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
 
     @Test
     public void TRUST_601_TC04_Override_Red_System_To_Green() {
-
+        
         test.createAndConfigPage.logAsAdmin(userName, password);
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.clickOnCreatedNotificationMessage(message, monitorName);
         test.createNotificationPage.selectEventType(eventType2);
-        message = "Overriding red system to green System";
+        message ="Overriding red system to green System";
         test.createNotificationPage.enterValueInCommentSection(message);
         test.createNotificationPage.overrideNotificationfromUser();
         test.createNotificationPage.clickOnSaveButton();
@@ -75,7 +75,7 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
         test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, orangeColor);
     }
-
+    
     @Test
     public void TRUST_602_TC06_Delete_Created_Notifaction_By_Automation_Script() {
         test.createAndConfigPage.logAsAdmin(userName, password);

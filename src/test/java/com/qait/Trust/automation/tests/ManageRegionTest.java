@@ -54,8 +54,8 @@ public class ManageRegionTest extends TestFundamentals {
     @Test
     public void Step06_TRUST_437_Sorting_Of_Records() {
         test.createAndConfigPage.sortingOfRecordswith("Name", "1");
-        test.createAndConfigPage.sortingOfRecordswith("System", "2");
-        test.createAndConfigPage.sortingOfRecordswith("Monitors", "3");
+//        /test.createAndConfigPage.sortingOfRecordswith("System", "2");
+        test.createAndConfigPage.sortingOfRecordswith("Monitors", "2");
     }
 
     @Test
