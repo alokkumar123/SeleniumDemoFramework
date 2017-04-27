@@ -48,19 +48,47 @@ public class CreateNotificationActions extends GetPage {
         ReportMsg.info("Draged minute handle in right side");
         element("btn_ok").click();
         try {
-        element("div_endTimeSecondBox").click();
-        element("div_selectTimeMode").click();
-        element("btn_close").click();
-        element("div_selectTimeMode").click();
-        int x1 = element("div_mintueSlider").getLocation().getX();
-        x1 = x1 + 1;
-        //ReportMsg.info(" now x " + x + " y " + y);
-        new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
-        ReportMsg.info("Draged minute handle in right side ");
-        element("btn_ok").click();}
-        catch(NoSuchElementException ee){
+            element("div_endTimeSecondBox").click();
+            element("div_selectTimeMode").click();
+            element("btn_close").click();
+            element("div_selectTimeMode").click();
+            int x1 = element("div_mintueSlider").getLocation().getX();
+            x1 = x1 + 1;
+            //ReportMsg.info(" now x " + x + " y " + y);
+            new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
+            ReportMsg.info("Draged minute handle in right side ");
+            element("btn_ok").click();
+        } catch (NoSuchElementException ee) {
             ReportMsg.info("Time Setting options is not for Message display");
-        } 
+        }
+    }
+    
+    public void setStartDateForMessageInformation(){
+         element("div_startTimeBox").click();
+        element("div_selectTimeMode").click();
+       // element("btn_close").click();
+        element("div_selectTimeMode").click();
+
+        int x = element("div_mintueSlider").getLocation().getX();
+        int y = element("div_mintueSlider").getLocation().getY();
+        x = x - 1;
+        new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x, 0).build().perform();
+        ReportMsg.info("Draged minute handle in left side");
+        element("btn_ok").click();
+        try {
+            element("div_startTimeSecondBox").click();
+            element("div_selectTimeMode").click();
+            element("btn_close").click();
+            element("div_selectTimeMode").click();
+            int x1 = element("div_mintueSlider").getLocation().getX();
+            x1 = x1 - 1;
+            //ReportMsg.info(" now x " + x + " y " + y);
+            new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
+            ReportMsg.info("Draged minute handle in left side ");
+            element("btn_ok").click();
+        } catch (NoSuchElementException ee) {
+            ReportMsg.info("Time Setting options is not for Message display");
+        }
     }
 
     public void selectMonitorfromDropDown(String monitorName) {
@@ -170,17 +198,23 @@ public class CreateNotificationActions extends GetPage {
         if (color.contains("red")) {
             isElementDisplayed("span_redNotificationWithLogo", message);
 
-            ReportMsg.info("Red color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
+            ReportMsg.info("Red color noitification is displaying with logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
         }
         if (color.contains("green")) {
             isElementDisplayed("span_greenNotificationWithLogo", message);
-            ReportMsg.info("Green color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
+            ReportMsg.info("Green color noitification is displaying with logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
 
         }
         if (color.contains("orange")) {
             isElementDisplayed("span_orangeNotificationWithLogo", message);
-            ReportMsg.info("Orange color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with "+ "'" + message + "'" + " message");
+            ReportMsg.info("Orange color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
 
         }
+    }
+
+    public void verifyOverriddenSystem(String monitorName) {
+        String currentTime = element("td_currentTime").getText();
+        isElementDisplayed("div_greenColor", currentTime);
+        ReportMsg.info("Green color bricks are displaying under current time " + "'" + currentTime + "'" + " on Detail Screen Pagge for " + monitorName);
     }
 }

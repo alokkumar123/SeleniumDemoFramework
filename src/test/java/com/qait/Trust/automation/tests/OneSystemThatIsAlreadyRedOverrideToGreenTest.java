@@ -26,7 +26,7 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
     String redColor = "red";
     String greenColor = "green";
     String orangeColor = "orange";
-    String eventType2 = "Critical disruption";
+    String eventType2 = "Service doesn't have any issues";
 
     @Test
     public void TRUST_601_TC01_Login_With_Admin_User() {
@@ -36,7 +36,7 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
     }
 
     @Test
-    public void TRUST_601_TC02_Create_Notification_Red_System() {
+    public void TRUST_601_TC02_Create_Notification_For_Red_System() {
         test.createNotificationPage.clickOnNotificationButton();
         test.createNotificationPage.selectMonitorfromDropDown(monitorName);
         test.createNotificationPage.selectEventType(eventType1);
@@ -49,35 +49,31 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
     }
 
     @Test
-    public void TRUST_601_TC03_Verify_Created_Notification_Displays_To_Unauthenticated_User() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
-        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType1, redColor);
-
-    }
-
-    @Test
-    public void TRUST_601_TC04_Override_Red_System_To_Green() {
-        
+    public void TRUST_601_TC03_Override_Red_System_To_Green() {
         test.createAndConfigPage.logAsAdmin(userName, password);
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.clickOnCreatedNotificationMessage(message, monitorName);
-        test.createNotificationPage.selectEventType(eventType2);
-        message ="Overriding red system to green System";
-        test.createNotificationPage.enterValueInCommentSection(message);
+        test.createNotificationPage.setStartDateForMessageInformation();
         test.createNotificationPage.overrideNotificationfromUser();
+        test.createNotificationPage.selectEventType(eventType2);
+        message = "Overriding red system to green System";
+        test.createNotificationPage.enterValueInCommentSection(message);
         test.createNotificationPage.clickOnSaveButton();
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         test.createAndConfigPage.logOutFromAdmin();
     }
 
     @Test
-    public void TRUST_601_TC05_Verify_Notification_For_Overrided_System() {
+    public void TRUST_601_TC04_Verify_Notification_For_Overrided_System_From_Red_To_Green() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
-        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, orangeColor);
+        String monitorName =test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
+        test.createNotificationPage.verifyOverriddenSystem(monitorName);
+        
+//        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, greenColor);
     }
-    
+
     @Test
-    public void TRUST_602_TC06_Delete_Created_Notifaction_By_Automation_Script() {
+    public void TRUST_601_TC05_Delete_Created_Notifaction_By_Automation_Script() {
         test.createAndConfigPage.logAsAdmin(userName, password);
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.deleteCreatedNotification(message);
