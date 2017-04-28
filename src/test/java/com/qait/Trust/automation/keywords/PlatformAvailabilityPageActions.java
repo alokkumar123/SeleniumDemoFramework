@@ -490,4 +490,32 @@ public class PlatformAvailabilityPageActions extends GetPage {
         return flagString;
     }
 
+    public String verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose(String systemName, String systemView) {
+        int count = 0;
+        String flagString = "Front";
+        if (systemView.equalsIgnoreCase("Grouping")) {
+            for (WebElement grp : elements("list_groupHeading")) {
+                try {
+                    element("div_systemWithText", systemName).click();
+                    ReportMsg.info("Clicked on '" + systemName + "' System");
+                    break;
+                } catch (TimeoutException ex) {
+                    ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
+                    if (grp.getAttribute("aria-expanded").equalsIgnoreCase("false")) {
+                        grp.click();
+                        ReportMsg.info("Clicked on '" + grp.getText().trim() + "' group");
+                    }
+                }
+                count++;
+                if (elements("list_groupHeading").size() == count) {
+                    isElementDisplayed("div_systemWithText", systemName);
+                    flagString = "Grouping";
+                }
+            }
+        } else if (systemView.equalsIgnoreCase("Front")) {
+            isElementDisplayed("div_systemWithText", systemName);
+
+        }
+        return flagString;
+    }
 }

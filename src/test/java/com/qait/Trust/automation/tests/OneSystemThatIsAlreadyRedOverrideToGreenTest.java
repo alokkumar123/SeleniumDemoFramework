@@ -27,7 +27,7 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
     String greenColor = "green";
     String orangeColor = "orange";
     String eventType2 = "Service doesn't have any issues";
-
+  
     @Test
     public void TRUST_601_TC01_Login_With_Admin_User() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();

@@ -62,11 +62,11 @@ public class CreateNotificationActions extends GetPage {
             ReportMsg.info("Time Setting options is not for Message display");
         }
     }
-    
-    public void setStartDateForMessageInformation(){
-         element("div_startTimeBox").click();
+
+    public void setStartDateForMessageInformation() {
+        element("div_startTimeBox").click();
         element("div_selectTimeMode").click();
-       // element("btn_close").click();
+        // element("btn_close").click();
         element("div_selectTimeMode").click();
 
         int x = element("div_mintueSlider").getLocation().getX();
@@ -216,5 +216,22 @@ public class CreateNotificationActions extends GetPage {
         String currentTime = element("td_currentTime").getText();
         isElementDisplayed("div_greenColor", currentTime);
         ReportMsg.info("Green color bricks are displaying under current time " + "'" + currentTime + "'" + " on Detail Screen Pagge for " + monitorName);
+    }
+
+    public void selectSystemAndVerifyItsPrivilege(String systemName) {
+        isElementDisplayed("link_systemName", systemName);
+        element("link_systemName", systemName).click();
+        ReportMsg.info("Clicked on " + systemName + " Form mangae system");
+        String text = element("div_accessLevel").getText();
+        ReportMsg.info("Privilege of this system is '" + text + "'");
+    }
+
+    public void verifySytemUnderPrivileges(String systemName, String privilege) {
+        try {
+            isElementDisplayed("div_systemWithText", systemName);
+            ReportMsg.info("'" + systemName + "'" + "is displaying for '" + privilege + "' privilege");
+        } catch (NoSuchElementException e1) {
+            ReportMsg.info("'" + systemName + "'" + "is not displaying for '" + privilege + "' privilege");
+        }
     }
 }
