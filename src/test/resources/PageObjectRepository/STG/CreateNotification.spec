@@ -32,6 +32,7 @@ td_currentTime                               xpath           (//td[contains(@sty
 div_greenColor                               xpath           //td[text() ='${currentTime}']/ancestor::tr//div[@class='green']
 link_systemName                              xpath           //tr//a[text()='${systemName}'] 
 div_systemWithText                           xpath           //div[text()='${systemName}']
-div_accessLevel                              xpath           //div[@id='access-level']//div[@class='rw-input']                                        
+div_accessLevel                              xpath           //div[@id='access-level']//div[@class='rw-input'] 
+div_publicSystem                             xpath           //div[contains(@style,'${systemName}')]                                          
 ==================================================================================================================================
     

@@ -223,15 +223,27 @@ public class CreateNotificationActions extends GetPage {
         element("link_systemName", systemName).click();
         ReportMsg.info("Clicked on " + systemName + " Form mangae system");
         String text = element("div_accessLevel").getText();
-        ReportMsg.info("Privilege of this system is '" + text + "'");
+        ReportMsg.info("Privilege of '" + systemName + "' system is '" + text + "'");
     }
 
     public void verifySytemUnderPrivileges(String systemName, String privilege) {
-        try {
+        if (privilege.contains("Internal")) {
             isElementDisplayed("div_systemWithText", systemName);
-            ReportMsg.info("'" + systemName + "'" + "is displaying for '" + privilege + "' privilege");
-        } catch (NoSuchElementException e1) {
-            ReportMsg.info("'" + systemName + "'" + "is not displaying for '" + privilege + "' privilege");
+            ReportMsg.info("'" + systemName + "'" + " is displaying for 'Internal' privilege");
+        }
+
+        if (privilege.contains("GPT")) {
+            isElementDisplayed("div_systemWithText", systemName);
+            ReportMsg.info("'" + systemName + "'" + " is displaying for 'GPT' privilege");
+        }
+        if (privilege.contains("Admin")) {
+            isElementDisplayed("div_systemWithText", systemName);
+            ReportMsg.info("'" + systemName + "'" + " is displaying for 'Admin' privilege");
+        }
+
+        if (privilege.contains("Public")) {
+            isElementDisplayed("div_publicSystem", systemName);
+            ReportMsg.info("'" + systemName + "'" + " is displaying for 'Public' privilege");
         }
     }
 }

@@ -13,47 +13,59 @@ import org.testng.annotations.Test;
  *
  * @author alokkumar
  */
-public class ValidateInternalSystemsOnlyShowUpForUserInternalPrivilegeTest extends TestFundamentals {
+public class ValidateAdminSystemsOnlyShowUpForUserAdminPrivilegeTest extends TestFundamentals {
 
     String userName = getProperty("userName");
     String password = getProperty("password");
     String internalSystem = "Regression Test 2";
+    String gptSystem = "GPT General System";
+    String adminSystem = "Admin System Test";
     String publicSystem = "/systems/582042dddc7feb181696f604/logo.png";
-    String internalUser = "internalqa";
-    String internalPassword = "Cengage1";
     String internalPrivilege = "Internal";
     String publicPrivilege = "Public";
+    String gptPrivilege = "GPT";
+    String adminPrivilege = "Admin";
     String systemView;
 
     @Test
-    public void TRUST_593_TC01_Login_With_QaAdmin_User() {
+    public void TRUST_596_TC01_Login_With_QaAdmin_User() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         //monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
         test.createAndConfigPage.logAsAdmin(userName, password);
     }
 
     @Test
-    public void TRUST_593_TC02_QaAdmin_Navigate_To_Manage_System_And_Find_System_With_Internal_Privileges() {
+    public void TRUST_596_TC02_QaAdmin_Navigate_To_Manage_System_And_Find_System_With_GPT_Privileges() {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
-        test.createNotificationPage.selectSystemAndVerifyItsPrivilege(internalSystem);
+        test.createNotificationPage.selectSystemAndVerifyItsPrivilege(adminSystem);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         test.createAndConfigPage.logOutFromAdmin();
     }
 
     @Test
-    public void TRUST_593_TC03_Login_With_Internal_User() {
-        test.createAndConfigPage.logAsAdmin(internalUser, internalPassword);
+    public void TRUST_596_TC03_Login_With_Admin_User() {
+        test.createAndConfigPage.logAsAdmin(userName, password);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 
     @Test
-    public void TRUST_593_TC04_Verify_Internal_User_Can_See_Internal_Privilages() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose(internalSystem, systemView);
+    public void TRUST_596_TC04_Verify_Admin_User_Can_See_Admin_Privilages() {
+        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose(adminSystem, systemView);
+        test.createNotificationPage.verifySytemUnderPrivileges(adminSystem, adminPrivilege);
+    }
+
+    @Test
+    public void TRUST_596_TC05_Verify_Admin_User_Can_See_GTP_Privilages_Also() {
+        test.createNotificationPage.verifySytemUnderPrivileges(gptSystem, gptPrivilege);
+    }
+
+    @Test
+    public void TRUST_596_TC06_Verify_Admin_User_Can_See_Internal_Privilages_Also() {
         test.createNotificationPage.verifySytemUnderPrivileges(internalSystem, internalPrivilege);
     }
 
     @Test
-    public void TRUST_593_TC05_Verify_Internal_User_Can_See_Public_Privilages_Also() {
+    public void TRUST_596_TC07_Verify_Admin_User_Can_See_Public_Privilages_Also() {
         test.createNotificationPage.verifySytemUnderPrivileges(publicSystem, publicPrivilege);
     }
 }
