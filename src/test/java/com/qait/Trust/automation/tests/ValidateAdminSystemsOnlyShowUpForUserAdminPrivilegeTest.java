@@ -28,14 +28,14 @@ public class ValidateAdminSystemsOnlyShowUpForUserAdminPrivilegeTest extends Tes
     String systemView;
 
     @Test
-    public void TRUST_596_TC01_Login_With_QaAdmin_User() {
+    public void TRUST_595_TC01_Login_With_QaAdmin_User() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         //monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
         test.createAndConfigPage.logAsAdmin(userName, password);
     }
 
     @Test
-    public void TRUST_596_TC02_QaAdmin_Navigate_To_Manage_System_And_Find_System_With_GPT_Privileges() {
+    public void TRUST_595_TC02_QaAdmin_Navigate_To_Manage_System_And_Find_System_With_GPT_Privileges() {
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.createNotificationPage.selectSystemAndVerifyItsPrivilege(adminSystem);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
@@ -43,29 +43,29 @@ public class ValidateAdminSystemsOnlyShowUpForUserAdminPrivilegeTest extends Tes
     }
 
     @Test
-    public void TRUST_596_TC03_Login_With_Admin_User() {
+    public void TRUST_595_TC03_Login_With_Admin_User() {
         test.createAndConfigPage.logAsAdmin(userName, password);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
 
     @Test
-    public void TRUST_596_TC04_Verify_Admin_User_Can_See_Admin_Privilages() {
+    public void TRUST_595_TC04_Verify_Admin_User_Can_See_Admin_Privilages() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose(adminSystem, systemView);
         test.createNotificationPage.verifySytemUnderPrivileges(adminSystem, adminPrivilege);
     }
 
     @Test
-    public void TRUST_596_TC05_Verify_Admin_User_Can_See_GTP_Privilages_Also() {
+    public void TRUST_595_TC05_Verify_Admin_User_Can_See_GTP_Privilages_Also() {
         test.createNotificationPage.verifySytemUnderPrivileges(gptSystem, gptPrivilege);
     }
 
     @Test
-    public void TRUST_596_TC06_Verify_Admin_User_Can_See_Internal_Privilages_Also() {
+    public void TRUST_595_TC06_Verify_Admin_User_Can_See_Internal_Privilages_Also() {
         test.createNotificationPage.verifySytemUnderPrivileges(internalSystem, internalPrivilege);
     }
 
     @Test
-    public void TRUST_596_TC07_Verify_Admin_User_Can_See_Public_Privilages_Also() {
+    public void TRUST_595_TC07_Verify_Admin_User_Can_See_Public_Privilages_Also() {
         test.createNotificationPage.verifySytemUnderPrivileges(publicSystem, publicPrivilege);
     }
 }
