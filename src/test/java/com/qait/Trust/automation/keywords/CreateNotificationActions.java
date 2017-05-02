@@ -163,7 +163,7 @@ public class CreateNotificationActions extends GetPage {
         clickOnSaveButton();
     }
 
-    private void hideNotificationfromUser() {
+    public void hideNotificationfromUser() {
         isElementDisplayed("input_enabledCheckBox");
         element("input_enabledCheckBox").click();
         ReportMsg.info(" 'Unchecked on enable button which hides notification' ");
@@ -195,20 +195,24 @@ public class CreateNotificationActions extends GetPage {
             ReportMsg.info("Verifying created notification under Front View splash page");
         }
 
-        if (color.contains("red")) {
-            isElementDisplayed("span_redNotificationWithLogo", message);
+        try {
+            if (color.contains("red")) {
+                isElementDisplayed("span_redNotificationWithLogo", message);
 
-            ReportMsg.info("Red color noitification is displaying with logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
-        }
-        if (color.contains("green")) {
-            isElementDisplayed("span_greenNotificationWithLogo", message);
-            ReportMsg.info("Green color noitification is displaying with logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
+                ReportMsg.info("Red color noitification is displaying with logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
+            }
+            if (color.contains("green")) {
+                isElementDisplayed("span_greenNotificationWithLogo", message);
+                ReportMsg.info("Green color noitification is displaying with logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
 
-        }
-        if (color.contains("orange")) {
-            isElementDisplayed("span_orangeNotificationWithLogo", message);
-            ReportMsg.info("Orange color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
+            }
+            if (color.contains("orange")) {
+                isElementDisplayed("span_orangeNotificationWithLogo", message);
+                ReportMsg.info("Orange color noitification is displaying whith logo for " + "'" + eventType + "'" + " event type with " + "'" + message + "'" + " message");
 
+            }
+        } catch (Exception e) {
+            ReportMsg.info("Verified color notification is not displaying on splash page");
         }
     }
 
@@ -245,5 +249,10 @@ public class CreateNotificationActions extends GetPage {
             isElementDisplayed("div_publicSystem", systemName);
             ReportMsg.info("'" + systemName + "'" + " is displaying for 'Public' privilege");
         }
+    }
+
+    public void setDateToTBD() {
+        element("div_endDate").click();
+        ReportMsg.info("Clicked on end date and set date as TBDs");
     }
 }
