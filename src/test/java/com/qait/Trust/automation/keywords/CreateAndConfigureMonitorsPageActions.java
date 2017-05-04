@@ -45,6 +45,11 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("link_MenuName", menuName).click();
         ReportMsg.info("Clicked on '" + menuName + "' tab");
     }
+    
+     public void verifyAdminMenuisDisplaying(String menuName) {
+        isElementDisplayed("div_adminMenu");
+        ReportMsg.info("Verified '"+menuName+"' is displaying on Admin menu");
+    }
 
     public void scrollDown() {
         scrollDown(element("scroll_element"));

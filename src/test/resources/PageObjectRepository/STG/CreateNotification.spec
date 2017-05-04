@@ -34,6 +34,13 @@ link_systemName                              xpath           //tr//a[text()='${s
 div_systemWithText                           xpath           //div[text()='${systemName}']
 div_accessLevel                              xpath           //div[@id='access-level']//div[@class='rw-input'] 
 div_publicSystem                             xpath           //div[contains(@style,'${systemName}')]    
-div_endDate                                  xpath           //div[@class='endDate']//input[@type='checkbox']                                              
+div_endDate                                  xpath           //div[@class='endDate']//input[@type='checkbox']    
+link_Role                                    xpath           //tr//a[text()='${role}']   
+span_permission                              xpath           //span[@class='Select-arrow']
+div_selectFQAs                               xpath           //div[@class='Select-menu']//div[text()='${faq}'] 
+div_newFaqs                                  xpath           //div[contains(text(),'Add a section')]
+link_faqsLink                                xpath           //a[text()='FAQ']
+div_deleteFAQsPermission                     xpath           //*[text()='${faqPermission}']/parent::div[@class='Select-value']//span[@class='Select-value-icon']                                                                    
+span_Name                                    xpath           //label[contains(text(),'Name')] 
 ==================================================================================================================================
     

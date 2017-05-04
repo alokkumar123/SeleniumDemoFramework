@@ -255,4 +255,30 @@ public class CreateNotificationActions extends GetPage {
         element("div_endDate").click();
         ReportMsg.info("Clicked on end date and set date as TBDs");
     }
+
+    public void clickOnFaqRole(String role) {
+        isElementDisplayed("link_Role", role);
+        element("link_Role", role).click();
+    }
+
+    public void addFQAPermissionInRoleDorpDown(String faq) {
+        element("span_permission").click();
+        element("div_selectFQAs", faq).click();
+        element("span_permission").click();
+        ReportMsg.info("Added '" + faq + "' permission in FAQ-Role");
+    }
+
+    public void verifyNewFAQsAreDisplaying() {
+        isElementDisplayed("div_newFaqs");
+        ReportMsg.info(" Verified New FAQs are displaying");
+    }
+
+    public void verifyFAQsLinkOnSlapshPage() {
+        isElementDisplayed("link_faqsLink");
+        ReportMsg.info(" Verified FAQs Link is displaying on Splash Page");
+    }
+    public void deleteFQAsPermissionFromFQARole(String faqPermission) {
+        element("div_deleteFAQsPermission",faqPermission).click();
+        ReportMsg.info("Deleted '"+faqPermission+"' form FAQs Role");
+    }
 }
