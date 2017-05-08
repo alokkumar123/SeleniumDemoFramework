@@ -19,7 +19,7 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
     String userName = getProperty("userName");
     String password = getProperty("password");
 
-    String monitorName = null;
+    String monitorName = "RegTest-802";
     String message = "test of red system";
     String systemView;
     String eventType1 = "Service temporarily unavailable";
@@ -27,11 +27,11 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
     String greenColor = "green";
     String orangeColor = "orange";
     String eventType2 = "Service doesn't have any issues";
-  
+
     @Test
     public void TRUST_601_TC01_Login_With_Admin_User() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
+        // monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
         test.createAndConfigPage.logAsAdmin(userName, password);
     }
 
@@ -60,21 +60,22 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
         test.createNotificationPage.enterValueInCommentSection(message);
         test.createNotificationPage.clickOnSaveButton();
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-        test.createAndConfigPage.logOutFromAdmin();
+        // test.createAndConfigPage.logOutFromAdmin();
     }
 
     @Test
     public void TRUST_601_TC04_Verify_Notification_For_Overrided_System_From_Red_To_Green() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
-        String monitorName =test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
-        test.createNotificationPage.verifyOverriddenSystem(monitorName);
-        
+        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
+        test.createNotificationPage.navigateToAdminPage();
+        test.createNotificationPage.navigateToMonitorFromAdminPage(monitorName);
+        test.createNotificationPage.verifyOverriddenSystem("Regression Test 2");
+
 //        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, greenColor);
     }
 
     @Test
     public void TRUST_601_TC05_Delete_Created_Notifaction_By_Automation_Script() {
-        test.createAndConfigPage.logAsAdmin(userName, password);
+        test.createNotificationPage.navigateToAdminPage();
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.deleteCreatedNotification(message);
         test.createAndConfigPage.logOutFromAdmin();

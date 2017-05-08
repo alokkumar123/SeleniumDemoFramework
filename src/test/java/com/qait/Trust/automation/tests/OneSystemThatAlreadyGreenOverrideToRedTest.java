@@ -7,7 +7,6 @@ package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
-import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 /**
@@ -19,7 +18,7 @@ public class OneSystemThatAlreadyGreenOverrideToRedTest extends TestFundamentals
     String userName = getProperty("userName");
     String password = getProperty("password");
 
-    String monitorName = null;
+    String monitorName = "RegTest-801";
     String message = "test of green system";
     String systemView;
     String eventType1 = "Service doesn't have any issues";
@@ -31,7 +30,7 @@ public class OneSystemThatAlreadyGreenOverrideToRedTest extends TestFundamentals
     @Test
     public void TRUST_602_TC01_Login_With_Admin_User() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
+//        monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
         test.createAndConfigPage.logAsAdmin(userName, password);
     }
 
@@ -60,18 +59,18 @@ public class OneSystemThatAlreadyGreenOverrideToRedTest extends TestFundamentals
         test.createNotificationPage.overrideNotificationfromUser();
         test.createNotificationPage.clickOnSaveButton();
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-        test.createAndConfigPage.logOutFromAdmin();
+//        test.createAndConfigPage.logOutFromAdmin();
     }
 
     @Test
     public void TRUST_602_TC04_Verify_Notification_For_Overrided_System_From_Green_To_Red() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
+        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
         test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, redColor);
     }
 
     @Test
     public void TRUST_602_TC05_Delete_Created_Notifaction_By_Automation_Script() {
-        test.createAndConfigPage.logAsAdmin(userName, password);
+        test.createNotificationPage.navigateToAdminPage();
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.deleteCreatedNotification(message);
         test.createAndConfigPage.logOutFromAdmin();

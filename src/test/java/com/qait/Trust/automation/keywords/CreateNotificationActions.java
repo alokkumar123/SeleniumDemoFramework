@@ -277,8 +277,21 @@ public class CreateNotificationActions extends GetPage {
         isElementDisplayed("link_faqsLink");
         ReportMsg.info(" Verified FAQs Link is displaying on Splash Page");
     }
+
     public void deleteFQAsPermissionFromFQARole(String faqPermission) {
-        element("div_deleteFAQsPermission",faqPermission).click();
-        ReportMsg.info("Deleted '"+faqPermission+"' form FAQs Role");
+        element("div_deleteFAQsPermission", faqPermission).click();
+        ReportMsg.info("Deleted '" + faqPermission + "' form FAQs Role");
+    }
+
+    public void navigateToAdminPage() {
+        element("list_adminMenu").click();
+        element("link_adminPage").click();
+        ReportMsg.info("Navigated to admin page ");
+    }
+
+    public void navigateToMonitorFromAdminPage(String monitorName) {
+        element("link_RegressionTest").click();
+        element("link_RegressionMonitor", monitorName).click();
+        ReportMsg.info("Navigated to '" + monitorName + "' from Admin Page");
     }
 }

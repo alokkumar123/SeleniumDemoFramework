@@ -42,5 +42,9 @@ div_newFaqs                                  xpath           //div[contains(text
 link_faqsLink                                xpath           //a[text()='FAQ']
 div_deleteFAQsPermission                     xpath           //*[text()='${faqPermission}']/parent::div[@class='Select-value']//span[@class='Select-value-icon']                                                                    
 span_Name                                    xpath           //label[contains(text(),'Name')] 
+list_adminMenu                               xpath           //li[@class='login-tab dropdown']
+link_adminPage                               xpath           //a[text()='Admin page'] 
+link_RegressionTest                          xpath           //a[text()='Regression Test 2']
+link_RegressionMonitor                       xpath           //a[text()='${monitorName}']                       
 ==================================================================================================================================
     
