@@ -40,36 +40,45 @@ public class OneSystemThatAlreadyGreenOverrideToRedTest extends TestFundamentals
         test.createNotificationPage.selectMonitorfromDropDown(monitorName);
         test.createNotificationPage.overrideNotificationfromUser();
         test.createNotificationPage.selectEventType(eventType1);
-        test.createNotificationPage.setEndDateForMessageInformation();
+        test.createNotificationPage.setStartDateForMessageInformation();
         test.createNotificationPage.enterValueInCommentSection(message);
         test.createNotificationPage.clickOnSaveButton();
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-        test.createAndConfigPage.logOutFromAdmin();
 
     }
 
     @Test
-    public void TRUST_602_TC03_Override_Green_System_To_Red() {
-        test.createAndConfigPage.logAsAdmin(userName, password);
+    public void TRUST_602_TC03_Verify_Notification_For_Overrided_System_From_Green_To_Red() {
+        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
+        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, greenColor);
+        test.createNotificationPage.navigateToAdminPage();
+        test.createNotificationPage.navigateToMonitorFromAdminPage(monitorName);
+        test.createNotificationPage.verifyOverriddenSystemForRegressionTest(monitorName, greenColor);
+    }
+
+    @Test
+    public void TRUST_602_TC04_Override_Green_System_To_Red() {
+        test.createNotificationPage.navigateToAdminPage();
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.clickOnCreatedNotificationMessage(message, monitorName);
         test.createNotificationPage.selectEventType(eventType2);
         message = "Overriding green system to red System";
         test.createNotificationPage.enterValueInCommentSection(message);
-        test.createNotificationPage.overrideNotificationfromUser();
         test.createNotificationPage.clickOnSaveButton();
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-//        test.createAndConfigPage.logOutFromAdmin();
     }
 
     @Test
-    public void TRUST_602_TC04_Verify_Notification_For_Overrided_System_From_Green_To_Red() {
+    public void TRUST_602_TC05_Verify_Notification_For_Overrided_System_From_Green_To_Red() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
         test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, redColor);
+        test.createNotificationPage.navigateToAdminPage();
+        test.createNotificationPage.navigateToMonitorFromAdminPage(monitorName);
+        test.createNotificationPage.verifyOverriddenSystemForRegressionTest(monitorName, redColor);
     }
 
     @Test
-    public void TRUST_602_TC05_Delete_Created_Notifaction_By_Automation_Script() {
+    public void TRUST_602_TC06_Delete_Created_Notifaction_By_Automation_Script() {
         test.createNotificationPage.navigateToAdminPage();
         test.createNotificationPage.searchCreatedNotification(message);
         test.createNotificationPage.deleteCreatedNotification(message);

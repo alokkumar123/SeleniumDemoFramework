@@ -49,7 +49,7 @@ public class DetailScreenPageActions extends GetPage {
         try {
             element("link_platfromAvailabilityHome").click();
             ReportMsg.info("Clicked on Platform Availability Home");
-           // isElementDisplayed("text_screenPage");
+            isElementDisplayed("text_screenPage");
             ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
         } catch (Exception ee) {
             element("link_platfromAvailabilityHome").click();

@@ -30,6 +30,7 @@ span_greenNotificationWithLogo               xpath           //div[@class='cell-
 span_orangeNotificationWithLogo              xpath           //div[@class='cell-status-container orange']/ancestor::tr//span[contains(text(),'${message}')]
 td_currentTime                               xpath           (//td[contains(@style,'white-space')])[1]
 div_greenColor                               xpath           //td[text() ='${currentTime}']/ancestor::tr//div[@class='green']
+div_RegTestColor                             xpath           //tr//div[@class='${color}']
 link_systemName                              xpath           //tr//a[text()='${systemName}'] 
 div_systemWithText                           xpath           //div[text()='${systemName}']
 div_accessLevel                              xpath           //div[@id='access-level']//div[@class='rw-input'] 

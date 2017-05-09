@@ -72,7 +72,7 @@ public class CreateNotificationActions extends GetPage {
         int x = element("div_mintueSlider").getLocation().getX();
         int y = element("div_mintueSlider").getLocation().getY();
         x = x - 1;
-        new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x, 0).build().perform();
+        new Actions(driver).dragAndDropBy(element("div_mintueSlider"), -x, 0).build().perform();
         ReportMsg.info("Draged minute handle in left side");
         element("btn_ok").click();
         try {
@@ -83,7 +83,7 @@ public class CreateNotificationActions extends GetPage {
             int x1 = element("div_mintueSlider").getLocation().getX();
             x1 = x1 - 1;
             //ReportMsg.info(" now x " + x + " y " + y);
-            new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
+            new Actions(driver).dragAndDropBy(element("div_mintueSlider"), -5, 0).build().perform();
             ReportMsg.info("Draged minute handle in left side ");
             element("btn_ok").click();
         } catch (NoSuchElementException ee) {
@@ -212,7 +212,7 @@ public class CreateNotificationActions extends GetPage {
 
             }
         } catch (Exception e) {
-            ReportMsg.info("Verified color notification is not displaying on splash page");
+            ReportMsg.info("Verified color notification is not displaying on splash page as notification is hided");
         }
     }
 
@@ -220,6 +220,16 @@ public class CreateNotificationActions extends GetPage {
         String currentTime = element("td_currentTime").getText();
         isElementDisplayed("div_greenColor", currentTime);
         ReportMsg.info("Green color bricks are displaying under current time " + "'" + currentTime + "'" + " on Detail Screen Pagge for " + monitorName);
+    }
+
+    public void verifyOverriddenSystemForRegressionTest(String monitorName, String color) {
+        try {
+            String currentTime = element("td_currentTime").getText();
+            isElementDisplayed("div_RegTestColor", color);
+            ReportMsg.info("'" + color + "' color bricks are displaying under current time " + "'" + currentTime + "'" + " on Detail Screen Page for '" + monitorName + "' monitor ");
+        } catch (NoSuchElementException e) {
+            ReportMsg.info("Verified color notification is not displaying on detail screen page for '"+monitorName +"' monitor");
+        }
     }
 
     public void selectSystemAndVerifyItsPrivilege(String systemName) {
