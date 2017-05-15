@@ -116,7 +116,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         } else if (systemView.equalsIgnoreCase("Front")) {
             int i = 0;
             String a[] = systemName.split(",");
-            ReportMsg.info("Number of apps are displaying on Platform Screen: " + elements("url_systemLogo").size());
+            ReportMsg.info("Number of apps are displaying on Platform Screen with logo: " + elements("url_systemLogo").size());
             for (WebElement e : elements("url_systemLogo")) {
                 try {
                     String app[] = a[i].split("=");
@@ -187,14 +187,14 @@ public class PlatformAvailabilityPageActions extends GetPage {
         }
     }
 
-    public void checkWhetherInformationIconIsAvailableOnSpalshPage(String systemName, String systemView) {
+    public void checkWhetherInformationIconIsAvailableOnSpalshPage(String systemName, String systemView,String uname, String pass) {
         int count = 0;
         if (systemView.equalsIgnoreCase("Grouping")) {
             for (WebElement grp : elements("list_groupHeading")) {
                 try {
 //                    element("div_systemLogo", systemName).click();
 //                    ReportMsg.info("Clicked on '" + systemName + "' System");
-                    checkInfomationIconAvailbilityOnSplashPage(systemName);
+                    checkInfomationIconAvailbilityOnSplashPage(systemName,uname,pass);
                     break;
                 } catch (TimeoutException ex) {
                     ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
@@ -218,7 +218,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
             } catch (NoSuchElementException e) {
                 ReportMsg.info("Information message icon is not avaialbe on monitor ");
-                checkInfomationIconAvailbilityOnSplashPage(systemName);
+                checkInfomationIconAvailbilityOnSplashPage(systemName,uname,pass);
                 logOutFromAdmin();
 
             }
@@ -242,27 +242,27 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
     }
 
-    public void logAsAdmin() {
+    public void logAsAdmin(String uname,String pass) {
         isElementDisplayed("link_login");
         element("link_login").click();
         element("userName").clear();
         element("userName").click();
-        element("userName").sendKeys("qaadmin");
+        element("userName").sendKeys();
         element("password").clear();
         element("password").click();
-        element("password").sendKeys("Cengage1");
+        element("password").sendKeys(pass);
         element("button_login").click();
         ReportMsg.info("Login into admin account");
     }
 
-    public void checkWhetherInformationIconIsAvailableOnSpalshPageForTBD(String systemName, String systemView) {
+    public void checkWhetherInformationIconIsAvailableOnSpalshPageForTBD(String systemName, String systemView, String uname, String pass) {
         int count = 0;
         if (systemView.equalsIgnoreCase("Grouping")) {
             for (WebElement grp : elements("list_groupHeading")) {
                 try {
 //                    element("div_systemLogo", systemName).click();
 //                    ReportMsg.info("Clicked on '" + systemName + "' System");
-                    checkInfomationIconAvialbilityForTBD(systemName);
+                    checkInfomationIconAvialbilityForTBD(systemName,uname,pass);
 
                     break;
                 } catch (TimeoutException ex) {
@@ -283,19 +283,19 @@ public class PlatformAvailabilityPageActions extends GetPage {
                 isElementDisplayed("div_msgInfo", systemName);
                 ReportMsg.info("Information message icon is avaialbe on monitor ");
             } catch (NoSuchElementException e) {
-                checkInfomationIconAvialbilityForTBD(systemName);
+                checkInfomationIconAvialbilityForTBD(systemName ,uname, pass);
             }
         }
     }
 
-    private void checkInfomationIconAvialbilityForTBD(String systemName) {
+    private void checkInfomationIconAvialbilityForTBD(String systemName, String uname, String pass) {
         String systemUrl = systemName;
         element("div_systemLogo", systemName).click();
         systemName = element("txt_systemName").getText();
         String a[] = systemName.split("> ");
         systemName = a[1];
         ReportMsg.info("System: " + systemName);
-        logAsAdmin();
+        logAsAdmin(uname,pass);
         isElementDisplayed("button_createNotification");
         element("button_createNotification").click();
         ReportMsg.info("Click on create new notification button");
@@ -344,7 +344,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
     }
 
-    private void checkInfomationIconAvailbilityOnSplashPage(String systemName) {
+    private void checkInfomationIconAvailbilityOnSplashPage(String systemName,String uname, String pass) {
         String systemUrl = systemName;
         element("div_systemLogo", systemName).click();
 
@@ -352,7 +352,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         String a[] = systemName.split("> ");
         systemName = a[1];
         ReportMsg.info("System: " + systemName);
-        logAsAdmin();
+        logAsAdmin(uname ,pass);
         isElementDisplayed("button_createNotification");
         element("button_createNotification").click();
         ReportMsg.info("Click on create new notification button");

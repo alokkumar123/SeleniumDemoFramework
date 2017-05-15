@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class UserScenariosTest extends TestFundamentals {
 
     String newRole = "Test Role";
-    String editRole = "Edited New Role";
+    String editRole = "Edited1 New Role";
     String permission2 = "MonitorCreateAll";
     String permission3 = "MonitorDeleteAll";
     String userName1 = "aditya";

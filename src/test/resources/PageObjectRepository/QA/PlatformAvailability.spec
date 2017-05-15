@@ -8,7 +8,7 @@ list_backgroundImageHeader          xpath               //div[@class='back card 
 txt_appTitles                       xpath               //span[@class='group-header panel-title']
 link_tilte                          xpath               //a[text()='${text}'] 
 appsInsideTitle                     xpath               //a[text()='${text}']/parent::span/parent::div/..//div[text()='Available']
-url_systemLogo                      xpath               //div[contains(@class,'system-header ')]//div[@class='system-logo' and not(contains(.,'system test'))]
+url_systemLogo                      xpath               //div[contains(@class,'system-header ')]//div[contains(@style,'logo')]
 groupPattern                        xpath               //div[@class='panel-group']
 list_groupPanel                     xpath               //a[@role='tab']
 apps_inGroups                       xpath               //a[contains(text(),'${groupName}')]/ancestor::div[@class='panel panel-default']//div[contains(@class,'system-card front green')]
