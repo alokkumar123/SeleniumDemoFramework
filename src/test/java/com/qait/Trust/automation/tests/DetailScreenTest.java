@@ -125,19 +125,19 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageNow"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
-
-    @Test
-    public void TC10_Verifying_All_Details_For_Questia_Platform() {
-        test.platformAvailabilityPage.clickOnSystem(getData("appName.questia"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.questia"));
-        test.detailScreenPage.verifyDropDownOptionsForLastHours();
-        test.detailScreenPage.verifyTimeZoneDropDownForUser();
-        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.questia"));
-        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.questia"));
-        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "questia");
-        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.questia"));
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-    }
+//
+//    @Test
+//    public void TC10_Verifying_All_Details_For_Questia_Platform() {
+//        test.platformAvailabilityPage.clickOnSystem(getData("appName.questia"), systemView);
+//        test.detailScreenPage.verifyBreadCrumb(getData("appName.questia"));
+//        test.detailScreenPage.verifyDropDownOptionsForLastHours();
+//        test.detailScreenPage.verifyTimeZoneDropDownForUser();
+//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.questia"));
+//        test.detailScreenPage.verifyInformationAvailableForLastHours("last 24 hours", "24", getData("appName.questia"));
+//        test.detailScreenPage.verifyInformationAvailableForLast30Days("last 30 days", "questia");
+//        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.questia"));
+//        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+//    }
 //    
 //    @Test
 //    public void TC11_Verifying_All_Details_For_Learning_Objects_Platform() {
