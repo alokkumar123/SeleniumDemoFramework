@@ -247,7 +247,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("link_login").click();
         element("userName").clear();
         element("userName").click();
-        element("userName").sendKeys();
+        element("userName").sendKeys(uname);
         element("password").clear();
         element("password").click();
         element("password").sendKeys(pass);
