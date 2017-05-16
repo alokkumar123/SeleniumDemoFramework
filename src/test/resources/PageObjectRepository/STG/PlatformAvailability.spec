@@ -53,5 +53,6 @@ link_adminButton                             xpath          //li[@class='login-t
 link_adminPage                               xpath          //a[text()='Admin page']  
 checkBox_NoEndDate                           xpath          //b[contains(text(),'No end date ')]/parent::div//input[@type='checkbox']  
 div_systemWithText                           xpath          //div[text()='${systemName}']  
+btn_saveAnyway                               xpath          //button[text()='Save anyway']
 =====================================================================================================================
     

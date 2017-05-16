@@ -187,14 +187,14 @@ public class PlatformAvailabilityPageActions extends GetPage {
         }
     }
 
-    public void checkWhetherInformationIconIsAvailableOnSpalshPage(String systemName, String systemView,String uname, String pass) {
+    public void checkWhetherInformationIconIsAvailableOnSpalshPage(String systemName, String systemView, String uname, String pass) {
         int count = 0;
         if (systemView.equalsIgnoreCase("Grouping")) {
             for (WebElement grp : elements("list_groupHeading")) {
                 try {
 //                    element("div_systemLogo", systemName).click();
 //                    ReportMsg.info("Clicked on '" + systemName + "' System");
-                    checkInfomationIconAvailbilityOnSplashPage(systemName,uname,pass);
+                    checkInfomationIconAvailbilityOnSplashPage(systemName, uname, pass);
                     break;
                 } catch (TimeoutException ex) {
                     ReportMsg.info("Expanded state of '" + grp.getText() + "': " + grp.getAttribute("aria-expanded"));
@@ -218,7 +218,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
             } catch (NoSuchElementException e) {
                 ReportMsg.info("Information message icon is not avaialbe on monitor ");
-                checkInfomationIconAvailbilityOnSplashPage(systemName,uname,pass);
+                checkInfomationIconAvailbilityOnSplashPage(systemName, uname, pass);
                 logOutFromAdmin();
 
             }
@@ -242,7 +242,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("User navigated to Splash Page on PlatformAvailability Page");
     }
 
-    public void logAsAdmin(String uname,String pass) {
+    public void logAsAdmin(String uname, String pass) {
         isElementDisplayed("link_login");
         element("link_login").click();
         element("userName").clear();
@@ -262,7 +262,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                 try {
 //                    element("div_systemLogo", systemName).click();
 //                    ReportMsg.info("Clicked on '" + systemName + "' System");
-                    checkInfomationIconAvialbilityForTBD(systemName,uname,pass);
+                    checkInfomationIconAvialbilityForTBD(systemName, uname, pass);
 
                     break;
                 } catch (TimeoutException ex) {
@@ -283,7 +283,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                 isElementDisplayed("div_msgInfo", systemName);
                 ReportMsg.info("Information message icon is avaialbe on monitor ");
             } catch (NoSuchElementException e) {
-                checkInfomationIconAvialbilityForTBD(systemName ,uname, pass);
+                checkInfomationIconAvialbilityForTBD(systemName, uname, pass);
             }
         }
     }
@@ -295,7 +295,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         String a[] = systemName.split("> ");
         systemName = a[1];
         ReportMsg.info("System: " + systemName);
-        logAsAdmin(uname,pass);
+        logAsAdmin(uname, pass);
         isElementDisplayed("button_createNotification");
         element("button_createNotification").click();
         ReportMsg.info("Click on create new notification button");
@@ -328,8 +328,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
             element("div_enableCheckBox").click();
         }
         ReportMsg.info("Checked notification is not be enabled");
-        element("btn_save").click();
-        ReportMsg.info("clicked on save button");
+        clickOnSaveButton();
 
         element("input_searchBox").clear();
         element("input_searchBox").sendKeys(message);
@@ -344,7 +343,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
     }
 
-    private void checkInfomationIconAvailbilityOnSplashPage(String systemName,String uname, String pass) {
+    private void checkInfomationIconAvailbilityOnSplashPage(String systemName, String uname, String pass) {
         String systemUrl = systemName;
         element("div_systemLogo", systemName).click();
 
@@ -352,7 +351,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         String a[] = systemName.split("> ");
         systemName = a[1];
         ReportMsg.info("System: " + systemName);
-        logAsAdmin(uname ,pass);
+        logAsAdmin(uname, pass);
         isElementDisplayed("button_createNotification");
         element("button_createNotification").click();
         ReportMsg.info("Click on create new notification button");
@@ -364,8 +363,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
         element("div_endTimeBox").click();
         element("div_selectTimeMode").click();
-        element("btn_close").click();
-        element("div_selectTimeMode").click();
+//        element("btn_close").click();
+        //      element("div_selectTimeMode").click();
         int x = element("div_mintueSlider").getLocation().getX();
         int y = element("div_mintueSlider").getLocation().getY();
         x = x + 1;
@@ -375,8 +374,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
         element("div_endTimeSecondBox").click();
         element("div_selectTimeMode").click();
-        element("btn_close").click();
-        element("div_selectTimeMode").click();
+//        element("btn_close").click();
+        //      element("div_selectTimeMode").click();
         int x1 = element("div_mintueSlider").getLocation().getX();
         int y1 = element("div_mintueSlider").getLocation().getY();
         x1 = x1 + 1;
@@ -389,8 +388,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("div_commentBox").clear();
         element("div_commentBox").sendKeys(message);
         ReportMsg.info("write " + message + " in comment box ");
-        element("btn_save").click();
-        ReportMsg.info("clicked on save button");
+        clickOnSaveButton();
         userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         waitTOSync();
         try {
@@ -517,5 +515,18 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
         }
         return flagString;
+    }
+
+    private void clickOnSaveButton() {
+        try {
+            element("btn_save").click();
+            ReportMsg.info("clicked on save button");
+            element("btn_saveAnyway").click();
+           // ReportMsg.info("clicked on save anyway button");
+
+        } catch (Exception e) {
+            //element("btn_saveAnyway").click();
+            ReportMsg.info("clicked on save anyway button");
+        }
     }
 }

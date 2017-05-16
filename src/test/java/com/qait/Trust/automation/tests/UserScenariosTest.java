@@ -51,7 +51,7 @@ public class UserScenariosTest extends TestFundamentals {
         test.createAndConfigPage.navigateToAdminMenu("Manage monitors");
         test.createAndConfigPage.clickOnCreateButton();
         test.createAndConfigPage.logOutFromAdmin();
-        test.createAndConfigPage.logAsAdmin();
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.navigateToAdminMenu("Manage roles");
         test.manageRolePage.clickOnDeleteButton(newRole);
         test.createAndConfigPage.popUpShouldBeAppears("Delete");
