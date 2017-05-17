@@ -18,9 +18,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
     @Test
     public void TC01_Verify_Region_Of_Selected_System() {
         appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appNameforRegion.cengagebrain"));
-//        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
-        System.out.println("userName : " + userName + ", password : " + password);
-        test.createAndConfigPage.logAsAdmin(userName, password);
+        test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");
         test.regionSplashPage.clickOnSystemFromManageSystem(appName);

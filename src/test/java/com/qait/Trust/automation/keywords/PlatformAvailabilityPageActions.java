@@ -517,7 +517,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         return flagString;
     }
 
-    private void clickOnSaveButton() {
+    public void clickOnSaveButton() {
         try {
             element("btn_save").click();
             ReportMsg.info("clicked on save button");

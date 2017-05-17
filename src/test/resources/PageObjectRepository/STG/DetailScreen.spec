@@ -62,5 +62,6 @@ list_timeViewFormat                          xpath          //ul[contains(@id,'l
 li_listView                                  xpath          
 select_hours                                 xpath          //li[text()='${string}']  
 btn_nextMonth                                xpath          //button[@class='next-month']
+btn_saveAnyway                               xpath          //button[text()='Save anyway']
 ==================================================================================================================================
     

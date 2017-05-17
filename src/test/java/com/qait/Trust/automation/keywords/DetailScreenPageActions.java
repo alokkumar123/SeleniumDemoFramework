@@ -248,7 +248,7 @@ public class DetailScreenPageActions extends GetPage {
 
                 element("button_OK").click();
 
-            } catch (NoSuchElementException e1) {
+            } catch (Exception e1) {
                 element("button_OK").click();
             }
 
@@ -259,8 +259,7 @@ public class DetailScreenPageActions extends GetPage {
             element("commentSection").sendKeys("creating notification");
             ReportMsg.info("send commnets creating notification");
             isElementDisplayed("button_save");
-            element("button_save").click();
-            ReportMsg.info("Click On save button");
+            clickOnSaveButton();
             userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
             waitTOSync();
             try {
@@ -548,4 +547,16 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Login into admin account");
     }
 
+     public void clickOnSaveButton() {
+        try {
+            element("btn_save").click();
+            ReportMsg.info("clicked on save button");
+            element("btn_saveAnyway").click();
+           // ReportMsg.info("clicked on save anyway button");
+
+        } catch (Exception e) {
+            //element("btn_saveAnyway").click();
+            ReportMsg.info("clicked on save anyway button");
+        }
+    }
 }
