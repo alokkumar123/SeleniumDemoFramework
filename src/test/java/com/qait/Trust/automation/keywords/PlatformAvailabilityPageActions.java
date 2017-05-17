@@ -511,7 +511,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
                 }
             }
         } else if (systemView.equalsIgnoreCase("Front")) {
-            isElementDisplayed("div_systemWithText", systemName);
+//            isElementDisplayed("div_systemWithText", systemName);
+            flagString ="Front";
 
         }
         return flagString;

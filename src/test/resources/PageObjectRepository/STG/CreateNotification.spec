@@ -46,6 +46,7 @@ span_Name                                    xpath           //label[contains(te
 list_adminMenu                               xpath           //li[@class='login-tab dropdown']
 link_adminPage                               xpath           //a[text()='Admin page'] 
 link_RegressionTest                          xpath           //a[text()='Regression Test 2']
-link_RegressionMonitor                       xpath           //a[text()='${monitorName}']                       
+link_RegressionMonitor                       xpath           //a[text()='${monitorName}']   
+btn_saveAnyway                               xpath          //button[text()='Save anyway']                    
 ==================================================================================================================================
     

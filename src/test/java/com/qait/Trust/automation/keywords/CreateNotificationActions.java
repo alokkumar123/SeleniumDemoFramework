@@ -116,8 +116,16 @@ public class CreateNotificationActions extends GetPage {
     }
 
     public void clickOnSaveButton() {
-        element("btn_save").click();
-        ReportMsg.info("clicked on save button");
+        try {
+            element("btn_save").click();
+            ReportMsg.info("clicked on save button");
+            element("btn_saveAnyway").click();
+           // ReportMsg.info("clicked on save anyway button");
+
+        } catch (Exception e) {
+            //element("btn_saveAnyway").click();
+            ReportMsg.info("clicked on save anyway button");
+        }
     }
 
     public void verifyMessageAndLogoIsDisplayingOrNotDisplayingToUnauthenticatedUser(String splashPageView, String message, String eventType) {
