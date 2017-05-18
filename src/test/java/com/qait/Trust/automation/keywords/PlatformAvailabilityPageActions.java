@@ -122,7 +122,9 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     String app[] = a[i].split("=");
                     String b[] = e.getAttribute("style").split(": ");
                     if (e.getText().contains("")) {
-                        if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 48))) {
+                        ReportMsg.info(" b= "+b[1]);
+                        ReportMsg.info(" app= "+app[1]);        
+                        if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0,24))) {
                             ReportMsg.info("App name = " + app[0] + " is displaying with " + b[1]);
                             i++;
                         }
