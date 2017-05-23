@@ -38,7 +38,7 @@ public class CreateNotificationActions extends GetPage {
     public void setEndDateForMessageInformation() {
         element("div_endTimeBox").click();
         element("div_selectTimeMode").click();
-        element("btn_close").click();
+       // element("btn_close").click();
         element("div_selectTimeMode").click();
 
         int x = element("div_mintueSlider").getLocation().getX();
@@ -50,7 +50,7 @@ public class CreateNotificationActions extends GetPage {
         try {
             element("div_endTimeSecondBox").click();
             element("div_selectTimeMode").click();
-            element("btn_close").click();
+            //element("btn_close").click();
             element("div_selectTimeMode").click();
             int x1 = element("div_mintueSlider").getLocation().getX();
             x1 = x1 + 1;
@@ -78,7 +78,7 @@ public class CreateNotificationActions extends GetPage {
         try {
             element("div_startTimeSecondBox").click();
             element("div_selectTimeMode").click();
-            element("btn_close").click();
+            //element("btn_close").click();
             element("div_selectTimeMode").click();
             int x1 = element("div_mintueSlider").getLocation().getX();
             x1 = x1 - 1;
