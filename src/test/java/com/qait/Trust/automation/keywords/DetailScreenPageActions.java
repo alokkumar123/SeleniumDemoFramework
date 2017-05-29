@@ -191,6 +191,7 @@ public class DetailScreenPageActions extends GetPage {
     private void verifyDayHeading() {
         isElementDisplayed("text_dayHeading");
         ReportMsg.info(element("text_dayHeading").getText() + " heading is displaying while hover on day");
+        element("text_noIssue").click();
     }
 
     private void verifyCurrentInformationAlerts(String appName) {

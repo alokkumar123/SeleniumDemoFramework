@@ -63,5 +63,6 @@ li_listView                                  xpath
 select_hours                                 xpath          //li[text()='${string}']  
 btn_nextMonth                                xpath          //button[@class='next-month']
 btn_saveAnyway                               xpath          //button[text()='Save anyway']
+text_noIssue                                 xpath          //span[text()='No Issues']     
 ==================================================================================================================================
     
