@@ -229,7 +229,7 @@ public class TestSessionInitiator {
         } catch (InterruptedException ex) {
         }
     }
-    private static final String SRC_FOLDER = "C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default";
+    private static final String SRC_FOLDER = "C:\\Users\\alokkumar\\AppData\\Local\\Google\\Chrome\\User Data\\Default";
 
     private void clearHistoryFromBrowser() {
 //        try {
