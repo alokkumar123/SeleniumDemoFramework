@@ -32,6 +32,8 @@ import org.testng.Reporter;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
 
 public class TestSessionInitiator {
 
@@ -147,6 +149,7 @@ public class TestSessionInitiator {
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
         System.out.println("Current OS Browser configuration:" + uAgent);
         driver.manage().deleteAllCookies();
+        clearHistoryFromBrowser();
         driver.get(base_url);
     }
 
@@ -224,6 +227,88 @@ public class TestSessionInitiator {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException ex) {
+        }
+    }
+    private static final String SRC_FOLDER = "C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default";
+
+    private void clearHistoryFromBrowser() {
+//        try {
+//            FileUtils.cleanDirectory(new File("C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default"));
+//            System.out.println("Delete operation is failed.");
+////            File file = new File("C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
+////
+////            if (file.delete()) {
+////                System.out.println(file.getName() + " is deleted!");
+////            } else {
+////                System.out.println("Delete operation is failed.");
+////            }
+//
+//        } catch (Exception e) {
+//System.out.println("Delete operation is failed.");
+//            e.printStackTrace();
+//
+//        }
+
+        File directory = new File(SRC_FOLDER);
+
+        //make sure directory exists
+        if (!directory.exists()) {
+
+            System.out.println("Directory does not exist.");
+            System.exit(0);
+
+        } else {
+            System.out.println("Directory does  exist.");
+            try {
+
+                delete(directory);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.exit(0);
+            }
+        }
+
+        System.out.println("Done");
+    }
+
+    public static void delete(File file)
+            throws IOException {
+
+        if (file.isDirectory()) {
+
+            //directory is empty, then delete it
+            if (file.list().length == 0) {
+
+                file.delete();
+                System.out.println("Directory is deleted : "
+                        + file.getAbsolutePath());
+
+            } else {
+
+                //list all the directory contents
+                String files[] = file.list();
+
+                for (String temp : files) {
+                    //construct the file structure
+                    File fileDelete = new File(file, temp);
+
+                    //recursive delete
+                    delete(fileDelete);
+                }
+
+                //check the directory again, if empty then delete it
+                if (file.list().length == 0) {
+                    file.delete();
+                    System.out.println("Directory is deleted : "
+                            + file.getAbsolutePath());
+                }
+            }
+
+        } else {
+            //if file, then delete it
+            file.delete();
+            System.out.println("File is deleted : " + file.getAbsolutePath());
         }
     }
 
