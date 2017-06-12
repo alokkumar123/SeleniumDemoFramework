@@ -149,7 +149,7 @@ public class TestSessionInitiator {
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
         System.out.println("Current OS Browser configuration:" + uAgent);
         driver.manage().deleteAllCookies();
-        //clearHistoryFromBrowser();
+//        clearHistoryFromBrowser();
         driver.get(base_url);
     }
 
@@ -229,9 +229,9 @@ public class TestSessionInitiator {
         } catch (InterruptedException ex) {
         }
     }
-    private static final String SRC_FOLDER = "C:\\Users\\alokkumar\\AppData\\Local\\Google\\Chrome\\User Data\\Default";
+    private static final String SRC_FOLDER = "10.161.127.37\\C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default";
 
-    private void clearHistoryFromBrowser() {
+    private void clearHistoryFromBrowser() throws IOException {
 //        try {
 //            FileUtils.cleanDirectory(new File("C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default"));
 //            System.out.println("Delete operation is failed.");
@@ -249,27 +249,42 @@ public class TestSessionInitiator {
 //
 //        }
 
-        File directory = new File(SRC_FOLDER);
-
-        //make sure directory exists
-        if (!directory.exists()) {
-
-            System.out.println("Directory does not exist.");
-            System.exit(0);
-
-        } else {
-            System.out.println("Directory does  exist.");
-            try {
-
-                delete(directory);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.exit(0);
-            }
-        }
-
-        System.out.println("Done");
+//        File directory = new File(SRC_FOLDER);
+//
+//        //make sure directory exists
+//        if (!directory.exists()) {
+//
+//            System.out.println("Directory does not exist.");
+//            System.exit(0);
+//
+//        } else {
+//            System.out.println("Directory does  exist.");
+//            try {
+//
+//                delete(directory);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                System.exit(0);
+//            }
+//        }
+//
+//        System.out.println("Done");
+        
+        
+//        File f=new File("abc.txt"); //Takes the default path, else, you can specify the required path
+//            if(f.exists())
+//            {
+//                f.delete();
+//            }
+//            f.createNewFile(); 
+//            FileObject destn=VFS.getManager().resolveFile(f.getAbsolutePath());
+//            UserAuthenticator auth=new StaticUserAuthenticator("", "myusername", "secret_password");
+//            FileSystemOptions opts=new FileSystemOptions();
+//            DefaultFileSystemConfigBuilder.getInstance().setUserAuthenticator(opts, auth);
+//            FileObject fo=VFS.getManager().resolveFile("\\\\192.168.0.1\\direcory\\to\\GetData\\sourceFile.txt",opts);
+//            destn.copyFrom(fo,Selectors.SELECT_SELF);
+//            destn.close();
     }
 
     public static void delete(File file)

@@ -2,6 +2,7 @@ package com.qait.Trust.automation;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
@@ -58,7 +59,14 @@ public class WebDriverFactory {
         if (browser.equalsIgnoreCase("firefox")) {
             cap = DesiredCapabilities.firefox();
         } else if (browser.equalsIgnoreCase("chrome")) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--disable-extensions");
+            options.addArguments("test-type");
             cap = DesiredCapabilities.chrome();
+            cap.setCapability(ChromeOptions.CAPABILITY, options);
+            cap.setCapability("chrome.switches", Arrays.asList("--disable-local-storage"));
+            System.out.println("deleted browser cookies");
+
         } else if (browser.equalsIgnoreCase("Safari")) {
             cap = DesiredCapabilities.safari();
         } else if ((browser.equalsIgnoreCase("ie"))
@@ -85,7 +93,7 @@ public class WebDriverFactory {
         }
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-extensions");
-		options.addArguments("test-type");
+        options.addArguments("test-type");
         DesiredCapabilities cap = DesiredCapabilities.chrome();
         cap.setCapability(ChromeOptions.CAPABILITY, options);
         return new ChromeDriver(cap);
