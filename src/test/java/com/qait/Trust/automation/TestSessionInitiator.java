@@ -151,7 +151,7 @@ public class TestSessionInitiator {
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
         System.out.println("Current OS Browser configuration:" + uAgent);
         driver.manage().deleteAllCookies();
-        clearHistoryFromBrowser();
+        //clearHistoryFromBrowser();
         driver.get(base_url);
     }
 
