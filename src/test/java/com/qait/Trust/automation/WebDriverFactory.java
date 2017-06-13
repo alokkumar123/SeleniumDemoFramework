@@ -65,7 +65,7 @@ public class WebDriverFactory {
             cap = DesiredCapabilities.chrome();
             cap.setCapability(ChromeOptions.CAPABILITY, options);
             cap.setCapability("chrome.switches", Arrays.asList("--disable-local-storage")); // this clear the local storage data from browser like, cache, cookies, history
-            System.out.println("deleted browser cookies");
+            System.out.println("deleted browser storage");
 
         } else if (browser.equalsIgnoreCase("Safari")) {
             cap = DesiredCapabilities.safari();
