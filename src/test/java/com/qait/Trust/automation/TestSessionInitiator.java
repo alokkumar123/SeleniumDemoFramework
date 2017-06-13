@@ -33,6 +33,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 import org.apache.commons.io.FileUtils;
 
 public class TestSessionInitiator {
@@ -144,12 +146,12 @@ public class TestSessionInitiator {
         return config;
     }
 
-    public void launchApplication(String base_url) {
+    public void launchApplication(String base_url) throws IOException {
         ReportMsg.info(" The application url is :- " + base_url);
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
         System.out.println("Current OS Browser configuration:" + uAgent);
         driver.manage().deleteAllCookies();
-//        clearHistoryFromBrowser();
+        clearHistoryFromBrowser();
         driver.get(base_url);
     }
 
@@ -229,102 +231,14 @@ public class TestSessionInitiator {
         } catch (InterruptedException ex) {
         }
     }
-    private static final String SRC_FOLDER = "10.161.127.37\\C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default";
 
     private void clearHistoryFromBrowser() throws IOException {
-//        try {
-//            FileUtils.cleanDirectory(new File("C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default"));
-//            System.out.println("Delete operation is failed.");
-////            File file = new File("C:\\Users\\qaadmin\\AppData\\Local\\Google\\Chrome\\User Data\\Default");
-////
-////            if (file.delete()) {
-////                System.out.println(file.getName() + " is deleted!");
-////            } else {
-////                System.out.println("Delete operation is failed.");
-////            }
-//
-//        } catch (Exception e) {
-//System.out.println("Delete operation is failed.");
-//            e.printStackTrace();
-//
-//        }
+        List cmdAndArgs = Arrays.asList("cmd", "/c", "clean.bat");
+        File dir = new File("C:/Users/qaadmin/Desktop");
 
-//        File directory = new File(SRC_FOLDER);
-//
-//        //make sure directory exists
-//        if (!directory.exists()) {
-//
-//            System.out.println("Directory does not exist.");
-//            System.exit(0);
-//
-//        } else {
-//            System.out.println("Directory does  exist.");
-//            try {
-//
-//                delete(directory);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//                System.exit(0);
-//            }
-//        }
-//
-//        System.out.println("Done");
-        
-        
-//        File f=new File("abc.txt"); //Takes the default path, else, you can specify the required path
-//            if(f.exists())
-//            {
-//                f.delete();
-//            }
-//            f.createNewFile(); 
-//            FileObject destn=VFS.getManager().resolveFile(f.getAbsolutePath());
-//            UserAuthenticator auth=new StaticUserAuthenticator("", "myusername", "secret_password");
-//            FileSystemOptions opts=new FileSystemOptions();
-//            DefaultFileSystemConfigBuilder.getInstance().setUserAuthenticator(opts, auth);
-//            FileObject fo=VFS.getManager().resolveFile("\\\\192.168.0.1\\direcory\\to\\GetData\\sourceFile.txt",opts);
-//            destn.copyFrom(fo,Selectors.SELECT_SELF);
-//            destn.close();
+        ProcessBuilder pb = new ProcessBuilder(cmdAndArgs);
+        pb.directory(dir);
+        Process p = pb.start();
+        System.out.println("Cleared history");
     }
-
-    public static void delete(File file)
-            throws IOException {
-
-        if (file.isDirectory()) {
-
-            //directory is empty, then delete it
-            if (file.list().length == 0) {
-
-                file.delete();
-                System.out.println("Directory is deleted : "
-                        + file.getAbsolutePath());
-
-            } else {
-
-                //list all the directory contents
-                String files[] = file.list();
-
-                for (String temp : files) {
-                    //construct the file structure
-                    File fileDelete = new File(file, temp);
-
-                    //recursive delete
-                    delete(fileDelete);
-                }
-
-                //check the directory again, if empty then delete it
-                if (file.list().length == 0) {
-                    file.delete();
-                    System.out.println("Directory is deleted : "
-                            + file.getAbsolutePath());
-                }
-            }
-
-        } else {
-            //if file, then delete it
-            file.delete();
-            System.out.println("File is deleted : " + file.getAbsolutePath());
-        }
-    }
-
 }
