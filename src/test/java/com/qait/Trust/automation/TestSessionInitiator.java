@@ -233,12 +233,14 @@ public class TestSessionInitiator {
     }
 
     private void clearHistoryFromBrowser() throws IOException {
-        List cmdAndArgs = Arrays.asList("cmd", "/c", "clean.bat");
-        File dir = new File("C:/Users/qaadmin/Desktop");
-
-        ProcessBuilder pb = new ProcessBuilder(cmdAndArgs);
-        pb.directory(dir);
-        Process p = pb.start();
-        System.out.println("Cleared history");
+        Runtime.getRuntime().exec("C:/Users/qaadmin/Desktop/clean.bat");
+        
+//        List cmdAndArgs = Arrays.asList("cmd", "/c", "clean.bat");
+//        File dir = new File("C:/Users/qaadmin/Desktop");
+//
+//        ProcessBuilder pb = new ProcessBuilder(cmdAndArgs);
+//        pb.directory(dir);
+//        Process p = pb.start();
+//        System.out.println("Cleared history");
     }
 }
