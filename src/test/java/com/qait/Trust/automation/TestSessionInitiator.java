@@ -146,7 +146,7 @@ public class TestSessionInitiator {
         return config;
     }
 
-    public void launchApplication(String base_url) throws IOException {
+    public void launchApplication(String base_url){
         ReportMsg.info(" The application url is :- " + base_url);
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
         System.out.println("Current OS Browser configuration:" + uAgent);
