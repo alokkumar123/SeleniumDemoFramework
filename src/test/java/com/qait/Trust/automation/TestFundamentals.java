@@ -2,6 +2,7 @@ package com.qait.Trust.automation;
 
 import static com.qait.Trust.automation.TestSessionInitiator.testMethodName;
 import static com.qait.Trust.automation.utils.YamlReader.*;
+import java.io.IOException;
 
 import java.lang.reflect.Method;
 
@@ -25,7 +26,7 @@ public class TestFundamentals {
     }
 
     @BeforeClass
-    public void start_test_session() {       
+    public void start_test_session() throws IOException {       
         test = new TestSessionInitiator(this.getClass().getSimpleName());
         base_url = getData("base_url");
         test.launchApplication(base_url);

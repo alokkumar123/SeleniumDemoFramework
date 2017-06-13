@@ -146,12 +146,12 @@ public class TestSessionInitiator {
         return config;
     }
 
-    public void launchApplication(String base_url){
+    public void launchApplication(String base_url) throws IOException{
         ReportMsg.info(" The application url is :- " + base_url);
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
         System.out.println("Current OS Browser configuration:" + uAgent);
         driver.manage().deleteAllCookies();
-        //clearHistoryFromBrowser();
+        clearHistoryFromBrowser();
         driver.get(base_url);
     }
 
