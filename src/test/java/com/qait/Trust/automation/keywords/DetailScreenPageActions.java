@@ -69,7 +69,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Clicked on " + appName + " app");
     }
 
-    private void selectLastAvailableHours(String string) {
+    public void selectLastAvailableHours(String string) {
 //        String viewTimeFormat = "last 30 days";
 //        String selectedTimeFormat = (String) executeJavascript("return document.getElementsByClassName('rw-input')[0].textContent");
 //        System.out.println("Value of Time Format: " + selectedTimeFormat);
@@ -97,7 +97,7 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Selected " + string + " from drop down");
     }
 
-    private void columnShouldRepresentLastHoursFromCurrent(String last_12_hours) {
+    public void columnShouldRepresentLastHoursFromCurrent(String last_12_hours) {
         Date date = new Date();
         Date date1 = new Date();
         String strDateFormat = "HH a";
