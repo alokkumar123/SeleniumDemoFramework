@@ -43,5 +43,8 @@ div_selectRole                               xpath          //div[@class='Select
 div_selectRoleValue                          xpath          //div[@class='Select-menu']//div[text()='${newRole}'] 
 scroll_element                               xpath          (//div[@class='container'])[1]
 link_ChangeLog                               xpath           //a[text()='Changelog']
+link_defalutUser                             xpath           //a[@id='techcheck-nav-dropdown']
+link_logout                                  xpath           //a[text()='Log out']
+btn_Ok                                       xpath           //button[text()='OK']      
 ==================================================================================================================================
     

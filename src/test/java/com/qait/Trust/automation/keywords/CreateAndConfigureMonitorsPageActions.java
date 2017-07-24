@@ -369,6 +369,10 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void logAsAdmin(String userName, String password) {
+        isElementDisplayed("link_defalutUser");
+        element("link_defalutUser").click();
+        element("link_logout").click();
+        element("btn_Ok").click();
         isElementDisplayed("link_login");
         element("link_login").click();
         element("userName").clear();
