@@ -63,7 +63,23 @@ public class FAQLayoutActions extends GetPage {
     }
 
     public void verifyFAQsAnswersAreHavingFunctionalityOfExpandAndCollapseByClickingInQuestion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ReportMsg.info("Verifying Expand and Collapse functionality for different Answers Block ");
+        int v = 1;
+        for (WebElement ele : elements("div_QuesAndAnsBlock")) {
+            
+            String val = String.valueOf(v);
+            ReportMsg.log("**** Verifying Expand & Colapse Functionality for Answer : " + v + " ****");
+//            isElementDisplayed("div_blockSpecificQuestion", val);
+            WebElement eleQues = element("div_blockSpecificQuestion", val);
+            ReportMsg.info(eleQues.getText());
+            eleQues.click();
+            ReportMsg.info("Expended question num "+ v);
+            eleQues.click();
+            ReportMsg.info("Collapsed question num "+ v);
+            
+            v = Integer.parseInt(val) + 1;
+
+        }
     }
 
 }
