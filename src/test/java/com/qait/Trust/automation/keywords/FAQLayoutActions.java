@@ -9,6 +9,7 @@ import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 /**
  *
@@ -66,20 +67,41 @@ public class FAQLayoutActions extends GetPage {
         ReportMsg.info("Verifying Expand and Collapse functionality for different Answers Block ");
         int v = 1;
         for (WebElement ele : elements("div_QuesAndAnsBlock")) {
-            
+
             String val = String.valueOf(v);
             ReportMsg.log("**** Verifying Expand & Colapse Functionality for Answer : " + v + " ****");
 //            isElementDisplayed("div_blockSpecificQuestion", val);
             WebElement eleQues = element("div_blockSpecificQuestion", val);
             ReportMsg.info(eleQues.getText());
             eleQues.click();
-            ReportMsg.info("Expended question num "+ v);
+            ReportMsg.info("Expended question num " + v);
             eleQues.click();
-            ReportMsg.info("Collapsed question num "+ v);
-            
+            ReportMsg.info("Collapsed question num " + v);
+
             v = Integer.parseInt(val) + 1;
 
         }
+    }
+
+    public void verifyDefaultNewQuestionTextInFaqLabelBox(String text) {
+        isElementDisplayed("span_plusIcon");
+        element("span_plusIcon").click();
+        ReportMsg.info("Clicked on 'Plus Icon'to add new Question and Answer");
+        isElementDisplayed("input_defaultQuestion", text);
+        String ques = element("input_defaultQuestion", text).getAttribute("value");
+        Assert.assertEquals(text, ques);
+        ReportMsg.info("Veridied Default 'New Question' text in faq label box");
+
+    }
+
+    public void verifyDefaultNewAnswerTextInFaqLabelBox(String text) {
+        WebElement e = element("iframe_NewQueAns");
+        switchToFrame(e);
+        ReportMsg.info("Switched to New Question and Answer iframe");
+        isElementDisplayed("input_defaultAnswer", text);
+        String ques = element("input_defaultAnswer", text).getText();
+        Assert.assertEquals(text, ques);
+        ReportMsg.info("Veridied Default 'New Answer' text in faq label box");
     }
 
 }
