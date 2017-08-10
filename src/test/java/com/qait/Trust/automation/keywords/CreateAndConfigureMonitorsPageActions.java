@@ -72,12 +72,14 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("div_monitorName").click();
         element("div_monitorName").clear();
         element("div_monitorName").sendKeys(monitorName);
-        ReportMsg.info("Entered monitor name : " + monitorName + " in mandatory field");
+        ReportMsg.info("Entered monitor name: '" + monitorName + "' in mandatory field");
+        
         isElementDisplayed("div_externalServiceId");
         element("div_externalServiceId").click();
         element("div_externalServiceId").clear();
         element("div_externalServiceId").sendKeys(externalServiceId);
-        ReportMsg.info("Entered external service id : " + externalServiceId + " in mandatory field");
+        ReportMsg.info("Entered external service id: '" + externalServiceId + "' in mandatory field");
+        
         isElementDisplayed("button_save");
         element("button_save").click();
         ReportMsg.info("Click On save button");
@@ -369,8 +371,8 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void logAsAdmin(String userName, String password) {
-        isElementDisplayed("link_defalutUser");
-        element("link_defalutUser").click();
+        isElementDisplayed("link_defaultUser");
+        element("link_defaultUser").click();
         element("link_logout").click();
         element("btn_Ok").click();
         isElementDisplayed("link_login");
