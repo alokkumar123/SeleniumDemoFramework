@@ -54,21 +54,21 @@ public class ManageUsersORUserAdministrationTest extends TestFundamentals {
     }
 
     @Test
-    public void TC007_EditNewlyCreatedUser() {
+    public void TC007_Edit_Newly_Created_User() {
         test.createAndConfigPage.EditNewlyCreatedUser("User ID");
         test.createAndConfigPage.clickOnSaveButtonByScript();
         test.createAndConfigPage.EditedUserIsDisplayingOnMonitorScreen();
     }
 
-    @Test
-    public void TC008_Check_History_Of_Edit_Information_For_User() {
-        test.createAndConfigPage.expendOnChnageLog();
-        test.createAndConfigPage.userNavigateToSameUserAndCheckLogBelowSaveButton();
-        test.createAndConfigPage.clickOnSaveButtonByScript();
-    }
+//    @Test this functionality is changed now
+//    public void TC008_Check_History_Of_Edit_Information_For_User() {
+//        test.createAndConfigPage.expendOnChnageLog();
+//        test.createAndConfigPage.userNavigateToSameUserAndCheckLogBelowSaveButton();
+//        test.createAndConfigPage.clickOnSaveButtonByScript();
+//    }
 
     @Test
-    public void TC009_Delete_User_Creayed_By_Automation_Script() {
+    public void TC009_Delete_User_Created_By_Automation_Script() {
         test.createAndConfigPage.clickOnDeleteButton();
         test.createAndConfigPage.popUpShouldBeAppears("Cancel");
         test.createAndConfigPage.EditedUserIsDisplayingOnMonitorScreen();

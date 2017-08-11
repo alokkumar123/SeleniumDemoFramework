@@ -9,6 +9,7 @@ import com.qait.Trust.automation.getpageobjects.GetPage;
 import org.openqa.selenium.WebDriver;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 /**
@@ -96,7 +97,8 @@ public class CreateNotificationActions extends GetPage {
         element("div_selectMonitor").click();
         element("div_monitorName", monitorName).click();
         ReportMsg.info("Selected " + "'" + monitorName + "'" + " from select monitor drop down");
-        element("div_commentSection").click();
+        //element("div_commentSection").click();
+        element("div_createNoti").click();
     }
 
     public void selectMonitorfromDropDown(String monitorName, String monitorName1) {
@@ -106,13 +108,16 @@ public class CreateNotificationActions extends GetPage {
         ReportMsg.info("Selected " + monitorName + " from select monitor drop down");
         element("div_monitorName", monitorName1).click();
         ReportMsg.info("Selected " + monitorName1 + " from select monitor drop down");
-        element("div_commentSection").click();
+        element("div_createNoti").click();
     }
 
     public void enterValueInCommentSection(String message) {
+        WebElement ele=element("iframe_commentBox");
+        switchToFrame(ele);
         element("div_commentSection").clear();
         element("div_commentSection").sendKeys(message);
         ReportMsg.info("write " + "'" + message + "'" + " message in comment box ");
+        switchToDefaultContent();
     }
 
     public void clickOnSaveButton() {
@@ -191,7 +196,7 @@ public class CreateNotificationActions extends GetPage {
     }
 
     public void clickOnCreatedNotificationMessage(String message, String monitorName) {
-        isElementDisplayed("td_monitorName", monitorName);
+        //isElementDisplayed("td_monitorName", monitorName);
         isElementDisplayed("link_Message", message);
         element("link_Message", message).click();
     }

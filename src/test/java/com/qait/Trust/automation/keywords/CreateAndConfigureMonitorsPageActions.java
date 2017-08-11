@@ -14,7 +14,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     String monitorName = "Monitor created by automation script";
     String externalServiceId = "123";
     String userName = "harsh";
-    String password = "12345";
+    String password = "Cengage1";
     String EmailId = "harshsehgal@qainfotech.com";
     String editUserName = "harshNew";
     String searchingText;

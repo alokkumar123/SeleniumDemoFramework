@@ -3,7 +3,7 @@
 btn_createNotification                       xpath           //button[text()='Create new notification']
 div_selectMonitor                            xpath           //div[text()='Select monitors'] 
 div_monitorName                              xpath           //div[text()='${monitorName}']  
-div_commentSection                           xpath           //textarea[@placeholder='Work being done']
+div_commentSection                           xpath           //div[@class='note-editable panel-body']
 div_endTimeBox                               xpath           (//b[text()='End time']/..//div//input[@class='form-control'])[1]
 div_startTimeBox                             xpath           (//b[text()='Start time']/..//div//input[@class='form-control'])[1]
 div_selectTimeMode                           xpath           //button[text()='Time']
@@ -21,7 +21,7 @@ input_enabledCheckBox                        xpath           //div[@id='enabled'
 input_overrideCheckBox                       xpath           //div[@id='override']//input[@type='checkbox']
 div_eventContainer                           xpath           //div[@class='event-item-container']
 div_eventType                                xpath           //div[text()="${eventType}"]
-link_Message                                 xpath           //span[text()='${message}']
+link_Message                                 xpath           //div[text()='${message}']
 td_monitorName                               xpath           //td[@data-search-text='']
 span_notificationWithLogo                    xpath           //div[@class='cell-status-container empty']/ancestor::tr//span[contains(text(),'${message}')]   
 div_logo                                     xpath           //div[@class='cell-status-container empty']    
@@ -47,6 +47,8 @@ list_adminMenu                               xpath           //li[@class='login-
 link_adminPage                               xpath           //a[text()='Admin page'] 
 link_RegressionTest                          xpath           //a[text()='Regression Test 2']
 link_RegressionMonitor                       xpath           //a[text()='${monitorName}']   
-btn_saveAnyway                               xpath          //button[text()='Save anyway']                    
+btn_saveAnyway                               xpath           //button[text()='Save anyway']   
+div_createNoti                               xpath           //div[@class='edit-notification']//h4
+iframe_commentBox                            xpath           //iframe[@src='/summernote/editNotifications.html']
 ==================================================================================================================================
     

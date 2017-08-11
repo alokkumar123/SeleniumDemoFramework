@@ -9,8 +9,8 @@ public class ManageRolesTest extends TestFundamentals {
     String newRole = "New Role";
     String editRole = "Edited New Role";
     String permission1 = "Admin Stats";
-    String permission2 = "MonitorCreateAll";
-    String permission3 = "MonitorDeleteAll";
+    String permission2 = "MonitorEditAll";
+    String permission3 = "NotificationEditAll";
 
     @Test
     public void TRUST_422_Step01_Check_User_Administration_Manage_Users() {
@@ -22,18 +22,18 @@ public class ManageRolesTest extends TestFundamentals {
         test.createAndConfigPage.gridShouldBeAvailableFor("Permissions");
     }
 
-    @Test
-    public void TRUST_422_Step02_Check_Search_Functionality_Positive_Cycle() {
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Admin");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("System Owner");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Devops");
-        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("System Owner (Aplia)");
-    }
-
-    @Test
-    public void TRUST_422_Step03_Check_Search_Functionality_Negative_Cycle() {
-        test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
-    }
+//    @Test
+//    public void TRUST_422_Step02_Check_Search_Functionality_Positive_Cycle() {
+//        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Admin");
+//        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("System Owner");
+//        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("Devops");
+//        test.manageRolePage.validateSearchFunctionalityForPositiveCycleWithText("System Owner (Aplia)");
+//    }
+//
+//    @Test
+//    public void TRUST_422_Step03_Check_Search_Functionality_Negative_Cycle() {
+//        test.createAndConfigPage.validateSearchFunctionalityForNegativeCycle();
+//    }
 
     @Test
     public void TRUST_422_Step04_Check_Add_A_New_Role() {
