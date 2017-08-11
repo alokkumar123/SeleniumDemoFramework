@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class RegionOnSplashPageTest extends TestFundamentals {
 
     String systemView;
-    String appName = null;
+    String appName = "MindTap";
     String region = "Asia";
     String anyOtherRegion = "Australia";
 
@@ -17,7 +17,7 @@ public class RegionOnSplashPageTest extends TestFundamentals {
 
     @Test
     public void TC01_Verify_Region_Of_Selected_System() {
-        appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appNameforRegion.cengagebrain"));
+        //appName = test.detailScreen_group.getMonitorNameFromSpashPage(getData("appNameforRegion.cengagebrain"));
         test.createAndConfigPage.logAsAdmin(getData("admin.username"), getData("admin.password"));
         test.createAndConfigPage.breadcrumbShouldBeAvailableForNavigation("Admin");
         test.createAndConfigPage.navigateToAdminMenu("Manage systems");

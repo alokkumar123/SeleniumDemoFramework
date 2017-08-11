@@ -300,8 +300,10 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void clickOnSaveButton() {
+        WebElement eleSave =element("button_save");
         element("button_save").click();
         ReportMsg.info("Clicked On save button");
+        wait.waitForElementToDisappear(eleSave);
     }
 
     public void clickOnSaveButtonByScript() {
