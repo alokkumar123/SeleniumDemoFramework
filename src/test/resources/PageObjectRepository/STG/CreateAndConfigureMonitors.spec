@@ -6,12 +6,12 @@ password                                     xpath          //input[@placeholder
 button_login                                 xpath          //button[text()='Login']    
 div_adminMenu                                xpath          //div[@class='admin-menu']//li
 button_Create                                xpath          //button[text()='Create']
-div_monitorName                              xpath          //div[@id='name']/input
+div_monitorName                              xpath          //label[contains(text(),'Name')]/following-sibling::div/input
 list_allApp                                  xpath          //li[text()='All systems']  
 commentSection                               xpath          //textarea[@placeholder='Work being done']
 button_save                                  xpath          //button[text()='Save']
 link_MenuName                                xpath          //a[text()='${menuName}'] 
-div_externalServiceId                        xpath          //div[@id='externalServiceID']/input    
+div_externalServiceId                        xpath          //label[contains(text(),'External Monitor')]/following-sibling::div/input    
 link_newCreatedMonitor                       xpath          //a[contains(text(),'${monitorName}')]  
 button_Admin                                 xpath          //li[@class='login-tab dropdown']//a[@class='dropdown-toggle']
 logout_adminPage                             xpath          //a[text()='Log out']   
@@ -43,7 +43,7 @@ div_selectRole                               xpath          //div[@class='Select
 div_selectRoleValue                          xpath          //div[@class='Select-menu']//div[text()='${newRole}'] 
 scroll_element                               xpath          (//div[@class='container'])[1]
 link_ChangeLog                               xpath           //a[text()='Changelog']
-link_defalutUser                             xpath           //a[@id='techcheck-nav-dropdown']
+link_defaultUser                             xpath           //a[@id='techcheck-nav-dropdown']
 link_logout                                  xpath           //a[text()='Log out']
 btn_Ok                                       xpath           //button[text()='OK']      
 ==================================================================================================================================
