@@ -33,7 +33,7 @@ div_greenColor                               xpath           //td[text() ='${cur
 div_RegTestColor                             xpath           //tr//div[@class='${color}']
 link_systemName                              xpath           //tr//a[text()='${systemName}'] 
 div_systemWithText                           xpath           //div[text()='${systemName}']
-div_accessLevel                              xpath           //div[@id='access-level']//div[@class='rw-input'] 
+div_accessLevel                              xpath           //label[text()='Access level']/parent::div//div[@class='rw-input']
 div_publicSystem                             xpath           //div[contains(@style,'${systemName}')]    
 div_endDate                                  xpath           //div[@class='endDate']//input[@type='checkbox']    
 link_Role                                    xpath           //tr//a[text()='${role}']   
