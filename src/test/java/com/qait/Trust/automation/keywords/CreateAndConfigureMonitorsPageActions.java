@@ -317,10 +317,10 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void EditNewlyCreatedUser(String formField) {
         element("div_userName", userName).click();
-        element("input_text", formField).click();
-        element("input_text", formField).clear();
-        element("input_text", formField).sendKeys(editUserName);
-        ReportMsg.info("Edited User Id ");
+        //element("input_text", formField).click();
+        //element("input_text", formField).clear();
+        //element("input_text", formField).sendKeys(editUserName);
+        //ReportMsg.info("Edited User Id ");
     }
 
     public void EditedUserIsDisplayingOnMonitorScreen() {
