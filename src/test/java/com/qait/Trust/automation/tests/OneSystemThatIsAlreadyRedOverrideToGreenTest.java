@@ -7,7 +7,6 @@ package com.qait.Trust.automation.tests;
 
 import com.qait.Trust.automation.TestFundamentals;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
-import static com.qait.Trust.automation.utils.YamlReader.getData;
 import org.testng.annotations.Test;
 
 /**
@@ -51,7 +50,7 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
     
     @Test
     public void TRUST_601_TC03_Verify_Notification_For_Overrided_System_From_Red_To_Green() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
+        String splashPageView = test.platformAvailabilityPage.verifyMonitorIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
         test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType1, redColor);
         test.createNotificationPage.navigateToAdminPage();
         test.createNotificationPage.navigateToMonitorFromAdminPage(monitorName);
@@ -72,7 +71,7 @@ public class OneSystemThatIsAlreadyRedOverrideToGreenTest extends TestFundamenta
 
     @Test
     public void TRUST_601_TC05_Verify_Notification_For_Overrided_System_From_Red_To_Green() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
+        String splashPageView = test.platformAvailabilityPage.verifyMonitorIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
         test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, greenColor);
         test.createNotificationPage.navigateToAdminPage();
         test.createNotificationPage.navigateToMonitorFromAdminPage(monitorName);

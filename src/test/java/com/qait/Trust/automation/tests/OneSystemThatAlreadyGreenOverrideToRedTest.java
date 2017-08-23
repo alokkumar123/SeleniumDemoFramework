@@ -49,7 +49,7 @@ public class OneSystemThatAlreadyGreenOverrideToRedTest extends TestFundamentals
 
     @Test
     public void TRUST_602_TC03_Verify_Notification_For_Overrided_System_From_Green_To_Red() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
+        String splashPageView = test.platformAvailabilityPage.verifyMonitorIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
         test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, greenColor);
         test.createNotificationPage.navigateToAdminPage();
         test.createNotificationPage.navigateToMonitorFromAdminPage(monitorName);
@@ -70,7 +70,7 @@ public class OneSystemThatAlreadyGreenOverrideToRedTest extends TestFundamentals
 
     @Test
     public void TRUST_602_TC05_Verify_Notification_For_Overrided_System_From_Green_To_Red() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
+        String splashPageView = test.platformAvailabilityPage.verifyMonitorIsDisplayingOnSplashPageForPrivilegePurpose("Regression Test 2", systemView);
         test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotToUnauthenticatedUserForDifferntColor(splashPageView, message, eventType2, redColor);
         test.createNotificationPage.navigateToAdminPage();
         test.createNotificationPage.navigateToMonitorFromAdminPage(monitorName);

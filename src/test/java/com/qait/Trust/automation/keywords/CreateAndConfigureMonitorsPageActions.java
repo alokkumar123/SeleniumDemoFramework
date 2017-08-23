@@ -368,7 +368,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Selected " + newRole + " from role list");
     }
 
-    public void logAsAdmin(String userName, String password) {
+    public void  logAsAdmin(String userName, String password) {
         isElementDisplayed("link_defalutUser");
         element("link_defalutUser").click();
         element("link_logout").click();
@@ -399,4 +399,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("input_searchBox").sendKeys(monitorName);
         ReportMsg.info("Searched monitor created by automation script");
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
+
 import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.WebElement;
@@ -190,5 +191,36 @@ public class ManageSystemsPageActions extends GetPage {
             }
         }
     }
+
+	public void userCheckCreateNewSystemWithAccessLevel(String system,String systemAccessLevel,String monitorName) {
+		// TODO Auto-generated method stub
+		element("div_SystemName").click();
+        element("div_SystemName").clear();
+        element("div_SystemName").sendKeys(system);
+        ReportMsg.info("Entered system name : " + system + " in mandatory field");
+        
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+        }
+        
+        element("div_discription").click();
+        element("div_discription").clear();
+        element("div_discription").sendKeys(description);
+        ReportMsg.info("Entered description name : " + description + " in mandatory field");
+        
+        element("list_acessDefault").click();
+        element("list_accessLevelSelect", systemAccessLevel).click();
+       
+        element("list_selectMonitor").click();
+        element("select_monitorName",monitorName).click();
+   
+        
+                                
+        // element("button_save").click();
+        executeJavascript("document.getElementsByClassName('btn btn-primary')[1].click()");
+        ReportMsg.info("User created system named: '" + system + "'");
+       
+	}
     
 }

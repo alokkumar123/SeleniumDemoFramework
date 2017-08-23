@@ -227,6 +227,5 @@
 
     <artifactId>cengage-trust</artifactId>
     <name>Cengage Trust</name>
-    <packaging>pom</packaging>
     
 </project>

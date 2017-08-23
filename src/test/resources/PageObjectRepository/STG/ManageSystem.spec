@@ -3,7 +3,7 @@
 list_searchSystem               xpath          //tbody/tr/td[3]/a
 input_searchBox                 xpath          //input[@id='searchText']
 button_Create                   xpath          //button[text()='Create']
-div_SystemName                  xpath          //div[@id='name']/input
+div_SystemName                  xpath          //input[@placeholder="Name of the application"]
 button_save                     xpath          //button[text()='Save']
 link_newCreatedSystem           xpath          //td//a[contains(text(),'${newSystem}')]
 h4_createSystem                 xpath          //h4[contains(text(),'Create')]
@@ -17,5 +17,11 @@ span_trashIcon                  xpath          //table[@class='app-table']//td[3
 modal_deleteContent             xpath           //div[@class='modal-dialog']
 txt_deleteHeader                xpath           //div[@class='modal-header']/h4
 btn_modalFooter                 xpath           //div[@class='modal-dialog']//button[text()='${buttonName}']
+list_acessDefault               xpath           //div[contains(text(),'Public')]
+list_accessLevelSelect          xpath           //li[contains(text(),'${'systemAccessLevel'}')]
+list_selectMonitor              xpath            //div[contains(text(),'Select monitors')]
+select_monitorName              xpath            //div[@class='Select-menu-outer']//*[text()='${monitorName}']
+select_monitorNameAdmin         xpath           //div[aria-activedescendant="react-select-3--option-0"]    
+ 
 ==================================================================================================================================
     
