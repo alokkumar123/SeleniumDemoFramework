@@ -43,5 +43,8 @@ div_selectRole                               xpath          //div[@class='Select
 div_selectRoleValue                          xpath          //div[@class='Select-menu']//div[text()='${newRole}']  
 span_sortingFields                           xpath          //div[@class='container']//td[${index}]  
 link_ChangeLog                               xpath           //a[text()='Changelog']   
+link_defaultUser                             xpath           //a[@id='techcheck-nav-dropdown']
+link_logout                                  xpath           //a[text()='Log out']
+btn_Ok                                       xpath           //button[text()='OK'] 
 ==================================================================================================================================
     
