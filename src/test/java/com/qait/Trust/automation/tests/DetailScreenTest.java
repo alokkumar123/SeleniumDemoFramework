@@ -10,6 +10,8 @@ public class DetailScreenTest extends TestFundamentals {
 
     @Test
     public void TC01_Verifying_All_Details_For_MindTap_Platform() {
+        test.createAndConfigPage.logAsAdmin("qaadmin", "Cengage1");
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         test.platformAvailabilityPage.clickOnSystem(getData("appName.mindtap"), systemView);
         //test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));

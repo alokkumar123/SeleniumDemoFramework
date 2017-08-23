@@ -446,7 +446,20 @@ public class DetailScreenPageActions extends GetPage {
             lastHours = "last 30 days";
             selectLastAvailableHours(lastHours);
             verifyCurrentInformationAlerts(appName);
-        } else {
+        } 
+        else if (tier.equalsIgnoreCase("qa")) {
+            System.out.println("\n############## Verifying Current Informational Alert For All last hours , TRUST-324, TRUST-340, TRUST-345 ##############\n");
+            String lastHours = "last 12 hours";
+            selectLastAvailableHours(lastHours);
+            verifyCurrentInformationAlerts(appName);
+            lastHours = "last 24 hours";
+            selectLastAvailableHours(lastHours);
+            verifyCurrentInformationAlerts(appName);
+            lastHours = "last 30 days";
+            selectLastAvailableHours(lastHours);
+            verifyCurrentInformationAlerts(appName);
+        } 
+        else {
             ReportMsg.info("'Current Informational Alerts' button is NOT AVAILABLE on PRODUCTION environment!!!");
         }
     }
@@ -548,12 +561,12 @@ public class DetailScreenPageActions extends GetPage {
         ReportMsg.info("Login into admin account");
     }
 
-     public void clickOnSaveButton() {
+    public void clickOnSaveButton() {
         try {
             element("btn_save").click();
             ReportMsg.info("clicked on save button");
             element("btn_saveAnyway").click();
-           // ReportMsg.info("clicked on save anyway button");
+            // ReportMsg.info("clicked on save anyway button");
 
         } catch (Exception e) {
             //element("btn_saveAnyway").click();
