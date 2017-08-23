@@ -14,7 +14,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     String monitorName = "Monitor created by automation script";
     String externalServiceId = "123";
     String userName = "harsh";
-    String password = "12345";
+    String password = "Cengage1";
     String EmailId = "harshsehgal@qainfotech.com";
     String editUserName = "harshNew";
     String searchingText;
@@ -72,12 +72,14 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("div_monitorName").click();
         element("div_monitorName").clear();
         element("div_monitorName").sendKeys(monitorName);
-        ReportMsg.info("Entered monitor name : " + monitorName + " in mandatory field");
+        ReportMsg.info("Entered monitor name: '" + monitorName + "' in mandatory field");
+        
         isElementDisplayed("div_externalServiceId");
         element("div_externalServiceId").click();
         element("div_externalServiceId").clear();
         element("div_externalServiceId").sendKeys(externalServiceId);
-        ReportMsg.info("Entered external service id : " + externalServiceId + " in mandatory field");
+        ReportMsg.info("Entered external service id: '" + externalServiceId + "' in mandatory field");
+        
         isElementDisplayed("button_save");
         element("button_save").click();
         ReportMsg.info("Click On save button");
@@ -298,8 +300,10 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void clickOnSaveButton() {
+        WebElement eleSave =element("button_save");
         element("button_save").click();
         ReportMsg.info("Clicked On save button");
+        wait.waitForElementToDisappear(eleSave);
     }
 
     public void clickOnSaveButtonByScript() {
@@ -313,10 +317,10 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void EditNewlyCreatedUser(String formField) {
         element("div_userName", userName).click();
-        element("input_text", formField).click();
-        element("input_text", formField).clear();
-        element("input_text", formField).sendKeys(editUserName);
-        ReportMsg.info("Edited User Id ");
+        //element("input_text", formField).click();
+        //element("input_text", formField).clear();
+        //element("input_text", formField).sendKeys(editUserName);
+        //ReportMsg.info("Edited User Id ");
     }
 
     public void EditedUserIsDisplayingOnMonitorScreen() {
@@ -368,9 +372,9 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         ReportMsg.info("Selected " + newRole + " from role list");
     }
 
-    public void  logAsAdmin(String userName, String password) {
-        isElementDisplayed("link_defalutUser");
-        element("link_defalutUser").click();
+    public void logAsAdmin(String userName, String password) {
+        isElementDisplayed("link_defaultUser");
+        element("link_defaultUser").click();
         element("link_logout").click();
         element("btn_Ok").click();
         isElementDisplayed("link_login");

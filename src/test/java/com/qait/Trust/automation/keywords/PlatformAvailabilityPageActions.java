@@ -123,9 +123,9 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     String app[] = a[i].split("=");
                     String b[] = e.getAttribute("style").split(": ");
                     if (e.getText().contains("")) {
-                        ReportMsg.info(" b= "+b[1]);
-                        ReportMsg.info(" app= "+app[1]);        
-                        if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0,24))) {
+                        ReportMsg.info(" b= " + b[1]);
+                        ReportMsg.info(" app= " + app[1]);
+                        if (b[1].contains(app[1]) || b[1].contains(app[1].substring(0, 24))) {
                             ReportMsg.info("App name = " + app[0] + " is displaying with " + b[1]);
                             i++;
                         }
@@ -246,6 +246,10 @@ public class PlatformAvailabilityPageActions extends GetPage {
     }
 
     public void logAsAdmin(String uname, String pass) {
+        isElementDisplayed("link_defaultUser");
+        element("link_defaultUser").click();
+        element("link_logout").click();
+        element("btn_Ok").click();
         isElementDisplayed("link_login");
         element("link_login").click();
         element("userName").clear();
@@ -295,9 +299,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
 	private void checkInfomationIconAvialbilityForTBD(String systemName, String uname, String pass) {
         String systemUrl = systemName;
         element("div_systemLogo", systemName).click();
-        systemName = element("txt_systemName").getText();
-        String a[] = systemName.split("> ");
-        systemName = a[1];
+        systemName = "WebAssign";
+
         ReportMsg.info("System: " + systemName);
         logAsAdmin(uname, pass);
         isElementDisplayed("button_createNotification");
@@ -307,7 +310,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("div_selectMonitor").click();
         isElementDisplayed("div_monitorName", systemName);
         element("div_monitorName", systemName).click();
-        element("div_commentBox").click();
+        element("div_evntType").click();
 
         element("div_startTimeBox").click();
         element("btn_prvMonth").click();
@@ -324,9 +327,13 @@ public class PlatformAvailabilityPageActions extends GetPage {
         ReportMsg.info("clicked on No end date check box");
 
         String message = "test of informational icon availability";
+
+        WebElement ele = element("iframe_commentBox");
+        switchToFrame(ele);
         element("div_commentBox").clear();
         element("div_commentBox").sendKeys(message);
         ReportMsg.info("write s" + message + " in comment box ");
+        switchToDefaultContent();
 
         if (element("div_enableCheckBox").getAttribute("value").contains("on")) {
             element("div_enableCheckBox").click();
@@ -351,9 +358,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
         String systemUrl = systemName;
         element("div_systemLogo", systemName).click();
 
-        systemName = element("txt_systemName").getText();
-        String a[] = systemName.split("> ");
-        systemName = a[1];
+        systemName = "WebAssign";
+
         ReportMsg.info("System: " + systemName);
         logAsAdmin(uname, pass);
         isElementDisplayed("button_createNotification");
@@ -363,12 +369,10 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("div_selectMonitor").click();
         isElementDisplayed("div_monitorName", systemName);
         element("div_monitorName", systemName).click();
-        element("div_commentBox").click();
-
+        element("div_evntType").click();
         element("div_endTimeBox").click();
         element("div_selectTimeMode").click();
-//        element("btn_close").click();
-        //      element("div_selectTimeMode").click();
+
         int x = element("div_mintueSlider").getLocation().getX();
         // int y = element("div_mintueSlider").getLocation().getY();
         x = x + 1;
@@ -378,8 +382,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
 
         element("div_endTimeSecondBox").click();
         element("div_selectTimeMode").click();
-//        element("btn_close").click();
-        //      element("div_selectTimeMode").click();
+
         int x1 = element("div_mintueSlider").getLocation().getX();
         // int y1 = element("div_mintueSlider").getLocation().getY();
         x1 = x1 + 1;
@@ -389,9 +392,12 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("btn_ok").click();
 
         String message = "test of informational icon availability";
+        WebElement ele = element("iframe_commentBox");
+        switchToFrame(ele);
         element("div_commentBox").clear();
         element("div_commentBox").sendKeys(message);
         ReportMsg.info("write " + message + " in comment box ");
+        switchToDefaultContent();
         clickOnSaveButton();
         userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         waitTOSync();
@@ -516,7 +522,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
             }
         } else if (systemView.equalsIgnoreCase("Front")) {
 //            isElementDisplayed("div_systemWithText", systemName);
-            flagString ="Front";
+            flagString = "Front";
         }
         return flagString;
     }
@@ -526,7 +532,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
             element("btn_save").click();
             ReportMsg.info("clicked on save button");
             element("btn_saveAnyway").click();
-           // ReportMsg.info("clicked on save anyway button");
+            // ReportMsg.info("clicked on save anyway button");
 
         } catch (Exception e) {
             //element("btn_saveAnyway").click();

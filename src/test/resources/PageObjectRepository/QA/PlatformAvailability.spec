@@ -52,5 +52,11 @@ button_delete                                xpath          //button[text()='Del
 link_adminButton                             xpath          //li[@class='login-tab dropdown']//a[@class='dropdown-toggle']
 link_adminPage                               xpath          //a[text()='Admin page']  
 checkBox_NoEndDate                           xpath          //b[contains(text(),'No end date ')]/parent::div//input[@type='checkbox'] 
+link_defaultUser                             xpath          //a[@id='techcheck-nav-dropdown']
+link_logout                                  xpath          //a[text()='Log out']
+btn_Ok                                       xpath          //button[text()='OK']  
+div_evntType                                 xpath          //div[text()='Informational Message'] 
+iframe_commentBox                            xpath           //iframe[@src='/summernote/editNotifications.html']
+div_commentBox                               xpath            //div[@class='note-editable panel-body']
 =====================================================================================================================
     

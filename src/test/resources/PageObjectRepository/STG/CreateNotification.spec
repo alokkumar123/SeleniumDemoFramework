@@ -3,7 +3,7 @@
 btn_createNotification                       xpath           //button[text()='Create new notification']
 div_selectMonitor                            xpath           //div[text()='Select monitors'] 
 div_monitorName                              xpath           //div[text()='${monitorName}']  
-div_commentSection                           xpath           //textarea[@placeholder='Work being done']
+div_commentSection                           xpath           //div[@class='note-editable panel-body']
 div_endTimeBox                               xpath           (//b[text()='End time']/..//div//input[@class='form-control'])[1]
 div_startTimeBox                             xpath           (//b[text()='Start time']/..//div//input[@class='form-control'])[1]
 div_selectTimeMode                           xpath           //button[text()='Time']
@@ -21,7 +21,7 @@ input_enabledCheckBox                        xpath           //div[@id='enabled'
 input_overrideCheckBox                       xpath           //div[@id='override']//input[@type='checkbox']
 div_eventContainer                           xpath           //div[@class='event-item-container']
 div_eventType                                xpath           //div[text()="${eventType}"]
-link_Message                                 xpath           //span[text()='${message}']
+link_Message                                 xpath           //div[text()='${message}']
 td_monitorName                               xpath           //td[@data-search-text='']
 span_notificationWithLogo                    xpath           //div[@class='cell-status-container empty']/ancestor::tr//span[contains(text(),'${message}')]   
 div_logo                                     xpath           //div[@class='cell-status-container empty']    
@@ -33,7 +33,7 @@ div_greenColor                               xpath           //td[text() ='${cur
 div_RegTestColor                             xpath           //tr//div[@class='${color}']
 link_systemName                              xpath           //tr//a[text()='${systemName}'] 
 div_systemWithText                           xpath           //div[text()='${systemName}']
-div_accessLevel                              xpath           //div[@id='access-level']//div[@class='rw-input'] 
+div_accessLevel                              xpath           //label[text()='Access level']/parent::div//div[@class='rw-input']
 div_publicSystem                             xpath           //div[contains(@style,'${systemName}')]    
 div_endDate                                  xpath           //div[@class='endDate']//input[@type='checkbox']    
 link_Role                                    xpath           //tr//a[text()='${role}']   
@@ -47,6 +47,7 @@ list_adminMenu                               xpath           //li[@class='login-
 link_adminPage                               xpath           //a[text()='Admin page'] 
 link_RegressionTest                          xpath           //a[text()='Regression Test 2']
 link_RegressionMonitor                       xpath           //a[text()='${monitorName}']   
+<<<<<<< HEAD
 btn_saveAnyway                               xpath          //button[text()='Save anyway']   
 not_firstpagetop                             xpath           (//li/a[text()='${i}'])[1]    
 not_firstpagebottom                          xpath           (//li/a[text()='${j}'])[2]
@@ -58,5 +59,10 @@ validate_filter                              xpath           //tbody//td[2][cont
 validate_4LTR_Press                          xpath            (//div[contains(text(),'4LTR Press')])[1]
 
 
+=======
+btn_saveAnyway                               xpath           //button[text()='Save anyway']   
+div_createNoti                               xpath           //div[@class='edit-notification']//h4
+iframe_commentBox                            xpath           //iframe[@src='/summernote/editNotifications.html']
+>>>>>>> 1fd6db473c69c8c171db6a51af7daec693b70dc2
 ==================================================================================================================================
     

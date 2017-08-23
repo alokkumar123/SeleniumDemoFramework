@@ -38,7 +38,6 @@ public class CreateAndConfigureMonitorsTest extends TestFundamentals {
         test.createAndConfigPage.userNavigateToMonitorEditScreen();
         test.createAndConfigPage.userEditAndReSaveMangaeMonitor();
         test.createAndConfigPage.editedMonitorsShouldBeSeenOnTheList();
-
     }
 
     @Test

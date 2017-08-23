@@ -10,9 +10,11 @@ public class DetailScreenTest extends TestFundamentals {
 
     @Test
     public void TC01_Verifying_All_Details_For_MindTap_Platform() {
+        test.createAndConfigPage.logAsAdmin("qaadmin", "Cengage1");
+        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         test.platformAvailabilityPage.clickOnSystem(getData("appName.mindtap"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));
+        //test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtap"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.mindtap"));
@@ -25,7 +27,7 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TC02_Verifying_All_Details_For_Cengage_Brain_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageBrain"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageBrain"));
+        //test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageBrain"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageBrain"));
@@ -34,11 +36,12 @@ public class DetailScreenTest extends TestFundamentals {
         test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.cengageBrain"));
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
     }
+
     @Test
     public void TC03_Verifying_All_Details_For_Aplia_Platform() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
         test.platformAvailabilityPage.clickOnSystem(getData("appName.aplia"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.aplia"));
+        // test.detailScreenPage.verifyBreadCrumb(getData("appName.aplia"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.aplia"));
@@ -51,7 +54,7 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TC04_Verifying_All_Details_For_CengageNOWv2_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageNOWv2"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNOWv2"));
+        // test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNOWv2"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageNOWv2"));
@@ -64,7 +67,7 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TC05_Verifying_All_Details_For_OWLv2_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.OWLv2"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.OWLv2"));
+        // test.detailScreenPage.verifyBreadCrumb(getData("appName.OWLv2"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.OWLv2"));
@@ -77,7 +80,7 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TC06_Verifying_All_Details_For_SAM_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.SAM"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.SAM"));
+        // test.detailScreenPage.verifyBreadCrumb(getData("appName.SAM"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.SAM"));
@@ -90,7 +93,7 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TC07_Verifying_All_Details_For_4LTR_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.4LTR"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.4LTR"));
+        //test.detailScreenPage.verifyBreadCrumb(getData("appName.4LTR"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.4LTR"));
@@ -103,7 +106,7 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TC08_Verifying_All_Details_For_Mindtap_MathFoundation_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.mindtapMathFoundation"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtapMathFoundation"));
+        //test.detailScreenPage.verifyBreadCrumb(getData("appName.mindtapMathFoundation"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.mindtapMathFoundation"));
@@ -116,7 +119,7 @@ public class DetailScreenTest extends TestFundamentals {
     @Test
     public void TC09_Verifying_All_Details_For_CengageNOW_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.cengageNow"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNow"));
+        //test.detailScreenPage.verifyBreadCrumb(getData("appName.cengageNow"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.cengageNow"));
@@ -151,10 +154,11 @@ public class DetailScreenTest extends TestFundamentals {
 //        test.detailScreenPage.checkCurrentInformationalAlertButtonforLast30Days(getData("appName.learningObjects"));
 //        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
 //    }
+
     @Test
     public void TC12_Verifying_All_Details_For_WebAssign_Platform() {
         test.platformAvailabilityPage.clickOnSystem(getData("appName.webAssign"), systemView);
-        test.detailScreenPage.verifyBreadCrumb(getData("appName.webAssign"));
+        //test.detailScreenPage.verifyBreadCrumb(getData("appName.webAssign"));
         test.detailScreenPage.verifyDropDownOptionsForLastHours();
         test.detailScreenPage.verifyTimeZoneDropDownForUser();
         test.detailScreenPage.verifyInformationAvailableForLastHours("last 12 hours", "12", getData("appName.webAssign"));
