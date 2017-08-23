@@ -331,7 +331,7 @@ public class DetailScreenPageActions extends GetPage {
 
         String viewTimeFormat = "last 12 hours";
         String selectedTimeFormat = (String) executeJavascript("return document.getElementsByClassName('rw-input')[0].textContent");
-        System.out.println("Value of Time Format: " + selectedTimeFormat);
+        //System.out.println("Value of Time Format: " + selectedTimeFormat);
         if (!(selectedTimeFormat.equalsIgnoreCase(viewTimeFormat))) {
             executeJavascript("document.getElementsByClassName('rw-input')[0].click()");
             for (WebElement listItem : elements("list_timeViewFormat")) {
