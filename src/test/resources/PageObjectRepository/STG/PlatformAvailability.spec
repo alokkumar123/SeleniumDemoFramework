@@ -58,6 +58,6 @@ link_logout                                  xpath          //a[text()='Log out'
 btn_Ok                                       xpath          //button[text()='OK']  
 div_evntType                                 xpath          //div[text()='Informational Message'] 
 iframe_commentBox                            xpath           //iframe[@src='/summernote/editNotifications.html']
-div_commentBox                               xpath            //div[@class='note-editable panel-body']
+div_commentBox                               xpath           //div[@class='note-editable panel-body']
 =====================================================================================================================
     

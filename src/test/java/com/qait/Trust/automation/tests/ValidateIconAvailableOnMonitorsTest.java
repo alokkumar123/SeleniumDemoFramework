@@ -18,9 +18,9 @@ public class ValidateIconAvailableOnMonitorsTest extends TestFundamentals {
 
     }
 
-    @Test
-    public void Step02_TRUST_538_Check_Over_Splash_Page_Check_Whether_Information_Icon_Is_Available_For_TBD() {
-        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        test.platformAvailabilityPage.checkWhetherInformationIconIsAvailableOnSpalshPageForTBD(getData("appName.webAssign"), systemView, userName, password);
-    }
+//    @Test
+//    public void Step02_TRUST_538_Check_Over_Splash_Page_Check_Whether_Information_Icon_Is_Available_For_TBD() {
+//        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
+//        test.platformAvailabilityPage.checkWhetherInformationIconIsAvailableOnSpalshPageForTBD(getData("appName.webAssign"), systemView, userName, password);
+//    }
 }
