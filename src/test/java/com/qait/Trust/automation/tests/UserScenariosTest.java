@@ -8,11 +8,11 @@ public class UserScenariosTest extends TestFundamentals {
 
     String newRole = "Test Role";
     String editRole = "Edited1 New Role";
-    String permission2 = "MonitorCreateAll";
-    String permission3 = "MonitorDeleteAll";
+    String permission2 = "MonitorEditAll";
+    String permission3 = "NotificationEditAll";
     String userName1 = "aditya";
     String email1 = "aditya@qainfotech.com";
-    String password1 = "123456";
+    String password1 = "Cengage1";
 
     @Test
     public void Step_01_Trust_438_Using_Permission_And_Create_New_Role() {

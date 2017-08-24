@@ -14,7 +14,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     String monitorName = "Monitor created by automation script";
     String externalServiceId = "123";
     String userName = "harsh";
-    String password = "12345";
+    String password = "Cengage1";
     String EmailId = "harshsehgal@qainfotech.com";
     String editUserName = "harshNew";
     String searchingText;
@@ -300,8 +300,10 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void clickOnSaveButton() {
+        WebElement eleSave =element("button_save");
         element("button_save").click();
         ReportMsg.info("Clicked On save button");
+        wait.waitForElementToDisappear(eleSave);
     }
 
     public void clickOnSaveButtonByScript() {
@@ -315,10 +317,10 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void EditNewlyCreatedUser(String formField) {
         element("div_userName", userName).click();
-        element("input_text", formField).click();
-        element("input_text", formField).clear();
-        element("input_text", formField).sendKeys(editUserName);
-        ReportMsg.info("Edited User Id ");
+        //element("input_text", formField).click();
+        //element("input_text", formField).clear();
+        //element("input_text", formField).sendKeys(editUserName);
+        //ReportMsg.info("Edited User Id ");
     }
 
     public void EditedUserIsDisplayingOnMonitorScreen() {
@@ -401,4 +403,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("input_searchBox").sendKeys(monitorName);
         ReportMsg.info("Searched monitor created by automation script");
     }
+
+
 }

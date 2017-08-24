@@ -33,7 +33,8 @@ public class RegionOnSplashActions extends GetPage {
         ReportMsg.info("Clicked on save button ");
     }
 
-    public void verifyAppIsDisplayingOnPage(String appName) {
+    @SuppressWarnings("unused")
+	public void verifyAppIsDisplayingOnPage(String appName) {
         int i = 0;
         Boolean app;
         try {

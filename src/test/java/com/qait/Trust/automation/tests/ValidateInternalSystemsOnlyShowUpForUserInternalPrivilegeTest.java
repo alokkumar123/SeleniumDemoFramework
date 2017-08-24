@@ -48,7 +48,7 @@ public class ValidateInternalSystemsOnlyShowUpForUserInternalPrivilegeTest exten
 
     @Test
     public void TRUST_593_TC04_Verify_Internal_User_Can_See_Internal_Privilages() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose(internalSystem, systemView);
+        test.platformAvailabilityPage.verifyMonitorIsDisplayingOnSplashPageForPrivilegePurpose(internalSystem, systemView);
         test.createNotificationPage.verifySytemUnderPrivileges(internalSystem, internalPrivilege);
     }
 

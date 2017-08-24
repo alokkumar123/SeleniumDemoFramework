@@ -9,6 +9,7 @@ import com.qait.Trust.automation.getpageobjects.GetPage;
 import org.openqa.selenium.WebDriver;
 import com.qait.Trust.automation.utils.ReportMsg;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 /**
@@ -42,7 +43,7 @@ public class CreateNotificationActions extends GetPage {
         element("div_selectTimeMode").click();
 
         int x = element("div_mintueSlider").getLocation().getX();
-        int y = element("div_mintueSlider").getLocation().getY();
+        // int y = element("div_mintueSlider").getLocation().getY();
         x = x + 1;
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x, 0).build().perform();
         ReportMsg.info("Draged minute handle in right side");
@@ -70,7 +71,7 @@ public class CreateNotificationActions extends GetPage {
         element("div_selectTimeMode").click();
 
         int x = element("div_mintueSlider").getLocation().getX();
-        int y = element("div_mintueSlider").getLocation().getY();
+        // int y = element("div_mintueSlider").getLocation().getY();
         x = x - 1;
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), -x, 0).build().perform();
         ReportMsg.info("Draged minute handle in left side");
@@ -96,7 +97,8 @@ public class CreateNotificationActions extends GetPage {
         element("div_selectMonitor").click();
         element("div_monitorName", monitorName).click();
         ReportMsg.info("Selected " + "'" + monitorName + "'" + " from select monitor drop down");
-        element("div_commentSection").click();
+        //element("div_commentSection").click();
+        element("div_createNoti").click();
     }
 
     public void selectMonitorfromDropDown(String monitorName, String monitorName1) {
@@ -106,13 +108,16 @@ public class CreateNotificationActions extends GetPage {
         ReportMsg.info("Selected " + monitorName + " from select monitor drop down");
         element("div_monitorName", monitorName1).click();
         ReportMsg.info("Selected " + monitorName1 + " from select monitor drop down");
-        element("div_commentSection").click();
+        element("div_createNoti").click();
     }
 
     public void enterValueInCommentSection(String message) {
+        WebElement ele=element("iframe_commentBox");
+        switchToFrame(ele);
         element("div_commentSection").clear();
         element("div_commentSection").sendKeys(message);
         ReportMsg.info("write " + "'" + message + "'" + " message in comment box ");
+        switchToDefaultContent();
     }
 
     public void clickOnSaveButton() {
@@ -191,7 +196,7 @@ public class CreateNotificationActions extends GetPage {
     }
 
     public void clickOnCreatedNotificationMessage(String message, String monitorName) {
-        isElementDisplayed("td_monitorName", monitorName);
+        //isElementDisplayed("td_monitorName", monitorName);
         isElementDisplayed("link_Message", message);
         element("link_Message", message).click();
     }
@@ -312,4 +317,44 @@ public class CreateNotificationActions extends GetPage {
         element("link_RegressionMonitor", monitorName).click();
         ReportMsg.info("Navigated to '" + monitorName + "' from Admin Page");
     }
+    public void verifyNotifcationPageListTop(String i){
+    	isElementDisplayed("not_firstpagetop",i);
+    	ReportMsg.info("Notification page list is displaying");
+    	element("not_firstpagetop",i).click();
+    	
+    }
+    
+    public void verifyNotifcationPageListBottom(String j){
+    	isElementDisplayed("not_firstpagebottom",j);
+    	ReportMsg.info("Notification page list is displaying");
+    	element("not_firstpagebottom",j).click();
+    }
+    public void BannerNotifcation(){
+    	isElementDisplayed("banner_notifcation");
+    	ReportMsg.info("Banner notification is displaying");
+    	element("banner_notifcation").click();
+    	   }
+public void Lastupdated(){
+	isElementDisplayed("Last_update");
+	ReportMsg.info("Last updated is displaying");
+	element("Last_update").click();
 }
+public void verifysystemfilter(){
+	isElementDisplayed("All_System");
+	element("All_System").click();
+	ReportMsg.info("All_System is displaying");
+	element("4LTR_Press").click();
+}
+public void validatesystemfilter(){
+	isElementDisplayed("validate_filter");
+	ReportMsg.info("validating system filter is displaying");
+}
+public void verifystickyfilter(){
+	isElementDisplayed("validate_4LTR_Press");
+	ReportMsg.info("4LTR_Press is displaying");
+	
+}
+
+}
+
+

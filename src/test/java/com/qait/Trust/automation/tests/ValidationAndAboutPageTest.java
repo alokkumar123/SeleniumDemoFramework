@@ -8,8 +8,8 @@ public class ValidationAndAboutPageTest extends TestFundamentals {
 
     String aboutPageText = "Testing About Page";
     String aboutPageEditedText = "Editing Testing About Page";
-    String userName = "harshsehgal";
-    String password = "Password1";
+    String userName = "admin";
+    String password = "Cengage1";
 
     @Test
     public void Step_01_Trust_537_Click_On_About_Page_And_Create_About_Page_And_Save() {

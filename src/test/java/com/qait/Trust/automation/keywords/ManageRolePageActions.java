@@ -45,7 +45,7 @@ public class ManageRolePageActions extends GetPage {
 
     public void setPermissions(String permission) {
         element("div_menuItems", permission).click();
-        ReportMsg.info("Set " + permission + " in Permission Field");
+        ReportMsg.info("Set '" + permission + "' in Permission Field");
     }
 
     public void newlyCreatedDataShouldBeAvailabeOnList(String data) {

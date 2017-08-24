@@ -34,10 +34,6 @@ import org.testng.Reporter;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import static com.qait.Trust.automation.utils.ConfigPropertyReader.getProperty;
-import java.io.File;
-import java.util.Arrays;
-import java.util.List;
-import org.apache.commons.io.FileUtils;
 
 public class TestSessionInitiator {
 
@@ -72,9 +68,9 @@ public class TestSessionInitiator {
     public ValidationOfAboutPageActions aboutPage;
     public RegressionTestsPageActions regressionTestPage;
     public CreateNotificationActions createNotificationPage;
+    public VerifyadminpageActions verifyadmin;
     public FAQLayoutActions faqLayoutPage;
     public NotificationActions notificationpage;
-    
 
     public WebDriver getDriver() {
         return this.driver;
@@ -239,7 +235,8 @@ public class TestSessionInitiator {
         }
     }
 
-    private void clearHistoryFromBrowser() throws IOException {
+    @SuppressWarnings("unused")
+	private void clearHistoryFromBrowser() throws IOException {
         Runtime.getRuntime().exec("C:/Users/qaadmin/Desktop/clean.bat");
         
 //        List cmdAndArgs = Arrays.asList("cmd", "/c", "clean.bat");

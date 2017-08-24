@@ -19,8 +19,8 @@ public class CreateNotificationFor2SystemAndVerifyThatItDisplaysToTheUnauthentic
     String userName = getProperty("userName");
     String password = getProperty("password");
 
-    String monitorName1 = null;
-    String monitorName2 = null;
+    String monitorName1 = "4LTR Press";
+    String monitorName2 = "Aplia";
     String message = "test of notification for 2 system";
     String systemView;
     String eventType1 = "Planned Maintenance";
@@ -29,9 +29,9 @@ public class CreateNotificationFor2SystemAndVerifyThatItDisplaysToTheUnauthentic
     @Test
     public void TRUST_599_TC01_Login_With_Admin_User() {
         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        monitorName1 = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
-        test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
-        monitorName2 = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.aplia"), systemView);
+        //monitorName1 = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
+        //test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
+        //monitorName2 = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.aplia"), systemView);
         test.createAndConfigPage.logAsAdmin(userName, password);
     }
 

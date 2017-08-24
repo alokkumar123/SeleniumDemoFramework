@@ -19,15 +19,15 @@ public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthentic
     String userName = getProperty("userName");
     String password = getProperty("password");
 
-    String monitorName = null;
+    String monitorName = "4LTR Press";
     String message = "test of notification for single system";
     String systemView;
     String eventType1 = "Informational Message";
 
     @Test
     public void TRUST_596_TC01_Login_With_Admin_User() {
-        systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
-        monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
+         systemView = test.platformAvailabilityPage.verifyViewModeOnSplashPage();
+        //monitorName = test.platformAvailabilityPage.getMonitor(getData("appNameforRegion.4ltr"), systemView);
         test.createAndConfigPage.logAsAdmin(userName, password);
     }
 
@@ -43,7 +43,7 @@ public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthentic
     @Test
     public void TRUST_596_TC03_Verify_Created_Notification_Displays_To_Unauthenticated_User() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
-        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView,message,eventType1);
+        test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView, message, eventType1);
 
     }
 

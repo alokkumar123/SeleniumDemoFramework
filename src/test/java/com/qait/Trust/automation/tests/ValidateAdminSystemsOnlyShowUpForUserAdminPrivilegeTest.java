@@ -50,7 +50,7 @@ public class ValidateAdminSystemsOnlyShowUpForUserAdminPrivilegeTest extends Tes
 
     @Test
     public void TRUST_595_TC04_Verify_Admin_User_Can_See_Admin_Privilages() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose(adminSystem, systemView);
+        test.platformAvailabilityPage.verifyMonitorIsDisplayingOnSplashPageForPrivilegePurpose(adminSystem, systemView);
         test.createNotificationPage.verifySytemUnderPrivileges(adminSystem, adminPrivilege);
     }
 

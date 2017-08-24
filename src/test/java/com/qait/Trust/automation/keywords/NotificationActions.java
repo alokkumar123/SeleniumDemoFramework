@@ -15,6 +15,8 @@ import com.qait.Trust.automation.utils.ReportMsg;
  */
 public class NotificationActions extends GetPage {
 
+    public String info;
+
     public NotificationActions(WebDriver driver) {
         super(driver, "NotificationPage");
         this.driver = driver;
@@ -29,13 +31,23 @@ public class NotificationActions extends GetPage {
 
     public void verfiyEnbleAndDisableCheckBox() {
         String value = element("checkbox_EnableAndDisableButton").getAttribute("value");
-        
+
         if (value.equalsIgnoreCase("on")) {
             ReportMsg.info("Checkbox is Enable");
-        }
+        } else if (value.equalsIgnoreCase("on")) {
 
-        else if(value.equalsIgnoreCase("on")){
-            
+        }
+    }
+
+    public void dataRetrivedFromPublicStatusInformationPage() {
+        info = element("pageInformation").getText();
+        ReportMsg.log("******* Data Retrived from public status information page ********");
+        ReportMsg.info(info);
+    }
+
+    public void verifyPublicStatusInformationPage(String data) {
+        if (info.contains(data)) {
+            ReportMsg.log("Verified '" + data + "' is displaying on public status information page");
         }
     }
 

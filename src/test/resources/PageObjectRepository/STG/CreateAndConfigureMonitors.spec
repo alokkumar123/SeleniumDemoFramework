@@ -45,6 +45,7 @@ scroll_element                               xpath          (//div[@class='conta
 link_ChangeLog                               xpath           //a[text()='Changelog']
 link_defaultUser                             xpath           //a[@id='techcheck-nav-dropdown']
 link_logout                                  xpath           //a[text()='Log out']
-btn_Ok                                       xpath           //button[text()='OK']      
+btn_Ok                                       xpath           //button[text()='OK']  
+   
 ==================================================================================================================================
     
