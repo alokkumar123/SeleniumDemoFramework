@@ -68,7 +68,6 @@ public class TestSessionInitiator {
     public ValidationOfAboutPageActions aboutPage;
     public RegressionTestsPageActions regressionTestPage;
     public CreateNotificationActions createNotificationPage;
-    public VerifyadminpageActions verifyadmin;
     public FAQLayoutActions faqLayoutPage;
     public NotificationActions notificationpage;
 

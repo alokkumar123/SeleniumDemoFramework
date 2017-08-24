@@ -66,7 +66,6 @@ public class WebDriverFactory {
             cap.setCapability(ChromeOptions.CAPABILITY, options);
             cap.setCapability("chrome.switches", Arrays.asList("--disable-local-storage")); // this clear the local storage data from browser like, cache, cookies, history
             System.out.println("deleted browser storage");
-
         } else if (browser.equalsIgnoreCase("Safari")) {
             cap = DesiredCapabilities.safari();
         } else if ((browser.equalsIgnoreCase("ie"))
@@ -83,7 +82,7 @@ public class WebDriverFactory {
         cap.setJavascriptEnabled(true);
         return new RemoteWebDriver(selserverhost, cap);
     }
-
+    
     private static WebDriver getChromeDriver(String driverpath) {
         if (System.getProperty("os.name").toUpperCase().contains("WINDOW")) {
             System.out.println(System.getProperty("os.name").toUpperCase());
