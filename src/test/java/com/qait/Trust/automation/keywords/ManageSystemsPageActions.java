@@ -80,22 +80,14 @@ public class ManageSystemsPageActions extends GetPage {
         element("div_SystemName").click();
         element("div_SystemName").clear();
         element("div_SystemName").sendKeys(newSystem);
-        ReportMsg.info("Entered system name : " + newSystem + " in mandatory field");
-        
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-        }
+        ReportMsg.info("Entered system name: '" + newSystem + "' in mandatory field");
+        wait.hardWait(1);
         
         element("div_discription").click();
         element("div_discription").clear();
         element("div_discription").sendKeys(description);
-        ReportMsg.info("Entered description name : " + description + " in mandatory field");
-        
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-        }
+        ReportMsg.info("Entered description name: '" + description + "' in mandatory field");
+        wait.hardWait(1);
         
         // element("button_save").click();
         executeJavascript("document.getElementsByClassName('btn btn-primary')[1].click()");
