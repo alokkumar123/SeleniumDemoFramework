@@ -403,4 +403,6 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
         element("input_searchBox").sendKeys(monitorName);
         ReportMsg.info("Searched monitor created by automation script");
     }
+
+
 }

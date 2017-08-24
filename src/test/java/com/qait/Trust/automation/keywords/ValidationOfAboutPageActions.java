@@ -89,7 +89,8 @@ public class ValidationOfAboutPageActions extends GetPage {
         ReportMsg.info("selected " + hours + " from drop down");
     }
 
-    public void navigateToDifferentMonitorFromHeadher() {
+    @SuppressWarnings("unused")
+	public void navigateToDifferentMonitorFromHeadher() {
         try {
             isElementDisplayed("div_header");
             ReportMsg.info("Monitors are displaying on header in group format");

@@ -50,7 +50,7 @@ public class ValidateGPTSystemsOnlyShowUpForUserGPTPrivilegeTest extends TestFun
 
     @Test
     public void TRUST_594_TC04_Verify_GPT_User_Can_See_GPT_Privilages() {
-        String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose(gptSystem, systemView);
+        test.platformAvailabilityPage.verifyMonitorIsDisplayingOnSplashPageForPrivilegePurpose(gptSystem, systemView);
         test.createNotificationPage.verifySytemUnderPrivileges(gptSystem, gptPrivilege);
     }
 
@@ -63,4 +63,5 @@ public class ValidateGPTSystemsOnlyShowUpForUserGPTPrivilegeTest extends TestFun
     public void TRUST_594_TC06_Verify_GPT_User_Can_See_Public_Privilages_Also() {
         test.createNotificationPage.verifySytemUnderPrivileges(publicSystem, publicPrivilege);
     }
+    
 }

@@ -47,8 +47,22 @@ list_adminMenu                               xpath           //li[@class='login-
 link_adminPage                               xpath           //a[text()='Admin page'] 
 link_RegressionTest                          xpath           //a[text()='Regression Test 2']
 link_RegressionMonitor                       xpath           //a[text()='${monitorName}']   
+<<<<<<< HEAD
+btn_saveAnyway                               xpath          //button[text()='Save anyway']   
+not_firstpagetop                             xpath           (//li/a[text()='${i}'])[1]    
+not_firstpagebottom                          xpath           (//li/a[text()='${j}'])[2]
+banner_notifcation                           xpath           //a[contains (text(), 'Banner notifications')]
+Last_update                                  xpath           (//div[contains (text(), 'Last updated')])[1]
+All_System                                   xpath           //div[contains(text(),'All systems')]
+4LTR_Press                                   xpath           //li[contains(text(),'4LTR Press')]
+validate_filter                              xpath           //tbody//td[2][contains(@data-search-text,'4LTR Press')]
+validate_4LTR_Press                          xpath            (//div[contains(text(),'4LTR Press')])[1]
+
+
+=======
 btn_saveAnyway                               xpath           //button[text()='Save anyway']   
 div_createNoti                               xpath           //div[@class='edit-notification']//h4
 iframe_commentBox                            xpath           //iframe[@src='/summernote/editNotifications.html']
+>>>>>>> 1fd6db473c69c8c171db6a51af7daec693b70dc2
 ==================================================================================================================================
     

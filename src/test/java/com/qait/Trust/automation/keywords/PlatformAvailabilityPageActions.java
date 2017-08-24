@@ -20,7 +20,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
         this.driver = driver;
     }
 
-    public void checkLastUpdateTimeOverPlatformAvailability(String systemView) {
+    @SuppressWarnings("unused")
+	public void checkLastUpdateTimeOverPlatformAvailability(String systemView) {
         int i = 0;
         boolean value = false;
         if (systemView.equalsIgnoreCase("Grouping")) {
@@ -294,7 +295,8 @@ public class PlatformAvailabilityPageActions extends GetPage {
         }
     }
 
-    private void checkInfomationIconAvialbilityForTBD(String systemName, String uname, String pass) {
+    @SuppressWarnings("unused")
+	private void checkInfomationIconAvialbilityForTBD(String systemName, String uname, String pass) {
         String systemUrl = systemName;
         element("div_systemLogo", systemName).click();
         systemName = "WebAssign";
@@ -372,7 +374,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("div_selectTimeMode").click();
 
         int x = element("div_mintueSlider").getLocation().getX();
-        int y = element("div_mintueSlider").getLocation().getY();
+        // int y = element("div_mintueSlider").getLocation().getY();
         x = x + 1;
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x, 0).build().perform();
         ReportMsg.info("Draged minute handle in right side");
@@ -382,7 +384,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         element("div_selectTimeMode").click();
 
         int x1 = element("div_mintueSlider").getLocation().getX();
-        int y1 = element("div_mintueSlider").getLocation().getY();
+        // int y1 = element("div_mintueSlider").getLocation().getY();
         x1 = x1 + 1;
         //ReportMsg.info(" now x " + x + " y " + y);
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
@@ -496,7 +498,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
         return flagString;
     }
 
-    public String verifyMonitroIsDisplayingOnSplashPageForPrivilegePurpose(String systemName, String systemView) {
+    public String verifyMonitorIsDisplayingOnSplashPageForPrivilegePurpose(String systemName, String systemView) {
         int count = 0;
         String flagString = "Front";
         if (systemView.equalsIgnoreCase("Grouping")) {
@@ -521,7 +523,6 @@ public class PlatformAvailabilityPageActions extends GetPage {
         } else if (systemView.equalsIgnoreCase("Front")) {
 //            isElementDisplayed("div_systemWithText", systemName);
             flagString = "Front";
-
         }
         return flagString;
     }

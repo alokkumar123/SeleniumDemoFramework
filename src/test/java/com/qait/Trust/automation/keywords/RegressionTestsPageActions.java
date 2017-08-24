@@ -101,7 +101,7 @@ public class RegressionTestsPageActions extends GetPage {
         element("btn_close").click();
         element("div_selectTimeMode").click();
         int x = element("div_mintueSlider").getLocation().getX();
-        int y = element("div_mintueSlider").getLocation().getY();
+        // int y = element("div_mintueSlider").getLocation().getY();
         x = x + 1;
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x, 0).build().perform();
         ReportMsg.info("Draged minute handle in right side");
@@ -112,7 +112,7 @@ public class RegressionTestsPageActions extends GetPage {
         element("btn_close").click();
         element("div_selectTimeMode").click();
         int x1 = element("div_mintueSlider").getLocation().getX();
-        int y1 = element("div_mintueSlider").getLocation().getY();
+        // int y1 = element("div_mintueSlider").getLocation().getY();
         x = x + 1;
         new Actions(driver).dragAndDropBy(element("div_mintueSlider"), x1, 0).build().perform();
         ReportMsg.info("Draged minute handle in right side ");

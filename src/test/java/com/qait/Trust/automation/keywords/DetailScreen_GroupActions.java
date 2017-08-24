@@ -2,7 +2,6 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -30,7 +29,8 @@ public class DetailScreen_GroupActions extends GetPage {
         clickOnGroupAndVerifyAppsInsideGroup();
     }
 
-    private void clickOnGroupAndVerifyAppsInsideGroup() {
+    @SuppressWarnings("unused")
+	private void clickOnGroupAndVerifyAppsInsideGroup() {
         int i = 0;
         for (WebElement ele : elements("div_groupNameList")) {
             elements("div_groupNameList").get(i).click();
@@ -42,7 +42,8 @@ public class DetailScreen_GroupActions extends GetPage {
         }
     }
 
-    private void verifyAppsInsideThis(String groupName) {
+    @SuppressWarnings("unused")
+	private void verifyAppsInsideThis(String groupName) {
         isElementDisplayed("div_appsInsideGroup", groupName);
         int j = 0;
         if (groupName.contains("Ungrouped")) {
@@ -88,7 +89,8 @@ public class DetailScreen_GroupActions extends GetPage {
         return app;
     }
 
-    private String clickOnGroupAndVerifyAppsInsideGroup1(String appName) {
+    @SuppressWarnings("unused")
+	private String clickOnGroupAndVerifyAppsInsideGroup1(String appName) {
         int i = 0;
         String app = null;
         try {
@@ -115,7 +117,8 @@ public class DetailScreen_GroupActions extends GetPage {
         return app;
     }
 
-    private String verifyAppsInsideThis1(String groupName) {
+    @SuppressWarnings("unused")
+	private String verifyAppsInsideThis1(String groupName) {
         int j = 0;
         String appName = null;
         for (WebElement el : elements("div_appsInsideGroup", groupName)) {

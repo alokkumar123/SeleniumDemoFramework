@@ -45,7 +45,8 @@ public class FAQLayoutActions extends GetPage {
         }
     }
 
-    public void verifyQuestionAndAnswerAreMergeInsideOneBlock() {
+    @SuppressWarnings("unused")
+	public void verifyQuestionAndAnswerAreMergeInsideOneBlock() {
         isElementDisplayed("div_QuesAndAnsBlock");
         int v = 1;
         for (WebElement ele : elements("div_QuesAndAnsBlock")) {
@@ -63,7 +64,8 @@ public class FAQLayoutActions extends GetPage {
         }
     }
 
-    public void verifyFAQsAnswersAreHavingFunctionalityOfExpandAndCollapseByClickingInQuestion() {
+    @SuppressWarnings("unused")
+	public void verifyFAQsAnswersAreHavingFunctionalityOfExpandAndCollapseByClickingInQuestion() {
         ReportMsg.info("Verifying Expand and Collapse functionality for different Answers Block ");
         int v = 1;
         for (WebElement ele : elements("div_QuesAndAnsBlock")) {
