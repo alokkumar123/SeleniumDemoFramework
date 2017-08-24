@@ -3,7 +3,7 @@
 list_searchSystem               xpath          //tbody/tr/td[3]/a
 input_searchBox                 xpath          //input[@id='searchText']
 button_Create                   xpath          //button[text()='Create']
-div_SystemName                  xpath          //div[@id='name']/input
+div_SystemName                  xpath          //label[contains(text(),'Name')]/following-sibling::div/input
 button_save                     xpath          //button[text()='Save']
 link_newCreatedSystem           xpath          //td//a[contains(text(),'${newSystem}')]
 h4_createSystem                 xpath          //h4[contains(text(),'Create')]
