@@ -3,11 +3,7 @@
 list_searchSystem               xpath          //tbody/tr/td[3]/a
 input_searchBox                 xpath          //input[@id='searchText']
 button_Create                   xpath          //button[text()='Create']
-<<<<<<< HEAD
-div_SystemName                  xpath          //input[@placeholder="Name of the application"]
-=======
 div_SystemName                  xpath          //label[text()='Name *']/parent::div//input
->>>>>>> 1fd6db473c69c8c171db6a51af7daec693b70dc2
 button_save                     xpath          //button[text()='Save']
 link_newCreatedSystem           xpath          //td//a[contains(text(),'${newSystem}')]
 h4_createSystem                 xpath          //h4[contains(text(),'Create')]
@@ -26,6 +22,4 @@ list_accessLevelSelect          xpath           //li[contains(text(),'${'systemA
 list_selectMonitor              xpath            //div[contains(text(),'Select monitors')]
 select_monitorName              xpath            //div[@class='Select-menu-outer']//*[text()='${monitorName}']
 select_monitorNameAdmin         xpath           //div[aria-activedescendant="react-select-3--option-0"]    
- 
 ==================================================================================================================================
-    
