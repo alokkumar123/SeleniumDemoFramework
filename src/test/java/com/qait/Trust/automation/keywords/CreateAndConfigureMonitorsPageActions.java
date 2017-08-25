@@ -4,6 +4,8 @@ import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import static org.testng.Assert.assertEquals;
@@ -260,6 +262,7 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     public void clickOnRoleSelector() {
         element("div_Selector").click();
         ReportMsg.info("Clicked on 'Roles' dropdown on 'Add new User' screen");
+        waitTOSync();
         for (WebElement ele : elements("div_menuItems")) {
             String menuItem = ele.getText();
             roleList.add(menuItem);
@@ -317,17 +320,20 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
 
     public void EditNewlyCreatedUser(String formField) {
         element("div_userName", userName).click();
-        //element("input_text", formField).click();
-        //element("input_text", formField).clear();
-        //element("input_text", formField).sendKeys(editUserName);
-        //ReportMsg.info("Edited User Id ");
+        element("input_text", formField).click();
+        element("input_text", formField).clear();
+        element("input_text", formField).sendKeys(editUserName);
+        ReportMsg.info("Edited User Id ");
     }
 
-    public void EditedUserIsDisplayingOnMonitorScreen() {
-        isElementDisplayed("div_editedUserName", editUserName);
-        ReportMsg.info("Edited User is displaying on Configure Monitor Screen");
+    public void editedUserFirstNameIsDisplayingOnMonitorScreen() {
+    	ReportMsg.info("Search box is available");
+        element("input_searchBox").clear();
+        element("input_searchBox").sendKeys(editUserName);
+        isElementDisplayed("td_firstName", editUserName);
+        ReportMsg.info("Edited user name is displaying on Configure Monitor Screen");
     }
-
+    
     public void clickOnUserName() {
         element("div_editedUserName", editUserName).click();
         ReportMsg.info("Navigated to same user ");
@@ -341,13 +347,17 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void popUpShouldBeAppears(String popUp) {
-        isElementDisplayed("button_popUp", popUp);
-        element("button_popUp", popUp).click();
-        ReportMsg.info("Clicked on " + popUp);
+    	try {
+    		isElementDisplayed("button_popUp", popUp);
+            element("button_popUp", popUp).click();
+            ReportMsg.info("Clicked on " + popUp);
+    	} catch(NoSuchElementException ex) {
+    		ReportMsg.info("Confirmation Pop up will not for '" + editUserName + "' user which is already deleted");
+    	}
     }
 
     public void clickOnDeleteButton() {
-         ReportMsg.info("Search box is available");
+        ReportMsg.info("Search box is available");
         element("input_searchBox").clear();
         element("input_searchBox").sendKeys(editUserName);
         ReportMsg.info("Searched monitor created by automation script");
@@ -373,7 +383,12 @@ public class CreateAndConfigureMonitorsPageActions extends GetPage {
     }
 
     public void logAsAdmin(String userName, String password) {
-        isElementDisplayed("link_defaultUser");
+    	try {
+    		isElementDisplayed("link_defaultUser");
+    	} catch(NoSuchElementException ex) {
+    		refreshPage();
+    		isElementDisplayed("link_defaultUser");
+    	}
         element("link_defaultUser").click();
         element("link_logout").click();
         element("btn_Ok").click();

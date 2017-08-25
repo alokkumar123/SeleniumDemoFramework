@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import com.qait.Trust.automation.TestFundamentals;
 
-public class VerifyNoAdminPageAppearsForInternalAndGPTUser extends TestFundamentals  {
+public class VerifyNoAdminPageAppearsForInternalAndGPTUserTest extends TestFundamentals  {
 
 	@Test
 	public void Step01_Trust_1024_Createdinternaluserlogin_Monitors(){

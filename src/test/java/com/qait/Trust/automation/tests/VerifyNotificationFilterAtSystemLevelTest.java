@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import com.qait.Trust.automation.TestFundamentals;
 
-public class VerifyNotificationFilterAtSystemLevel extends TestFundamentals{
+public class VerifyNotificationFilterAtSystemLevelTest extends TestFundamentals{
 
 	@Test
 	public void Step01_Trust_1066_VerifySystemFilter(){

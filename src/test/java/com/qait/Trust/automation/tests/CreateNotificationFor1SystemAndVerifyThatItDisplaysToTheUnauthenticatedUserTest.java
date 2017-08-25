@@ -37,14 +37,12 @@ public class CreateNotificationFor1SystemAndVerifyThatItDisplaysToTheUnauthentic
         test.createNotificationPage.selectSystemFromSelectMonitorDropDown(monitorName, message);
         test.detailScreenPage.userNavigateToPlatfromAvailableScreenWhenClickOnPlatformAvailabilityHome();
         test.createAndConfigPage.logOutFromAdmin();
-
     }
 
     @Test
     public void TRUST_596_TC03_Verify_Created_Notification_Displays_To_Unauthenticated_User() {
         String splashPageView = test.platformAvailabilityPage.verifyMonitroIsDisplayingOnSplashPage(getData("appNameforRegion.4ltr"), systemView);
         test.createNotificationPage.verifyMessageAndLogoIsDisplayingOrNotDisplayingToUnauthenticatedUser(splashPageView, message, eventType1);
-
     }
 
     @Test

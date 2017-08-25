@@ -68,7 +68,6 @@ public class TestSessionInitiator {
     public ValidationOfAboutPageActions aboutPage;
     public RegressionTestsPageActions regressionTestPage;
     public CreateNotificationActions createNotificationPage;
-    public VerifyadminpageActions verifyadmin;
     public FAQLayoutActions faqLayoutPage;
     public NotificationActions notificationpage;
 
@@ -152,7 +151,7 @@ public class TestSessionInitiator {
     public void launchApplication(String base_url) throws IOException{
         ReportMsg.info(" The application url is :- " + base_url);
         String uAgent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
-        System.out.println("Current OS Browser configuration:" + uAgent);
+        ReportMsg.info("Current OS Browser configuration: " + uAgent);
         driver.manage().deleteAllCookies();
         //clearHistoryFromBrowser();
         driver.get(base_url);
