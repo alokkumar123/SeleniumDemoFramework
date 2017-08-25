@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import com.qait.Trust.automation.TestFundamentals;
 
-public class VerifyLastUpdatedColumnOnNotificationPage  extends TestFundamentals {
+public class VerifyLastUpdatedColumnOnNotificationPageTest  extends TestFundamentals {
 	
 	@Test
 	public void Step01_Trust_1064_verifylastupdatedcolumn(){
