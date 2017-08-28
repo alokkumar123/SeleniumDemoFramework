@@ -2,6 +2,8 @@ package com.qait.Trust.automation.keywords;
 
 import com.qait.Trust.automation.getpageobjects.GetPage;
 import com.qait.Trust.automation.utils.ReportMsg;
+
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class ManageRolePageActions extends GetPage {
@@ -69,8 +71,12 @@ public class ManageRolePageActions extends GetPage {
     }
 
     public void clickOnDeleteButton(String editUserName) {
-        element("span_deleteNewUser", editUserName).click();
-        ReportMsg.info("Deleting " + editUserName + " created by automation script");
+    	try {
+    		element("span_deleteNewUser", editUserName).click();
+            ReportMsg.info("Deleting " + editUserName + " created by automation script");
+    	} catch(NoSuchElementException ex) {
+    		ReportMsg.info("'" + editUserName + "' user is already deleted");
+    	}
     }
 
     public void addGroup(String groupType, String groupField) {

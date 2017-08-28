@@ -33,7 +33,7 @@ input_text                                   xpath          //label[contains(tex
 div_Selector                                 xpath          //div[@class='Select-placeholder']
 div_menuItems                                xpath          //div[@class='Select-menu']/div 
 div_ItemRoles                                xpath          //div[@class='container']//a      
-div_userName                                 xpath          //div[@class='container']//a[text()='${useName}'] 
+div_userName                                 xpath          //div[@class='container']//a[text()='${userName}'] 
 div_editedUserName                           xpath          //div[@class='container']//a[text()='${editUserName}']   
 td_oldValue                                  xpath          //td[text()='${userName}']  
 td_newValue                                  xpath          //td[text()='${editUserName}'] 
@@ -42,10 +42,10 @@ button_popUp                                 xpath          //button[text()='${p
 div_selectRole                               xpath          //div[@class='Select-placeholder']
 div_selectRoleValue                          xpath          //div[@class='Select-menu']//div[text()='${newRole}'] 
 scroll_element                               xpath          (//div[@class='container'])[1]
-link_ChangeLog                               xpath           //a[text()='Changelog']
-link_defaultUser                             xpath           //a[@id='techcheck-nav-dropdown']
-link_logout                                  xpath           //a[text()='Log out']
-btn_Ok                                       xpath           //button[text()='OK']  
-   
+link_ChangeLog                               xpath          //a[text()='Changelog']
+link_defaultUser                             xpath          //a[@id='techcheck-nav-dropdown']
+link_logout                                  xpath          //a[text()='Log out']
+btn_Ok                                       xpath          //button[text()='OK']  
+td_firstName                                 xpath          //div[@class='container']//td[contains(.,'${UserName}')]
 ==================================================================================================================================
     
