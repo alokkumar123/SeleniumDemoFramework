@@ -34,6 +34,7 @@ appNameforRegion:
   learningObjects: 58a5ca0a4c956d4b57bc7f02
   questia: 5890c6ff0064397b71c16554
   pathBrite: 58de9e2c829a1e3c01fe1296
+  allmonitors: All monitors
 
 email:
     send: no
