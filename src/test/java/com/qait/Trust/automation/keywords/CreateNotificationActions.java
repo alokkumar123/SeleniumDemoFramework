@@ -329,6 +329,12 @@ public class CreateNotificationActions extends GetPage {
 		element("link_RegressionMonitor", monitorName).click();
 		ReportMsg.info("Navigated to '" + monitorName + "' from Admin Page");
 	}
+          
+          public void navigateToMonitorFromAdminPage(String monitorName, String systemName) {
+		element("link_nameSystem",systemName).click();
+		element("link_systemMonitorName", monitorName).click();
+		ReportMsg.info("Navigated to '" + monitorName + "' from Admin Page");
+	}
 
 	public void verifyNotifcationPageListTop(String i) {
 		isElementDisplayed("not_firstpagetop", i);

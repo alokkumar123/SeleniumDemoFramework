@@ -63,6 +63,9 @@ li_listView                                  xpath
 select_hours                                 xpath          //li[text()='${string}']  
 btn_nextMonth                                xpath          //button[@class='next-month']
 btn_saveAnyway                               xpath          //button[text()='Save anyway']
-text_noIssue                                 xpath          //span[text()='No Issues']     
+text_noIssue                                 xpath          //span[text()='No Issues']  
+list_numOfRows                               xpath          //td[contains(@style,'text-align:')]/ancestor::tr[contains(@class,'rows')]
+list_housOnFrame                             xpath          //td[contains(@style,'text-align: left; white-space:')]
+div_cellStatus                               xpath          //td[text(),'${hours}']/ancestor::tr//td[contains(@class,'cell-status ')]//div
 ==================================================================================================================================
     

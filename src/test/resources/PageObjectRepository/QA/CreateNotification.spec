@@ -59,7 +59,7 @@ validate_4LTR_Press                          xpath            (//div[contains(te
 btn_saveAnyway                               xpath           //button[text()='Save anyway']   
 div_createNoti                               xpath           //div[@class='edit-notification']//h4
 iframe_commentBox                            xpath           //iframe[@src='/summernote/editNotifications.html']
-link_system                                  xpath           //a[text()='${systemName}'] 
+link_nameSystem                                  xpath           //a[text()='${systemName}'] 
 link_systemMonitorName                       xpath           //a[text()='${monitorName}']  
 ==================================================================================================================================
     
