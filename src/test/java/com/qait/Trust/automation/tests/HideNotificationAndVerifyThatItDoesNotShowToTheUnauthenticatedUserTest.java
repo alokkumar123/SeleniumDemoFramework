@@ -20,7 +20,7 @@ public class HideNotificationAndVerifyThatItDoesNotShowToTheUnauthenticatedUserT
     String password = getProperty("password");
 
     String monitorName = null;
-    String message = "test of Hide Notification ";
+    String message = "test of Hide Notification";
     String systemView;
     String eventType1 = "Planned Maintenance";
 
