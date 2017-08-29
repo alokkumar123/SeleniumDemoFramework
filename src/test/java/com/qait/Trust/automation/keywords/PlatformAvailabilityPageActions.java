@@ -452,7 +452,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
                     ReportMsg.info("Click on App = " + systemName);
 
                     systemName = element("txt_systemName").getText();
-                    String a[] = systemName.split("> ");
+                    String a[] = systemName.split(">  ");
                     systemName = a[1];
 
                 }
@@ -462,7 +462,7 @@ public class PlatformAvailabilityPageActions extends GetPage {
             ReportMsg.info("Click on App = " + systemName);
 
             systemName = element("txt_systemName").getText();
-            String a[] = systemName.split("> ");
+            String a[] = systemName.split(">  ");
             systemName = a[1];
 
         }

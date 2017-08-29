@@ -2,7 +2,7 @@
 ==================================================================================================================================
 btn_createNotification                       xpath           //button[text()='Create new notification']
 div_selectMonitor                            xpath           //div[text()='Select monitors'] 
-div_monitorName                              xpath           //div[text()='${monitorName}']  
+div_monitorName                              xpath           //div[contains(text(),'${monitorName}')]  
 div_commentSection                           xpath           //div[@class='note-editable panel-body']
 div_endTimeBox                               xpath           (//b[text()='End time']/..//div//input[@class='form-control'])[1]
 div_startTimeBox                             xpath           (//b[text()='Start time']/..//div//input[@class='form-control'])[1]
