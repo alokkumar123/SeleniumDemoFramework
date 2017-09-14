@@ -225,7 +225,7 @@
         </plugins>
     </reporting>
 
-    <artifactId>cengage-trust</artifactId>
-    <name>Cengage Trust</name>
+    <artifactId>selenium-demo</artifactId>
+    <name>Selenium Demo</name>
     
 </project>
