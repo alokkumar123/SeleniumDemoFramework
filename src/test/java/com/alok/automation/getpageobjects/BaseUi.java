@@ -18,17 +18,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
-
-import com.alok.automation.utils.DataBaseConnecter;
-import com.alok.automation.utils.RestAPITester;
 import com.alok.automation.utils.SeleniumWait;
 
 public class BaseUi {
 
     WebDriver driver;
     protected SeleniumWait wait;
-    protected DataBaseConnecter dbConnector;
-    protected RestAPITester apiTester;
     private String pageName;
 
     protected BaseUi(WebDriver driver, String pageName) {
@@ -37,8 +32,6 @@ public class BaseUi {
         this.pageName = pageName;
         this.wait = new SeleniumWait(driver, Integer.parseInt(getProperty(
                 "Config.properties", "timeout")));
-        this.apiTester = new RestAPITester();
-        this.dbConnector = new DataBaseConnecter();
     }
 
     protected String getPageTitle() {

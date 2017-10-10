@@ -1,7 +1,6 @@
 package com.alok.automation;
 
 import com.alok.automation.keywords.PageAction;
-import com.alok.automation.utils.HTMLCodeSniffer;
 import com.alok.automation.utils.ReportMsg;
 import com.alok.automation.utils.TakeScreenshot;
 import static com.alok.automation.utils.YamlReader.setYamlFilePath;
@@ -41,7 +40,6 @@ public class TestSessionInitiator {
      * Initiating the page objects
      *
      */
-    public HTMLCodeSniffer codeSniffer;
   
     public  PageAction pageAction;
     public TakeScreenshot takescreenshot;
@@ -52,7 +50,6 @@ public class TestSessionInitiator {
     }
 
     private void _initPage() {
-        codeSniffer = new HTMLCodeSniffer(driver);
       pageAction = new PageAction(driver);
     }
 
